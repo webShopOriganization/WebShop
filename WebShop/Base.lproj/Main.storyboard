@@ -101,7 +101,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9nC-TL-YAT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-296" y="-20"/>
+            <point key="canvasLocation" x="-111" y="-34"/>
         </scene>
     </scenes>
 </document>
