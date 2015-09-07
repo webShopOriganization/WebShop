@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Y6E-dI-Y5a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Y6E-dI-Y5a">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -22,7 +23,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UPs-VG-xvB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="371" y="890"/>
+            <point key="canvasLocation" x="-909" y="1414"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="9WC-19-SQR">
@@ -44,10 +45,10 @@
             </objects>
             <point key="canvasLocation" x="-665" y="-20"/>
         </scene>
-        <!--View Controller-->
+        <!--ShoppingCart Ctrl-->
         <scene sceneID="FJ6-Ro-5lB">
             <objects>
-                <viewController id="OOH-Ng-F3X" sceneMemberID="viewController">
+                <viewController id="OOH-Ng-F3X" userLabel="ShoppingCart Ctrl" customClass="ShopCartCtrl" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aMg-iv-304"/>
                         <viewControllerLayoutGuide type="bottom" id="2Dm-Yi-aL1"/>
@@ -55,13 +56,32 @@
                     <view key="view" contentMode="scaleToFill" id="D6n-dt-Erx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tMe-UL-CIz">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="0.74455492430000003" green="0.74455492430000003" blue="0.74455492430000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="OOH-Ng-F3X" id="njx-Mb-Ea2"/>
+                                    <outlet property="delegate" destination="OOH-Ng-F3X" id="gVm-Mb-6a0"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2Dm-Yi-aL1" firstAttribute="top" secondItem="tMe-UL-CIz" secondAttribute="bottom" constant="-49" id="L2h-5R-Avj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tMe-UL-CIz" secondAttribute="trailing" constant="-16" id="UaJ-Qm-ivy"/>
+                            <constraint firstItem="tMe-UL-CIz" firstAttribute="leading" secondItem="D6n-dt-Erx" secondAttribute="leadingMargin" constant="-16" id="lwX-0x-Vha"/>
+                            <constraint firstItem="tMe-UL-CIz" firstAttribute="top" secondItem="aMg-iv-304" secondAttribute="bottom" constant="-64" id="roz-un-ewY"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SBf-w9-V89"/>
+                    <connections>
+                        <outlet property="shoppingCartTableView" destination="tMe-UL-CIz" id="zAI-ae-qWx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LRh-2Y-A5g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="713" y="2"/>
+            <point key="canvasLocation" x="-345" y="1414"/>
         </scene>
         <!--Item-->
         <scene sceneID="4k0-16-U0e">
@@ -81,13 +101,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="05g-DK-vhq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-255" y="649"/>
+            <point key="canvasLocation" x="-1012" y="738"/>
         </scene>
-        <!--Item-->
+        <!--购物车-->
         <scene sceneID="ayQ-Sc-xZJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DVB-1d-U13" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="cTE-an-nGO"/>
+                    <tabBarItem key="tabBarItem" title="购物车" id="cTE-an-nGO"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vGh-si-HMl">
@@ -101,7 +121,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9nC-TL-YAT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-296" y="-20"/>
+            <point key="canvasLocation" x="-345" y="701"/>
         </scene>
     </scenes>
 </document>

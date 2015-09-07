@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface LoadHeaderView : UIView
+@property (strong, nonatomic) IBOutlet UIButton *btnLogin;
 
 @end

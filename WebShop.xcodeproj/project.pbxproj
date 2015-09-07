@@ -14,6 +14,13 @@
 		211CE9C21B9D1F8700C3E916 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 211CE9C11B9D1F8700C3E916 /* Images.xcassets */; };
 		211CE9C51B9D1F8700C3E916 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 211CE9C31B9D1F8700C3E916 /* LaunchScreen.xib */; };
 		211CE9D11B9D1F8700C3E916 /* WebShopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 211CE9D01B9D1F8700C3E916 /* WebShopTests.m */; };
+		23F0D1A21B9D74DD00E9A3C7 /* ShopCartCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F0D1A11B9D74DD00E9A3C7 /* ShopCartCtrl.m */; };
+		23F0D1B81B9D928D00E9A3C7 /* LoadHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F0D1B71B9D928D00E9A3C7 /* LoadHeaderView.m */; };
+		23F0D1BA1B9D92A700E9A3C7 /* LoadHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23F0D1B91B9D92A700E9A3C7 /* LoadHeaderView.xib */; };
+		23F0D1BE1B9D952E00E9A3C7 /* ShoppingCartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F0D1BC1B9D952E00E9A3C7 /* ShoppingCartCell.m */; };
+		23F0D1BF1B9D952E00E9A3C7 /* ShoppingCartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23F0D1BD1B9D952E00E9A3C7 /* ShoppingCartCell.xib */; };
+		23F0D1C11B9D954600E9A3C7 /* FooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23F0D1C01B9D954600E9A3C7 /* FooterView.xib */; };
+		23F0D1C41B9D955300E9A3C7 /* FooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F0D1C31B9D955300E9A3C7 /* FooterView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +47,17 @@
 		211CE9CA1B9D1F8700C3E916 /* WebShopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebShopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		211CE9CF1B9D1F8700C3E916 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		211CE9D01B9D1F8700C3E916 /* WebShopTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebShopTests.m; sourceTree = "<group>"; };
+		23F0D1A01B9D74DD00E9A3C7 /* ShopCartCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCartCtrl.h; sourceTree = "<group>"; };
+		23F0D1A11B9D74DD00E9A3C7 /* ShopCartCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCartCtrl.m; sourceTree = "<group>"; };
+		23F0D1B61B9D928D00E9A3C7 /* LoadHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadHeaderView.h; sourceTree = "<group>"; };
+		23F0D1B71B9D928D00E9A3C7 /* LoadHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadHeaderView.m; sourceTree = "<group>"; };
+		23F0D1B91B9D92A700E9A3C7 /* LoadHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadHeaderView.xib; sourceTree = "<group>"; };
+		23F0D1BB1B9D952E00E9A3C7 /* ShoppingCartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCartCell.h; sourceTree = "<group>"; };
+		23F0D1BC1B9D952E00E9A3C7 /* ShoppingCartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartCell.m; sourceTree = "<group>"; };
+		23F0D1BD1B9D952E00E9A3C7 /* ShoppingCartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShoppingCartCell.xib; sourceTree = "<group>"; };
+		23F0D1C01B9D954600E9A3C7 /* FooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FooterView.xib; sourceTree = "<group>"; };
+		23F0D1C21B9D955300E9A3C7 /* FooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FooterView.h; sourceTree = "<group>"; };
+		23F0D1C31B9D955300E9A3C7 /* FooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FooterView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +99,7 @@
 		211CE9B31B9D1F8700C3E916 /* WebShop */ = {
 			isa = PBXGroup;
 			children = (
+				23F0D19C1B9D6EA200E9A3C7 /* ShoppingCarts */,
 				211CE9B81B9D1F8700C3E916 /* AppDelegate.h */,
 				211CE9B91B9D1F8700C3E916 /* AppDelegate.m */,
 				211CE9BB1B9D1F8700C3E916 /* ViewController.h */,
@@ -117,6 +136,56 @@
 				211CE9CF1B9D1F8700C3E916 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		23F0D19C1B9D6EA200E9A3C7 /* ShoppingCarts */ = {
+			isa = PBXGroup;
+			children = (
+				23F0D19D1B9D6EA200E9A3C7 /* Classes */,
+			);
+			path = ShoppingCarts;
+			sourceTree = "<group>";
+		};
+		23F0D19D1B9D6EA200E9A3C7 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				23F0D19E1B9D6EA200E9A3C7 /* Controller */,
+				23F0D19F1B9D6EA200E9A3C7 /* View */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		23F0D19E1B9D6EA200E9A3C7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				23F0D1A01B9D74DD00E9A3C7 /* ShopCartCtrl.h */,
+				23F0D1A11B9D74DD00E9A3C7 /* ShopCartCtrl.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		23F0D19F1B9D6EA200E9A3C7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				23F0D1A31B9D778000E9A3C7 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		23F0D1A31B9D778000E9A3C7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				23F0D1BB1B9D952E00E9A3C7 /* ShoppingCartCell.h */,
+				23F0D1BC1B9D952E00E9A3C7 /* ShoppingCartCell.m */,
+				23F0D1BD1B9D952E00E9A3C7 /* ShoppingCartCell.xib */,
+				23F0D1B61B9D928D00E9A3C7 /* LoadHeaderView.h */,
+				23F0D1B71B9D928D00E9A3C7 /* LoadHeaderView.m */,
+				23F0D1B91B9D92A700E9A3C7 /* LoadHeaderView.xib */,
+				23F0D1C21B9D955300E9A3C7 /* FooterView.h */,
+				23F0D1C31B9D955300E9A3C7 /* FooterView.m */,
+				23F0D1C01B9D954600E9A3C7 /* FooterView.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +269,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				211CE9C01B9D1F8700C3E916 /* Main.storyboard in Resources */,
+				23F0D1C11B9D954600E9A3C7 /* FooterView.xib in Resources */,
+				23F0D1BF1B9D952E00E9A3C7 /* ShoppingCartCell.xib in Resources */,
+				23F0D1BA1B9D92A700E9A3C7 /* LoadHeaderView.xib in Resources */,
 				211CE9C51B9D1F8700C3E916 /* LaunchScreen.xib in Resources */,
 				211CE9C21B9D1F8700C3E916 /* Images.xcassets in Resources */,
 			);
@@ -220,7 +292,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				211CE9BD1B9D1F8700C3E916 /* ViewController.m in Sources */,
+				23F0D1C41B9D955300E9A3C7 /* FooterView.m in Sources */,
+				23F0D1BE1B9D952E00E9A3C7 /* ShoppingCartCell.m in Sources */,
+				23F0D1B81B9D928D00E9A3C7 /* LoadHeaderView.m in Sources */,
 				211CE9BA1B9D1F8700C3E916 /* AppDelegate.m in Sources */,
+				23F0D1A21B9D74DD00E9A3C7 /* ShopCartCtrl.m in Sources */,
 				211CE9B71B9D1F8700C3E916 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,6 +492,7 @@
 				211CE9D61B9D1F8700C3E916 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		211CE9D71B9D1F8700C3E916 /* Build configuration list for PBXNativeTarget "WebShopTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +501,7 @@
 				211CE9D91B9D1F8700C3E916 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
