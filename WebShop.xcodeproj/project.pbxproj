@@ -23,6 +23,7 @@
 		219B79AC1B9D8B6100325AB0 /* ShoppingCarCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 219B79AB1B9D8B6100325AB0 /* ShoppingCarCtrl.m */; };
 		219B79B01B9D8E4800325AB0 /* memberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 219B79AE1B9D8E4800325AB0 /* memberCell.m */; };
 		219B79B11B9D8E4800325AB0 /* memberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219B79AF1B9D8E4800325AB0 /* memberCell.xib */; };
+		219B79B51B9D951F00325AB0 /* queryCarSeries.json in Resources */ = {isa = PBXBuildFile; fileRef = 219B79B41B9D951F00325AB0 /* queryCarSeries.json */; };
 		9E8354A0CB00323E5BCF764F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF589A9651C3160BA35CC5B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		219B79AD1B9D8E4800325AB0 /* memberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = memberCell.h; sourceTree = "<group>"; };
 		219B79AE1B9D8E4800325AB0 /* memberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = memberCell.m; sourceTree = "<group>"; };
 		219B79AF1B9D8E4800325AB0 /* memberCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = memberCell.xib; sourceTree = "<group>"; };
+		219B79B41B9D951F00325AB0 /* queryCarSeries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = queryCarSeries.json; sourceTree = "<group>"; };
 		858A75A4BDDA0B83E6C17845 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AEF589A9651C3160BA35CC5B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDCC222C2FF9B0B8EA5F5647 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		211CE9B31B9D1F8700C3E916 /* WebShop */ = {
 			isa = PBXGroup;
 			children = (
+				219B79B21B9D94F000325AB0 /* NetWorkModule */,
 				219B79A01B9D8B0A00325AB0 /* Controller */,
 				219B79941B9D7E9E00325AB0 /* image */,
 				211CE9B81B9D1F8700C3E916 /* AppDelegate.h */,
@@ -199,6 +202,22 @@
 				219B79AB1B9D8B6100325AB0 /* ShoppingCarCtrl.m */,
 			);
 			path = ShoppingCar;
+			sourceTree = "<group>";
+		};
+		219B79B21B9D94F000325AB0 /* NetWorkModule */ = {
+			isa = PBXGroup;
+			children = (
+				219B79B31B9D94F000325AB0 /* TempJsonFile */,
+			);
+			path = NetWorkModule;
+			sourceTree = "<group>";
+		};
+		219B79B31B9D94F000325AB0 /* TempJsonFile */ = {
+			isa = PBXGroup;
+			children = (
+				219B79B41B9D951F00325AB0 /* queryCarSeries.json */,
+			);
+			path = TempJsonFile;
 			sourceTree = "<group>";
 		};
 		6B71541AFBB208BB7F8BD887 /* Pods */ = {
@@ -307,6 +326,7 @@
 				219B799B1B9D7EBE00325AB0 /* bg3.png in Resources */,
 				219B79991B9D7EBE00325AB0 /* bg1.png in Resources */,
 				219B799A1B9D7EBE00325AB0 /* bg2.png in Resources */,
+				219B79B51B9D951F00325AB0 /* queryCarSeries.json in Resources */,
 				219B79B11B9D8E4800325AB0 /* memberCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

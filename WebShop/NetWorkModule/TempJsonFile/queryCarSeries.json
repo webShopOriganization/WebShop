@@ -1,0 +1,26 @@
+{
+    "message": "OK", 
+    "status": 2000000, 
+    "data": [
+        {
+            "id": "4", 
+            "seriesName": "A4", 
+            "brandId": "1"
+        }, 
+        {
+            "id": "4", 
+            "seriesName": "A5",
+            "brandId": "1"
+        }, 
+        {
+            "id": "4", 
+            "seriesName": "A6",
+            "brandId": "1"
+        }, 
+        {
+            "id": "4", 
+            "seriesName": "A7", 
+            "brandId": "1"
+        }
+    ]
+}
