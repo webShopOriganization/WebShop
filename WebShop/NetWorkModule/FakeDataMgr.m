@@ -37,10 +37,11 @@
 
 - (NSDictionary*)responseLogin
 {
-    NSString* strJson = [NSString stringWithContentsOfFile:[[NSBundle mainBundle]  pathForResource:@"user" ofType:@"json"] encoding:NSUTF8StringEncoding error:nil];
     
+    NSString* strJson = [NSString stringWithContentsOfFile:[[NSBundle mainBundle]  pathForResource:@"login" ofType:@"json"] encoding:NSUTF8StringEncoding error:nil];
+   
     NSDictionary* dic = [Common dictionaryWithJsonString:strJson];
-    
+   
     return dic;
 }
 
@@ -80,4 +81,13 @@
     return dic;
 }
 
+
++ (NSDictionary *)objectClassInArray{
+    return @{@"data" : [User class]};
+}
 @end
+@implementation User
+
+@end
+
+
