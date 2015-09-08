@@ -13,4 +13,9 @@
 
 @interface Common : NSObject
 
+//json转成字典
++ (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
+
++(void)addAlertViewWithTitel:(NSString*)string;
+
 @end
