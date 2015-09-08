@@ -76,7 +76,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="koX-Bk-KbI">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="koX-Bk-KbI">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -136,11 +136,46 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="tableView" destination="3eQ-Qf-0xA" id="xCp-U0-vMu"/>
+                        <segue destination="qZb-CX-F6j" kind="show" id="gn4-ns-sFG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iGe-40-4uK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="337" y="780"/>
+            <point key="canvasLocation" x="-527" y="802"/>
+        </scene>
+        <!--Order Manage ViewCtrl-->
+        <scene sceneID="XfB-hd-Cfq">
+            <objects>
+                <viewController storyboardIdentifier="MemberCenterCtrl" id="qZb-CX-F6j" userLabel="Order Manage ViewCtrl" customClass="OrderManageCtrl" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3qO-vI-D88"/>
+                        <viewControllerLayoutGuide type="bottom" id="DlT-Wo-Sfm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wX0-UP-26T">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bMp-Rf-94H">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bMp-Rf-94H" firstAttribute="leading" secondItem="wX0-UP-26T" secondAttribute="leadingMargin" constant="-16" id="Aex-N8-NEc"/>
+                            <constraint firstItem="DlT-Wo-Sfm" firstAttribute="top" secondItem="bMp-Rf-94H" secondAttribute="bottom" constant="-49" id="C2n-0s-b8X"/>
+                            <constraint firstItem="bMp-Rf-94H" firstAttribute="top" secondItem="3qO-vI-D88" secondAttribute="bottom" constant="-64" id="X2C-ah-7oG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bMp-Rf-94H" secondAttribute="trailing" constant="-16" id="peg-m6-IN8"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="orderTableView" destination="bMp-Rf-94H" id="7ex-lW-urg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PQY-95-9hO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-57" y="802"/>
         </scene>
         <!--商品展示-->
         <scene sceneID="4k0-16-U0e">
@@ -200,7 +235,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zVp-Eg-zuX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-663" y="843"/>
+            <point key="canvasLocation" x="-926" y="802"/>
         </scene>
     </scenes>
 </document>
