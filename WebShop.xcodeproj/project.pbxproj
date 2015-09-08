@@ -24,12 +24,13 @@
 		219B79B01B9D8E4800325AB0 /* memberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 219B79AE1B9D8E4800325AB0 /* memberCell.m */; };
 		219B79B11B9D8E4800325AB0 /* memberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219B79AF1B9D8E4800325AB0 /* memberCell.xib */; };
 		219B79B51B9D951F00325AB0 /* product.json in Resources */ = {isa = PBXBuildFile; fileRef = 219B79B41B9D951F00325AB0 /* product.json */; };
+		21D6774F1B9E839A00D91F86 /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D6774E1B9E839A00D91F86 /* iToast.m */; };
+		21D677521B9E83AA00D91F86 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D677511B9E83AA00D91F86 /* Common.m */; };
 		9E8354A0CB00323E5BCF764F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF589A9651C3160BA35CC5B /* libPods.a */; };
 		E9BCEBA01B9DCA6000E5DF99 /* order.json in Resources */ = {isa = PBXBuildFile; fileRef = E9BCEB9F1B9DCA6000E5DF99 /* order.json */; };
 		E9BCEBA21B9DCAC200E5DF99 /* user.json in Resources */ = {isa = PBXBuildFile; fileRef = E9BCEBA11B9DCAC200E5DF99 /* user.json */; };
 		E9BCEBA61B9DD1A100E5DF99 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BCEBA51B9DD1A100E5DF99 /* NetworkManager.m */; };
 		E9BCEBA91B9DD1C100E5DF99 /* FakeDataMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BCEBA81B9DD1C100E5DF99 /* FakeDataMgr.m */; };
-		E9BCEBAC1B9DD98800E5DF99 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BCEBAB1B9DD98800E5DF99 /* Common.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,10 @@
 		219B79AE1B9D8E4800325AB0 /* memberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = memberCell.m; sourceTree = "<group>"; };
 		219B79AF1B9D8E4800325AB0 /* memberCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = memberCell.xib; sourceTree = "<group>"; };
 		219B79B41B9D951F00325AB0 /* product.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = product.json; sourceTree = "<group>"; };
+		21D6774D1B9E839A00D91F86 /* iToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iToast.h; sourceTree = "<group>"; };
+		21D6774E1B9E839A00D91F86 /* iToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iToast.m; sourceTree = "<group>"; };
+		21D677501B9E83AA00D91F86 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Common.h; path = WebShop/Common.h; sourceTree = SOURCE_ROOT; };
+		21D677511B9E83AA00D91F86 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Common.m; path = WebShop/Common.m; sourceTree = SOURCE_ROOT; };
 		858A75A4BDDA0B83E6C17845 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AEF589A9651C3160BA35CC5B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9BCEB9F1B9DCA6000E5DF99 /* order.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = order.json; sourceTree = "<group>"; };
@@ -79,8 +84,6 @@
 		E9BCEBA51B9DD1A100E5DF99 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		E9BCEBA71B9DD1C100E5DF99 /* FakeDataMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeDataMgr.h; sourceTree = "<group>"; };
 		E9BCEBA81B9DD1C100E5DF99 /* FakeDataMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeDataMgr.m; sourceTree = "<group>"; };
-		E9BCEBAA1B9DD98800E5DF99 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
-		E9BCEBAB1B9DD98800E5DF99 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		EDCC222C2FF9B0B8EA5F5647 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,7 +129,7 @@
 		211CE9B31B9D1F8700C3E916 /* WebShop */ = {
 			isa = PBXGroup;
 			children = (
-				E9BCEBAE1B9DD9E500E5DF99 /* public */,
+				21D6774B1B9E834C00D91F86 /* public */,
 				219B79B21B9D94F000325AB0 /* NetWorkModule */,
 				219B79A01B9D8B0A00325AB0 /* Controller */,
 				219B79941B9D7E9E00325AB0 /* image */,
@@ -138,8 +141,6 @@
 				211CE9C11B9D1F8700C3E916 /* Images.xcassets */,
 				211CE9C31B9D1F8700C3E916 /* LaunchScreen.xib */,
 				211CE9B41B9D1F8700C3E916 /* Supporting Files */,
-				E9BCEBAA1B9DD98800E5DF99 /* Common.h */,
-				E9BCEBAB1B9DD98800E5DF99 /* Common.m */,
 			);
 			path = WebShop;
 			sourceTree = "<group>";
@@ -244,6 +245,25 @@
 			path = TempJsonFile;
 			sourceTree = "<group>";
 		};
+		21D6774B1B9E834C00D91F86 /* public */ = {
+			isa = PBXGroup;
+			children = (
+				21D677501B9E83AA00D91F86 /* Common.h */,
+				21D677511B9E83AA00D91F86 /* Common.m */,
+				21D6774C1B9E839A00D91F86 /* iTostView */,
+			);
+			path = public;
+			sourceTree = "<group>";
+		};
+		21D6774C1B9E839A00D91F86 /* iTostView */ = {
+			isa = PBXGroup;
+			children = (
+				21D6774D1B9E839A00D91F86 /* iToast.h */,
+				21D6774E1B9E839A00D91F86 /* iToast.m */,
+			);
+			path = iTostView;
+			sourceTree = "<group>";
+		};
 		6B71541AFBB208BB7F8BD887 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,21 +279,6 @@
 				AEF589A9651C3160BA35CC5B /* libPods.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E9BCEBAE1B9DD9E500E5DF99 /* public */ = {
-			isa = PBXGroup;
-			children = (
-				E9BCEBAF1B9DDA6C00E5DF99 /* ThirdLib */,
-			);
-			path = public;
-			sourceTree = "<group>";
-		};
-		E9BCEBAF1B9DDA6C00E5DF99 /* ThirdLib */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ThirdLib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,10 +424,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21D677521B9E83AA00D91F86 /* Common.m in Sources */,
 				E9BCEBA61B9DD1A100E5DF99 /* NetworkManager.m in Sources */,
 				211CE9BD1B9D1F8700C3E916 /* ViewController.m in Sources */,
-				E9BCEBAC1B9DD98800E5DF99 /* Common.m in Sources */,
 				219B79AC1B9D8B6100325AB0 /* ShoppingCarCtrl.m in Sources */,
+				21D6774F1B9E839A00D91F86 /* iToast.m in Sources */,
 				E9BCEBA91B9DD1C100E5DF99 /* FakeDataMgr.m in Sources */,
 				211CE9BA1B9D1F8700C3E916 /* AppDelegate.m in Sources */,
 				219B79B01B9D8E4800325AB0 /* memberCell.m in Sources */,

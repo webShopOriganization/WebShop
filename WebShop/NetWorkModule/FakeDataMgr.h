@@ -10,4 +10,15 @@
 
 @interface FakeDataMgr : NSObject
 
++ (FakeDataMgr*)shareMgr;
+
+@property (nonatomic, strong) NSDictionary* responseRegister;
+@property (nonatomic, strong) NSDictionary* responseLogin;
+
+@property (nonatomic, strong) NSDictionary* responseProductList;
+@property (nonatomic, strong) NSDictionary* responseProductDetails;
+
+@property (nonatomic, strong) NSDictionary* responseOrderList;
+@property (nonatomic, strong) NSDictionary* responseOrderDetails;
+
 @end

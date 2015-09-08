@@ -7,6 +7,7 @@
 //
 
 #import "NetworkManager.h"
+#import "FakeDataMgr.h"
 #import <AFNetworking/AFNetworking.h>
 
 @interface NetworkManager ()
@@ -34,9 +35,6 @@
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
-    //test
-    //NSDictionary *parameters = @{@"username": @"18672354399",@"password_hash":@"$2y$13$eD.OPcraVj8wMrADnMTPpeJVDzQTncvRClQcRDt2a0gRPRW4ZKWbC"};
-    
     NSString* strInterface;
     
     if (self.isTestMode) {
@@ -53,7 +51,7 @@
         
         if (self.isTestMode) {
             
-            NSDictionary *dictionary = [FakeDataMgr shareMgr].responseRegister;
+            NSDictionary *dictionary = [FakeDataMgr shareMgr].responseLogin;
             
             if (completeHandle) {
                 
@@ -85,19 +83,17 @@
 - (void)server_registerWithDic:(NSDictionary*)dic completeHandle:(CompleteHandle)completeHandle
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
-    //test
-    //NSDictionary *parameters = @{@"username": @"18672354399",@"password_hash":@"$2y$13$eD.OPcraVj8wMrADnMTPpeJVDzQTncvRClQcRDt2a0gRPRW4ZKWbC"};
+
     
     NSString* strInterface;
     
     if (self.isTestMode) {
         
-        strInterface = ECATER_TEST_INTERFACE;
+        strInterface = WEBSHOP_TEST;
         
     }else{
         
-        strInterface = ECATER_REGISTER_INTERFACE;
+        strInterface = WEBSHOP_REGISTER_INTERFACE;
         
     }
     
@@ -139,19 +135,17 @@
 - (void)server_productListWithDic:(NSDictionary*)dic completeHandle:(CompleteHandle)completeHandle
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
-    //test
-    //NSDictionary *parameters = @{@"username": @"18672354399",@"password_hash":@"$2y$13$eD.OPcraVj8wMrADnMTPpeJVDzQTncvRClQcRDt2a0gRPRW4ZKWbC"};
+ 
     
     NSString* strInterface;
     
     if (self.isTestMode) {
         
-        strInterface = ECATER_TEST_INTERFACE;
+        strInterface = WEBSHOP_TEST;
         
     }else{
         
-        strInterface = ECATER_REGISTER_INTERFACE;
+        strInterface = WEBSHOP_PRODUCT_LIST_INTERFACE;
         
     }
     
@@ -159,7 +153,7 @@
         
         if (self.isTestMode) {
             
-            NSDictionary *dictionary = [FakeDataMgr shareMgr].responseRegister;
+            NSDictionary *dictionary = [FakeDataMgr shareMgr].responseProductList;
             
             if (completeHandle) {
                 
@@ -191,19 +185,16 @@
 - (void)server_productDetailsWithDic:(NSDictionary*)dic completeHandle:(CompleteHandle)completeHandle
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
-    //test
-    //NSDictionary *parameters = @{@"username": @"18672354399",@"password_hash":@"$2y$13$eD.OPcraVj8wMrADnMTPpeJVDzQTncvRClQcRDt2a0gRPRW4ZKWbC"};
-    
+  
     NSString* strInterface;
     
     if (self.isTestMode) {
         
-        strInterface = ECATER_TEST_INTERFACE;
+        strInterface = WEBSHOP_TEST;
         
     }else{
         
-        strInterface = ECATER_REGISTER_INTERFACE;
+        strInterface = WEBSHOP_PRODUCT_DETAILS_INTERFACE;
         
     }
     
@@ -211,7 +202,7 @@
         
         if (self.isTestMode) {
             
-            NSDictionary *dictionary = [FakeDataMgr shareMgr].responseRegister;
+            NSDictionary *dictionary = [FakeDataMgr shareMgr].responseProductDetails;
             
             if (completeHandle) {
                 
@@ -244,19 +235,17 @@
 - (void)server_OrderList:(NSDictionary*)dic completeHandle:(CompleteHandle)completeHandle
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
-    //test
-    //NSDictionary *parameters = @{@"username": @"18672354399",@"password_hash":@"$2y$13$eD.OPcraVj8wMrADnMTPpeJVDzQTncvRClQcRDt2a0gRPRW4ZKWbC"};
+   
     
     NSString* strInterface;
     
     if (self.isTestMode) {
         
-        strInterface = ECATER_TEST_INTERFACE;
+        strInterface = WEBSHOP_TEST;
         
     }else{
         
-        strInterface = ECATER_REGISTER_INTERFACE;
+        strInterface = WEBSHOP_ORDER_LIST_INTERFACE;
         
     }
     
@@ -264,7 +253,7 @@
         
         if (self.isTestMode) {
             
-            NSDictionary *dictionary = [FakeDataMgr shareMgr].responseRegister;
+            NSDictionary *dictionary = [FakeDataMgr shareMgr].responseOrderList;
             
             if (completeHandle) {
                 
@@ -297,19 +286,17 @@
 - (void)server_OrderDetails:(NSDictionary*)dic completeHandle:(CompleteHandle)completeHandle
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
-    //test
-    //NSDictionary *parameters = @{@"username": @"18672354399",@"password_hash":@"$2y$13$eD.OPcraVj8wMrADnMTPpeJVDzQTncvRClQcRDt2a0gRPRW4ZKWbC"};
+
     
     NSString* strInterface;
     
     if (self.isTestMode) {
         
-        strInterface = ECATER_TEST_INTERFACE;
+        strInterface = WEBSHOP_TEST;
         
     }else{
         
-        strInterface = ECATER_REGISTER_INTERFACE;
+        strInterface = WEBSHOP_ORDER_DETAILS_INTERFACE;
         
     }
     
@@ -317,7 +304,7 @@
         
         if (self.isTestMode) {
             
-            NSDictionary *dictionary = [FakeDataMgr shareMgr].responseRegister;
+            NSDictionary *dictionary = [FakeDataMgr shareMgr].responseOrderDetails;
             
             if (completeHandle) {
                 
@@ -335,9 +322,7 @@
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        //ErrorHandle(error);
-        
+       
         NSLog(@"Error: %@", error);
         
         
