@@ -7,6 +7,7 @@
 //
 
 #import "MerchandiseShowCtrl.h"
+#import "NetworkManager.h"
 
 @interface MerchandiseShowCtrl ()
 
@@ -18,6 +19,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title=@"商品展示";
+    
+    [self getData];
+}
+
+-(void)getData
+{
+    [[NetworkManager shareMgr]server_loginWithDic:nil completeHandle:^(NSDictionary *response) {
+        NSLog(@"测试数据：%@",response);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

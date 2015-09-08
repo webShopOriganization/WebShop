@@ -50,7 +50,7 @@
     [manager POST:[NSString stringWithFormat:@"%@%@",SERVER,strInterface] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         if (self.isTestMode) {
-            
+          
             NSDictionary *dictionary = [FakeDataMgr shareMgr].responseLogin;
             
             if (completeHandle) {

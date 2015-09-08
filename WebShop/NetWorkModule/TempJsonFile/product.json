@@ -5,10 +5,10 @@
         {
             "productId": "4", 
             "proName": "A4",
-            "saleCount": "1"
-            "image":""
-            "price":"11.0"
-            "decript":"good"
+            "saleCount": "1",
+            "image":"",
+            "price":"11.0",
+            "decript":"good",
             "salesDate":"2015.02.03"
 
         }
