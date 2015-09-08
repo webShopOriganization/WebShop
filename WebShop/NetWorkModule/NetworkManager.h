@@ -13,15 +13,20 @@
 
 + (NetworkManager*)shareMgr;
 
-//登陆注册
+/**
+ *  登录
+ */
 - (void)server_loginWithDic:(NSDictionary*)dic completeHandle:(CompleteHandle)completeHandle;
 - (void)server_registerWithDic:(NSDictionary*)dic completeHandle:(CompleteHandle)completeHandle;
-
-//商品
+/**
+ *  商品
+ */
 - (void)server_productListWithDic:(NSDictionary*)dic completeHandle:(CompleteHandle)completeHandle;
 - (void)server_productDetailsWithDic:(NSDictionary*)dic completeHandle:(CompleteHandle)completeHandle;
 
-//订单
+/**
+ *  订单
+ */
 - (void)server_OrderList:(NSDictionary*)dic completeHandle:(CompleteHandle)completeHandle;
 - (void)server_OrderDetails:(NSDictionary*)dic completeHandle:(CompleteHandle)completeHandle;
 
