@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6d9-MF-arF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6d9-MF-arF">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -47,7 +47,6 @@
         <!--Tab Bar Controller-->
         <scene sceneID="9WC-19-SQR">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZYW-6a-g67" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController storyboardIdentifier="firstMainFlowCtrl" id="Y6E-dI-Y5a" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="w2U-TN-avJ">
@@ -61,6 +60,7 @@
                         <segue destination="DhN-qc-LEk" kind="relationship" relationship="viewControllers" id="P3y-Ep-fYI"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZYW-6a-g67" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-705" y="-34"/>
         </scene>
@@ -75,9 +75,28 @@
                     <view key="view" contentMode="scaleToFill" id="D6n-dt-Erx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="koX-Bk-KbI">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="OOH-Ng-F3X" id="jZh-Za-8vc"/>
+                                    <outlet property="delegate" destination="OOH-Ng-F3X" id="LHB-gT-sWc"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="koX-Bk-KbI" secondAttribute="trailing" constant="-16" id="1Ti-wh-1MC"/>
+                            <constraint firstItem="2Dm-Yi-aL1" firstAttribute="top" secondItem="koX-Bk-KbI" secondAttribute="bottom" constant="-49" id="3IL-ov-ZHQ"/>
+                            <constraint firstItem="koX-Bk-KbI" firstAttribute="leading" secondItem="D6n-dt-Erx" secondAttribute="leadingMargin" constant="-16" id="EAg-jf-CA4"/>
+                            <constraint firstItem="koX-Bk-KbI" firstAttribute="top" secondItem="aMg-iv-304" secondAttribute="bottom" constant="-64" id="UPd-1K-29t"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SBf-w9-V89"/>
+                    <connections>
+                        <outlet property="shoppingCartTableView" destination="koX-Bk-KbI" id="OqO-ud-3o3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LRh-2Y-A5g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
