@@ -45,7 +45,12 @@
 #pragma mark - TableView Delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 90;
+    if (self.array) {
+        return 90;
+    }else{
+        return SCREEN_HEIGHT -64-30-49;
+    }
+    return 0;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
 
@@ -67,7 +72,7 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if (self.UserDic) {
+    if (!self.UserDic) {
         LoadHeaderView *loginView = [[LoadHeaderView alloc] init];
         
         return loginView;
