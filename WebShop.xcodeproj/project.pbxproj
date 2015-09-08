@@ -35,6 +35,7 @@
 		21D6774F1B9E839A00D91F86 /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D6774E1B9E839A00D91F86 /* iToast.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		21D677521B9E83AA00D91F86 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D677511B9E83AA00D91F86 /* Common.m */; };
 		21FE15871B9EC3B30092043A /* login.json in Resources */ = {isa = PBXBuildFile; fileRef = 21FE15861B9EC3B30092043A /* login.json */; };
+		23C64F141B9ED01F00C0B6F5 /* OrderManageCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C64F131B9ED01F00C0B6F5 /* OrderManageCtrl.m */; };
 		9E8354A0CB00323E5BCF764F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF589A9651C3160BA35CC5B /* libPods.a */; };
 		E9BCEBA01B9DCA6000E5DF99 /* order.json in Resources */ = {isa = PBXBuildFile; fileRef = E9BCEB9F1B9DCA6000E5DF99 /* order.json */; };
 		E9BCEBA21B9DCAC200E5DF99 /* user.json in Resources */ = {isa = PBXBuildFile; fileRef = E9BCEBA11B9DCAC200E5DF99 /* user.json */; };
@@ -98,6 +99,8 @@
 		21D677501B9E83AA00D91F86 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Common.h; path = WebShop/Common.h; sourceTree = SOURCE_ROOT; };
 		21D677511B9E83AA00D91F86 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Common.m; path = WebShop/Common.m; sourceTree = SOURCE_ROOT; };
 		21FE15861B9EC3B30092043A /* login.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = login.json; sourceTree = "<group>"; };
+		23C64F121B9ED01F00C0B6F5 /* OrderManageCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderManageCtrl.h; sourceTree = "<group>"; };
+		23C64F131B9ED01F00C0B6F5 /* OrderManageCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderManageCtrl.m; sourceTree = "<group>"; };
 		858A75A4BDDA0B83E6C17845 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AEF589A9651C3160BA35CC5B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9BCEB9F1B9DCA6000E5DF99 /* order.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = order.json; sourceTree = "<group>"; };
@@ -273,9 +276,11 @@
 		219B79A31B9D8B0A00325AB0 /* ShoppingCar */ = {
 			isa = PBXGroup;
 			children = (
-				218F54911B9EB0DA003226C3 /* View */,
+				23C64F121B9ED01F00C0B6F5 /* OrderManageCtrl.h */,
+				23C64F131B9ED01F00C0B6F5 /* OrderManageCtrl.m */,
 				219B79AA1B9D8B6100325AB0 /* ShoppingCarCtrl.h */,
 				219B79AB1B9D8B6100325AB0 /* ShoppingCarCtrl.m */,
+				218F54911B9EB0DA003226C3 /* View */,
 			);
 			path = ShoppingCar;
 			sourceTree = "<group>";
@@ -504,6 +509,7 @@
 				218F549C1B9EB0DA003226C3 /* FooterView.m in Sources */,
 				211CE9B71B9D1F8700C3E916 /* main.m in Sources */,
 				218F54A81B9EB52D003226C3 /* UserLoginInfo.m in Sources */,
+				23C64F141B9ED01F00C0B6F5 /* OrderManageCtrl.m in Sources */,
 				219B79A61B9D8B3200325AB0 /* MemberCenterCtrl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
