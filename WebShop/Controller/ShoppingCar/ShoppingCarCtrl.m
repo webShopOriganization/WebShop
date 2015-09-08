@@ -8,6 +8,7 @@
 
 #import "ShoppingCarCtrl.h"
 #import "Common.h"
+#import "NetworkManager.h"
 #import "LoadHeaderView.h"
 #import "FooterView.h"
 #import "ShoppingCartCell.h"
@@ -37,11 +38,15 @@
 }
 
 - (void)initUI {
-    
+
     self.title = @"购物车";
     
-    self.UserDic = [[NSMutableDictionary alloc] init];
+//    self.UserDic = [[NSDictionary alloc] init];
     
+//    [[NetworkManager shareMgr]server_loginWithDic:nil completeHandle:^(NSDictionary *response) {
+//        self.UserDic = response;
+//    }];
+//    NSLog(@"self.userdic = %@", self.UserDic);
 //    self.array = [[NSMutableArray alloc] init];
     
     [self.shoppingCartTableView reloadData];
@@ -53,8 +58,10 @@
 //    if (self.array) {
 //        return 90;
 //    }else{
-//        return SCREEN_HEIGHT -64-30-49;
+//        return SCREEN_HEIGHT -64-30-49-80;
 //    }
+//    return 0;
+    
     return SCREEN_HEIGHT -64-30-49-80;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -64,17 +71,19 @@
 //    }else{
 //        return 30;
 //    }
+//    return 0;
     return 30;
-    
+
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     
-    if (self.UserDic) {
-        return 80;
-    }else{
-        return 0;
-    }
-    return 0;
+//    if (self.UserDic) {
+//        return 80;
+//    }else{
+//        return 0;
+//    }
+//    return 0;
+    return 80;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -82,7 +91,7 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-//    if (!self.UserDic) {
+    if (!self.UserDic) {
     if (section == 0) {
         LoadHeaderView *loginView = [[LoadHeaderView alloc] init];
         
@@ -94,8 +103,8 @@
         return loginView;
     }
     
-//    }
-//    
+    }
+    
     return nil;
     
 }
