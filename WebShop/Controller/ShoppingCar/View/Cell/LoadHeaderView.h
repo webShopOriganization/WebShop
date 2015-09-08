@@ -10,5 +10,6 @@
 
 @interface LoadHeaderView : UIView
 @property (strong, nonatomic) IBOutlet UIButton *btnLogin;
+- (IBAction)loginBtnClick:(id)sender;
 
 @end

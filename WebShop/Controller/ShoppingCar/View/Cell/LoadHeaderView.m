@@ -22,4 +22,7 @@
 }
 
 
+- (IBAction)loginBtnClick:(id)sender {
+    NSLog(@"登录");
+}
 @end
