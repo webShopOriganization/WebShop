@@ -82,12 +82,8 @@
 }
 
 
-+ (NSDictionary *)objectClassInArray{
-    return @{@"data" : [User class]};
-}
-@end
-@implementation User
 
 @end
+
 
 

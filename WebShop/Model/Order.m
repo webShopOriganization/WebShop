@@ -11,14 +11,6 @@
 @implementation Order
 
 @end
-@implementation product
-
-@end
-
-
-@implementation user
-
-@end
 
 
 @implementation Product
