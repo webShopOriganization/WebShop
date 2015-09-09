@@ -23,7 +23,20 @@
 - (IBAction)deleteBtnClick:(id)sender {
     NSLog(@"delete");
     
-    [self.delegate deleteOeder:@"123456"];
+    [self.delegate deleteOeder:self.orderName.text];
+    
+}
+
+- (void)initWithDic:(NSMutableDictionary*)dic
+{
+    NSLog(@"生成了一个OrderCell");
+    self.orderImage.layer.cornerRadius = 36.0;
+    self.orderImage.layer.masksToBounds = YES;
+    
+    self.backgroundColor = [UIColor lightGrayColor];
+}
+
+- (void)configWithDic:(NSMutableDictionary*)dic {
     
 }
 @end

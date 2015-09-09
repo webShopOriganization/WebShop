@@ -21,4 +21,7 @@
 @property (assign, nonatomic) id<deleteOrder> delegate;
 
 - (IBAction)deleteBtnClick:(id)sender;
+
+- (void)initWithDic:(NSMutableDictionary*)dic;
+- (void)configWithDic:(NSMutableDictionary*)dic;
 @end

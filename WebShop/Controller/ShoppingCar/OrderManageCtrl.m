@@ -91,8 +91,9 @@
         cell = [topLevelObjects objectAtIndex:0];
         
         cell.delegate = self;
-        cell.backgroundColor = [UIColor lightGrayColor];
+        cell.orderName.text = @"9999999";
         
+        [cell initWithDic:nil];
     }
     
     return cell;
