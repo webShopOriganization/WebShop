@@ -9,6 +9,7 @@
 #import "MemberCenterCtrl.h"
 #import "memberCell.h"
 #import "MemberCenterCtrl.h"
+#import "LoginViewController.h"
 
 @interface MemberCenterCtrl ()
 
@@ -31,14 +32,14 @@
 #pragma tableble datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 1;
     
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 3;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -63,7 +64,11 @@
             
         }
     
-    if (indexPath.section==0) {
+    if (indexPath.row==0) {
+        cell.lblTitle.text=@"账户管理";
+    }
+    
+    if (indexPath.row==1) {
         cell.lblTitle.text=@"订单管理";
     }
         
@@ -88,7 +93,13 @@ heightForHeaderInSection:(NSInteger)section
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.section == 0) {
+    if (indexPath.row==0)
+    {
+        
+        LoginViewController *vc=[[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+   else if (indexPath.row == 1) {
         
 //        MemberCenterCtrl *vc = [[MemberCenterCtrl alloc] initWithNibName:@"MemberCenterCtrl" bundle:nil];
         
@@ -99,6 +110,7 @@ heightForHeaderInSection:(NSInteger)section
         
         [self.navigationController pushViewController:vc animated:YES];
     }
+    
     
 }
 /*

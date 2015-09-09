@@ -26,7 +26,7 @@
 -(void)getData
 {
     [[NetworkManager shareMgr]server_loginWithDic:nil completeHandle:^(NSDictionary *response) {
-        NSLog(@"测试数据：%@",response);
+        //NSLog(@"测试数据：%@",response);
     }];
 }
 
