@@ -13,33 +13,25 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg2.png" translatesAutoresizingMaskIntoConstraints="NO" id="e77-Qt-RTW">
-                        <rect key="frame" x="22" y="8" width="72" height="72"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e77-Qt-RTW">
+                        <rect key="frame" x="8" y="8" width="72" height="72"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VG8-bO-Cvo">
-                        <rect key="frame" x="112" y="53" width="129" height="21"/>
+                        <rect key="frame" x="98" y="53" width="129" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eP4-Gj-rYa">
-                        <rect key="frame" x="112" y="17" width="200" height="21"/>
+                        <rect key="frame" x="98" y="17" width="200" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <color key="backgroundColor" red="1" green="0.80930160116035921" blue="0.80759944946155859" alpha="1" colorSpace="calibratedRGB"/>
             </tableViewCellContentView>
-            <connections>
-                <outlet property="imgProduct" destination="e77-Qt-RTW" id="U1d-2i-BEY"/>
-                <outlet property="lblPrice" destination="VG8-bO-Cvo" id="PdD-Bb-d9n"/>
-                <outlet property="lblProName" destination="eP4-Gj-rYa" id="sVu-Gu-tYN"/>
-            </connections>
             <point key="canvasLocation" x="207" y="1"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="bg2.png" width="1080" height="496"/>
-    </resources>
 </document>

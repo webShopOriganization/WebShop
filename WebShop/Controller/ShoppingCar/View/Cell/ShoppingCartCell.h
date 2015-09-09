@@ -9,11 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ShoppingCartCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UIImageView *imgProduct;
-@property (strong, nonatomic) IBOutlet UILabel *lblProName;
-@property (strong, nonatomic) IBOutlet UILabel *lblPrice;
-
-- (void)initWithDic:(NSMutableDictionary*)dic;
-- (void)configWithDic:(NSMutableDictionary*)dic;
 
 @end
