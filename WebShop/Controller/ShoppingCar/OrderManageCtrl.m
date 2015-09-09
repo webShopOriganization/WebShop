@@ -8,7 +8,8 @@
 
 #import "OrderManageCtrl.h"
 
-@interface OrderManageCtrl ()
+@interface OrderManageCtrl ()<deleteOrder, UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
+
 
 @end
 
@@ -16,7 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self initUI];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +26,97 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)initUI {
+    self.navigationItem.title = @"订单管理";
+    
+    //去掉tableView多余的空白行分割线
+    self.tableView.tableFooterView = [[UIView alloc] init];
 }
-*/
+
+- (void)deleteOeder:(NSString *)orderId{
+    NSLog(@"orderID = %@", orderId);
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:@"确认删除此订单？"
+                                  delegate:self // telling this class(ViewController) to implement UIActionSheetDelegate
+                                  cancelButtonTitle:@"取消"
+                                  destructiveButtonTitle:@"删除"
+                                  otherButtonTitles:nil];
+    
+    [actionSheet showInView:self.tabBarController.view];
+}
+
+#pragma mark - UIActionSheetDelegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == 0) {
+        NSLog(@"删除订单操作");
+    }else if (buttonIndex == 1){
+        NSLog(@"取消删除");
+    }
+    
+}
+
+- (void)actionSheetCancel:(UIActionSheet *)actionSheet {
+    NSLog(@"取消删除订单");
+}
+#pragma mark - TableView Delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return 90;
+}
+
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+//
+//    return 30;
+//}
+
+//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+//
+//    return 80;
+//}
+
+#pragma mark - TableVeiw Datasource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return 5;
+}
+
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *CellId = @"OrderManageCell";
+    
+    
+    OrderManageCell* cell = [tableView dequeueReusableCellWithIdentifier:CellId];
+    
+    if (!cell) {
+        
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:CellId owner:self options:nil];
+        
+        cell = [topLevelObjects objectAtIndex:0];
+        
+        cell.delegate = self;
+        cell.orderName.text = @"9999999";
+        
+        [cell initWithDic:nil];
+    }
+    
+    return cell;
+    
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
 
 @end

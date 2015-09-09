@@ -20,4 +20,16 @@
     // Configure the view for the selected state
 }
 
+- (void)initWithDic:(NSMutableDictionary*)dic {
+    NSLog(@"生成了一个ProductCell");
+    
+    self.imgProduct.layer.cornerRadius = 36;
+    self.imgProduct.layer.masksToBounds = YES;
+    self.backgroundColor = [UIColor clearColor];
+
+}
+- (void)configWithDic:(NSMutableDictionary*)dic {
+    
+}
+
 @end

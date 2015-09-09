@@ -40,29 +40,32 @@
 - (void)initUI {
 
     self.title = @"购物车";
+    //去掉tableView多余的空白行分割线
+    self.tableVeiw.tableFooterView = [[UIView alloc] init];
     
 //    self.UserDic = [[NSDictionary alloc] init];
+    self.array = [[NSMutableArray alloc] init];
     
 //    [[NetworkManager shareMgr]server_loginWithDic:nil completeHandle:^(NSDictionary *response) {
 //        self.UserDic = response;
 //    }];
 //    NSLog(@"self.userdic = %@", self.UserDic);
-//    self.array = [[NSMutableArray alloc] init];
-    
-    [self.shoppingCartTableView reloadData];
+
+    self.tableVeiw.backgroundColor = [UIColor clearColor];
+    [self.tableVeiw reloadData];
 }
 
 #pragma mark - TableView Delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if (self.array) {
-//        return 90;
-//    }else{
-//        return SCREEN_HEIGHT -64-30-49-80;
-//    }
-//    return 0;
+    if (self.array) {
+        return 90;
+    }else{
+        return SCREEN_HEIGHT -64-30-49-80;
+    }
+    return 0;
     
-    return SCREEN_HEIGHT -64-30-49-80;
+//    return SCREEN_HEIGHT -64-30-49-80;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
@@ -83,7 +86,7 @@
 //        return 0;
 //    }
 //    return 0;
-    return 80;
+    return 150;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -127,7 +130,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     //
-    //    if (self.UserDic) {
+//        if ([self.UserDic objectForKey:@"userId"]) {
     //        return 2;
     //    }else{
     //        if (self.array) {
@@ -136,14 +139,14 @@
     //            return 1;//loadCell、tableviewCell(nil)
     //        }
     //
-    //    }
+//        }
     //    return 0;
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    //    if (self.UserDic) {
+//        if ([self.UserDic objectForKey:@"userId"]) {
     //        if (section == 0) {
     //            return [self.array count];
     //        }else if (section == 1){
@@ -161,15 +164,15 @@
     //        }else{
     //            return 2;
     //        }
-    //    }
+//        }
     
     //    return [self.array count];
-    if (self.array) {
-        return 5;
-    }else{
-        return 1;
-    }
-    return 0;
+//    if (self.array) {
+//        return 5;
+//    }else{
+//        return 1;
+//    }
+    return 5;
 }
 
 
@@ -197,6 +200,7 @@
             NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:CellId owner:self options:nil];
             
             cell = [topLevelObjects objectAtIndex:0];
+            [cell initWithDic:nil];
             
         }
         
