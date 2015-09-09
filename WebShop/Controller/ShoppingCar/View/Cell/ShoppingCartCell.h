@@ -10,4 +10,8 @@
 
 @interface ShoppingCartCell : UITableViewCell
 
+
+- (void)initWithDic:(NSMutableDictionary*)dic;
+- (void)configWithDic:(NSMutableDictionary*)dic;
+
 @end
