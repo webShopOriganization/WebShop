@@ -35,34 +35,97 @@
     [super viewWillAppear:YES];
     
     [self initUI];
+    
+    [self initRightButton];
 }
 
 - (void)initUI {
 
     self.title = @"购物车";
+    //去掉tableView多余的空白行分割线
+    self.tableVeiw.tableFooterView = [[UIView alloc] init];
     
 //    self.UserDic = [[NSDictionary alloc] init];
+    self.array = [[NSMutableArray alloc] init];
+
+    self.tableVeiw.backgroundColor = [UIColor clearColor];
+    [self.tableVeiw reloadData];
+}
+
+- (void)initRightButton {
+    self.rightButton=[UIButton buttonWithType:UIButtonTypeCustom];
+    [self.rightButton setTitle:@"编辑" forState:UIControlStateNormal];
+    self.rightButton.titleLabel.font=[UIFont systemFontOfSize:16];
+    [self.rightButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.rightButton setFrame:CGRectMake(0, 0, 60, 30)];
+    [self.rightButton addTarget:self action:@selector(editBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightItem=[[UIBarButtonItem alloc]initWithCustomView:self.rightButton ];
     
-//    [[NetworkManager shareMgr]server_loginWithDic:nil completeHandle:^(NSDictionary *response) {
-//        self.UserDic = response;
-//    }];
-//    NSLog(@"self.userdic = %@", self.UserDic);
-//    self.array = [[NSMutableArray alloc] init];
+    UIBarButtonItem *negativeSpacer=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    negativeSpacer.width=-17;
+    self.navigationItem.rightBarButtonItems=@[negativeSpacer,rightItem];
+}
+
+- (void)initEditBtn {
     
-    [self.shoppingCartTableView reloadData];
+    self.rightButton=[UIButton buttonWithType:UIButtonTypeCustom];
+    [self.rightButton setTitle:@"完成" forState:UIControlStateNormal];
+    self.rightButton.titleLabel.font=[UIFont systemFontOfSize:16];
+    [self.rightButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.rightButton setFrame:CGRectMake(0, 0, 60, 30)];
+    [self.rightButton addTarget:self action:@selector(completeBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightItem=[[UIBarButtonItem alloc]initWithCustomView:self.rightButton ];
+    
+    UIBarButtonItem *negativeSpacer=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    negativeSpacer.width=-17;
+    self.navigationItem.rightBarButtonItems=@[negativeSpacer,rightItem];
+    
+}
+
+- (void)editBtnClick {
+    NSLog(@"%s", __func__);
+    
+    [self initEditBtn];
+}
+
+- (void)completeBtnClick {
+    NSLog(@"%s", __func__);
+    
+    [self initRightButton];
 }
 
 #pragma mark - TableView Delegate
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if (self.array) {
-//        return 90;
-//    }else{
-//        return SCREEN_HEIGHT -64-30-49-80;
-//    }
-//    return 0;
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return SCREEN_HEIGHT -64-30-49-80;
+     return UITableViewCellEditingStyleDelete;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"删除";
+}
+
+/*删除用到的函数*/
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        //        [self.array removeObjectAtIndex:[indexPath row]];  //删除数组里的数据
+        //        [self.tableView deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];  //删除对应数据的cell
+        
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.array) {
+        return 90;
+    }else{
+        return SCREEN_HEIGHT -64-30-49-80;
+    }
+    return 0;
+    
+//    return SCREEN_HEIGHT -64-30-49-80;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
@@ -83,7 +146,7 @@
 //        return 0;
 //    }
 //    return 0;
-    return 80;
+    return 150;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -127,7 +190,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     //
-    //    if (self.UserDic) {
+//        if ([self.UserDic objectForKey:@"userId"]) {
     //        return 2;
     //    }else{
     //        if (self.array) {
@@ -136,14 +199,14 @@
     //            return 1;//loadCell、tableviewCell(nil)
     //        }
     //
-    //    }
+//        }
     //    return 0;
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    //    if (self.UserDic) {
+//        if ([self.UserDic objectForKey:@"userId"]) {
     //        if (section == 0) {
     //            return [self.array count];
     //        }else if (section == 1){
@@ -161,15 +224,15 @@
     //        }else{
     //            return 2;
     //        }
-    //    }
+//        }
     
     //    return [self.array count];
-    if (self.array) {
-        return 5;
-    }else{
-        return 1;
-    }
-    return 0;
+//    if (self.array) {
+//        return 5;
+//    }else{
+//        return 1;
+//    }
+    return 5;
 }
 
 
@@ -197,6 +260,7 @@
             NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:CellId owner:self options:nil];
             
             cell = [topLevelObjects objectAtIndex:0];
+            [cell initWithDic:nil];
             
         }
         
