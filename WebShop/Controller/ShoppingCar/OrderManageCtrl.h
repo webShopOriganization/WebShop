@@ -10,6 +10,6 @@
 #import "OrderManageCell.h"
 
 @interface OrderManageCtrl : UIViewController
-@property (strong, nonatomic) IBOutlet UITableView *orderTableView;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

@@ -30,7 +30,7 @@
     self.navigationItem.title = @"订单管理";
     
     //去掉tableView多余的空白行分割线
-    self.orderTableView.tableFooterView = [[UIView alloc] init];
+    self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)deleteOeder:(NSString *)orderId{
@@ -51,9 +51,15 @@
     
     if (buttonIndex == 0) {
         NSLog(@"删除订单操作");
+    }else if (buttonIndex == 1){
+        NSLog(@"取消删除");
     }
+    
 }
 
+- (void)actionSheetCancel:(UIActionSheet *)actionSheet {
+    NSLog(@"取消删除订单");
+}
 #pragma mark - TableView Delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

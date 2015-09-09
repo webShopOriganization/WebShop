@@ -10,7 +10,7 @@
 
 @interface ShoppingCarCtrl : UIViewController
 
-@property (strong, nonatomic) IBOutlet UITableView *shoppingCartTableView;
+@property (strong, nonatomic) IBOutlet UITableView *tableVeiw;
 
 @property (strong, nonatomic) NSDictionary *UserDic;
 @property (strong, nonatomic) NSMutableArray *array;
