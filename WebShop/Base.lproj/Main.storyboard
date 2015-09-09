@@ -16,29 +16,10 @@
                     <view key="view" contentMode="scaleToFill" id="F2L-Ps-y62">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7md-z7-9Gd">
-                                <rect key="frame" x="0.0" y="130" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="rjA-e1-cIq" id="nwp-tG-2EP"/>
-                                    <outlet property="delegate" destination="rjA-e1-cIq" id="ORO-wu-MKF"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="jL0-nZ-BsX" firstAttribute="top" secondItem="7md-z7-9Gd" secondAttribute="bottom" constant="-179" id="Ii4-gQ-HOn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="7md-z7-9Gd" secondAttribute="trailing" constant="-16" id="cb2-gQ-eSR"/>
-                            <constraint firstItem="7md-z7-9Gd" firstAttribute="leading" secondItem="F2L-Ps-y62" secondAttribute="leadingMargin" constant="-16" id="i5b-14-kT9"/>
-                            <constraint firstItem="7md-z7-9Gd" firstAttribute="top" secondItem="GNP-OW-GFi" secondAttribute="bottom" constant="66" id="seV-rJ-05A"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fTy-L0-jYc"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="tableView" destination="7md-z7-9Gd" id="FK5-vL-dOA"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UPs-VG-xvB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
