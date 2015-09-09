@@ -30,10 +30,12 @@
 - (void)initWithDic:(NSMutableDictionary*)dic
 {
     NSLog(@"生成了一个OrderCell");
-    self.orderImage.layer.cornerRadius = 36.0;
+    self.orderImage.layer.cornerRadius = 5.0f;
+    self.orderImage.layer.borderWidth = 1.0f;
+    self.orderImage.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.orderImage.layer.masksToBounds = YES;
     
-    self.backgroundColor = [UIColor lightGrayColor];
+    self.backgroundColor = [UIColor clearColor];
 }
 
 - (void)configWithDic:(NSMutableDictionary*)dic {

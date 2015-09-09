@@ -32,6 +32,12 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="aaaaaaaaaaaaaaa" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fH-ec-FxI">
+                            <rect key="frame" x="127" y="98" width="66" height="37"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg4.png" translatesAutoresizingMaskIntoConstraints="NO" id="3ou-Dp-sSs">
                             <rect key="frame" x="234" y="35" width="66" height="66"/>
                         </imageView>
@@ -47,6 +53,12 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="￥99.80" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJB-Yj-bmv">
+                            <rect key="frame" x="127" y="130" width="66" height="20"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="￥99.80" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6x6-AP-22N">
                             <rect key="frame" x="234" y="130" width="66" height="20"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -56,18 +68,6 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg4.png" translatesAutoresizingMaskIntoConstraints="NO" id="zKi-Ty-cMW">
                             <rect key="frame" x="127" y="35" width="66" height="66"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="aaaaaaaaaaaaaaa" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fH-ec-FxI">
-                            <rect key="frame" x="127" y="98" width="66" height="37"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="￥99.80" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJB-Yj-bmv">
-                            <rect key="frame" x="127" y="130" width="66" height="20"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
@@ -80,6 +80,17 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="img_01" destination="SLn-Xb-csv" id="pFd-vw-qH6"/>
+                <outlet property="img_02" destination="zKi-Ty-cMW" id="jdD-SU-EHx"/>
+                <outlet property="img_03" destination="3ou-Dp-sSs" id="IJR-7S-mle"/>
+                <outlet property="lblPrice_01" destination="ykw-7V-NT4" id="rvw-xS-Sd9"/>
+                <outlet property="lblPrice_02" destination="IJB-Yj-bmv" id="aEA-yk-fcB"/>
+                <outlet property="lblPrice_03" destination="6x6-AP-22N" id="kgF-S7-bjc"/>
+                <outlet property="lblProductName_01" destination="C0D-3K-NiR" id="PRn-ST-THc"/>
+                <outlet property="lblProductName_02" destination="4fH-ec-FxI" id="wtq-UB-kCA"/>
+                <outlet property="lblProductName_03" destination="Zfv-b5-Uyl" id="MBS-EL-1Kp"/>
+            </connections>
             <point key="canvasLocation" x="323" y="161"/>
         </view>
     </objects>

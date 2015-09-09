@@ -35,6 +35,8 @@
     [super viewWillAppear:YES];
     
     [self initUI];
+    
+    [self initRightButton];
 }
 
 - (void)initUI {
@@ -45,14 +47,27 @@
     
 //    self.UserDic = [[NSDictionary alloc] init];
     self.array = [[NSMutableArray alloc] init];
-    
-//    [[NetworkManager shareMgr]server_loginWithDic:nil completeHandle:^(NSDictionary *response) {
-//        self.UserDic = response;
-//    }];
-//    NSLog(@"self.userdic = %@", self.UserDic);
 
     self.tableVeiw.backgroundColor = [UIColor clearColor];
     [self.tableVeiw reloadData];
+}
+
+- (void)initRightButton {
+    self.rightButton=[UIButton buttonWithType:UIButtonTypeCustom];
+    [self.rightButton setTitle:@"编辑" forState:UIControlStateNormal];
+    self.rightButton.titleLabel.font=[UIFont systemFontOfSize:16];
+    [self.rightButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.rightButton setFrame:CGRectMake(0, 0, 60, 30)];
+    [self.rightButton addTarget:self action:@selector(editBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightItem=[[UIBarButtonItem alloc]initWithCustomView:self.rightButton ];
+    
+    UIBarButtonItem *negativeSpacer=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    negativeSpacer.width=-17;
+    self.navigationItem.rightBarButtonItems=@[negativeSpacer,rightItem];
+}
+
+- (void)editBtnClick {
+    
 }
 
 #pragma mark - TableView Delegate

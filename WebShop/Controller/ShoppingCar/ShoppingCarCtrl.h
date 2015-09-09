@@ -15,4 +15,6 @@
 @property (strong, nonatomic) NSDictionary *UserDic;
 @property (strong, nonatomic) NSMutableArray *array;
 
+@property (strong, nonatomic) UIButton *rightButton;
+
 @end

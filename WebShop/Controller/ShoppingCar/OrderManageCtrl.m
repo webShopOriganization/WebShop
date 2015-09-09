@@ -27,7 +27,7 @@
 }
 
 - (void)initUI {
-    self.navigationItem.title = @"订单管理";
+    self.navigationItem.title = @"全部订单";
     
     //去掉tableView多余的空白行分割线
     self.tableView.tableFooterView = [[UIView alloc] init];
