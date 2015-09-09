@@ -66,11 +66,56 @@
     self.navigationItem.rightBarButtonItems=@[negativeSpacer,rightItem];
 }
 
-- (void)editBtnClick {
+- (void)initEditBtn {
+    
+    self.rightButton=[UIButton buttonWithType:UIButtonTypeCustom];
+    [self.rightButton setTitle:@"完成" forState:UIControlStateNormal];
+    self.rightButton.titleLabel.font=[UIFont systemFontOfSize:16];
+    [self.rightButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.rightButton setFrame:CGRectMake(0, 0, 60, 30)];
+    [self.rightButton addTarget:self action:@selector(completeBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightItem=[[UIBarButtonItem alloc]initWithCustomView:self.rightButton ];
+    
+    UIBarButtonItem *negativeSpacer=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    negativeSpacer.width=-17;
+    self.navigationItem.rightBarButtonItems=@[negativeSpacer,rightItem];
     
 }
 
+- (void)editBtnClick {
+    NSLog(@"%s", __func__);
+    
+    [self initEditBtn];
+}
+
+- (void)completeBtnClick {
+    NSLog(@"%s", __func__);
+    
+    [self initRightButton];
+}
+
 #pragma mark - TableView Delegate
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+     return UITableViewCellEditingStyleDelete;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"删除";
+}
+
+/*删除用到的函数*/
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        //        [self.array removeObjectAtIndex:[indexPath row]];  //删除数组里的数据
+        //        [self.tableView deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];  //删除对应数据的cell
+        
+    }
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.array) {

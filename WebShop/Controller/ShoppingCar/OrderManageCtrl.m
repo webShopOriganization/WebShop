@@ -51,6 +51,9 @@
     
     if (buttonIndex == 0) {
         NSLog(@"删除订单操作");
+        
+//        [self.tableView deleteRowsAtIndexPaths:<#(NSArray *)#> withRowAnimation:<#(UITableViewRowAnimation)#>];
+        
     }else if (buttonIndex == 1){
         NSLog(@"取消删除");
     }
@@ -76,6 +79,26 @@
 //
 //    return 80;
 //}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"删除";
+}
+
+/*删除用到的函数*/
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+//        [self.array removeObjectAtIndex:[indexPath row]];  //删除数组里的数据
+//        [self.tableView deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];  //删除对应数据的cell
+
+    }
+}
 
 #pragma mark - TableVeiw Datasource
 
