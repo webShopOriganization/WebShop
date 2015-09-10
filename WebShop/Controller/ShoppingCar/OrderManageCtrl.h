@@ -12,4 +12,6 @@
 @interface OrderManageCtrl : UIViewController
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
+@property (strong, nonatomic) NSMutableArray *arrayOrder;
+
 @end

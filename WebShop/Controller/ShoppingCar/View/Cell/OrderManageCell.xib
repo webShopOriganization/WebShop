@@ -34,9 +34,18 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dbl-B2-ycP">
-                        <rect key="frame" x="104" y="12" width="150" height="45"/>
+                        <rect key="frame" x="104" y="5" width="150" height="45"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Dbl-B2-ycP" secondAttribute="height" multiplier="10:3" id="oPz-48-6PE"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="实付款:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyA-oo-jem">
+                        <rect key="frame" x="104" y="51" width="116" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="lyA-oo-jem" secondAttribute="height" multiplier="116:21" id="mT0-Iw-tUl"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -45,20 +54,30 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="arW-lu-l9L" secondAttribute="bottom" constant="31" id="3sz-rc-rBF"/>
+                    <constraint firstItem="lyA-oo-jem" firstAttribute="top" secondItem="Dbl-B2-ycP" secondAttribute="bottom" constant="1" id="8Fa-qS-gcq"/>
+                    <constraint firstItem="lyA-oo-jem" firstAttribute="leading" secondItem="oa4-g0-Xol" secondAttribute="trailing" constant="14" id="GKC-1L-72R"/>
                     <constraint firstItem="oa4-g0-Xol" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="Qqq-lr-GqD"/>
                     <constraint firstItem="arW-lu-l9L" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="VNx-6K-tES"/>
                     <constraint firstItem="Dbl-B2-ycP" firstAttribute="leading" secondItem="oa4-g0-Xol" secondAttribute="trailing" constant="14" id="aLi-Yj-b64"/>
                     <constraint firstItem="oa4-g0-Xol" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="afl-Jj-Fue"/>
-                    <constraint firstItem="Dbl-B2-ycP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="bps-LG-eoV"/>
+                    <constraint firstItem="Dbl-B2-ycP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-3" id="bps-LG-eoV"/>
                     <constraint firstItem="arW-lu-l9L" firstAttribute="leading" secondItem="Dbl-B2-ycP" secondAttribute="trailing" constant="8" id="fUO-VS-p00"/>
                     <constraint firstItem="oa4-g0-Xol" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="g0s-GT-qwt"/>
+                    <constraint firstAttribute="trailing" secondItem="lyA-oo-jem" secondAttribute="trailing" constant="100" id="hyw-nh-OV2"/>
                     <constraint firstItem="arW-lu-l9L" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="12" id="j2d-0A-x9f"/>
+                    <constraint firstAttribute="bottom" secondItem="lyA-oo-jem" secondAttribute="bottom" constant="17" id="qxQ-9a-NEv"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Dbl-B2-ycP" secondAttribute="bottom" constant="24" id="sCg-F0-YZf"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="sCg-F0-YZf"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
-                <outlet property="orderImage" destination="oa4-g0-Xol" id="5ZP-AF-BcO"/>
-                <outlet property="orderName" destination="Dbl-B2-ycP" id="aBS-1i-zFw"/>
+                <outlet property="imgOrder" destination="oa4-g0-Xol" id="oBN-bc-IQh"/>
+                <outlet property="lblOrderName" destination="Dbl-B2-ycP" id="B4E-5X-Y2z"/>
+                <outlet property="lblReallyPay" destination="lyA-oo-jem" id="2v2-Pg-nFo"/>
             </connections>
             <point key="canvasLocation" x="213" y="106"/>
         </tableViewCell>

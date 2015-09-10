@@ -15,8 +15,9 @@
 @end
 
 @interface OrderManageCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UIImageView *orderImage;
-@property (strong, nonatomic) IBOutlet UILabel *orderName;
+@property (strong, nonatomic) IBOutlet UIImageView *imgOrder;
+@property (strong, nonatomic) IBOutlet UILabel *lblOrderName;
+@property (strong, nonatomic) IBOutlet UILabel *lblReallyPay;
 
 @property (assign, nonatomic) id<deleteOrder> delegate;
 

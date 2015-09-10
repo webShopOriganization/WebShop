@@ -23,22 +23,27 @@
 - (IBAction)deleteBtnClick:(id)sender {
     NSLog(@"delete");
     
-    [self.delegate deleteOeder:self.orderName.text];
+    [self.delegate deleteOeder:self.lblOrderName.text];
     
 }
 
 - (void)initWithDic:(NSMutableDictionary*)dic
 {
     NSLog(@"生成了一个OrderCell");
-    self.orderImage.layer.cornerRadius = 5.0f;
-    self.orderImage.layer.borderWidth = 1.0f;
-    self.orderImage.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-    self.orderImage.layer.masksToBounds = YES;
+    self.imgOrder.layer.cornerRadius = 5.0f;
+    self.imgOrder.layer.borderWidth = 1.0f;
+    self.imgOrder.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.imgOrder.layer.masksToBounds = YES;
     
     self.backgroundColor = [UIColor clearColor];
 }
 
 - (void)configWithDic:(NSMutableDictionary*)dic {
     
+    if (dic) {
+        self.lblOrderName.text = dic[@"proName"];
+        self.lblReallyPay.text = [NSString stringWithFormat:@"实付款:￥%@", dic[@"price"]];
+    }
+
 }
 @end

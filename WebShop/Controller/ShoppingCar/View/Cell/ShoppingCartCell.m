@@ -20,6 +20,14 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)btnChooseClick:(id)sender {
+    if (self.imgForBtnSeleted.hidden == YES) {
+        self.imgForBtnSeleted.hidden = NO;
+    }else{
+        self.imgForBtnSeleted.hidden = YES;
+    }
+}
+
 - (void)initWithDic:(NSMutableDictionary*)dic {
     NSLog(@"生成了一个ProductCell");
     
@@ -27,6 +35,9 @@
     self.imgProduct.layer.borderWidth = 1.0f;
     self.imgProduct.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.imgProduct.layer.masksToBounds = YES;
+    
+    self.imgForBtnSeleted.layer.cornerRadius = 10.0f;
+    self.imgForBtnSeleted.layer.masksToBounds = YES;
     
     self.btnChoose.layer.borderWidth = 1.0f;
     self.btnChoose.layer.borderColor = [[UIColor lightGrayColor] CGColor];
@@ -37,6 +48,10 @@
 }
 - (void)configWithDic:(NSMutableDictionary*)dic {
     
+    if (dic) {
+        self.lblProName.text = dic[@"proName"];
+        self.lblPrice.text = [NSString stringWithFormat:@"￥%@", dic[@"price"]];
+    }
 }
 
 @end

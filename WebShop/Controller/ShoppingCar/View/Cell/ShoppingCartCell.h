@@ -13,6 +13,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblProName;
 @property (strong, nonatomic) IBOutlet UILabel *lblPrice;
 @property (strong, nonatomic) IBOutlet UIButton *btnChoose;
+@property (strong, nonatomic) IBOutlet UIImageView *imgForBtnSeleted;
+- (IBAction)btnChooseClick:(id)sender;
 
 - (void)initWithDic:(NSMutableDictionary*)dic;
 - (void)configWithDic:(NSMutableDictionary*)dic;
