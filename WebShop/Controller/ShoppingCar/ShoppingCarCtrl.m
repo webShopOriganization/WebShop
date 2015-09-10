@@ -44,9 +44,25 @@
     self.title = @"购物车";
     //去掉tableView多余的空白行分割线
     self.tableVeiw.tableFooterView = [[UIView alloc] init];
+// 
+//    self.UserDic = [[NSDictionary alloc] initWithObjectsAndKeys:
+//                    @"1" , @"userId",
+//                    @"小王" , @"username",
+//                    @"123" , @"password",
+//                    @"123456" , @"phone",
+//                    @"123456@qq.com" , @"email",
+//                    @"xx.png" , @"imgOfHead", nil];
     
-//    self.UserDic = [[NSDictionary alloc] init];
-    self.array = [[NSMutableArray alloc] init];
+//    self.array = [[NSMutableArray alloc] initWithObjects:
+//                  @{@"productId": @"1", @"proName":@"A1", @"saleCount":@"1", @"image":@"", @"price":@"998.0", @"decript":@"good", @"salesDate":@"2015.06.22"},
+//                  @{@"productId": @"2", @"proName":@"B2", @"saleCount":@"1", @"image":@"", @"price":@"99.8", @"decript":@"good", @"salesDate":@"2015.02.03"},
+//                  @{@"productId": @"3", @"proName":@"C3", @"saleCount":@"1", @"image":@"", @"price":@"9.98", @"decript":@"good", @"salesDate":@"2015.05.04"},
+//                  @{@"productId": @"4", @"proName":@"D4", @"saleCount":@"1", @"image":@"", @"price":@"199.0", @"decript":@"good", @"salesDate":@"2015.07.31"},
+//                  @{@"productId": @"5", @"proName":@"E5", @"saleCount":@"1", @"image":@"", @"price":@"9999.0", @"decript":@"good", @"salesDate":@"2015.02.03"},nil];
+    
+//    [[NetworkManager shareMgr]server_productListWithDic:nil completeHandle:^(NSDictionary *response) {
+//        
+//    }];
 
     self.tableVeiw.backgroundColor = [UIColor clearColor];
     [self.tableVeiw reloadData];
@@ -112,13 +128,15 @@
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
         //        [self.array removeObjectAtIndex:[indexPath row]];  //删除数组里的数据
+        [self.tableVeiw beginUpdates];
         //        [self.tableView deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];  //删除对应数据的cell
+        [self.tableVeiw endUpdates];
         
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.array) {
+    if ([self.array count]) {
         return 90;
     }else{
         return SCREEN_HEIGHT -64-30-49-80;
@@ -129,24 +147,24 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
-//    if (self.UserDic) {
-//        return 0;
-//    }else{
-//        return 30;
-//    }
-//    return 0;
-    return 30;
+    NSLog(@"id ======= %@", self.UserDic[@"userId"]);
+    if (self.UserDic) {
+        return 0;
+    }else{
+        return 30;
+    }
+    return 0;
 
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     
-//    if (self.UserDic) {
-//        return 80;
-//    }else{
-//        return 0;
-//    }
-//    return 0;
-    return 150;
+    if (self.UserDic) {
+        return 150;
+    }else{
+        return 0;
+    }
+    return 0;
+  
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -155,17 +173,17 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (!self.UserDic) {
-    if (section == 0) {
-        LoadHeaderView *loginView = [[LoadHeaderView alloc] init];
+        if (section == 0) {
+            LoadHeaderView *loginView = [[LoadHeaderView alloc] init];
+            
+            NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"LoadHeaderView" owner:self options:nil];
+            
+            loginView = [topLevelObjects objectAtIndex:0];
+            loginView.backgroundColor = [UIColor whiteColor];
+            
+            return loginView;
+        }
         
-        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"LoadHeaderView" owner:self options:nil];
-        
-        loginView = [topLevelObjects objectAtIndex:0];
-        loginView.backgroundColor = [UIColor whiteColor];
-        
-        return loginView;
-    }
-    
     }
     
     return nil;
@@ -173,7 +191,7 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-//    if (self.UserDic) {
+    if (self.UserDic) {
         FooterView *footerView = [[FooterView alloc] init];
         
         NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"FooterView" owner:self options:nil];
@@ -181,8 +199,8 @@
         footerView = [topLevelObjects objectAtIndex:0];
     
         return footerView;
-//    }
-//    return nil;
+    }
+    return nil;
     
 }
 
@@ -226,13 +244,15 @@
     //        }
 //        }
     
-    //    return [self.array count];
-//    if (self.array) {
-//        return 5;
-//    }else{
-//        return 1;
-//    }
-    return 5;
+    if (self.UserDic) {
+        if (self.array) {
+            return [self.array count];
+        }else{
+            return 1;
+        }
+        
+    }
+    return 1;
 }
 
 

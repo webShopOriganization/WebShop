@@ -16,9 +16,9 @@
 - (void)drawRect:(CGRect)rect {
     // Drawing code
     
-    self.btnLogin.layer.borderWidth = 1;
+    self.btnLogin.layer.borderWidth = 1.0f;
     self.btnLogin.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-    self.btnLogin.layer.cornerRadius = 5.0;
+    self.btnLogin.layer.cornerRadius = 5.0f;
 }
 
 
