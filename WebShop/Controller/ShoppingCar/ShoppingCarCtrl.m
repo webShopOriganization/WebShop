@@ -12,8 +12,9 @@
 #import "LoadHeaderView.h"
 #import "FooterView.h"
 #import "ShoppingCartCell.h"
+#import "LoginViewController.h"
 
-@interface ShoppingCarCtrl ()<UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
+@interface ShoppingCarCtrl ()<UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, loginDelegate>
 
 
 @end
@@ -57,20 +58,20 @@
     //去掉tableView多余的空白行分割线
     self.tableVeiw.tableFooterView = [[UIView alloc] init];
  
-    self.UserDic = [[NSDictionary alloc] initWithObjectsAndKeys:
-                    @"1" , @"userId",
-                    @"小王" , @"username",
-                    @"123" , @"password",
-                    @"123456" , @"phone",
-                    @"123456@qq.com" , @"email",
-                    @"xx.png" , @"imgOfHead", nil];
+//    self.UserDic = [[NSDictionary alloc] initWithObjectsAndKeys:
+//                    @"1" , @"userId",
+//                    @"小王" , @"username",
+//                    @"123" , @"password",
+//                    @"123456" , @"phone",
+//                    @"123456@qq.com" , @"email",
+//                    @"xx.png" , @"imgOfHead", nil];
     
     self.array = [[NSMutableArray alloc] initWithObjects:
                   @{@"productId": @"1", @"proName":@"A1", @"saleCount":@"1", @"image":@"", @"price":@"998.0", @"decript":@"good", @"salesDate":@"2015.06.22"},
                   @{@"productId": @"2", @"proName":@"B2", @"saleCount":@"1", @"image":@"", @"price":@"99.8", @"decript":@"good", @"salesDate":@"2015.02.03"},
                   @{@"productId": @"3", @"proName":@"C3", @"saleCount":@"1", @"image":@"", @"price":@"9.98", @"decript":@"good", @"salesDate":@"2015.05.04"},
-//                  @{@"productId": @"4", @"proName":@"D4", @"saleCount":@"1", @"image":@"", @"price":@"199.0", @"decript":@"good", @"salesDate":@"2015.07.31"},
-//                  @{@"productId": @"5", @"proName":@"E5", @"saleCount":@"1", @"image":@"", @"price":@"9999.0", @"decript":@"good", @"salesDate":@"2015.02.03"},
+                  @{@"productId": @"4", @"proName":@"D4", @"saleCount":@"1", @"image":@"", @"price":@"199.0", @"decript":@"good", @"salesDate":@"2015.07.31"},
+                  @{@"productId": @"5", @"proName":@"E5", @"saleCount":@"1", @"image":@"", @"price":@"9999.0", @"decript":@"good", @"salesDate":@"2015.02.03"},
                   nil];
     
     [[NetworkManager shareMgr]server_productListWithDic:nil completeHandle:^(NSDictionary *response) {
@@ -79,6 +80,11 @@
 
     self.tableVeiw.backgroundColor = [UIColor clearColor];
     [self.tableVeiw reloadData];
+    
+    if (![self.array count]) {
+        self.tableVeiw.backgroundColor = [UIColor lightGrayColor];
+        [Common addAlertViewWithTitel:@"购物车是空的..."];
+    }
 }
 
 - (void)initViewForTallyOrder {
@@ -180,6 +186,10 @@
 }
 
 - (IBAction)btnPayMoney:(id)sender {
+
+    if (!self.UserDic){
+        [Common addAlertViewWithTitel:@"请先登录"];
+    }
 }
 
 - (IBAction)btnChooseAllClick:(id)sender {
@@ -190,7 +200,13 @@
     }
 }
 
+- (void)JumpToLoginView:(NSDictionary *)loginDic {
+    
+    LoginViewController *vc=[[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
+    vc.navigationItem.title = @"用户登录";
+    [self.navigationController pushViewController:vc animated:YES];
 
+}
 
 
 #pragma mark - UIActionSheetDelegate
@@ -236,13 +252,16 @@
         [self.tableVeiw deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];  //删除对应数据的cell
         [self.tableVeiw endUpdates];
         
-    }}
+        [self.tableVeiw reloadData];
+        
+    }
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([self.array count]) {
         return 90;
     }else{
-        return SCREEN_HEIGHT -64-30-49-80;
+        return 0;
     }
     return 0;
     
@@ -261,7 +280,7 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     
-    if (self.UserDic) {
+    if (self.UserDic && [self.array count]) {
         return 150;
     }else{
         return 0;
@@ -284,6 +303,8 @@
             loginView = [topLevelObjects objectAtIndex:0];
             loginView.backgroundColor = [UIColor whiteColor];
             
+            loginView.delegate = self;
+            
             return loginView;
         }
         
@@ -294,7 +315,7 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    if (self.UserDic) {
+    if (self.UserDic && [self.array count]) {
         FooterView *footerView = [[FooterView alloc] init];
         
         NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"FooterView" owner:self options:nil];
@@ -310,52 +331,20 @@
 #pragma mark - TableVeiw Datasource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    //
-//        if ([self.UserDic objectForKey:@"userId"]) {
-    //        return 2;
-    //    }else{
-    //        if (self.array) {
-    //            return 3;//loadCell、tableviewCell、footView
-    //        }else{
-    //            return 1;//loadCell、tableviewCell(nil)
-    //        }
-    //
-//        }
-    //    return 0;
+
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-//        if ([self.UserDic objectForKey:@"userId"]) {
-    //        if (section == 0) {
-    //            return [self.array count];
-    //        }else if (section == 1){
-    //            return 1;
-    //        }
-    //    }else{
-    //        if (self.array) {
-    //            if (section == 0) {
-    //                return 1;
-    //            }else if (section == 1){
-    //                return [self.array count];
-    //            }else if(section == 2){
-    //                return 1;
-    //            }
-    //        }else{
-    //            return 2;
-    //        }
-//        }
-    
-    if (self.UserDic) {
+//    if (self.UserDic) {
         if ([self.array count]) {
             return [self.array count];
         }else{
-            return 1;
+            return 0;
         }
-        
-    }
-    return 1;
+//    }
+//    return 0;
 }
 
 
@@ -366,6 +355,7 @@
     
     NSLog(@"self.array = %lu", (unsigned long)self.array.count);
     if (![self.array count]) {
+        
         UITableViewCell *cell = [[UITableViewCell alloc] init];
         
         cell.textLabel.textAlignment = NSTextAlignmentCenter;

@@ -7,6 +7,7 @@
 //
 
 #import "LoadHeaderView.h"
+#import "LoginViewController.h"
 
 @implementation LoadHeaderView
 
@@ -24,5 +25,7 @@
 
 - (IBAction)loginBtnClick:(id)sender {
     NSLog(@"登录");
+    
+    [self.delegate JumpToLoginView:nil];
 }
 @end

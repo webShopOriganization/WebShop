@@ -15,11 +15,12 @@
 @end
 
 @interface OrderManageCell : UITableViewCell
+
 @property (strong, nonatomic) IBOutlet UIImageView *imgOrder;
 @property (strong, nonatomic) IBOutlet UILabel *lblOrderName;
 @property (strong, nonatomic) IBOutlet UILabel *lblReallyPay;
 
-@property (assign, nonatomic) id<deleteOrder> delegate;
+@property (weak, nonatomic) id<deleteOrder> delegate;
 
 - (IBAction)deleteBtnClick:(id)sender;
 
