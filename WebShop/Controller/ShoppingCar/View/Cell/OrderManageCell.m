@@ -23,7 +23,10 @@
 - (IBAction)deleteBtnClick:(id)sender {
     NSLog(@"delete");
     
+    UIButton *btn = sender;
+    int row = (int)btn.tag;
     [self.delegate deleteOeder:self.lblOrderName.text];
+    [self.delegate sendIndexPath:self.indexPath];
     
 }
 
