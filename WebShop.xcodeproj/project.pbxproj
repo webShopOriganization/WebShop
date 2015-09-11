@@ -39,6 +39,7 @@
 		218AC3481BA2D49300FF9A25 /* Evaluation_1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 218AC3441BA2D49300FF9A25 /* Evaluation_1@3x.png */; };
 		218AC34C1BA2D6D300FF9A25 /* LookAllCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 218AC34A1BA2D6D300FF9A25 /* LookAllCommentCell.m */; };
 		218AC34D1BA2D6D300FF9A25 /* LookAllCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 218AC34B1BA2D6D300FF9A25 /* LookAllCommentCell.xib */; };
+		218AC34F1BA2F60400FF9A25 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 218AC34E1BA2F60400FF9A25 /* delete.png */; };
 		218F54A41B9EB50C003226C3 /* UserDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 218F54A31B9EB50C003226C3 /* UserDataManager.m */; };
 		218F54A81B9EB52D003226C3 /* UserLoginInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 218F54A71B9EB52D003226C3 /* UserLoginInfo.m */; };
 		219296A61BA0320E00D9860B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219296A41BA0320E00D9860B /* LoginViewController.m */; };
@@ -133,6 +134,7 @@
 		218AC3491BA2D6D300FF9A25 /* LookAllCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookAllCommentCell.h; sourceTree = "<group>"; };
 		218AC34A1BA2D6D300FF9A25 /* LookAllCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookAllCommentCell.m; sourceTree = "<group>"; };
 		218AC34B1BA2D6D300FF9A25 /* LookAllCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LookAllCommentCell.xib; sourceTree = "<group>"; };
+		218AC34E1BA2F60400FF9A25 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
 		218F54A21B9EB50C003226C3 /* UserDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDataManager.h; sourceTree = "<group>"; };
 		218F54A31B9EB50C003226C3 /* UserDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDataManager.m; sourceTree = "<group>"; };
 		218F54A61B9EB52D003226C3 /* UserLoginInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLoginInfo.h; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 		219B79941B9D7E9E00325AB0 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				218AC34E1BA2F60400FF9A25 /* delete.png */,
 				218AC3411BA2D49300FF9A25 /* Evaluation_0@2x.png */,
 				218AC3421BA2D49300FF9A25 /* Evaluation_0@3x.png */,
 				218AC3431BA2D49300FF9A25 /* Evaluation_1@2x.png */,
@@ -603,6 +606,7 @@
 				218AC3401BA2D44D00FF9A25 /* starView.xib in Resources */,
 				219B799B1B9D7EBE00325AB0 /* bg3.png in Resources */,
 				219B79991B9D7EBE00325AB0 /* bg1.png in Resources */,
+				218AC34F1BA2F60400FF9A25 /* delete.png in Resources */,
 				21841D591BA268A700A3DD26 /* btnRed.png in Resources */,
 				23D4816E1BA00C4F0036B9DC /* LoadHeaderView.xib in Resources */,
 				218AC3341BA2D1DC00FF9A25 /* list_more@3x.png in Resources */,
