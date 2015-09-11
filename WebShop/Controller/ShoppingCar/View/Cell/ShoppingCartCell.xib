@@ -30,11 +30,20 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnRed.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Uk-jw-lu0">
+                        <rect key="frame" x="15" y="35" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="8Uk-jw-lu0" secondAttribute="height" multiplier="1:1" id="1vg-Ur-tF9"/>
+                        </constraints>
+                    </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCV-NV-UgV">
                         <rect key="frame" x="15" y="35" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="wCV-NV-UgV" secondAttribute="height" multiplier="1:1" id="uLy-Qz-vz3"/>
                         </constraints>
+                        <connections>
+                            <action selector="btnChooseClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="uUy-tb-jvs"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥998.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VG8-bO-Cvo">
                         <rect key="frame" x="141" y="50" width="120" height="21"/>
@@ -49,8 +58,12 @@
                 <constraints>
                     <constraint firstItem="e77-Qt-RTW" firstAttribute="leading" secondItem="wCV-NV-UgV" secondAttribute="trailing" constant="15" id="4Oe-Wh-Wsa"/>
                     <constraint firstItem="wCV-NV-UgV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="7" id="FSs-pa-6IT"/>
+                    <constraint firstItem="8Uk-jw-lu0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="27" id="G7S-w6-wvN"/>
+                    <constraint firstItem="8Uk-jw-lu0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="7" id="Msr-0H-fWK"/>
                     <constraint firstAttribute="bottomMargin" secondItem="e77-Qt-RTW" secondAttribute="bottom" constant="1" id="NAB-mG-9Jd"/>
+                    <constraint firstItem="e77-Qt-RTW" firstAttribute="leading" secondItem="8Uk-jw-lu0" secondAttribute="trailing" constant="15" id="OXb-xg-24o"/>
                     <constraint firstAttribute="bottomMargin" secondItem="eP4-Gj-rYa" secondAttribute="bottom" constant="26" id="Or8-Mt-Ccy"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="8Uk-jw-lu0" secondAttribute="bottom" constant="26" id="QAM-Ya-KSR"/>
                     <constraint firstItem="e77-Qt-RTW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="SLN-Ta-96B"/>
                     <constraint firstAttribute="trailingMargin" secondItem="VG8-bO-Cvo" secondAttribute="trailing" constant="51" id="SwV-ud-3eU"/>
                     <constraint firstItem="eP4-Gj-rYa" firstAttribute="leading" secondItem="e77-Qt-RTW" secondAttribute="trailing" constant="19" id="UUH-Dr-gwU"/>
@@ -64,6 +77,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="btnChoose" destination="wCV-NV-UgV" id="IPQ-FI-USG"/>
+                <outlet property="imgForBtnSeleted" destination="8Uk-jw-lu0" id="Kfn-HT-aDI"/>
                 <outlet property="imgProduct" destination="e77-Qt-RTW" id="U1d-2i-BEY"/>
                 <outlet property="lblPrice" destination="VG8-bO-Cvo" id="PdD-Bb-d9n"/>
                 <outlet property="lblProName" destination="eP4-Gj-rYa" id="sVu-Gu-tYN"/>
@@ -73,5 +87,6 @@
     </objects>
     <resources>
         <image name="bg2.png" width="1080" height="496"/>
+        <image name="btnRed.png" width="10" height="10"/>
     </resources>
 </document>

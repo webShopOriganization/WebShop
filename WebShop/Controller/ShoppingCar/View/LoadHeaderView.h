@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol loginDelegate <NSObject>
+
+- (void)JumpToLoginView:(NSDictionary *)loginDic;
+
+@end
+
 @interface LoadHeaderView : UIView
 
+@property (weak, nonatomic) id<loginDelegate> delegate;
 @property (strong, nonatomic) IBOutlet UIButton *btnLogin;
 - (IBAction)loginBtnClick:(id)sender;
 
