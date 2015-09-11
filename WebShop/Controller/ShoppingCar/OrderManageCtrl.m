@@ -10,6 +10,7 @@
 
 @interface OrderManageCtrl ()<deleteOrder, UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 
+@property (strong, nonatomic) NSIndexPath *indexPath;
 
 @end
 
@@ -42,7 +43,7 @@
 }
 
 - (void)deleteOeder:(NSString *)orderID{
-    NSLog(@"orderID = %@", orderID);
+    NSLog(@"选中行: %ld, orderID = %@", (long)self.indexPath.row, orderID);
     
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:@"确认删除此订单？"
@@ -54,20 +55,20 @@
     [actionSheet showInView:self.tabBarController.view];
 }
 
-- (void)sendIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"indexPath.row = %ld", (long)indexPath.row);
-    
-    //删除订单操作
-    [self ConfirmDelete:indexPath];
+//- (void)sendIndexPath:(NSIndexPath *)indexPath {
+//    NSLog(@"indexPath.row = %ld", (long)indexPath.row);
+//
+////    self.indexPath = indexPath;
+//    
+//}
 
-}
 /** 确认删除订单 */
-- (void)ConfirmDelete:(NSIndexPath *)indexPath {
+- (void)ConfirmDelete {
     NSLog(@"%s", __func__);
     
-    [self.arrayOrder removeObjectAtIndex:indexPath.row];  //删除数组里的数据
+    [self.arrayOrder removeObjectAtIndex:self.indexPath.row];  //删除数组里的数据
     [self.tableView beginUpdates];
-    [self.tableView deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];  //删除对应数据的cell
+    [self.tableView deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:self.indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];  //删除对应数据的cell
     [self.tableView endUpdates];
     
     [self.tableView reloadData];
@@ -78,6 +79,8 @@
     
     if (buttonIndex == 0) {
         NSLog(@"删除订单操作");
+        
+        [self ConfirmDelete];
         
     }else if (buttonIndex == 1){
         NSLog(@"取消删除");
@@ -166,8 +169,10 @@
             NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:CellId owner:self options:nil];
             cell = [topLevelObjects objectAtIndex:0];
             
+            self.indexPath = indexPath;
+            
             cell.btnDelete.tag = indexPath.row;
-            cell.indexPath = indexPath;
+//            cell.indexPath = indexPath;
             cell.delegate = self;
             [cell initWithDic:nil];
             [cell configWithDic:dic];

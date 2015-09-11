@@ -11,7 +11,7 @@
 @protocol deleteOrder <NSObject>
 
 - (void)deleteOeder:(NSString *)orderID;
-- (void)sendIndexPath:(NSIndexPath *)indexPath;
+//- (void)sendIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
