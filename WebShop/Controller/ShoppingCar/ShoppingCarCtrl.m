@@ -156,6 +156,8 @@
     
 }
 
+#pragma mark - button点击事件
+
 - (void)editBtnClick {
     NSLog(@"%s", __func__);
     
@@ -164,15 +166,6 @@
     self.viewSecond.hidden = NO;
     self.imgForBtnSelected.hidden = YES;
     self.imgSecond.hidden = YES;
-    
-//    if ([self.navigationItem.rightBarButtonItem.title isEqual:@"编辑"]) {
-//        self.navigationItem.rightBarButtonItem.title = @"确定";
-//        [self.tableVeiw setEditing:YES animated:YES];
-//    }else{
-//        self.navigationItem.rightBarButtonItem.title = @"编辑";
-////        [self.array removeAllObjects];
-//        //        [self.tableVeiw reloadData];
-//    }
 }
 
 - (void)completeBtnClick {
@@ -198,11 +191,28 @@
     
 }
 
+//全选按钮点击事件
 - (IBAction)btnSecondClick:(id)sender {
+    
+  
+    
     if (self.imgSecond.hidden == YES) {
         self.imgSecond.hidden = NO;
+        
+        for (int i = 0; i < self.array.count; i++) {
+            ShoppingCartCell *cell = (ShoppingCartCell *)[self.tableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+            cell.imgForBtnSeleted.hidden = NO;
+        }
+          NSLog(@"shoppingcart.array.count = %lu", (unsigned long)self.array.count);
+        
     }else{
         self.imgSecond.hidden = YES;
+        
+        for (int j = 0; j < self.array.count; j++) {
+            ShoppingCartCell *cell = (ShoppingCartCell *)[self.tableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:j inSection:0]];
+            cell.imgForBtnSeleted.hidden = YES;
+        }
+          NSLog(@"shoppingcart.array.count = %lu", (unsigned long)self.array.count);
     }
 }
 
@@ -254,10 +264,7 @@
         }
         
         [self.tableVeiw reloadData];
-        
-        [self.arrayDelete removeAllObjects];
-        
-        //        [self.tableView deleteRowsAtIndexPaths:<#(NSArray *)#> withRowAnimation:<#(UITableViewRowAnimation)#>];
+        [self.arrayDelete removeAllObjects];//清空待删除数组内容
         
     }else if (buttonIndex == 1){
         NSLog(@"取消删除");

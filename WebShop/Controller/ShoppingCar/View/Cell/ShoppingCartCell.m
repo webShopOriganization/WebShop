@@ -8,6 +8,11 @@
 
 #import "ShoppingCartCell.h"
 
+@interface ShoppingCartCell ()
+
+
+@end
+
 @implementation ShoppingCartCell
 
 - (void)awakeFromNib {

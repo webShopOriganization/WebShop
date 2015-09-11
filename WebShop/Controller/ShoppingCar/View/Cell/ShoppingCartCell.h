@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ShoppingCarCtrl.h"
 
 @protocol deleteCellDelegate <NSObject>
 
@@ -15,6 +16,7 @@
 @end
 
 @interface ShoppingCartCell : UITableViewCell
+
 @property (strong, nonatomic) IBOutlet UIImageView *imgProduct;
 @property (strong, nonatomic) IBOutlet UILabel *lblProName;
 @property (strong, nonatomic) IBOutlet UILabel *lblPrice;
