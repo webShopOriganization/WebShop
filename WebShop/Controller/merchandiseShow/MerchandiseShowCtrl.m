@@ -8,6 +8,7 @@
 
 #import "MerchandiseShowCtrl.h"
 #import "NetworkManager.h"
+#import "ShoppingListCtrl.h"
 
 @interface MerchandiseShowCtrl ()
 
@@ -21,6 +22,30 @@
     self.navigationItem.title=@"商品展示";
     
     [self getData];
+    
+    [self initButton];
+}
+
+-(void)initButton
+{
+    UIButton *button=[UIButton buttonWithType:UIButtonTypeCustom];
+    [button setFrame:CGRectMake(100, 100, 100, 60)];
+    [button addTarget:self action:@selector(goTestView:) forControlEvents:UIControlEventTouchUpInside];
+    [button setTitle:@"测试" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [self.view addSubview:button];
+}
+
+-(void)goTestView:(UIButton*)button
+{
+    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc]init];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    [flowLayout setMinimumInteritemSpacing:0];
+    [flowLayout setMinimumLineSpacing:0];
+    
+    ShoppingListCtrl *vc=[[ShoppingListCtrl alloc]initWithCollectionViewLayout:flowLayout];
+    vc.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)getData
