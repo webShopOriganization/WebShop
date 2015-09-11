@@ -23,6 +23,8 @@
 - (IBAction)btnChooseClick:(id)sender {
     if (self.imgForBtnSeleted.hidden == YES) {
         self.imgForBtnSeleted.hidden = NO;
+        
+        [self.delegate addObjectToDeleteArray:self.indexPath];
     }else{
         self.imgForBtnSeleted.hidden = YES;
     }

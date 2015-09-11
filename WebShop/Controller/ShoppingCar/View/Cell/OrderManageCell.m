@@ -24,7 +24,7 @@
     NSLog(@"delete");
 
     [self.delegate deleteOeder:self.lblOrderName.text];
-//    [self.delegate sendIndexPath:self.indexPath];
+    [self.delegate sendIndexPath:self.indexPath];
     
 }
 

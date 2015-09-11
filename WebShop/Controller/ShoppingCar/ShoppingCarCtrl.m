@@ -14,9 +14,11 @@
 #import "ShoppingCartCell.h"
 #import "LoginViewController.h"
 
-@interface ShoppingCarCtrl ()<UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, loginDelegate>
+@interface ShoppingCarCtrl ()<UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, loginDelegate, deleteCellDelegate>
 
-
+@property (assign, nonatomic) NSInteger statusForRightButton;
+@property (strong, nonatomic) NSIndexPath *indexPath;
+@property (strong, nonatomic) NSMutableArray *arrayDelete;
 @end
 
 @implementation ShoppingCarCtrl
@@ -65,7 +67,7 @@
 //                    @"123456" , @"phone",
 //                    @"123456@qq.com" , @"email",
 //                    @"xx.png" , @"imgOfHead", nil];
-    
+    self.arrayDelete = [[NSMutableArray alloc] init];
     self.array = [[NSMutableArray alloc] initWithObjects:
                   @{@"productId": @"1", @"proName":@"A1", @"saleCount":@"1", @"image":@"", @"price":@"998.0", @"decript":@"good", @"salesDate":@"2015.06.22"},
                   @{@"productId": @"2", @"proName":@"B2", @"saleCount":@"1", @"image":@"", @"price":@"99.8", @"decript":@"good", @"salesDate":@"2015.02.03"},
@@ -85,6 +87,7 @@
         self.tableVeiw.backgroundColor = [UIColor lightGrayColor];
         [Common addAlertViewWithTitel:@"购物车是空的..."];
     }
+
 }
 
 - (void)initViewForTallyOrder {
@@ -118,6 +121,9 @@
 }
 
 - (void)initRightButton {
+    
+    self.statusForRightButton = 1;
+    
     self.rightButton=[UIButton buttonWithType:UIButtonTypeCustom];
     [self.rightButton setTitle:@"编辑" forState:UIControlStateNormal];
     self.rightButton.titleLabel.font=[UIFont systemFontOfSize:16];
@@ -129,9 +135,12 @@
     UIBarButtonItem *negativeSpacer=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     negativeSpacer.width=-17;
     self.navigationItem.rightBarButtonItems=@[negativeSpacer,rightItem];
+    
 }
 
-- (void)initEditBtn {
+- (void)initCompleteBtn {
+    
+    self.statusForRightButton = 2;
     
     self.rightButton=[UIButton buttonWithType:UIButtonTypeCustom];
     [self.rightButton setTitle:@"完成" forState:UIControlStateNormal];
@@ -145,16 +154,25 @@
     negativeSpacer.width=-17;
     self.navigationItem.rightBarButtonItems=@[negativeSpacer,rightItem];
     
-    
 }
 
 - (void)editBtnClick {
     NSLog(@"%s", __func__);
     
     self.viewForTallyOrder.hidden = YES;
-    [self initEditBtn];
+    [self initCompleteBtn];
     self.viewSecond.hidden = NO;
+    self.imgForBtnSelected.hidden = YES;
+    self.imgSecond.hidden = YES;
     
+//    if ([self.navigationItem.rightBarButtonItem.title isEqual:@"编辑"]) {
+//        self.navigationItem.rightBarButtonItem.title = @"确定";
+//        [self.tableVeiw setEditing:YES animated:YES];
+//    }else{
+//        self.navigationItem.rightBarButtonItem.title = @"编辑";
+////        [self.array removeAllObjects];
+//        //        [self.tableVeiw reloadData];
+//    }
 }
 
 - (void)completeBtnClick {
@@ -163,6 +181,8 @@
     self.viewSecond.hidden = YES;
     [self initRightButton];
     self.viewForTallyOrder.hidden = NO;
+    self.imgForBtnSelected.hidden = NO;
+    
 }
 
 - (IBAction)deleteBtnClick:(id)sender {
@@ -175,6 +195,7 @@
                                   otherButtonTitles:nil];
     
     [actionSheet showInView:self.tabBarController.view];
+    
 }
 
 - (IBAction)btnSecondClick:(id)sender {
@@ -208,12 +229,33 @@
 
 }
 
+-(void)addObjectToDeleteArray:(NSIndexPath *)indexPath {
+    
+    self.indexPath = indexPath;
+    
+    if (self.statusForRightButton == 2 && self.array) {
+        
+        [self.arrayDelete addObject:[self.array objectAtIndex:self.indexPath.row]];
+        
+        NSLog(@"self.arrayDelete = %@", self.arrayDelete);
+    }
+    
+   
+}
 
 #pragma mark - UIActionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     if (buttonIndex == 0) {
         NSLog(@"删除商品操作");
+        
+        for (id obj in self.arrayDelete) {
+            [self.array removeObject:obj];
+        }
+        
+        [self.tableVeiw reloadData];
+        
+        [self.arrayDelete removeAllObjects];
         
         //        [self.tableView deleteRowsAtIndexPaths:<#(NSArray *)#> withRowAnimation:<#(UITableViewRowAnimation)#>];
         
@@ -375,6 +417,10 @@
             NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:CellId owner:self options:nil];
             
             cell = [topLevelObjects objectAtIndex:0];
+            
+            cell.indexPath = indexPath;
+            NSLog(@"--------%ld", (long)cell.indexPath.row);
+            cell.delegate = self;
             [cell initWithDic:nil];
             [cell configWithDic:dic];
             

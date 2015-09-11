@@ -55,12 +55,12 @@
     [actionSheet showInView:self.tabBarController.view];
 }
 
-//- (void)sendIndexPath:(NSIndexPath *)indexPath {
-//    NSLog(@"indexPath.row = %ld", (long)indexPath.row);
-//
-////    self.indexPath = indexPath;
-//    
-//}
+- (void)sendIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"indexPath.row = %ld", (long)indexPath.row);
+
+    self.indexPath = indexPath;
+    
+}
 
 /** 确认删除订单 */
 - (void)ConfirmDelete {
@@ -169,10 +169,7 @@
             NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:CellId owner:self options:nil];
             cell = [topLevelObjects objectAtIndex:0];
             
-            self.indexPath = indexPath;
-            
-            cell.btnDelete.tag = indexPath.row;
-//            cell.indexPath = indexPath;
+            cell.indexPath = indexPath;
             cell.delegate = self;
             [cell initWithDic:nil];
             [cell configWithDic:dic];
