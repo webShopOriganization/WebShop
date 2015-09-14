@@ -12,7 +12,12 @@
 @protocol deleteCellDelegate <NSObject>
 
 - (void)addObjectToDeleteArray:(NSIndexPath *)indexPath;
+- (void)deleteFromDeleteArray:(NSIndexPath *)indexPath;
 
+- (void)addObjectToPayArray:(NSIndexPath *)indexPath;
+- (void)deleteFromPayArray:(NSIndexPath *)indexPath;
+
+- (void)totalNeedPayFor:(NSIndexPath *)indexPath;
 @end
 
 @interface ShoppingCartCell : UITableViewCell

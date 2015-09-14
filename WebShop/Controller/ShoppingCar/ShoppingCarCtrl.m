@@ -13,12 +13,14 @@
 #import "FooterView.h"
 #import "ShoppingCartCell.h"
 #import "LoginViewController.h"
+#import "PayForOrderCtrl.h"
 
 @interface ShoppingCarCtrl ()<UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, loginDelegate, deleteCellDelegate>
 
 @property (assign, nonatomic) NSInteger statusForRightButton;
 @property (strong, nonatomic) NSIndexPath *indexPath;
 @property (strong, nonatomic) NSMutableArray *arrayDelete;
+@property (strong, nonatomic) NSMutableArray *arrayPayOrder;
 @end
 
 @implementation ShoppingCarCtrl
@@ -28,6 +30,8 @@
     
     self.navigationItem.title=@"购物车";
     [self initUI];
+    
+    self.imgForBtnSelected.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,9 +41,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-    
-    
-    
+ 
     if ([self.array count]) {
         
         [self initRightButton];
@@ -67,13 +69,15 @@
 //                    @"123456" , @"phone",
 //                    @"123456@qq.com" , @"email",
 //                    @"xx.png" , @"imgOfHead", nil];
+    
     self.arrayDelete = [[NSMutableArray alloc] init];
+    self.arrayPayOrder = [[NSMutableArray alloc] init];
     self.array = [[NSMutableArray alloc] initWithObjects:
-                  @{@"productId": @"1", @"proName":@"A1", @"saleCount":@"1", @"image":@"", @"price":@"998.0", @"decript":@"good", @"salesDate":@"2015.06.22"},
-                  @{@"productId": @"2", @"proName":@"B2", @"saleCount":@"1", @"image":@"", @"price":@"99.8", @"decript":@"good", @"salesDate":@"2015.02.03"},
-                  @{@"productId": @"3", @"proName":@"C3", @"saleCount":@"1", @"image":@"", @"price":@"9.98", @"decript":@"good", @"salesDate":@"2015.05.04"},
-                  @{@"productId": @"4", @"proName":@"D4", @"saleCount":@"1", @"image":@"", @"price":@"199.0", @"decript":@"good", @"salesDate":@"2015.07.31"},
-                  @{@"productId": @"5", @"proName":@"E5", @"saleCount":@"1", @"image":@"", @"price":@"9999.0", @"decript":@"good", @"salesDate":@"2015.02.03"},
+                  @{@"productId": @"1", @"proName":@"A1", @"saleCount":@"1", @"image":@"", @"price":@"10.00", @"decript":@"good", @"salesDate":@"2015.06.22"},
+                  @{@"productId": @"2", @"proName":@"B2", @"saleCount":@"1", @"image":@"", @"price":@"1.00", @"decript":@"good", @"salesDate":@"2015.02.03"},
+                  @{@"productId": @"3", @"proName":@"C3", @"saleCount":@"1", @"image":@"", @"price":@"10.00", @"decript":@"good", @"salesDate":@"2015.05.04"},
+                  @{@"productId": @"4", @"proName":@"D4", @"saleCount":@"1", @"image":@"", @"price":@"100.00", @"decript":@"good", @"salesDate":@"2015.07.31"},
+                  @{@"productId": @"5", @"proName":@"E5", @"saleCount":@"1", @"image":@"", @"price":@"1.00", @"decript":@"good", @"salesDate":@"2015.02.03"},
                   nil];
     
     [[NetworkManager shareMgr]server_productListWithDic:nil completeHandle:^(NSDictionary *response) {
@@ -90,8 +94,11 @@
 
 }
 
+/**
+ *  结算订单底部view初始化
+ */
 - (void)initViewForTallyOrder {
-   
+    
     self.btnForChooseAll.layer.borderWidth = 1.0f;
     self.btnForChooseAll.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.btnForChooseAll.layer.cornerRadius = 10.0f;
@@ -162,10 +169,11 @@
     NSLog(@"%s", __func__);
     
     self.viewForTallyOrder.hidden = YES;
+    self.imgForBtnSelected.hidden = YES;
     [self initCompleteBtn];
     self.viewSecond.hidden = NO;
-    self.imgForBtnSelected.hidden = YES;
     self.imgSecond.hidden = YES;
+    [self.tableVeiw reloadData];
 }
 
 - (void)completeBtnClick {
@@ -174,7 +182,9 @@
     self.viewSecond.hidden = YES;
     [self initRightButton];
     self.viewForTallyOrder.hidden = NO;
-    self.imgForBtnSelected.hidden = NO;
+    self.imgForBtnSelected.hidden = YES;
+    
+    [self.tableVeiw reloadData];
     
 }
 
@@ -191,19 +201,19 @@
     
 }
 
-//全选按钮点击事件
+//编辑界面全选按钮点击事件
 - (IBAction)btnSecondClick:(id)sender {
-    
-  
-    
+
     if (self.imgSecond.hidden == YES) {
         self.imgSecond.hidden = NO;
         
         for (int i = 0; i < self.array.count; i++) {
             ShoppingCartCell *cell = (ShoppingCartCell *)[self.tableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
             cell.imgForBtnSeleted.hidden = NO;
+            
+            [self.arrayDelete addObject:[self.array objectAtIndex:i]];
         }
-          NSLog(@"shoppingcart.array.count = %lu", (unsigned long)self.array.count);
+          NSLog(@"shoppingcart.arrayDelete = %@", self.arrayDelete);
         
     }else{
         self.imgSecond.hidden = YES;
@@ -211,25 +221,71 @@
         for (int j = 0; j < self.array.count; j++) {
             ShoppingCartCell *cell = (ShoppingCartCell *)[self.tableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:j inSection:0]];
             cell.imgForBtnSeleted.hidden = YES;
+            
+            [self.arrayDelete removeObject:[self.array objectAtIndex:j]];
         }
-          NSLog(@"shoppingcart.array.count = %lu", (unsigned long)self.array.count);
+          NSLog(@"shoppingcart.arrayDelete = %@", self.arrayDelete);
     }
 }
 
+/**
+ *  结算按钮点击事件
+ */
 - (IBAction)btnPayMoney:(id)sender {
 
-    if (!self.UserDic){
-        [Common addAlertViewWithTitel:@"请先登录"];
+//    if (!self.UserDic){
+//        [Common addAlertViewWithTitel:@"请先登录"];
+//    }else{
+        PayForOrderCtrl *vc = [[PayForOrderCtrl alloc] initWithNibName:@"PayForOrderCtrl" bundle:nil];
+        vc.navigationItem.title = @"支付方式";
+    
+        vc.arrayPay = self.arrayPayOrder;
+    
+        [self.navigationController pushViewController:vc animated:YES];
+//    }
+}
+
+/**
+ *  购物车结算界面全选按钮点击
+ */
+- (IBAction)btnChooseAllClick:(id)sender {
+    
+    float totalPrice = 0.0;
+    
+    if (self.imgForBtnSelected.hidden == YES) {
+        self.imgForBtnSelected.hidden = NO;
+        
+        for (int i = 0; i < self.array.count; i++) {
+            ShoppingCartCell *cell = (ShoppingCartCell *)[self.tableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+            cell.imgForBtnSeleted.hidden = NO;
+            
+            [self.arrayPayOrder addObject:[self.array objectAtIndex:i]];
+            
+            float price = [[[self.arrayPayOrder objectAtIndex:i] objectForKey:@"price"] floatValue];
+            totalPrice = totalPrice + price;
+            NSLog(@"totalPrice = %0.2f",totalPrice);
+        }
+        
+        self.lblAllPrice.text = [NSString stringWithFormat:@"￥%0.2f", totalPrice];
+        NSLog(@"shoppingcart.arrayPayOrder= %@", self.arrayPayOrder);
+        
+    }else{
+        self.imgForBtnSelected.hidden = YES;
+        
+        for (int j = 0; j < self.array.count; j++) {
+            ShoppingCartCell *cell = (ShoppingCartCell *)[self.tableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:j inSection:0]];
+            cell.imgForBtnSeleted.hidden = YES;
+            
+            [self.arrayPayOrder removeObject:[self.array objectAtIndex:j]];
+            
+        }
+        self.lblAllPrice.text = @"￥0.00";
+        NSLog(@"shoppingcart.arrayPayOrder = %@", self.arrayPayOrder);
+
     }
 }
 
-- (IBAction)btnChooseAllClick:(id)sender {
-    if (self.imgForBtnSelected.hidden == YES) {
-        self.imgForBtnSelected.hidden = NO;
-    }else{
-        self.imgForBtnSelected.hidden = YES;
-    }
-}
+#pragma mark - delegaete
 
 - (void)JumpToLoginView:(NSDictionary *)loginDic {
     
@@ -239,33 +295,122 @@
 
 }
 
--(void)addObjectToDeleteArray:(NSIndexPath *)indexPath {
+/**
+ *  合计
+ */
+- (void)totalNeedPayFor:(NSIndexPath *)indexPath {
+     NSLog(@"%s", __func__);
+    self.indexPath = indexPath;
+    
+    float totalPrice = 0.0;
+
+    if (self.statusForRightButton == 1 && (self.array.count != 0)) {
+        
+        for (int i =0; i < self.arrayPayOrder.count; i++) {
+            float price = [[[self.arrayPayOrder objectAtIndex:i] objectForKey:@"price"] floatValue];
+            totalPrice = totalPrice + price;
+            
+            NSLog(@"合计 = %0.2f", totalPrice);
+        }
+        self.lblAllPrice.text = [NSString stringWithFormat:@"￥%0.2f", totalPrice];
+    }
+    
+    NSLog(@"待支付totalPay ： %@", self.lblAllPrice.text);
+}
+/**
+ *  添加选中行到待支付数组
+ */
+- (void)addObjectToPayArray:(NSIndexPath *)indexPath {
+    NSLog(@"添加indexpath ： %@", indexPath);
+    self.indexPath = indexPath;
+    
+    if (self.statusForRightButton == 1 && (self.array.count != 0)) {
+        
+        [self.arrayPayOrder addObject:[self.array objectAtIndex:self.indexPath.row]];
+        
+        NSLog(@"self.arrayPayOrder = %@", self.arrayPayOrder);
+        
+        if (self.arrayPayOrder.count == self.array.count) {
+            self.imgForBtnSelected.hidden = NO;
+        }
+    }
+    
+}
+
+/**
+ *  从待支付数组中移除选中行
+ */
+- (void)deleteFromPayArray:(NSIndexPath *)indexPath {
+    NSLog(@"删除indexpath : %ld", (long)indexPath.row);
+    self.imgForBtnSelected.hidden = YES;
     
     self.indexPath = indexPath;
     
-    if (self.statusForRightButton == 2 && self.array) {
+    if (self.statusForRightButton == 1 && self.arrayPayOrder) {
+       
+        [self.arrayPayOrder removeObject:[self.array objectAtIndex:self.indexPath.row]];
+        
+        NSLog(@"self.arrayPayOrder = %@", self.arrayPayOrder);
+    }
+
+}
+
+/**
+ *  添加选中行到待删除数组
+ */
+-(void)addObjectToDeleteArray:(NSIndexPath *)indexPath {
+    NSLog(@"添加indexpath ： %@", indexPath);
+    self.indexPath = indexPath;
+    
+    if (self.statusForRightButton == 2 && (self.array.count != 0)) {
         
         [self.arrayDelete addObject:[self.array objectAtIndex:self.indexPath.row]];
         
         NSLog(@"self.arrayDelete = %@", self.arrayDelete);
+        
+        if (self.arrayDelete.count == self.array.count) {
+            self.imgSecond.hidden = NO;
+        }
     }
-    
-   
 }
 
+/**
+ *  从待删除数组中移除
+ */
+- (void)deleteFromDeleteArray:(NSIndexPath *)indexPath {
+    NSLog(@"删除indexpath : %ld", (long)indexPath.row);
+    self.imgSecond.hidden = YES;
+    
+    self.indexPath = indexPath;
+    
+    if (self.statusForRightButton == 2 && self.arrayDelete) {
+        
+        [self.arrayPayOrder removeObject:[self.array objectAtIndex:self.indexPath.row]];
+        
+        NSLog(@"self.arrayDelete = %@", self.arrayDelete);
+    }
+}
 #pragma mark - UIActionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     if (buttonIndex == 0) {
-        NSLog(@"删除商品操作");
+        NSLog(@"删除商品操作 arrayDelete: %lu , array :%lu", (unsigned long)[self.arrayDelete count], (unsigned long)[self.array count]);
         
-        for (id obj in self.arrayDelete) {
-            [self.array removeObject:obj];
+        if (self.arrayDelete.count == self.array.count ) { //全选按钮显示
+            [self.array removeAllObjects];
+            [self.tableVeiw reloadData];
+            [self.arrayDelete removeAllObjects];
+            
+            self.imgSecond.hidden = YES;
+        }else{
+            for (id obj in self.arrayDelete) {
+                [self.array removeObject:obj];
+            }
+            NSLog(@"选中待删除的cell ： %@", self.arrayDelete);
+            [self.tableVeiw reloadData];
+            [self.arrayDelete removeAllObjects];//清空待删除数组内容
         }
-        
-        [self.tableVeiw reloadData];
-        [self.arrayDelete removeAllObjects];//清空待删除数组内容
-        
+        self.imgSecond.hidden = YES;
     }else if (buttonIndex == 1){
         NSLog(@"取消删除");
     }

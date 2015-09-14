@@ -30,9 +30,17 @@
         self.imgForBtnSeleted.hidden = NO;
         
         [self.delegate addObjectToDeleteArray:self.indexPath];
+        [self.delegate addObjectToPayArray:self.indexPath];
+        [self.delegate totalNeedPayFor:self.indexPath];
     }else{
         self.imgForBtnSeleted.hidden = YES;
+        
+        [self.delegate deleteFromDeleteArray:self.indexPath];
+        [self.delegate deleteFromPayArray:self.indexPath];
+        [self.delegate totalNeedPayFor:self.indexPath];
     }
+    
+    
 }
 
 - (void)initWithDic:(NSMutableDictionary*)dic {
