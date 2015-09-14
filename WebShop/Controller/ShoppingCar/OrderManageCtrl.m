@@ -34,11 +34,11 @@
     self.tableView.tableFooterView = [[UIView alloc] init];
     
     self.arrayOrder = [[NSMutableArray alloc] initWithObjects:
-                  @{@"productId": @"1", @"proName":@"一打阿波罗17号宇宙飞船，阿斯顿发的货", @"saleCount":@"1", @"image":@"", @"price":@"998.0", @"decript":@"good", @"salesDate":@"2015.06.22"},
-                  @{@"productId": @"2", @"proName":@"阿斯顿发送到发送到发送到发送到发送到发送到发", @"saleCount":@"1", @"image":@"", @"price":@"99.8", @"decript":@"good", @"salesDate":@"2015.02.03"},
+                  @{@"productId": @"1", @"proName":@"一打阿波罗17号宇宙飞船，阿斯顿发的货", @"saleCount":@"1", @"image":@"", @"price":@"998.00", @"decript":@"good", @"salesDate":@"2015.06.22"},
+                  @{@"productId": @"2", @"proName":@"阿斯顿发送到发送到发送到发送到发送到发送到发", @"saleCount":@"1", @"image":@"", @"price":@"99.80", @"decript":@"good", @"salesDate":@"2015.02.03"},
                   @{@"productId": @"3", @"proName":@"阿斯蒂芬V型注册V型注册vwerqwrtqwertqwerqwer", @"saleCount":@"1", @"image":@"", @"price":@"9.98", @"decript":@"good", @"salesDate":@"2015.05.04"},
-                  @{@"productId": @"4", @"proName":@"自行车自行车V型从vqerwerqwer", @"saleCount":@"1", @"image":@"", @"price":@"199.0", @"decript":@"good", @"salesDate":@"2015.07.31"},
-                  @{@"productId": @"5", @"proName":@"个人台湾清华是打发打发的发送到发送到发送到发送到发送到发", @"saleCount":@"1", @"image":@"", @"price":@"9999.0", @"decript":@"good", @"salesDate":@"2015.02.03"},nil];
+                  @{@"productId": @"4", @"proName":@"自行车自行车V型从vqerwerqwer", @"saleCount":@"1", @"image":@"", @"price":@"199.00", @"decript":@"good", @"salesDate":@"2015.07.31"},
+                  @{@"productId": @"5", @"proName":@"个人台湾清华是打发打发的发送到发送到发送到发送到发送到发", @"saleCount":@"1", @"image":@"", @"price":@"9999.00", @"decript":@"good", @"salesDate":@"2015.02.03"},nil];
 
 }
 

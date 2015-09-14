@@ -90,6 +90,7 @@
     if (![self.array count]) {
         self.tableVeiw.backgroundColor = [UIColor lightGrayColor];
         [Common addAlertViewWithTitel:@"购物车是空的..."];
+ 
     }
 
 }
@@ -201,33 +202,6 @@
     
 }
 
-//编辑界面全选按钮点击事件
-- (IBAction)btnSecondClick:(id)sender {
-
-    if (self.imgSecond.hidden == YES) {
-        self.imgSecond.hidden = NO;
-        
-        for (int i = 0; i < self.array.count; i++) {
-            ShoppingCartCell *cell = (ShoppingCartCell *)[self.tableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-            cell.imgForBtnSeleted.hidden = NO;
-            
-            [self.arrayDelete addObject:[self.array objectAtIndex:i]];
-        }
-          NSLog(@"shoppingcart.arrayDelete = %@", self.arrayDelete);
-        
-    }else{
-        self.imgSecond.hidden = YES;
-        
-        for (int j = 0; j < self.array.count; j++) {
-            ShoppingCartCell *cell = (ShoppingCartCell *)[self.tableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:j inSection:0]];
-            cell.imgForBtnSeleted.hidden = YES;
-            
-            [self.arrayDelete removeObject:[self.array objectAtIndex:j]];
-        }
-          NSLog(@"shoppingcart.arrayDelete = %@", self.arrayDelete);
-    }
-}
-
 /**
  *  结算按钮点击事件
  */
@@ -284,6 +258,34 @@
 
     }
 }
+
+//删除界面全选按钮点击事件
+- (IBAction)btnSecondClick:(id)sender {
+    
+    if (self.imgSecond.hidden == YES) {
+        self.imgSecond.hidden = NO;
+        
+        for (int i = 0; i < self.array.count; i++) {
+            ShoppingCartCell *cell = (ShoppingCartCell *)[self.tableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+            cell.imgForBtnSeleted.hidden = NO;
+            
+            [self.arrayDelete addObject:[self.array objectAtIndex:i]];
+        }
+        NSLog(@"shoppingcart.arrayDelete = %@", self.arrayDelete);
+        
+    }else{
+        self.imgSecond.hidden = YES;
+        
+        for (int j = 0; j < self.array.count; j++) {
+            ShoppingCartCell *cell = (ShoppingCartCell *)[self.tableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:j inSection:0]];
+            cell.imgForBtnSeleted.hidden = YES;
+            
+            [self.arrayDelete removeObject:[self.array objectAtIndex:j]];
+        }
+        NSLog(@"shoppingcart.arrayDelete = %@", self.arrayDelete);
+    }
+}
+
 
 #pragma mark - delegaete
 
@@ -441,13 +443,21 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
+        
+        [self.arrayPayOrder removeObject:[self.array objectAtIndex:[indexPath row]]];
+        
         [self.array removeObjectAtIndex:[indexPath row]];  //删除数组里的数据
+//        [self.arrayPayOrder removeObjectAtIndex:[indexPath row]];
+        
         [self.tableVeiw beginUpdates];
         [self.tableVeiw deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];  //删除对应数据的cell
         [self.tableVeiw endUpdates];
         
         [self.tableVeiw reloadData];
         
+        self.lblAllPrice.text = @"￥0.00";
+        self.imgForBtnSelected.hidden = YES;
+        self.imgSecond.hidden = YES;
     }
 }
 
