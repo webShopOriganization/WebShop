@@ -23,7 +23,7 @@
  */
 - (void)server_productListWithDic:(NSDictionary*)dic completeHandle:(CompleteHandle)completeHandle;
 - (void)server_productDetailsWithDic:(NSDictionary*)dic completeHandle:(CompleteHandle)completeHandle;
-
+- (void)server_fetchAdvertisementWithDic:(NSDictionary*)dic completeHandle:(CompleteHandle)completeHandle;
 /**
  *  订单
  */

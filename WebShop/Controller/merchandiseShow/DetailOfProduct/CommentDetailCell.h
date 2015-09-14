@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "starView.h"
 
 @interface CommentDetailCell : UITableViewCell
 
@@ -16,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imgFirst;
 @property (weak, nonatomic) IBOutlet UIImageView *imgSecond;
 @property (weak, nonatomic) IBOutlet UIImageView *imgThird;
+@property (strong,nonatomic) starView *star;
 
 @end

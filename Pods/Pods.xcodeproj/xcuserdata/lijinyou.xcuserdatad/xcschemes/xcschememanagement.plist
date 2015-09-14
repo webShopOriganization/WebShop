@@ -6,23 +6,63 @@
 	<dict>
 		<key>AFNetworking.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ComponentKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>REFrostedViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>React.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ReactiveCocoa.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>12EFE639CCEC4DC4884BAB86E55484D0</key>
+		<key>17B7C86D43F114C516A7C12A0297CD6F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E0A0843C35E4406010926441E5E9C150</key>
+		<key>34B86E57DD30B55AC60E75C172D7C662</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>57D27288751D0BBACCDFDA59C2652178</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6951DA9871DA259A9AAA6EFC68AEF8EB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C2C819AF49A3156BEF298B18DB632687</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CB97D0106869044FA8B508D04C35D567</key>
 		<dict>
 			<key>primary</key>
 			<true/>

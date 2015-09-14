@@ -19,7 +19,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>REFrostedViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>React.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ReactiveCocoa.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,7 +42,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4A8FAAABDB6EEACCBAB9F1A804F3B5E9</key>
+		<key>46E01F46D120D75444F08478027F2940</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5029C4D5BCBF0A7755E829AFD8245EBB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5352D432641F0656C90741034E32F31E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -37,12 +62,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E07E70B6FD71E603E5FC9882A18C8C54</key>
+		<key>9855E8D6E713991095B9C9D0691A2CEA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EA1CB779A8E1F32F565CB388A1D6974F</key>
+		<key>C2C819AF49A3156BEF298B18DB632687</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CB97D0106869044FA8B508D04C35D567</key>
 		<dict>
 			<key>primary</key>
 			<true/>

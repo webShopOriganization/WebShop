@@ -11,6 +11,8 @@
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 
+#define DOCTOR_RECOMMEND_RATIO 169/320
+
 @interface Common : NSObject
 
 //json转成字典

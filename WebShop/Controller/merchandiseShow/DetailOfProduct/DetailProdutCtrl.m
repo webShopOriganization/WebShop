@@ -10,18 +10,53 @@
 #import "CommonCell.h"
 #import "CommentDetailCell.h"
 #import "LookAllCommentCell.h"
+#import "ServiceInfoCell.h"
+#import "MapController.h"
+#import "REFrostedViewController.h"
+#import "UIView+REFrostedViewController.h"
+#import "GetCityCtrl.h"
+//#import "GetProvinceCtrl.h"
+#import "ProvinceCtrl.h"
+#import "AdvertisementCell.h"
+#import "PriceCell.h"
+#import "SalesPromotionCell.h"
+#import "PriceCell.h"
+#import "NetworkManager.h"
+#import "CommentDetailCell.h"
+#import "SalesPromotionSecondCell.h"
+#import "starView.h"
+#import "LookAllCommentCell.h"
+#import "ParserDataManager.h"
 
 @interface DetailProdutCtrl ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) NSMutableArray *arrayOfData;
+@property (nonatomic,strong) NSMutableArray *array_advertisement;
+@property (assign) BOOL JudgeExpand;
 @end
 
 @implementation DetailProdutCtrl
+
+-(void)awakeFromNib
+{
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"adress" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        NSLog(@"通知");
+        ServiceInfoCell *cell=(ServiceInfoCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]];
+        cell.lblLocation.text=note.object;
+        
+        [self.tableView reloadData];
+    }];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.arrayOfData=[[NSMutableArray alloc]initWithObjects:@"1",@"2", nil];
+    self.array_advertisement=[[NSMutableArray alloc]initWithObjects:@"bg1",@"bg2",@"bg3", nil];
+    self.JudgeExpand=NO;
+    
     self.navigationItem.title=@"商品详情";
+    
+    [self initUI];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,15 +64,115 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    NSLog(@"刷新");
+    [self.tableView reloadData];
+}
+
+-(void)initUI
+{
+    
+}
+
+- (void)getModel
+{
+    [[NetworkManager shareMgr] server_fetchAdvertisementWithDic:nil completeHandle:^(NSDictionary *responseBanner) {
+        
+        self.array_advertisement = [[responseBanner objectForKey:@"data"] objectForKey:@"items"];
+    }];
+}
+
 #pragma mark - Table view data source
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString* title=@"CommonCell";
+    static NSString* advertiseTitle=@"AdvertisementCell";
+    static NSString* commonTitle=@"CommonCell";
+    static NSString* serviceInfoTitle=@"ServiceInfoCell";
+    static NSString* salesPromotionTitle=@"SalesPromotionCell";
+    static NSString* priceTitle=@"PriceCell";
+    static NSString* salesPromotionSecondTitle=@"SalesPromotionSecondCell";
+    static NSString* commentDetailTitle=@"CommentDetailCell";
+    static NSString* lookAllCommentTitle=@"LookAllCommentCell";
     
     
-   
-        CommonCell* cell = [tableView dequeueReusableCellWithIdentifier:title];
+    if (indexPath.section==0) {
+        AdvertisementCell* cell = [tableView dequeueReusableCellWithIdentifier:advertiseTitle];
+        if (!cell) {
+            
+            NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"AdvertisementCell" owner:self options:nil];
+            
+            cell = [topLevelObjects objectAtIndex:0];
+        }
+        [cell customUI:self.array_advertisement];
+        
+        return cell;
+    }
+    else if (indexPath.section==1)
+    {
+        PriceCell* cell = [tableView dequeueReusableCellWithIdentifier:priceTitle];
+        if (!cell) {
+            
+            NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"PriceCell" owner:self options:nil];
+            
+            cell = [topLevelObjects objectAtIndex:0];
+        }
+        
+        return cell;
+        
+    }
+    
+    else if (indexPath.section==2)
+    {
+        if (self.JudgeExpand) {
+            SalesPromotionSecondCell* cell = [tableView dequeueReusableCellWithIdentifier:salesPromotionSecondTitle];
+            if (!cell) {
+                
+                NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"SalesPromotionSecondCell" owner:self options:nil];
+                
+                cell = [topLevelObjects objectAtIndex:0];
+            }
+            [cell.btnExpand addTarget:self action:@selector(doExpand) forControlEvents:UIControlEventTouchUpInside];
+            
+            return cell;
+        }
+        else
+        {
+            SalesPromotionCell* cell = [tableView dequeueReusableCellWithIdentifier:salesPromotionTitle];
+            if (!cell) {
+                
+                NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"SalesPromotionCell" owner:self options:nil];
+                
+                cell = [topLevelObjects objectAtIndex:0];
+            }
+            
+            return cell;
+        }
+        
+        
+
+    }
+    
+   else if (indexPath.section==3) {
+       
+       ServiceInfoCell* cell = [tableView dequeueReusableCellWithIdentifier:serviceInfoTitle];
+       if (!cell) {
+           
+           NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"ServiceInfoCell" owner:self options:nil];
+           
+           cell = [topLevelObjects objectAtIndex:0];
+       }
+       [cell.btnLocation addTarget:self action:@selector(goToMap:) forControlEvents:UIControlEventTouchUpInside];
+       cell.lblLocation.text=[ParserDataManager shareManager].adress;
+       
+       return cell;
+       
+       
+    }
+    else if (indexPath.section==4)
+    {
+        CommonCell* cell = [tableView dequeueReusableCellWithIdentifier:commonTitle];
         if (!cell) {
             
             NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"CommonCell" owner:self options:nil];
@@ -45,6 +180,32 @@
             cell = [topLevelObjects objectAtIndex:0];
         }
         return cell;
+    }
+   else if (indexPath.section==5)
+   {
+       
+       CommentDetailCell* cell = [tableView dequeueReusableCellWithIdentifier:commentDetailTitle];
+       if (!cell) {
+           
+           NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"CommentDetailCell" owner:self options:nil];
+           
+           cell = [topLevelObjects objectAtIndex:0];
+       }
+       return cell;
+   }
+    else
+    {
+        
+        LookAllCommentCell* cell = [tableView dequeueReusableCellWithIdentifier:lookAllCommentTitle];
+        if (!cell) {
+            
+            NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"LookAllCommentCell" owner:self options:nil];
+            
+            cell = [topLevelObjects objectAtIndex:0];
+        }
+        return cell;
+    }
+    
     
     
     return nil;
@@ -65,26 +226,80 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.arrayOfData.count;
+    return 1;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 7;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section==0) {
-        return 291;
+        return 209;
     }
-    
+    else if (indexPath.section==1)
+    {
+        return 164;
+    }
+    else if (indexPath.section==2)
+    {
+        if (self.JudgeExpand) {
+            return 196;
+        }
+        else
+        {
+        return 91;
+        }
+        
+        
+    }
+    else if (indexPath.section==3)
+    {
+        return 240;
+    }
+    else if (indexPath.section==4)
+    {
+        return 65;
+    }
+    else if (indexPath.section==5)
+    {
+        return 142;
+    }
     else
     {
-        return 500;
+        return 44;
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section==2) {
+        self.JudgeExpand=!self.JudgeExpand;
+        [self.tableView reloadData];
+    }
+}
+
+-(void)doExpand
+{
+    self.JudgeExpand=!self.JudgeExpand;
+    [self.tableView reloadData];
+}
+
+-(void)goToMap:(UIButton*)button
+{
+//    MapController *vc=[[MapController alloc]initWithNibName:@"MapController" bundle:nil];
+//    [self.navigationController pushViewController:vc animated:YES];
+    
+
+    
+    [self.frostedViewController presentMenuViewController];
+    
+//    UIStoryboard *story=[UIStoryboard storyboardWithName:@"ProductDetail" bundle:nil];
+//    ProvinceCtrl *vc = [story instantiateViewControllerWithIdentifier:@"ProvinceCtrl"];
+//    [self.navigationController pushViewController:vc animated:YES];
+}
 
 
 /*

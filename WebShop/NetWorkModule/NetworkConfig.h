@@ -23,6 +23,9 @@ typedef void (^ErrorHandle)(NSError*);
 //test
 #define WEBSHOP_TEST @""
 
+//广告部分
+#define APP_AD_URL @"advertisement/index"
+
 //用户
 #define WEBSHOP_LOGIN_INTERFACE @""
 #define WEBSHOP_REGISTER_INTERFACE @""
