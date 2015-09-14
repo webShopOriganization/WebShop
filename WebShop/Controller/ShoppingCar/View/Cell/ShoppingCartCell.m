@@ -32,6 +32,8 @@
         [self.delegate addObjectToDeleteArray:self.indexPath];
     }else{
         self.imgForBtnSeleted.hidden = YES;
+        
+        [self.delegate deleteFromDeleteArray:self.indexPath];
     }
 }
 

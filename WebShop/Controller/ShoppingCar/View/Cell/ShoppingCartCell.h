@@ -12,7 +12,7 @@
 @protocol deleteCellDelegate <NSObject>
 
 - (void)addObjectToDeleteArray:(NSIndexPath *)indexPath;
-
+- (void)deleteFromDeleteArray:(NSIndexPath *)indexPath;
 @end
 
 @interface ShoppingCartCell : UITableViewCell

@@ -193,17 +193,17 @@
 
 //全选按钮点击事件
 - (IBAction)btnSecondClick:(id)sender {
-    
-  
-    
+
     if (self.imgSecond.hidden == YES) {
         self.imgSecond.hidden = NO;
         
         for (int i = 0; i < self.array.count; i++) {
             ShoppingCartCell *cell = (ShoppingCartCell *)[self.tableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
             cell.imgForBtnSeleted.hidden = NO;
+            
+            [self.arrayDelete addObject:[NSIndexPath indexPathForRow:i inSection:0]];
         }
-          NSLog(@"shoppingcart.array.count = %lu", (unsigned long)self.array.count);
+          NSLog(@"shoppingcart.arrayDelete = %@", self.array);
         
     }else{
         self.imgSecond.hidden = YES;
@@ -211,11 +211,15 @@
         for (int j = 0; j < self.array.count; j++) {
             ShoppingCartCell *cell = (ShoppingCartCell *)[self.tableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:j inSection:0]];
             cell.imgForBtnSeleted.hidden = YES;
+            
+            [self.arrayDelete removeObject:[NSIndexPath indexPathForRow:j inSection:0]];
         }
-          NSLog(@"shoppingcart.array.count = %lu", (unsigned long)self.array.count);
+          NSLog(@"shoppingcart.arrayDelete = %@", self.arrayDelete);
     }
 }
-
+/**
+ *  结算按钮点击事件
+ */
 - (IBAction)btnPayMoney:(id)sender {
 
     if (!self.UserDic){
@@ -239,8 +243,11 @@
 
 }
 
+/**
+ *  添加选中行到待删除数组
+ */
 -(void)addObjectToDeleteArray:(NSIndexPath *)indexPath {
-    
+    NSLog(@"添加indexpath ： %@", indexPath);
     self.indexPath = indexPath;
     
     if (self.statusForRightButton == 2 && self.array) {
@@ -249,23 +256,42 @@
         
         NSLog(@"self.arrayDelete = %@", self.arrayDelete);
     }
-    
-   
 }
 
+/**
+ *  从待删除数组中移除
+ */
+- (void)deleteFromDeleteArray:(NSIndexPath *)indexPath {
+    NSLog(@"删除indexpath : %@", indexPath);
+    self.indexPath = indexPath;
+    
+    if (self.statusForRightButton == 2 && self.arrayDelete) {
+        
+        [self.arrayDelete removeObject:[self.array objectAtIndex:self.indexPath.row]];
+        
+        NSLog(@"self.arrayDelete = %@", self.arrayDelete);
+    }
+}
 #pragma mark - UIActionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     if (buttonIndex == 0) {
         NSLog(@"删除商品操作");
         
-        for (id obj in self.arrayDelete) {
-            [self.array removeObject:obj];
+        if (self.arrayDelete.count == self.array.count ) { //全选按钮显示
+            [self.array removeAllObjects];
+            [self.tableVeiw reloadData];
+            [self.arrayDelete removeAllObjects];
+            
+            self.imgSecond.hidden = YES;
+        }else{
+            for (id obj in self.arrayDelete) {
+                [self.array removeObject:obj];
+            }
+            NSLog(@"选中待删除的cell ： %@", self.arrayDelete);
+            [self.tableVeiw reloadData];
+            [self.arrayDelete removeAllObjects];//清空待删除数组内容
         }
-        
-        [self.tableVeiw reloadData];
-        [self.arrayDelete removeAllObjects];//清空待删除数组内容
-        
     }else if (buttonIndex == 1){
         NSLog(@"取消删除");
     }
