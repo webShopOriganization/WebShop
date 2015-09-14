@@ -201,9 +201,9 @@
             ShoppingCartCell *cell = (ShoppingCartCell *)[self.tableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
             cell.imgForBtnSeleted.hidden = NO;
             
-            [self.arrayDelete addObject:[NSIndexPath indexPathForRow:i inSection:0]];
+            [self.arrayDelete addObject:[self.array objectAtIndex:i]];
         }
-          NSLog(@"shoppingcart.arrayDelete = %@", self.array);
+          NSLog(@"shoppingcart.arrayDelete = %@", self.arrayDelete);
         
     }else{
         self.imgSecond.hidden = YES;
@@ -212,7 +212,7 @@
             ShoppingCartCell *cell = (ShoppingCartCell *)[self.tableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:j inSection:0]];
             cell.imgForBtnSeleted.hidden = YES;
             
-            [self.arrayDelete removeObject:[NSIndexPath indexPathForRow:j inSection:0]];
+            [self.arrayDelete removeObject:[self.array objectAtIndex:j]];
         }
           NSLog(@"shoppingcart.arrayDelete = %@", self.arrayDelete);
     }
@@ -262,12 +262,15 @@
  *  从待删除数组中移除
  */
 - (void)deleteFromDeleteArray:(NSIndexPath *)indexPath {
-    NSLog(@"删除indexpath : %@", indexPath);
+    NSLog(@"删除indexpath : %ld", (long)indexPath.row);
     self.indexPath = indexPath;
     
     if (self.statusForRightButton == 2 && self.arrayDelete) {
         
-        [self.arrayDelete removeObject:[self.array objectAtIndex:self.indexPath.row]];
+        NSLog(@"移除行： %@", [self.array objectAtIndex:self.indexPath.row]);
+        NSLog(@"待删除数组 ： %@", self.arrayDelete);
+//        [self.arrayDelete removeObject:[self.array objectAtIndex:self.indexPath.row]];
+        [self.arrayDelete removeObjectAtIndex:self.indexPath.row];
         
         NSLog(@"self.arrayDelete = %@", self.arrayDelete);
     }
@@ -276,7 +279,7 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     if (buttonIndex == 0) {
-        NSLog(@"删除商品操作");
+        NSLog(@"删除商品操作 arrayDelete: %lu , array :%lu", (unsigned long)[self.arrayDelete count], (unsigned long)[self.array count]);
         
         if (self.arrayDelete.count == self.array.count ) { //全选按钮显示
             [self.array removeAllObjects];
@@ -292,6 +295,7 @@
             [self.tableVeiw reloadData];
             [self.arrayDelete removeAllObjects];//清空待删除数组内容
         }
+        self.imgSecond.hidden = YES;
     }else if (buttonIndex == 1){
         NSLog(@"取消删除");
     }
