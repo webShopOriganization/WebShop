@@ -19,6 +19,7 @@
 
 @property (assign, nonatomic) NSInteger statusForRightButton;
 @property (strong, nonatomic) NSIndexPath *indexPath;
+@property (assign, nonatomic) float totalPrice;
 @property (strong, nonatomic) NSMutableArray *arrayDelete;
 @property (strong, nonatomic) NSMutableArray *arrayPayOrder;
 @end
@@ -52,6 +53,13 @@
     }else{
         self.viewForTallyOrder.hidden = YES;
         self.viewSecond.hidden = YES;
+    }
+    
+    [self.tableVeiw reloadData];
+    if (![self.array count]) {
+        self.tableVeiw.backgroundColor = [UIColor lightGrayColor];
+        [Common addAlertViewWithTitel:@"购物车是空的..."];
+        
     }
     
 }
@@ -94,13 +102,6 @@
     }];
 
     self.tableVeiw.backgroundColor = [UIColor clearColor];
-    [self.tableVeiw reloadData];
-    
-    if (![self.array count]) {
-        self.tableVeiw.backgroundColor = [UIColor lightGrayColor];
-        [Common addAlertViewWithTitel:@"购物车是空的..."];
- 
-    }
 
 }
 
@@ -256,7 +257,7 @@
             [self.arrayPayOrder removeObject:[self.array objectAtIndex:j]];
             
         }
-        self.lblAllPrice.text = @"￥0.00";
+        self.lblAllPrice.text = @"合计￥0.00";
         NSLog(@"shoppingcart.arrayPayOrder = %@", self.arrayPayOrder);
 
     }
@@ -458,7 +459,7 @@
         
         [self.tableVeiw reloadData];
         
-        self.lblAllPrice.text = @"￥0.00";
+        self.lblAllPrice.text = @"合计0.00";
         self.imgForBtnSelected.hidden = YES;
         self.imgSecond.hidden = YES;
     }
