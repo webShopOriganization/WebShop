@@ -14,10 +14,13 @@
 #import "ShoppingCartCell.h"
 #import "LoginViewController.h"
 #import "PayForOrderCtrl.h"
+#import "DetailProdutCtrl.h"
+#import "SecondFootView.h"
 
 @interface ShoppingCarCtrl ()<UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, loginDelegate, deleteCellDelegate>
 
 @property (assign, nonatomic) NSInteger statusForRightButton;
+@property (assign) BOOL statusForFootView;
 @property (strong, nonatomic) NSIndexPath *indexPath;
 @property (assign, nonatomic) float totalPrice;
 @property (strong, nonatomic) NSMutableArray *arrayDelete;
@@ -42,6 +45,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
+    
+     [self.tableVeiw reloadData];
  
     if ([self.array count]) {
         
@@ -49,18 +54,18 @@
         [self initViewForTallyOrder];
         
         self.viewForTallyOrder.hidden = NO;
+        self.imgForBtnSelected.hidden = YES;
         self.viewSecond.hidden = YES;
     }else{
         self.viewForTallyOrder.hidden = YES;
         self.viewSecond.hidden = YES;
-    }
-    
-    [self.tableVeiw reloadData];
-    if (![self.array count]) {
+        
         self.tableVeiw.backgroundColor = [UIColor lightGrayColor];
         [Common addAlertViewWithTitel:@"购物车是空的..."];
-        
     }
+    
+   
+    
     
 }
 
@@ -88,6 +93,9 @@
                   @{@"productId": @"3", @"proName":@"Apple iPhone 6 Plus (A1524) 16GB 金色 移动联通电信4G手机", @"saleCount":@"1", @"image":@"http://img14.360buyimg.com/n1/jfs/t1270/246/1076044366/120025/3d6a9ae3/556d64fcNf28f90d0.jpg", @"price":@"5488.00", @"decript":@"选择下方“北京移动购机赠费”推荐188元套餐，不换号码，额外得1800元话费，分24个月返还，尖叫吧，机会难得，欲购从速！", @"salesDate":@"2016.02.01"},
                   @{@"productId": @"4", @"proName":@"小米 4 2GB内存版 白色 移动4G手机", @"saleCount":@"1", @"image":@"http://img14.360buyimg.com/n1/jfs/t1339/269/193722734/56791/eb3cea86/555aec03Nc477b9b0.jpg", @"price":@"1499.00", @"decript":@"不锈钢金属边框、 5英寸屏窄边，工艺和手感超乎想象！", @"salesDate":@"2016.02.03"},
                   @{@"productId": @"5", @"proName":@"魅族 魅蓝note2 16GB 白色 移动联通双4G手机 双卡双待", @"saleCount":@"1", @"image":@"http://img14.360buyimg.com/n1/jfs/t1270/246/1076044366/120025/3d6a9ae3/556d64fcNf28f90d0.jpg", @"price":@"999.00", @"decript":@"【超值套装版】", @"salesDate":@"2016.01.01"},
+                  @{
+                      @"productId": @"6", @"proName": @"【惠买车】宝马 X1订金499元 2015款 sDrive18i 时尚晋级版", @"saleCount": @"1", @"image":@"http://img11.360buyimg.com/n1/jfs/t733/135/1239145025/41477/9131c6df/5528c398Nbd1c2452.jpg", @"price":@"499.00", @"decript":@"钜惠金秋，买车无忧尽享新车专属大礼包！", @"salesDate":@"2016.04.01"
+                  },
                   nil];
     
     [[NetworkManager shareMgr]server_productListWithDic:nil completeHandle:^(NSDictionary *response) {
@@ -136,7 +144,8 @@
 - (void)initRightButton {
     
     self.statusForRightButton = 1;
-    
+    self.statusForFootView = YES;
+
     self.rightButton=[UIButton buttonWithType:UIButtonTypeCustom];
     [self.rightButton setTitle:@"编辑" forState:UIControlStateNormal];
     self.rightButton.titleLabel.font=[UIFont systemFontOfSize:16];
@@ -170,6 +179,13 @@
 
 #pragma mark - button点击事件
 
+//改变footview显示状态
+-  (void)changeStatus{
+    self.statusForFootView=!self.statusForFootView;
+    [self.tableVeiw reloadData];
+}
+
+//点击编辑按钮
 - (void)editBtnClick {
     NSLog(@"%s", __func__);
     
@@ -181,6 +197,7 @@
     [self.tableVeiw reloadData];
 }
 
+//完成按钮
 - (void)completeBtnClick {
     NSLog(@"%s", __func__);
     
@@ -292,20 +309,21 @@
 
 
 #pragma mark - delegaete
-
+/**
+ *  跳转登录界面
+ */
 - (void)JumpToLoginView:(NSDictionary *)loginDic {
     
     LoginViewController *vc=[[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
     vc.navigationItem.title = @"用户登录";
     [self.navigationController pushViewController:vc animated:YES];
-
 }
 
 /**
  *  合计
  */
 - (void)totalNeedPayFor:(NSIndexPath *)indexPath {
-     NSLog(@"%s", __func__);
+     NSLog(@"%s  arrayPayOrder = %@", __func__, self.arrayPayOrder);
     self.indexPath = indexPath;
     
     float totalPrice = 0.0;
@@ -318,7 +336,7 @@
             
             NSLog(@"合计 = %0.2f", totalPrice);
         }
-        self.lblAllPrice.text = [NSString stringWithFormat:@"￥%0.2f", totalPrice];
+        self.lblAllPrice.text = [NSString stringWithFormat:@"合计￥%0.2f", totalPrice];
     }
     
     NSLog(@"待支付totalPay ： %@", self.lblAllPrice.text);
@@ -481,15 +499,20 @@
     if (self.UserDic) {
         return 0;
     }else{
-        return 30;
+        return 30
+        ;
     }
     return 0;
 
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     
-    if (self.UserDic && [self.array count]) {
-        return 150;
+    if (self.UserDic || [self.array count]) {
+        if (self.statusForFootView == YES) {
+            return 30;
+        }else{
+            return 160;
+        }
     }else{
         return 0;
     }
@@ -523,14 +546,42 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    if (self.UserDic && [self.array count]) {
-        FooterView *footerView = [[FooterView alloc] init];
-        
-        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"FooterView" owner:self options:nil];
-        
-        footerView = [topLevelObjects objectAtIndex:0];
+    if ([self.array count]) {
     
-        return footerView;
+        
+            if (self.statusForFootView == YES) {
+                SecondFootView *view = [[SecondFootView alloc] init];
+                
+                NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"SecondFootView" owner:self options:nil];
+                view = [topLevelObjects objectAtIndex:0];
+               
+                [view.btnDown addTarget:self action:@selector(changeStatus) forControlEvents:UIControlEventTouchUpInside];
+
+                return view;
+            }else if (self.statusForFootView == NO){
+                
+                FooterView *view = [[FooterView alloc] init];
+
+                NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"FooterView" owner:self options:nil];
+                
+                view = [topLevelObjects objectAtIndex:0];
+                
+                [view.btnUp addTarget:self action:@selector(changeStatus) forControlEvents:UIControlEventTouchUpInside];
+                
+                NSMutableArray *array = [[NSMutableArray alloc] initWithObjects:
+                                         @{@"productId": @"2", @"proName":@"Apple iPhone 6 (A1586) 16GB 金色", @"saleCount":@"1", @"image":@"http://img14.360buyimg.com/n1/jfs/t277/193/1005339798/768456/29136988/542d0798N19d42ce3.jpg", @"price":@"4800.00", @"decript":@"移动联通电信4G手机", @"salesDate":@"2016.02.01"},
+                                         @{@"productId": @"3", @"proName":@"Apple iPhone 6 Plus (A1524) 16GB 金色 移动联通电信4G手机", @"saleCount":@"1", @"image":@"http://img14.360buyimg.com/n1/jfs/t1270/246/1076044366/120025/3d6a9ae3/556d64fcNf28f90d0.jpg", @"price":@"5488.00", @"decript":@"选择下方“北京移动购机赠费”推荐188元套餐，不换号码，额外得1800元话费，分24个月返还，尖叫吧，机会难得，欲购从速！", @"salesDate":@"2016.02.01"},
+                                         @{@"productId": @"4", @"proName":@"小米 4 2GB内存版 白色 移动4G手机", @"saleCount":@"1", @"image":@"http://img14.360buyimg.com/n1/jfs/t1339/269/193722734/56791/eb3cea86/555aec03Nc477b9b0.jpg", @"price":@"1499.00", @"decript":@"不锈钢金属边框、 5英寸屏窄边，工艺和手感超乎想象！", @"salesDate":@"2016.02.03"}
+                                         , nil];
+                NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+                for (int i = 0; i < array.count; i ++) {
+                    dic = [array objectAtIndex:i];
+                    [view configWithDic:dic];
+                    
+                    [tableView reloadData];
+                }
+                return view;
+            }
     }
     return nil;
     
@@ -600,7 +651,7 @@
 
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     
 }
 

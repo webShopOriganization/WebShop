@@ -7,6 +7,8 @@
 //
 
 #import "OrderManageCell.h"
+#import "SDWebImageManager.h"
+#import "UIImageView+WebCache.h"
 
 @implementation OrderManageCell
 
@@ -44,6 +46,9 @@
     if (dic) {
         self.lblOrderName.text = dic[@"proName"];
         self.lblReallyPay.text = [NSString stringWithFormat:@"实付款:￥%@", dic[@"price"]];
+        [self.imgOrder sd_setImageWithURL:dic[@"image"]
+                           placeholderImage:[UIImage imageNamed:@"bg3"] options:SDWebImageContinueInBackground];
+
     }
 
 }
