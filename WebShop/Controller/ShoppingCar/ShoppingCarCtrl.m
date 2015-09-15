@@ -75,21 +75,21 @@
     
     
     self.array = [[NSMutableArray alloc] initWithObjects:
-                  @{@"productId": @"1", @"proName":@"A1", @"saleCount":@"1", @"image":@"", @"price":@"10.00", @"decript":@"good", @"salesDate":@"2015.06.22"},
-                  @{@"productId": @"2", @"proName":@"B2", @"saleCount":@"1", @"image":@"", @"price":@"1.00", @"decript":@"good", @"salesDate":@"2015.02.03"},
-                  @{@"productId": @"3", @"proName":@"C3", @"saleCount":@"1", @"image":@"", @"price":@"10.00", @"decript":@"good", @"salesDate":@"2015.05.04"},
-                  @{@"productId": @"4", @"proName":@"D4", @"saleCount":@"1", @"image":@"", @"price":@"100.00", @"decript":@"good", @"salesDate":@"2015.07.31"},
-                  @{@"productId": @"5", @"proName":@"E5", @"saleCount":@"1", @"image":@"", @"price":@"1.00", @"decript":@"good", @"salesDate":@"2015.02.03"},
+                  @{@"productId": @"1", @"proName":@"华硕（ASUS）FL5600L 15.6英寸笔记本 （i7-5500U 4G 1TB 2G独显 蓝牙 Win8.1黑色）", @"saleCount":@"1", @"image":@"http://img12.360buyimg.com/n1/jfs/t1423/178/1078850293/141619/ccf1a50a/55b9fb36Na25baffa.jpg", @"price":@"4399.00", @"decript":@"华硕品质·坚若磐石", @"salesDate":@"2015.02.03"},
+                  @{@"productId": @"2", @"proName":@"Apple iPhone 6 (A1586) 16GB 金色", @"saleCount":@"1", @"image":@"http://img14.360buyimg.com/n1/jfs/t277/193/1005339798/768456/29136988/542d0798N19d42ce3.jpg", @"price":@"4800.00", @"decript":@"移动联通电信4G手机", @"salesDate":@"2016.02.01"},
+                  @{@"productId": @"3", @"proName":@"Apple iPhone 6 Plus (A1524) 16GB 金色 移动联通电信4G手机", @"saleCount":@"1", @"image":@"http://img14.360buyimg.com/n1/jfs/t1270/246/1076044366/120025/3d6a9ae3/556d64fcNf28f90d0.jpg", @"price":@"5488.00", @"decript":@"选择下方“北京移动购机赠费”推荐188元套餐，不换号码，额外得1800元话费，分24个月返还，尖叫吧，机会难得，欲购从速！", @"salesDate":@"2016.02.01"},
+                  @{@"productId": @"4", @"proName":@"小米 4 2GB内存版 白色 移动4G手机", @"saleCount":@"1", @"image":@"http://img14.360buyimg.com/n1/jfs/t1339/269/193722734/56791/eb3cea86/555aec03Nc477b9b0.jpg", @"price":@"1499.00", @"decript":@"不锈钢金属边框、 5英寸屏窄边，工艺和手感超乎想象！", @"salesDate":@"2016.02.03"},
+                  @{@"productId": @"5", @"proName":@"魅族 魅蓝note2 16GB 白色 移动联通双4G手机 双卡双待", @"saleCount":@"1", @"image":@"http://img14.360buyimg.com/n1/jfs/t1270/246/1076044366/120025/3d6a9ae3/556d64fcNf28f90d0.jpg", @"price":@"999.00", @"decript":@"【超值套装版】", @"salesDate":@"2016.01.01"},
                   nil];
     
     [[NetworkManager shareMgr]server_productListWithDic:nil completeHandle:^(NSDictionary *response) {
         NSLog(@"购物车商品列表返回数据 : %@", response);
         
-        NSNumber* nStatus = [response objectForKey:@"status"];
-        if([nStatus intValue] == 2000000){
-            self.array = [[NSMutableArray alloc] initWithArray:[response objectForKey:@"data"]];
-            NSLog(@"购物车商品列表  : %@", self.array);
-        }
+//        NSNumber *nStatus = [response objectForKey:@"status"];
+//        if([nStatus intValue] == 2000000){
+//            self.array = [[NSMutableArray alloc] initWithArray:[response objectForKey:@"data"]];
+//            NSLog(@"购物车商品列表  : %@", self.array);
+//        }
 
     }];
 

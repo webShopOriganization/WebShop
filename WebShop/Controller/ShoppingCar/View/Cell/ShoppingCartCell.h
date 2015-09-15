@@ -29,8 +29,14 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imgForBtnSeleted;
 @property (strong, nonatomic) NSIndexPath *indexPath;
 
+@property (strong, nonatomic) IBOutlet UIButton *btnDeleteOne;
+@property (strong, nonatomic) IBOutlet UIButton *btnAddOne;
+@property (strong, nonatomic) IBOutlet UILabel *lblSaleCount;
+
 @property (weak, nonatomic) id<deleteCellDelegate>delegate;
 - (IBAction)btnChooseClick:(id)sender;
+- (IBAction)btnDeleteOne:(id)sender;
+- (IBAction)btnAddOne:(id)sender;
 
 - (void)initWithDic:(NSMutableDictionary*)dic;
 - (void)configWithDic:(NSMutableDictionary*)dic;

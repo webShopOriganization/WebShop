@@ -26,7 +26,7 @@
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Dbl-B2-ycP" secondAttribute="height" multiplier="10:3" id="oPz-48-6PE"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -35,7 +35,7 @@
                         <constraints>
                             <constraint firstAttribute="width" secondItem="lyA-oo-jem" secondAttribute="height" multiplier="116:21" id="mT0-Iw-tUl"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
