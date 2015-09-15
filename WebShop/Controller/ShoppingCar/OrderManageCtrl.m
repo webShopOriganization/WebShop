@@ -7,6 +7,7 @@
 //
 
 #import "OrderManageCtrl.h"
+#import "NetworkManager.h"
 
 @interface OrderManageCtrl ()<deleteOrder, UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 
@@ -33,6 +34,17 @@
     //去掉tableView多余的空白行分割线
     self.tableView.tableFooterView = [[UIView alloc] init];
     
+//    [[NetworkManager shareMgr]server_OrderList:nil completeHandle:^(NSDictionary *response) {
+//        NSLog(@"OrderList response = %@", response);
+//        int status = [[response objectForKey:@"status"] intValue];
+//        if (status == 2000000) {
+//            
+//            self.arrayOrder = [[NSMutableArray alloc ] initWithArray:[[response objectForKey:@"data"] objectForKey:@"product"]];
+//            NSLog(@"self.arrayOrder = %@", self.arrayOrder);
+//        }
+//        
+//    }];
+   
     self.arrayOrder = [[NSMutableArray alloc] initWithObjects:
                   @{@"productId": @"1", @"proName":@"一打阿波罗17号宇宙飞船，阿斯顿发的货", @"saleCount":@"1", @"image":@"", @"price":@"998.00", @"decript":@"good", @"salesDate":@"2015.06.22"},
                   @{@"productId": @"2", @"proName":@"阿斯顿发送到发送到发送到发送到发送到发送到发", @"saleCount":@"1", @"image":@"", @"price":@"99.80", @"decript":@"good", @"salesDate":@"2015.02.03"},

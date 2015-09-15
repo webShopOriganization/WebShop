@@ -72,6 +72,8 @@
     
     self.arrayDelete = [[NSMutableArray alloc] init];
     self.arrayPayOrder = [[NSMutableArray alloc] init];
+    
+    
     self.array = [[NSMutableArray alloc] initWithObjects:
                   @{@"productId": @"1", @"proName":@"A1", @"saleCount":@"1", @"image":@"", @"price":@"10.00", @"decript":@"good", @"salesDate":@"2015.06.22"},
                   @{@"productId": @"2", @"proName":@"B2", @"saleCount":@"1", @"image":@"", @"price":@"1.00", @"decript":@"good", @"salesDate":@"2015.02.03"},
@@ -81,7 +83,14 @@
                   nil];
     
     [[NetworkManager shareMgr]server_productListWithDic:nil completeHandle:^(NSDictionary *response) {
+        NSLog(@"购物车商品列表返回数据 : %@", response);
         
+        NSNumber* nStatus = [response objectForKey:@"status"];
+        if([nStatus intValue] == 2000000){
+            self.array = [[NSMutableArray alloc] initWithArray:[response objectForKey:@"data"]];
+            NSLog(@"购物车商品列表  : %@", self.array);
+        }
+
     }];
 
     self.tableVeiw.backgroundColor = [UIColor clearColor];
@@ -99,7 +108,6 @@
  *  结算订单底部view初始化
  */
 - (void)initViewForTallyOrder {
-    
     self.btnForChooseAll.layer.borderWidth = 1.0f;
     self.btnForChooseAll.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.btnForChooseAll.layer.cornerRadius = 10.0f;
@@ -122,10 +130,6 @@
     
     self.imgSecond.layer.cornerRadius = 10.0f;
     self.imgSecond.layer.masksToBounds = YES;
-    
-
-
-    
 }
 
 - (void)initRightButton {
@@ -160,8 +164,7 @@
     
     UIBarButtonItem *negativeSpacer=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     negativeSpacer.width=-17;
-    self.navigationItem.rightBarButtonItems=@[negativeSpacer,rightItem];
-    
+    self.navigationItem.rightBarButtonItems=@[negativeSpacer,rightItem];    
 }
 
 #pragma mark - button点击事件
