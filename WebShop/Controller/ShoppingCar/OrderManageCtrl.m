@@ -8,6 +8,7 @@
 
 #import "OrderManageCtrl.h"
 #import "NetworkManager.h"
+#import "OrderDetailCtrl.h"
 
 @interface OrderManageCtrl ()<deleteOrder, UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 
@@ -90,6 +91,17 @@
     
     [self.tableView reloadData];
 }
+//跳转到订单详情界面
+- (void)jumpToOrderDetail:(NSIndexPath *)indexPath {
+    NSLog(@"第 %ld 行",(long)indexPath.row);
+    
+    NSMutableDictionary *dic = [self.arrayOrder objectAtIndex:indexPath.row];
+    
+    OrderDetailCtrl *vc = [[OrderDetailCtrl alloc] initWithNibName:@"OrderDetailCtrl" bundle:nil];
+    vc.navigationItem.title = @"订单详情";
+    vc.dict = dic;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 #pragma mark - UIActionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -114,16 +126,6 @@
     
     return 90;
 }
-
-//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-//
-//    return 30;
-//}
-
-//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-//
-//    return 80;
-//}
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([tableView isEqual:self.tableView]) {
@@ -187,6 +189,7 @@
             cell = [topLevelObjects objectAtIndex:0];
             
             cell.indexPath = indexPath;
+            cell.btn_Orderdetails.tag = indexPath.row;
             cell.delegate = self;
             [cell initWithDic:nil];
             [cell configWithDic:dic];

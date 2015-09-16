@@ -52,9 +52,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRy-1c-q8j">
-                        <rect key="frame" x="0.0" y="0.0" width="122" height="89"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="BRy-1c-q8j" secondAttribute="height" multiplier="320:89" constant="-198" id="mpa-Mr-5Jc"/>
+                            <constraint firstAttribute="width" secondItem="BRy-1c-q8j" secondAttribute="height" multiplier="320:89" id="mpa-Mr-5Jc"/>
                         </constraints>
                         <state key="normal">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -119,7 +119,7 @@
                     <constraint firstAttribute="bottom" secondItem="e77-Qt-RTW" secondAttribute="bottom" constant="9" id="hY4-fh-lk1"/>
                     <constraint firstItem="BRy-1c-q8j" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="hl1-K8-vAS"/>
                     <constraint firstItem="eP4-Gj-rYa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="jTz-aO-e5T"/>
-                    <constraint firstAttribute="trailing" secondItem="BRy-1c-q8j" secondAttribute="trailing" constant="198" id="nBF-4r-ahR"/>
+                    <constraint firstAttribute="trailing" secondItem="BRy-1c-q8j" secondAttribute="trailing" id="nBF-4r-ahR"/>
                     <constraint firstAttribute="bottom" secondItem="8Uk-jw-lu0" secondAttribute="bottom" constant="34" id="oT6-MC-0YR"/>
                     <constraint firstItem="VG8-bO-Cvo" firstAttribute="leading" secondItem="e77-Qt-RTW" secondAttribute="trailing" constant="19" id="qRA-Ea-SJL"/>
                     <constraint firstItem="8Uk-jw-lu0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="tV9-aq-BuK"/>

@@ -12,7 +12,7 @@
 
 - (void)deleteOeder:(NSString *)orderID;
 - (void)sendIndexPath:(NSIndexPath *)indexPath;
-
+- (void)jumpToOrderDetail:(NSIndexPath *)indexPath;
 @end
 
 @interface OrderManageCell : UITableViewCell
@@ -22,10 +22,12 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblReallyPay;
 @property (strong, nonatomic) IBOutlet UIButton *btnDelete;
 @property (strong, nonatomic) NSIndexPath *indexPath;
+@property (strong, nonatomic) IBOutlet UIButton *btn_Orderdetails;
 
 @property (weak, nonatomic) id<deleteOrder> delegate;
 
 - (IBAction)deleteBtnClick:(id)sender;
+- (IBAction)OrderDetailBtnClick:(id)sender;
 
 - (void)initWithDic:(NSMutableDictionary*)dic;
 - (void)configWithDic:(NSMutableDictionary*)dic;

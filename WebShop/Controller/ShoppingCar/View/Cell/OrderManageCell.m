@@ -30,6 +30,10 @@
     
 }
 
+- (IBAction)OrderDetailBtnClick:(id)sender {
+    [self.delegate jumpToOrderDetail:self.indexPath];
+}
+
 - (void)initWithDic:(NSMutableDictionary*)dic
 {
     NSLog(@"生成了一个OrderCell");
@@ -37,6 +41,11 @@
     self.imgOrder.layer.borderWidth = 1.0f;
     self.imgOrder.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.imgOrder.layer.masksToBounds = YES;
+    
+    self.btn_Orderdetails.layer.cornerRadius = 2.0f;
+    self.btn_Orderdetails.layer.borderWidth = 1.0f;
+    self.btn_Orderdetails.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.btn_Orderdetails.layer.masksToBounds = YES;
     
     self.backgroundColor = [UIColor clearColor];
 }

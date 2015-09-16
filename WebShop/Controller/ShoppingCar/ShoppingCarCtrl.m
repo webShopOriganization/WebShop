@@ -17,12 +17,13 @@
 #import "DetailProdutCtrl.h"
 #import "SecondFootView.h"
 
+
 @interface ShoppingCarCtrl ()<UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, loginDelegate, deleteCellDelegate>
 
 @property (assign, nonatomic) NSInteger statusForRightButton;
 @property (assign) BOOL statusForFootView;
 @property (strong, nonatomic) NSIndexPath *indexPath;
-@property (assign, nonatomic) float totalPrice;
+
 @property (strong, nonatomic) NSMutableArray *arrayDelete;
 @property (strong, nonatomic) NSMutableArray *arrayPayOrder;
 @end
@@ -34,8 +35,9 @@
     
     self.navigationItem.title=@"购物车";
     [self initUI];
+    [self initFirstBottomView];
     
-    self.imgForBtnSelected.hidden = YES;
+//    self.imgForBtnSelected.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,33 +50,52 @@
     
      [self.tableVeiw reloadData];
  
-    if ([self.array count]) {
-        
-        [self initRightButton];
-        [self initViewForTallyOrder];
-        
-        self.viewForTallyOrder.hidden = NO;
-        self.imgForBtnSelected.hidden = YES;
-        self.viewSecond.hidden = YES;
-    }else{
-        self.viewForTallyOrder.hidden = YES;
-        self.viewSecond.hidden = YES;
+    if (![self.array count]) {
         
         self.tableVeiw.backgroundColor = [UIColor lightGrayColor];
         [Common addAlertViewWithTitel:@"购物车是空的..."];
     }
-    
-   
-    
-    
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:YES];
+}
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewWillDisappear:YES];
+}
+
+    //初始化底部支付view
+- (void)initFirstBottomView {
+    self.firstBottomView = [PayOrderView instanceView];
+    self.firstBottomView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -49 -44, [UIScreen mainScreen].bounds.size.width, 44);
+    
+    [self.firstBottomView.btnForChooseAll addTarget:self action:@selector(btnChooseAllClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.firstBottomView.btnPayOrder addTarget:self action:@selector(btnPayMoneyClick) forControlEvents:UIControlEventTouchUpInside];
+    if (self.tabBarController isBeingDismissed) {
+        <#statements#>
+    }
+    [self.tabBarController.view addSubview:self.firstBottomView];
+}
+
+    //初始化底部删除view
+- (void)initSecondBottomView {
+    self.secondBottomView = [PayOrderDeleteView instanceView];
+    self.secondBottomView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -49 -44, [UIScreen mainScreen].bounds.size.width, 44);
+    
+    [self.secondBottomView.btnDelete addTarget:self action:@selector(deleteBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.secondBottomView.btnSecond addTarget:self action:@selector(btnForDeleteAll) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.tabBarController.view addSubview:self.secondBottomView];
+}
 - (void)initUI {
 
     self.title = @"购物车";
     //去掉tableView多余的空白行分割线
     self.tableVeiw.tableFooterView = [[UIView alloc] init];
- 
+    
+    self.statusForRightButton = 1;
+    self.statusForFootView = YES;
+    
 //    self.UserDic = [[NSDictionary alloc] initWithObjectsAndKeys:
 //                    @"1" , @"userId",
 //                    @"小王" , @"username",
@@ -110,132 +131,47 @@
     }];
 
     self.tableVeiw.backgroundColor = [UIColor clearColor];
-
-}
-
-/**
- *  结算订单底部view初始化
- */
-- (void)initViewForTallyOrder {
-    self.btnForChooseAll.layer.borderWidth = 1.0f;
-    self.btnForChooseAll.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-    self.btnForChooseAll.layer.cornerRadius = 10.0f;
-    self.btnForChooseAll.layer.masksToBounds = YES;
-        
-    self.imgForBtnSelected.layer.cornerRadius = 10.0f;
-    self.imgForBtnSelected.layer.masksToBounds = YES;
-
-    self.lblAllPrice.text = @"合计￥0.00";
-    
-    self.btnSecond.layer.borderWidth = 1.0f;
-    self.btnSecond.layer.borderColor = [[UIColor grayColor] CGColor];
-    self.btnSecond.layer.cornerRadius = 10.0f;
-    self.btnSecond.layer.masksToBounds = YES;
-    
-    self.btnDelete.layer.borderWidth = 1.0f;
-    self.btnDelete.layer.borderColor = [[UIColor redColor] CGColor];
-    self.btnDelete.layer.cornerRadius = 5.0f;
-    self.btnDelete.layer.masksToBounds = YES;
-    
-    self.imgSecond.layer.cornerRadius = 10.0f;
-    self.imgSecond.layer.masksToBounds = YES;
-}
-
-- (void)initRightButton {
-    
-    self.statusForRightButton = 1;
-    self.statusForFootView = YES;
-
-    self.rightButton=[UIButton buttonWithType:UIButtonTypeCustom];
-    [self.rightButton setTitle:@"编辑" forState:UIControlStateNormal];
-    self.rightButton.titleLabel.font=[UIFont systemFontOfSize:16];
-    [self.rightButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [self.rightButton setFrame:CGRectMake(0, 0, 60, 30)];
-    [self.rightButton addTarget:self action:@selector(editBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightItem=[[UIBarButtonItem alloc]initWithCustomView:self.rightButton ];
-    
-    UIBarButtonItem *negativeSpacer=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    negativeSpacer.width=-17;
-    self.navigationItem.rightBarButtonItems=@[negativeSpacer,rightItem];
-    
-}
-
-- (void)initCompleteBtn {
-    
-    self.statusForRightButton = 2;
-    
-    self.rightButton=[UIButton buttonWithType:UIButtonTypeCustom];
-    [self.rightButton setTitle:@"完成" forState:UIControlStateNormal];
-    self.rightButton.titleLabel.font=[UIFont systemFontOfSize:16];
-    [self.rightButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [self.rightButton setFrame:CGRectMake(0, 0, 60, 30)];
-    [self.rightButton addTarget:self action:@selector(completeBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightItem=[[UIBarButtonItem alloc]initWithCustomView:self.rightButton ];
-    
-    UIBarButtonItem *negativeSpacer=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    negativeSpacer.width=-17;
-    self.navigationItem.rightBarButtonItems=@[negativeSpacer,rightItem];    
 }
 
 #pragma mark - button点击事件
 
 //改变footview显示状态
 -  (void)changeStatus{
-    self.statusForFootView=!self.statusForFootView;
+
+    self.statusForFootView = !self.statusForFootView;
     [self.tableVeiw reloadData];
 }
 
 //点击编辑按钮
-- (void)editBtnClick {
+- (IBAction)editBtnClick:(id)sender {
     NSLog(@"%s", __func__);
-    
-    self.viewForTallyOrder.hidden = YES;
-    self.imgForBtnSelected.hidden = YES;
-    [self initCompleteBtn];
-    self.viewSecond.hidden = NO;
-    self.imgSecond.hidden = YES;
-    [self.tableVeiw reloadData];
-}
-
-//完成按钮
-- (void)completeBtnClick {
-    NSLog(@"%s", __func__);
-    
-    self.viewSecond.hidden = YES;
-    [self initRightButton];
-    self.viewForTallyOrder.hidden = NO;
-    self.imgForBtnSelected.hidden = YES;
+    if ([self.navigationItem.rightBarButtonItem.title isEqualToString:@"编辑"]) {
+        
+        self.navigationItem.rightBarButtonItem.title = @"完成";
+        self.statusForRightButton = 2;
+        [self initSecondBottomView];
+        
+    }else{
+        
+        self.navigationItem.rightBarButtonItem.title = @"编辑";
+        self.statusForRightButton = 1;
+        [self initFirstBottomView];
+    }
     
     [self.tableVeiw reloadData];
-    
-}
 
-- (IBAction)deleteBtnClick:(id)sender {
-    
-    UIActionSheet *actionSheet = [[UIActionSheet alloc]
-                                  initWithTitle:@"确认要删除选中的商品吗？"
-                                  delegate:self // telling this class(ViewController) to implement UIActionSheetDelegate
-                                  cancelButtonTitle:@"取消"
-                                  destructiveButtonTitle:@"确定"
-                                  otherButtonTitles:nil];
-    
-    [actionSheet showInView:self.tabBarController.view];
-    
 }
 
 /**
  *  结算按钮点击事件
  */
-- (IBAction)btnPayMoney:(id)sender {
-
-//    if (!self.UserDic){
-//        [Common addAlertViewWithTitel:@"请先登录"];
-//    }else{
+- (void)btnPayMoneyClick {
+//    if (self.arrayPayOrder) {
         PayForOrderCtrl *vc = [[PayForOrderCtrl alloc] initWithNibName:@"PayForOrderCtrl" bundle:nil];
         vc.navigationItem.title = @"支付方式";
-    
+        
         vc.arrayPay = self.arrayPayOrder;
-    
+        
         [self.navigationController pushViewController:vc animated:YES];
 //    }
 }
@@ -243,12 +179,14 @@
 /**
  *  购物车结算界面全选按钮点击
  */
-- (IBAction)btnChooseAllClick:(id)sender {
+- (void)btnChooseAllClick {
+    NSLog(@"%s", __func__);
     
     float totalPrice = 0.0;
+    self.firstBottomView.lblAllPrice.text = @"合计￥0.00";
     
-    if (self.imgForBtnSelected.hidden == YES) {
-        self.imgForBtnSelected.hidden = NO;
+    if (self.firstBottomView.imgForBtnSelected.hidden == YES) {
+        self.firstBottomView.imgForBtnSelected.hidden = NO;
         
         for (int i = 0; i < self.array.count; i++) {
             ShoppingCartCell *cell = (ShoppingCartCell *)[self.tableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
@@ -261,11 +199,11 @@
             NSLog(@"totalPrice = %0.2f",totalPrice);
         }
         
-        self.lblAllPrice.text = [NSString stringWithFormat:@"￥%0.2f", totalPrice];
+        self.firstBottomView.lblAllPrice.text = [NSString stringWithFormat:@"合计￥%0.2f", totalPrice];
         NSLog(@"shoppingcart.arrayPayOrder= %@", self.arrayPayOrder);
         
     }else{
-        self.imgForBtnSelected.hidden = YES;
+        self.firstBottomView.imgForBtnSelected.hidden = YES;
         
         for (int j = 0; j < self.array.count; j++) {
             ShoppingCartCell *cell = (ShoppingCartCell *)[self.tableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:j inSection:0]];
@@ -274,17 +212,32 @@
             [self.arrayPayOrder removeObject:[self.array objectAtIndex:j]];
             
         }
-        self.lblAllPrice.text = @"合计￥0.00";
+        self.firstBottomView.lblAllPrice.text = @"合计￥0.00";
         NSLog(@"shoppingcart.arrayPayOrder = %@", self.arrayPayOrder);
-
+        
     }
+    
+}
+/**
+ *  删除界面删除按钮
+ */
+- (void)deleteBtnClick{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:@"确认要删除选中的商品吗？"
+                                  delegate:self // telling this class(ViewController) to implement UIActionSheetDelegate
+                                  cancelButtonTitle:@"取消"
+                                  destructiveButtonTitle:@"确定"
+                                  otherButtonTitles:nil];
+    
+    [actionSheet showInView:self.tabBarController.view];
 }
 
-//删除界面全选按钮点击事件
-- (IBAction)btnSecondClick:(id)sender {
-    
-    if (self.imgSecond.hidden == YES) {
-        self.imgSecond.hidden = NO;
+/**
+ *  删除界面全选按钮
+ */
+- (void)btnForDeleteAll{
+    if (self.secondBottomView.imgSecond.hidden == YES) {
+        self.secondBottomView.imgSecond.hidden = NO;
         
         for (int i = 0; i < self.array.count; i++) {
             ShoppingCartCell *cell = (ShoppingCartCell *)[self.tableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
@@ -292,10 +245,10 @@
             
             [self.arrayDelete addObject:[self.array objectAtIndex:i]];
         }
-        NSLog(@"shoppingcart.arrayDelete = %@", self.arrayDelete);
+        NSLog(@"shoppingcart.arrayDelete = %lu", (unsigned long)self.arrayDelete.count);
         
     }else{
-        self.imgSecond.hidden = YES;
+        self.secondBottomView.imgSecond.hidden = YES;
         
         for (int j = 0; j < self.array.count; j++) {
             ShoppingCartCell *cell = (ShoppingCartCell *)[self.tableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:j inSection:0]];
@@ -303,10 +256,10 @@
             
             [self.arrayDelete removeObject:[self.array objectAtIndex:j]];
         }
-        NSLog(@"shoppingcart.arrayDelete = %@", self.arrayDelete);
+        NSLog(@"shoppingcart.arrayDelete = %lu", (unsigned long)self.arrayDelete.count);
     }
-}
 
+}
 
 #pragma mark - delegaete
 /**
@@ -327,7 +280,8 @@
     self.indexPath = indexPath;
     
     float totalPrice = 0.0;
-
+    self.firstBottomView.lblAllPrice.text = @"合计￥0.00";
+    
     if (self.statusForRightButton == 1 && (self.array.count != 0)) {
         
         for (int i =0; i < self.arrayPayOrder.count; i++) {
@@ -336,10 +290,10 @@
             
             NSLog(@"合计 = %0.2f", totalPrice);
         }
-        self.lblAllPrice.text = [NSString stringWithFormat:@"合计￥%0.2f", totalPrice];
+        self.firstBottomView.lblAllPrice.text = [NSString stringWithFormat:@"合计￥%0.2f", totalPrice];
     }
     
-    NSLog(@"待支付totalPay ： %@", self.lblAllPrice.text);
+    NSLog(@"待支付totalPay ： %@", self.firstBottomView.lblAllPrice.text);
 }
 /**
  *  添加选中行到待支付数组
@@ -355,7 +309,7 @@
         NSLog(@"self.arrayPayOrder = %@", self.arrayPayOrder);
         
         if (self.arrayPayOrder.count == self.array.count) {
-            self.imgForBtnSelected.hidden = NO;
+            self.firstBottomView.imgForBtnSelected.hidden = NO;
         }
     }
     
@@ -366,7 +320,7 @@
  */
 - (void)deleteFromPayArray:(NSIndexPath *)indexPath {
     NSLog(@"删除indexpath : %ld", (long)indexPath.row);
-    self.imgForBtnSelected.hidden = YES;
+    self.firstBottomView.imgForBtnSelected.hidden = YES;
     
     self.indexPath = indexPath;
     
@@ -375,6 +329,10 @@
         [self.arrayPayOrder removeObject:[self.array objectAtIndex:self.indexPath.row]];
         
         NSLog(@"self.arrayPayOrder = %@", self.arrayPayOrder);
+        
+        if (self.arrayPayOrder.count != self.array.count) {
+            self.firstBottomView.imgForBtnSelected.hidden = YES;
+        }
     }
 
 }
@@ -390,10 +348,10 @@
         
         [self.arrayDelete addObject:[self.array objectAtIndex:self.indexPath.row]];
         
-        NSLog(@"self.arrayDelete = %@", self.arrayDelete);
+        NSLog(@"self.arrayDelete = %lu", (unsigned long)self.arrayDelete.count);
         
         if (self.arrayDelete.count == self.array.count) {
-            self.imgSecond.hidden = NO;
+            self.secondBottomView.imgSecond.hidden = NO;
         }
     }
 }
@@ -403,15 +361,19 @@
  */
 - (void)deleteFromDeleteArray:(NSIndexPath *)indexPath {
     NSLog(@"删除indexpath : %ld", (long)indexPath.row);
-    self.imgSecond.hidden = YES;
+    self.secondBottomView.imgSecond.hidden = YES;
     
     self.indexPath = indexPath;
     
     if (self.statusForRightButton == 2 && self.arrayDelete) {
         
-        [self.arrayPayOrder removeObject:[self.array objectAtIndex:self.indexPath.row]];
+        [self.arrayDelete removeObject:[self.array objectAtIndex:self.indexPath.row]];
         
-        NSLog(@"self.arrayDelete = %@", self.arrayDelete);
+        NSLog(@"self.arrayDelete = %lu", (unsigned long)self.arrayDelete.count);
+        
+        if (self.arrayDelete.count != self.array.count) {
+            self.secondBottomView.imgSecond.hidden = YES;
+        }
     }
 }
 #pragma mark - UIActionSheetDelegate
@@ -425,7 +387,7 @@
             [self.tableVeiw reloadData];
             [self.arrayDelete removeAllObjects];
             
-            self.imgSecond.hidden = YES;
+            self.secondBottomView.imgSecond.hidden = YES;
         }else{
             for (id obj in self.arrayDelete) {
                 [self.array removeObject:obj];
@@ -434,7 +396,7 @@
             [self.tableVeiw reloadData];
             [self.arrayDelete removeAllObjects];//清空待删除数组内容
         }
-        self.imgSecond.hidden = YES;
+        self.secondBottomView.imgSecond.hidden = YES;
     }else if (buttonIndex == 1){
         NSLog(@"取消删除");
     }
@@ -477,9 +439,9 @@
         
         [self.tableVeiw reloadData];
         
-        self.lblAllPrice.text = @"合计0.00";
-        self.imgForBtnSelected.hidden = YES;
-        self.imgSecond.hidden = YES;
+        self.firstBottomView.lblAllPrice.text = @"合计￥0.00";
+        self.firstBottomView.imgForBtnSelected.hidden = YES;
+        self.secondBottomView.imgSecond.hidden = YES;
     }
 }
 
@@ -490,8 +452,6 @@
         return 0;
     }
     return 0;
-    
-//    return SCREEN_HEIGHT -64-30-49-80;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
@@ -507,17 +467,17 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     
-    if (self.UserDic || [self.array count]) {
+    if (self.statusForRightButton == 1) {
         if (self.statusForFootView == YES) {
-            return 30;
+            return 32;
         }else{
             return 160;
         }
-    }else{
+    }
+    else{
         return 0;
     }
     return 0;
-  
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -535,7 +495,7 @@
             loginView.backgroundColor = [UIColor whiteColor];
             
             loginView.delegate = self;
-            
+        
             return loginView;
         }
         
@@ -546,27 +506,21 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    if ([self.array count]) {
+    if ([self.array count] && self.statusForRightButton == 1) {
     
-        
             if (self.statusForFootView == YES) {
                 SecondFootView *view = [[SecondFootView alloc] init];
                 
                 NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"SecondFootView" owner:self options:nil];
                 view = [topLevelObjects objectAtIndex:0];
-               
                 [view.btnDown addTarget:self action:@selector(changeStatus) forControlEvents:UIControlEventTouchUpInside];
 
                 return view;
-            }else if (self.statusForFootView == NO){
-                
+            }else{
                 FooterView *view = [[FooterView alloc] init];
 
                 NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"FooterView" owner:self options:nil];
-                
                 view = [topLevelObjects objectAtIndex:0];
-                
-                [view.btnUp addTarget:self action:@selector(changeStatus) forControlEvents:UIControlEventTouchUpInside];
                 
                 NSMutableArray *array = [[NSMutableArray alloc] initWithObjects:
                                          @{@"productId": @"2", @"proName":@"Apple iPhone 6 (A1586) 16GB 金色", @"saleCount":@"1", @"image":@"http://img14.360buyimg.com/n1/jfs/t277/193/1005339798/768456/29136988/542d0798N19d42ce3.jpg", @"price":@"4800.00", @"decript":@"移动联通电信4G手机", @"salesDate":@"2016.02.01"},
@@ -578,8 +532,9 @@
                     dic = [array objectAtIndex:i];
                     [view configWithDic:dic];
                     
-                    [tableView reloadData];
                 }
+                [view.btnUp addTarget:self action:@selector(changeStatus) forControlEvents:UIControlEventTouchUpInside];
+
                 return view;
             }
     }
@@ -628,7 +583,7 @@
         NSMutableDictionary *dic = [self.array objectAtIndex:indexPath.row];
         NSLog(@"CellDic = %@", dic);
         ShoppingCartCell* cell = [tableView dequeueReusableCellWithIdentifier:CellId];
-        
+       
         if (!cell) {
             
             NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:CellId owner:self options:nil];
@@ -640,9 +595,9 @@
             cell.delegate = self;
             [cell initWithDic:nil];
             [cell configWithDic:dic];
-            
+ 
         }
-        
+     
         return cell;
 
     }
@@ -655,5 +610,7 @@
     
 }
 
+//- (IBAction)editBtnClick:(id)sender {
+//}
 @end
 

@@ -91,6 +91,18 @@
 		235B5BB21BA82989004801A4 /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = 235B5BB01BA82989004801A4 /* up.png */; };
 		235B5BB51BA82AE9004801A4 /* SecondFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 235B5BB41BA82AE9004801A4 /* SecondFootView.m */; };
 		235B5BB91BA82B08004801A4 /* SecondFootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 235B5BB81BA82B08004801A4 /* SecondFootView.xib */; };
+		2378DDCD1BA97AA0006302D8 /* OrderDetailFouthCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2378DDC51BA97AA0006302D8 /* OrderDetailFouthCell.m */; };
+		2378DDCE1BA97AA0006302D8 /* OrderDetailFouthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2378DDC61BA97AA0006302D8 /* OrderDetailFouthCell.xib */; };
+		2378DDCF1BA97AA0006302D8 /* OrderDetailSectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2378DDC81BA97AA0006302D8 /* OrderDetailSectionCell.m */; };
+		2378DDD01BA97AA0006302D8 /* OrderDetailSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2378DDC91BA97AA0006302D8 /* OrderDetailSectionCell.xib */; };
+		2378DDD11BA97AA0006302D8 /* OrderDetailThirdCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2378DDCB1BA97AA0006302D8 /* OrderDetailThirdCell.m */; };
+		2378DDD21BA97AA0006302D8 /* OrderDetailThirdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2378DDCC1BA97AA0006302D8 /* OrderDetailThirdCell.xib */; };
+		2378DDD91BA97C21006302D8 /* PayOrderDeleteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2378DDD41BA97C21006302D8 /* PayOrderDeleteView.m */; };
+		2378DDDA1BA97C21006302D8 /* PayOrderDeleteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2378DDD51BA97C21006302D8 /* PayOrderDeleteView.xib */; };
+		2378DDDB1BA97C21006302D8 /* PayOrderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2378DDD71BA97C21006302D8 /* PayOrderView.m */; };
+		2378DDDC1BA97C21006302D8 /* PayOrderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2378DDD81BA97C21006302D8 /* PayOrderView.xib */; };
+		2378DDE01BA97C5D006302D8 /* OrderDetailCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2378DDDE1BA97C5D006302D8 /* OrderDetailCtrl.m */; };
+		2378DDE11BA97C5D006302D8 /* OrderDetailCtrl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2378DDDF1BA97C5D006302D8 /* OrderDetailCtrl.xib */; };
 		237C62C81BA6C76D00CE5608 /* ParserDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 237C62C71BA6C76D00CE5608 /* ParserDataManager.m */; };
 		237C62CC1BA6C7C500CE5608 /* PayForOrderCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 237C62CA1BA6C7C500CE5608 /* PayForOrderCtrl.m */; };
 		237C62CD1BA6C7C500CE5608 /* PayForOrderCtrl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 237C62CB1BA6C7C500CE5608 /* PayForOrderCtrl.xib */; };
@@ -265,6 +277,24 @@
 		235B5BB31BA82AE9004801A4 /* SecondFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondFootView.h; sourceTree = "<group>"; };
 		235B5BB41BA82AE9004801A4 /* SecondFootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondFootView.m; sourceTree = "<group>"; };
 		235B5BB81BA82B08004801A4 /* SecondFootView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondFootView.xib; sourceTree = "<group>"; };
+		2378DDC41BA97AA0006302D8 /* OrderDetailFouthCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderDetailFouthCell.h; path = "../../../../../../WebShop-2/WebShop/Controller/ShoppingCar/View/Cell/OrderDetailFouthCell.h"; sourceTree = "<group>"; };
+		2378DDC51BA97AA0006302D8 /* OrderDetailFouthCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderDetailFouthCell.m; path = "../../../../../../WebShop-2/WebShop/Controller/ShoppingCar/View/Cell/OrderDetailFouthCell.m"; sourceTree = "<group>"; };
+		2378DDC61BA97AA0006302D8 /* OrderDetailFouthCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderDetailFouthCell.xib; path = "../../../../../../WebShop-2/WebShop/Controller/ShoppingCar/View/Cell/OrderDetailFouthCell.xib"; sourceTree = "<group>"; };
+		2378DDC71BA97AA0006302D8 /* OrderDetailSectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderDetailSectionCell.h; path = "../../../../../../WebShop-2/WebShop/Controller/ShoppingCar/View/Cell/OrderDetailSectionCell.h"; sourceTree = "<group>"; };
+		2378DDC81BA97AA0006302D8 /* OrderDetailSectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderDetailSectionCell.m; path = "../../../../../../WebShop-2/WebShop/Controller/ShoppingCar/View/Cell/OrderDetailSectionCell.m"; sourceTree = "<group>"; };
+		2378DDC91BA97AA0006302D8 /* OrderDetailSectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderDetailSectionCell.xib; path = "../../../../../../WebShop-2/WebShop/Controller/ShoppingCar/View/Cell/OrderDetailSectionCell.xib"; sourceTree = "<group>"; };
+		2378DDCA1BA97AA0006302D8 /* OrderDetailThirdCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderDetailThirdCell.h; path = "../../../../../../WebShop-2/WebShop/Controller/ShoppingCar/View/Cell/OrderDetailThirdCell.h"; sourceTree = "<group>"; };
+		2378DDCB1BA97AA0006302D8 /* OrderDetailThirdCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderDetailThirdCell.m; path = "../../../../../../WebShop-2/WebShop/Controller/ShoppingCar/View/Cell/OrderDetailThirdCell.m"; sourceTree = "<group>"; };
+		2378DDCC1BA97AA0006302D8 /* OrderDetailThirdCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderDetailThirdCell.xib; path = "../../../../../../WebShop-2/WebShop/Controller/ShoppingCar/View/Cell/OrderDetailThirdCell.xib"; sourceTree = "<group>"; };
+		2378DDD31BA97C21006302D8 /* PayOrderDeleteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PayOrderDeleteView.h; path = "../../../../../WebShop-2/WebShop/Controller/ShoppingCar/View/PayOrderDeleteView.h"; sourceTree = "<group>"; };
+		2378DDD41BA97C21006302D8 /* PayOrderDeleteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PayOrderDeleteView.m; path = "../../../../../WebShop-2/WebShop/Controller/ShoppingCar/View/PayOrderDeleteView.m"; sourceTree = "<group>"; };
+		2378DDD51BA97C21006302D8 /* PayOrderDeleteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PayOrderDeleteView.xib; path = "../../../../../WebShop-2/WebShop/Controller/ShoppingCar/View/PayOrderDeleteView.xib"; sourceTree = "<group>"; };
+		2378DDD61BA97C21006302D8 /* PayOrderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PayOrderView.h; path = "../../../../../WebShop-2/WebShop/Controller/ShoppingCar/View/PayOrderView.h"; sourceTree = "<group>"; };
+		2378DDD71BA97C21006302D8 /* PayOrderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PayOrderView.m; path = "../../../../../WebShop-2/WebShop/Controller/ShoppingCar/View/PayOrderView.m"; sourceTree = "<group>"; };
+		2378DDD81BA97C21006302D8 /* PayOrderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PayOrderView.xib; path = "../../../../../WebShop-2/WebShop/Controller/ShoppingCar/View/PayOrderView.xib"; sourceTree = "<group>"; };
+		2378DDDD1BA97C5D006302D8 /* OrderDetailCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderDetailCtrl.h; path = "../../../../WebShop-2/WebShop/Controller/ShoppingCar/OrderDetailCtrl.h"; sourceTree = "<group>"; };
+		2378DDDE1BA97C5D006302D8 /* OrderDetailCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderDetailCtrl.m; path = "../../../../WebShop-2/WebShop/Controller/ShoppingCar/OrderDetailCtrl.m"; sourceTree = "<group>"; };
+		2378DDDF1BA97C5D006302D8 /* OrderDetailCtrl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderDetailCtrl.xib; path = "../../../../WebShop-2/WebShop/Controller/ShoppingCar/OrderDetailCtrl.xib"; sourceTree = "<group>"; };
 		237C62C61BA6C76D00CE5608 /* ParserDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "\U0010ParserDataManager.h"; sourceTree = "<group>"; };
 		237C62C71BA6C76D00CE5608 /* ParserDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "\U0010ParserDataManager.m"; sourceTree = "<group>"; };
 		237C62C91BA6C7C500CE5608 /* PayForOrderCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayForOrderCtrl.h; sourceTree = "<group>"; };
@@ -695,6 +725,9 @@
 		23D481521BA00C4F0036B9DC /* ShoppingCar */ = {
 			isa = PBXGroup;
 			children = (
+				2378DDDD1BA97C5D006302D8 /* OrderDetailCtrl.h */,
+				2378DDDE1BA97C5D006302D8 /* OrderDetailCtrl.m */,
+				2378DDDF1BA97C5D006302D8 /* OrderDetailCtrl.xib */,
 				237C62C91BA6C7C500CE5608 /* PayForOrderCtrl.h */,
 				237C62CA1BA6C7C500CE5608 /* PayForOrderCtrl.m */,
 				237C62CB1BA6C7C500CE5608 /* PayForOrderCtrl.xib */,
@@ -710,7 +743,12 @@
 		23D481571BA00C4F0036B9DC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				23D481581BA00C4F0036B9DC /* Cell */,
+				2378DDD31BA97C21006302D8 /* PayOrderDeleteView.h */,
+				2378DDD41BA97C21006302D8 /* PayOrderDeleteView.m */,
+				2378DDD51BA97C21006302D8 /* PayOrderDeleteView.xib */,
+				2378DDD61BA97C21006302D8 /* PayOrderView.h */,
+				2378DDD71BA97C21006302D8 /* PayOrderView.m */,
+				2378DDD81BA97C21006302D8 /* PayOrderView.xib */,
 				23D4815F1BA00C4F0036B9DC /* FooterView.h */,
 				23D481601BA00C4F0036B9DC /* FooterView.m */,
 				23D481611BA00C4F0036B9DC /* FooterView.xib */,
@@ -720,6 +758,7 @@
 				23D481621BA00C4F0036B9DC /* LoadHeaderView.h */,
 				23D481631BA00C4F0036B9DC /* LoadHeaderView.m */,
 				23D481641BA00C4F0036B9DC /* LoadHeaderView.xib */,
+				23D481581BA00C4F0036B9DC /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -727,6 +766,15 @@
 		23D481581BA00C4F0036B9DC /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				2378DDC41BA97AA0006302D8 /* OrderDetailFouthCell.h */,
+				2378DDC51BA97AA0006302D8 /* OrderDetailFouthCell.m */,
+				2378DDC61BA97AA0006302D8 /* OrderDetailFouthCell.xib */,
+				2378DDC71BA97AA0006302D8 /* OrderDetailSectionCell.h */,
+				2378DDC81BA97AA0006302D8 /* OrderDetailSectionCell.m */,
+				2378DDC91BA97AA0006302D8 /* OrderDetailSectionCell.xib */,
+				2378DDCA1BA97AA0006302D8 /* OrderDetailThirdCell.h */,
+				2378DDCB1BA97AA0006302D8 /* OrderDetailThirdCell.m */,
+				2378DDCC1BA97AA0006302D8 /* OrderDetailThirdCell.xib */,
 				237C62CE1BA6C80300CE5608 /* PayOrderCll.h */,
 				237C62CF1BA6C80300CE5608 /* PayOrderCll.m */,
 				237C62D01BA6C80300CE5608 /* PayOrderCll.xib */,
@@ -864,6 +912,7 @@
 				E9B4BED91BA5B08C00F19F4C /* ProvinceCell.xib in Resources */,
 				216F91391BA125CE00020FCF /* MerchandiseCell.xib in Resources */,
 				218AC3701BA31C8E00FF9A25 /* MapController.xib in Resources */,
+				2378DDE11BA97C5D006302D8 /* OrderDetailCtrl.xib in Resources */,
 				237C62D21BA6C80300CE5608 /* PayOrderCll.xib in Resources */,
 				218AC3451BA2D49300FF9A25 /* Evaluation_0@2x.png in Resources */,
 				2133BD801BA677D900B0D770 /* loading-ios@2x.png in Resources */,
@@ -871,6 +920,7 @@
 				21FE15871B9EC3B30092043A /* login.json in Resources */,
 				233928791BA6DB6A00935AEE /* ic_wxpay@2x.png in Resources */,
 				2133BD781BA65E5500B0D770 /* AdvertisementCell.xib in Resources */,
+				2378DDD21BA97AA0006302D8 /* OrderDetailThirdCell.xib in Resources */,
 				218AC34D1BA2D6D300FF9A25 /* LookAllCommentCell.xib in Resources */,
 				237C62CD1BA6C7C500CE5608 /* PayForOrderCtrl.xib in Resources */,
 				218AC3351BA2D1DC00FF9A25 /* list_more@2x.png in Resources */,
@@ -891,6 +941,7 @@
 				218AC34F1BA2F60400FF9A25 /* delete.png in Resources */,
 				218AC3551BA30DFA00FF9A25 /* PriceCell.xib in Resources */,
 				21841D591BA268A700A3DD26 /* btnRed.png in Resources */,
+				2378DDD01BA97AA0006302D8 /* OrderDetailSectionCell.xib in Resources */,
 				E9B4BEDF1BA5B10100F19F4C /* icon_Location@3x.png in Resources */,
 				23D4816E1BA00C4F0036B9DC /* LoadHeaderView.xib in Resources */,
 				218AC3611BA3134E00FF9A25 /* btn_normal@2x.png in Resources */,
@@ -901,10 +952,12 @@
 				21540DC81BA7EF2E00DF7171 /* CommentCtrl.xib in Resources */,
 				E9B4BED41BA5B05E00F19F4C /* location.xml in Resources */,
 				218AC32C1BA2CD8600FF9A25 /* DetailProdutCtrl.xib in Resources */,
+				2378DDDC1BA97C21006302D8 /* PayOrderView.xib in Resources */,
 				219296A71BA0320E00D9860B /* LoginViewController.xib in Resources */,
 				219B799A1B9D7EBE00325AB0 /* bg2.png in Resources */,
 				E9B4BEEF1BA5B4C100F19F4C /* nav_back@3x.png in Resources */,
 				218AC35A1BA3119D00FF9A25 /* SalesPromotionCell.xib in Resources */,
+				2378DDCE1BA97AA0006302D8 /* OrderDetailFouthCell.xib in Resources */,
 				219B79B51B9D951F00325AB0 /* product.json in Resources */,
 				2133BD891BA6780B00B0D770 /* Coupons_but_top@2x.png in Resources */,
 				E9B4BEEB1BA5B3E000F19F4C /* Main.storyboard in Resources */,
@@ -916,6 +969,7 @@
 				E9BCEBA01B9DCA6000E5DF99 /* order.json in Resources */,
 				219B79B11B9D8E4800325AB0 /* memberCell.xib in Resources */,
 				23D4816C1BA00C4F0036B9DC /* FooterView.xib in Resources */,
+				2378DDDA1BA97C21006302D8 /* PayOrderDeleteView.xib in Resources */,
 				23D4816A1BA00C4F0036B9DC /* ShoppingCartCell.xib in Resources */,
 				218AC35D1BA3133500FF9A25 /* btn_normal@3x.png in Resources */,
 				218AC3621BA3134E00FF9A25 /* btn_pack-up@2x.png in Resources */,
@@ -982,12 +1036,15 @@
 				21841D551BA264C400A3DD26 /* QuoteContext.m in Sources */,
 				E9B4BEC81BA5AF8200F19F4C /* CTRootViewController.m in Sources */,
 				E9B4BED01BA5AFE400F19F4C /* CityCtrl.m in Sources */,
+				2378DDDB1BA97C21006302D8 /* PayOrderView.m in Sources */,
 				E9B4BEE31BA5B18600F19F4C /* GetCityCtrl.m in Sources */,
 				218AC3391BA2D32A00FF9A25 /* CommentDetailCell.m in Sources */,
 				21841D571BA264C400A3DD26 /* SombreQuoteComponent.mm in Sources */,
 				E9BCEBA61B9DD1A100E5DF99 /* NetworkManager.m in Sources */,
 				235B5BB51BA82AE9004801A4 /* SecondFootView.m in Sources */,
 				23D4816B1BA00C4F0036B9DC /* FooterView.m in Sources */,
+				2378DDD91BA97C21006302D8 /* PayOrderDeleteView.m in Sources */,
+				2378DDCF1BA97AA0006302D8 /* OrderDetailSectionCell.m in Sources */,
 				211CE9BD1B9D1F8700C3E916 /* ViewController.m in Sources */,
 				23D4816D1BA00C4F0036B9DC /* LoadHeaderView.m in Sources */,
 				218AC34C1BA2D6D300FF9A25 /* LookAllCommentCell.m in Sources */,
@@ -1018,11 +1075,14 @@
 				219B79A61B9D8B3200325AB0 /* MemberCenterCtrl.m in Sources */,
 				2133BD7C1BA6772F00B0D770 /* SalesPromotionSecondCell.m in Sources */,
 				218AC3301BA2D0A900FF9A25 /* CommonCell.m in Sources */,
+				2378DDCD1BA97AA0006302D8 /* OrderDetailFouthCell.m in Sources */,
 				216F913D1BA125FA00020FCF /* CollectionViewCell.m in Sources */,
+				2378DDD11BA97AA0006302D8 /* OrderDetailThirdCell.m in Sources */,
 				E9B4BEDB1BA5B0C100F19F4C /* DetailProdutCtrl.m in Sources */,
 				237C62C81BA6C76D00CE5608 /* ParserDataManager.m in Sources */,
 				E9B4BEF61BA5BBF000F19F4C /* ReactViewController.m in Sources */,
 				23D481691BA00C4F0036B9DC /* ShoppingCartCell.m in Sources */,
+				2378DDE01BA97C5D006302D8 /* OrderDetailCtrl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
