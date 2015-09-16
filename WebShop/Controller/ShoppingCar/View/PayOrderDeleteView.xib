@@ -68,7 +68,6 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="xzJ-2h-f2t" firstAttribute="top" secondItem="Fyo-S3-WLr" secondAttribute="top" id="5Vu-8U-Rkw"/>
                 <constraint firstAttribute="bottom" secondItem="xzJ-2h-f2t" secondAttribute="bottom" id="BgD-G1-iRN"/>

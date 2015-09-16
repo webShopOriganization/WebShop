@@ -39,13 +39,19 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arW-lu-l9L">
-                        <rect key="frame" x="284" y="15" width="21" height="20"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="delete.png" translatesAutoresizingMaskIntoConstraints="NO" id="DKy-WQ-VwI">
+                        <rect key="frame" x="278" y="14" width="25" height="24"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="21" id="Zql-eR-CsM"/>
-                            <constraint firstAttribute="height" constant="20" id="yo5-2g-b6u"/>
+                            <constraint firstAttribute="width" secondItem="DKy-WQ-VwI" secondAttribute="height" multiplier="25:24" id="5y0-kq-web"/>
                         </constraints>
-                        <state key="normal" title="delete" image="delete.png">
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arW-lu-l9L">
+                        <rect key="frame" x="278" y="14" width="25" height="24"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="arW-lu-l9L" secondAttribute="height" multiplier="25:24" id="uRq-2q-Sb5"/>
+                        </constraints>
+                        <state key="normal">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>
@@ -71,18 +77,24 @@
                     <constraint firstItem="OZn-wt-LJG" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="6iw-Kx-vuR"/>
                     <constraint firstItem="lyA-oo-jem" firstAttribute="top" secondItem="Dbl-B2-ycP" secondAttribute="bottom" constant="1" id="8Fa-qS-gcq"/>
                     <constraint firstItem="lyA-oo-jem" firstAttribute="leading" secondItem="oa4-g0-Xol" secondAttribute="trailing" constant="14" id="GKC-1L-72R"/>
-                    <constraint firstItem="arW-lu-l9L" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="Hl5-wu-fgB"/>
+                    <constraint firstItem="DKy-WQ-VwI" firstAttribute="leading" secondItem="Dbl-B2-ycP" secondAttribute="trailing" constant="34" id="OOr-uE-IvG"/>
                     <constraint firstItem="oa4-g0-Xol" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="Qqq-lr-GqD"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="arW-lu-l9L" secondAttribute="trailing" constant="7" id="Y1k-wd-D0J"/>
+                    <constraint firstItem="DKy-WQ-VwI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="UCA-WD-CvG"/>
+                    <constraint firstItem="arW-lu-l9L" firstAttribute="leading" secondItem="Dbl-B2-ycP" secondAttribute="trailing" constant="34" id="UlW-jc-8NG"/>
+                    <constraint firstAttribute="trailing" secondItem="DKy-WQ-VwI" secondAttribute="trailing" constant="17" id="VBM-10-ztn"/>
                     <constraint firstItem="OZn-wt-LJG" firstAttribute="leading" secondItem="lyA-oo-jem" secondAttribute="trailing" constant="27" id="Ywn-he-3Rt"/>
                     <constraint firstItem="Dbl-B2-ycP" firstAttribute="leading" secondItem="oa4-g0-Xol" secondAttribute="trailing" constant="14" id="aLi-Yj-b64"/>
                     <constraint firstItem="oa4-g0-Xol" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="afl-Jj-Fue"/>
                     <constraint firstItem="Dbl-B2-ycP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-3" id="bps-LG-eoV"/>
                     <constraint firstItem="oa4-g0-Xol" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="g0s-GT-qwt"/>
+                    <constraint firstAttribute="trailing" secondItem="arW-lu-l9L" secondAttribute="trailing" constant="17" id="g9e-Q0-F2r"/>
                     <constraint firstAttribute="trailing" secondItem="lyA-oo-jem" secondAttribute="trailing" constant="100" id="hyw-nh-OV2"/>
                     <constraint firstItem="OZn-wt-LJG" firstAttribute="centerY" secondItem="lyA-oo-jem" secondAttribute="centerY" constant="0.5" id="kON-sb-dtS"/>
+                    <constraint firstItem="arW-lu-l9L" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="kZV-ra-jGI"/>
+                    <constraint firstItem="OZn-wt-LJG" firstAttribute="top" secondItem="arW-lu-l9L" secondAttribute="bottom" constant="9" id="oWl-fl-Ycs"/>
                     <constraint firstAttribute="bottom" secondItem="lyA-oo-jem" secondAttribute="bottom" constant="17" id="qxQ-9a-NEv"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Dbl-B2-ycP" secondAttribute="bottom" constant="24" id="sCg-F0-YZf"/>
+                    <constraint firstItem="OZn-wt-LJG" firstAttribute="top" secondItem="DKy-WQ-VwI" secondAttribute="bottom" constant="9" id="wm4-wW-Xf7"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">

@@ -232,7 +232,7 @@
         <scene sceneID="MRX-aJ-ajw">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DhN-qc-LEk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="会员中心" id="DoC-ss-u6w"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="会员中心" id="DoC-ss-u6w"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hDx-Ud-ayn">

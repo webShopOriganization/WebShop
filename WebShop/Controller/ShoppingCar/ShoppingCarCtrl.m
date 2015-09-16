@@ -32,12 +32,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.navigationItem.title=@"购物车";
     [self initUI];
-    [self initFirstBottomView];
-    
-//    self.imgForBtnSelected.hidden = YES;
+   
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,6 +46,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     
+    self.navigationItem.rightBarButtonItem.title = @"编辑";
+     [self initFirstBottomView];
      [self.tableVeiw reloadData];
  
     if (![self.array count]) {
@@ -55,6 +55,14 @@
         self.tableVeiw.backgroundColor = [UIColor lightGrayColor];
         [Common addAlertViewWithTitel:@"购物车是空的..."];
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:YES];
+    
+    [self.firstBottomView removeFromSuperview];
+    [self.secondBottomView removeFromSuperview];
+
 }
 
     //初始化底部支付view
@@ -65,12 +73,9 @@
     [self.firstBottomView.btnForChooseAll addTarget:self action:@selector(btnChooseAllClick) forControlEvents:UIControlEventTouchUpInside];
     [self.firstBottomView.btnPayOrder addTarget:self action:@selector(btnPayMoneyClick) forControlEvents:UIControlEventTouchUpInside];
     
-    if (self.tabBarController.tabBarItem.tag == 1) {
+    if ([self.tabBarItem.title isEqualToString:@"购物车"]) {
         [self.tabBarController.view addSubview:self.firstBottomView];
-    }else{
-        [self.firstBottomView removeFromSuperview];
     }
-    
 }
 
     //初始化底部删除view
@@ -81,11 +86,8 @@
     [self.secondBottomView.btnDelete addTarget:self action:@selector(deleteBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.secondBottomView.btnSecond addTarget:self action:@selector(btnForDeleteAll) forControlEvents:UIControlEventTouchUpInside];
     
-    if (self.tabBarController.tabBarItem.tag == 1) {
+    if ([self.tabBarItem.title isEqualToString:@"购物车"]) {
         [self.tabBarController.view addSubview:self.secondBottomView];
-        
-    }else{
-        [self.secondBottomView removeFromSuperview];
     }
 }
 
