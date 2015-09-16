@@ -20,5 +20,9 @@
 @property (strong, nonatomic) IBOutlet UIImageView *img_03;
 @property (strong, nonatomic) IBOutlet UILabel *lblProductName_03;
 @property (strong, nonatomic) IBOutlet UILabel *lblPrice_03;
+@property (strong, nonatomic) IBOutlet UIButton *btnUp;
+
+- (void)configWithDic:(NSMutableDictionary*)dic;
+
 
 @end

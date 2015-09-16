@@ -105,7 +105,7 @@ heightForHeaderInSection:(NSInteger)section
        
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         MemberCenterCtrl *vc = [storyboard instantiateViewControllerWithIdentifier:@"MemberCenterCtrl"];
-       
+        vc.hidesBottomBarWhenPushed = YES;
         vc.navigationItem.title = @"订单管理";
         
         [self.navigationController pushViewController:vc animated:YES];
