@@ -30,7 +30,7 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="实付款:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyA-oo-jem">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyA-oo-jem">
                         <rect key="frame" x="104" y="51" width="116" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="lyA-oo-jem" secondAttribute="height" multiplier="116:21" id="mT0-Iw-tUl"/>
@@ -40,9 +40,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arW-lu-l9L">
-                        <rect key="frame" x="284" y="9" width="28" height="27"/>
+                        <rect key="frame" x="284" y="15" width="21" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="arW-lu-l9L" secondAttribute="height" multiplier="5:3" constant="-17" id="iDq-JN-Et8"/>
+                            <constraint firstAttribute="width" constant="21" id="Zql-eR-CsM"/>
+                            <constraint firstAttribute="height" constant="20" id="yo5-2g-b6u"/>
                         </constraints>
                         <state key="normal" title="delete" image="delete.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -67,20 +68,18 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="arW-lu-l9L" secondAttribute="bottom" constant="45" id="3sz-rc-rBF"/>
                     <constraint firstItem="OZn-wt-LJG" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="6iw-Kx-vuR"/>
                     <constraint firstItem="lyA-oo-jem" firstAttribute="top" secondItem="Dbl-B2-ycP" secondAttribute="bottom" constant="1" id="8Fa-qS-gcq"/>
                     <constraint firstItem="lyA-oo-jem" firstAttribute="leading" secondItem="oa4-g0-Xol" secondAttribute="trailing" constant="14" id="GKC-1L-72R"/>
+                    <constraint firstItem="arW-lu-l9L" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="Hl5-wu-fgB"/>
                     <constraint firstItem="oa4-g0-Xol" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="Qqq-lr-GqD"/>
-                    <constraint firstItem="arW-lu-l9L" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="VNx-6K-tES"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="arW-lu-l9L" secondAttribute="trailing" constant="7" id="Y1k-wd-D0J"/>
                     <constraint firstItem="OZn-wt-LJG" firstAttribute="leading" secondItem="lyA-oo-jem" secondAttribute="trailing" constant="27" id="Ywn-he-3Rt"/>
                     <constraint firstItem="Dbl-B2-ycP" firstAttribute="leading" secondItem="oa4-g0-Xol" secondAttribute="trailing" constant="14" id="aLi-Yj-b64"/>
                     <constraint firstItem="oa4-g0-Xol" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="afl-Jj-Fue"/>
                     <constraint firstItem="Dbl-B2-ycP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-3" id="bps-LG-eoV"/>
-                    <constraint firstItem="arW-lu-l9L" firstAttribute="leading" secondItem="Dbl-B2-ycP" secondAttribute="trailing" constant="40" id="fUO-VS-p00"/>
                     <constraint firstItem="oa4-g0-Xol" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="g0s-GT-qwt"/>
                     <constraint firstAttribute="trailing" secondItem="lyA-oo-jem" secondAttribute="trailing" constant="100" id="hyw-nh-OV2"/>
-                    <constraint firstItem="arW-lu-l9L" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="j2d-0A-x9f"/>
                     <constraint firstItem="OZn-wt-LJG" firstAttribute="centerY" secondItem="lyA-oo-jem" secondAttribute="centerY" constant="0.5" id="kON-sb-dtS"/>
                     <constraint firstAttribute="bottom" secondItem="lyA-oo-jem" secondAttribute="bottom" constant="17" id="qxQ-9a-NEv"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Dbl-B2-ycP" secondAttribute="bottom" constant="24" id="sCg-F0-YZf"/>

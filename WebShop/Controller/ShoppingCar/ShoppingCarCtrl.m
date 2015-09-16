@@ -57,13 +57,6 @@
     }
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:YES];
-}
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewWillDisappear:YES];
-}
-
     //初始化底部支付view
 - (void)initFirstBottomView {
     self.firstBottomView = [PayOrderView instanceView];
@@ -71,10 +64,13 @@
     
     [self.firstBottomView.btnForChooseAll addTarget:self action:@selector(btnChooseAllClick) forControlEvents:UIControlEventTouchUpInside];
     [self.firstBottomView.btnPayOrder addTarget:self action:@selector(btnPayMoneyClick) forControlEvents:UIControlEventTouchUpInside];
-    if (self.tabBarController isBeingDismissed) {
-        <#statements#>
+    
+    if (self.tabBarController.tabBarItem.tag == 1) {
+        [self.tabBarController.view addSubview:self.firstBottomView];
+    }else{
+        [self.firstBottomView removeFromSuperview];
     }
-    [self.tabBarController.view addSubview:self.firstBottomView];
+    
 }
 
     //初始化底部删除view
@@ -85,8 +81,14 @@
     [self.secondBottomView.btnDelete addTarget:self action:@selector(deleteBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.secondBottomView.btnSecond addTarget:self action:@selector(btnForDeleteAll) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.tabBarController.view addSubview:self.secondBottomView];
+    if (self.tabBarController.tabBarItem.tag == 1) {
+        [self.tabBarController.view addSubview:self.secondBottomView];
+        
+    }else{
+        [self.secondBottomView removeFromSuperview];
+    }
 }
+
 - (void)initUI {
 
     self.title = @"购物车";

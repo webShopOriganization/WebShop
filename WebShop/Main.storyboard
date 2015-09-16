@@ -109,7 +109,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LRh-2Y-A5g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1165" y="-34"/>
+            <point key="canvasLocation" x="709" y="-25"/>
         </scene>
         <!--Member Center Ctrl-->
         <scene sceneID="QfM-E2-ulW">
@@ -164,7 +164,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bMp-Rf-94H">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <connections>
                                     <outlet property="dataSource" destination="qZb-CX-F6j" id="spt-O4-nCB"/>
                                     <outlet property="delegate" destination="qZb-CX-F6j" id="FM3-FQ-HfJ"/>
@@ -174,7 +174,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="bMp-Rf-94H" firstAttribute="leading" secondItem="wX0-UP-26T" secondAttribute="leadingMargin" constant="-16" id="Aex-N8-NEc"/>
-                            <constraint firstItem="DlT-Wo-Sfm" firstAttribute="top" secondItem="bMp-Rf-94H" secondAttribute="bottom" constant="-49" id="C2n-0s-b8X"/>
+                            <constraint firstItem="DlT-Wo-Sfm" firstAttribute="top" secondItem="bMp-Rf-94H" secondAttribute="bottom" id="C2n-0s-b8X"/>
                             <constraint firstItem="bMp-Rf-94H" firstAttribute="top" secondItem="3qO-vI-D88" secondAttribute="bottom" constant="-64" id="X2C-ah-7oG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bMp-Rf-94H" secondAttribute="trailing" constant="-16" id="peg-m6-IN8"/>
                         </constraints>
@@ -212,7 +212,7 @@
         <scene sceneID="ayQ-Sc-xZJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DVB-1d-U13" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="购物车" id="cTE-an-nGO"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="购物车" id="cTE-an-nGO"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vGh-si-HMl">
@@ -226,7 +226,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9nC-TL-YAT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="701" y="-34"/>
+            <point key="canvasLocation" x="184" y="-25"/>
         </scene>
         <!--会员中心-->
         <scene sceneID="MRX-aJ-ajw">
