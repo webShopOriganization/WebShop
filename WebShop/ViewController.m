@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "RCTBridge.h"
 
 #define PageNumberOfScrollView 4
 

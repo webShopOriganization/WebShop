@@ -51,17 +51,22 @@ RCT_EXPORT_MODULE()
 
 - (dispatch_queue_t)methodQueue
 {
-  return [_bridge.uiManager methodQueue];
+  return _bridge.uiManager.methodQueue;
+}
+
+- (UIView *)viewWithProps:(NSDictionary *)props
+{
+  return [self view];
 }
 
 - (UIView *)view
 {
-  return [[RCTView alloc] init];
+  return [RCTView new];
 }
 
 - (RCTShadowView *)shadowView
 {
-  return [[RCTShadowView alloc] init];
+  return [RCTShadowView new];
 }
 
 - (NSArray *)customBubblingEventTypes

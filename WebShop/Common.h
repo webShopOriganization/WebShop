@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 
 #define DOCTOR_RECOMMEND_RATIO 169/320
+#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height) 
 
 @interface Common : NSObject
 
@@ -19,5 +22,8 @@
 + (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
 
 +(void)addAlertViewWithTitel:(NSString*)string;
++ (UIColor *) getColor: (NSString *) hexColor;
+
++ (UIColor*)getColor:(NSString *)hexColor WithAlpha:(CGFloat)alpha;
 
 @end

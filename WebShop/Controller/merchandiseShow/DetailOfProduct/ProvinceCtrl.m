@@ -172,10 +172,6 @@ heightForHeaderInSection:(NSInteger)section
             
             [self.frostedViewController hideMenuViewController];
             
-            DetailProdutCtrl *vc= [self.navigationController.viewControllers objectAtIndex:1];
-            [vc.tableView reloadData];
-            NSLog(@"获取的控制器：%@",self.navigationController.viewControllers);
-           // [[NSNotificationCenter defaultCenter] postNotificationName:@"adress" object:string];
         }
         else
         {
@@ -198,23 +194,9 @@ heightForHeaderInSection:(NSInteger)section
         
         [self.frostedViewController hideMenuViewController];
         
-        DetailProdutCtrl *vc= [self.navigationController.viewControllers objectAtIndex:1];
-        NSLog(@"获取的控制器：%@",self.navigationController.viewControllers);
-        [vc.tableView reloadData];
     }
     
     
 }
-
-- (void)frostedViewController:(REFrostedViewController *)frostedViewController willHideMenuViewController:(UIViewController *)menuViewController
-{
-    NSLog(@"willHideMenuViewController");
-}
-
-- (void)frostedViewController:(REFrostedViewController *)frostedViewController didHideMenuViewController:(UIViewController *)menuViewController
-{
-    NSLog(@"didHideMenuViewController");
-}
-
 
 @end

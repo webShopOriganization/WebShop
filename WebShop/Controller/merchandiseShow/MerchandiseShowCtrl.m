@@ -22,6 +22,7 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title=@"商场";
     
+    
     [self getData];
     
     [self initButton];
@@ -60,6 +61,7 @@
     
     ShoppingListCtrl *vc=[[ShoppingListCtrl alloc]initWithCollectionViewLayout:flowLayout];
     vc.hidesBottomBarWhenPushed=YES;
+    
     [self.navigationController pushViewController:vc animated:YES];
 }
 

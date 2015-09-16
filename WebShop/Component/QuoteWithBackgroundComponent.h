@@ -13,7 +13,7 @@
 
 @interface QuoteWithBackgroundComponent : CKCompositeComponent
 
-+ (instancetype)newWithBackgroundImage:(UIImage *)backgroundImage
++ (instancetype)newWithBackgroundColor:(UIColor *)color
                         quoteComponent:(CKComponent *)quoteComponent;
 
 @end

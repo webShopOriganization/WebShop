@@ -13,7 +13,7 @@
 
 @implementation QuoteWithBackgroundComponent
 
-+ (instancetype)newWithBackgroundImage:(UIImage *)backgroundImage
++ (instancetype)newWithBackgroundColor:(UIColor *)color
                         quoteComponent:(CKComponent *)quoteComponent
 
 {
@@ -23,12 +23,14 @@
            background:
            [CKComponent
             newWithView:{
-              [UIImageView class],
-              {
-                {@selector(setImage:), backgroundImage},
-                {@selector(setContentMode:), @(UIViewContentModeScaleAspectFill)},
-                {@selector(setClipsToBounds:), @YES},
-              }
+                
+               [UIView class],
+                {
+                    {@selector(setBackgroundColor:),color},
+                    {@selector(setContentMode:), @(UIViewContentModeScaleAspectFill)},
+                    {@selector(setClipsToBounds:), @YES},
+                }
+            
             }
             size:{90,90}]]];
 }

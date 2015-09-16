@@ -21,11 +21,10 @@
 
 + (instancetype)newWithText:(NSDictionary *)dict context:(QuoteContext *)context
 {
-  
     
   return [super newWithComponent:
           [QuoteWithBackgroundComponent
-           newWithBackgroundImage:[UIImage imageNamed:[dict objectForKey:@"background"]]
+           newWithBackgroundColor:[UIColor whiteColor]
            quoteComponent:
            [CKInsetComponent
             newWithInsets:{.top = 0, .left = 0, .bottom = 0, .right = 0}
@@ -33,10 +32,10 @@
             [CKStackLayoutComponent
              newWithView:{
                  [UIView class],
-                 {CKComponentTapGestureAttribute(@selector(didTap:))}
+                 //{CKComponentTapGestureAttribute(@selector(didTap:))}
              }
              size:{}
-             style:{.spacing = 50}
+             style:{.spacing = 7}
              children:{
                {
                    [CKComponent
@@ -49,28 +48,50 @@
                             {@selector(setClipsToBounds:), @YES},
                         }
                     }
-                    size:{90,90}]
+                    size:{[UIScreen mainScreen].bounds.size.width*0.25-10,[UIScreen mainScreen].bounds.size.width*0.25-10}]
                },
                {[CKLabelComponent
                  newWithLabelAttributes:{
                    .string = [[dict objectForKey:@"text"] uppercaseString],
-                   .color = [UIColor whiteColor],
-                   .font = [UIFont fontWithName:@"Avenir-Black" size:15]
+                   .color = [UIColor darkGrayColor],
+                   .font = [UIFont fontWithName:@"Avenir-Black" size:15],
+                    .alignment = NSTextAlignmentCenter,
+                     .maximumNumberOfLines=1
+                     
                  }
+                 
                  viewAttributes:{
                    {@selector(setBackgroundColor:), [UIColor clearColor]},
                    {@selector(setUserInteractionEnabled:), @YES},
-                 }]},
+                 }],
+                   .spacingBefore = 3
+               },
+                 
+                 {[CKLabelComponent
+                   newWithLabelAttributes:{
+                       .string = [[dict objectForKey:@"text"] uppercaseString],
+                       .color = [UIColor redColor],
+                       .font = [UIFont fontWithName:@"Avenir-Black" size:15],
+                       .alignment = NSTextAlignmentCenter,
+                       .maximumNumberOfLines=1
+                   }
+                   viewAttributes:{
+                       {@selector(setBackgroundColor:), [UIColor clearColor]},
+                       {@selector(setUserInteractionEnabled:), @YES},
+                   }],
+                     .spacingBefore = -5
+                 },
+                 
              
              }]]]];;
 }
 
 
 
--(void)didTap:(UIButton*)button
+-(void)didTap:(CKComponent*)sender
 {
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"componentInfo" object:@""];
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"componentInfo" object:@""];
 }
 
 @end

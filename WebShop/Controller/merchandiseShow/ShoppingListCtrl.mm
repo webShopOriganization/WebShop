@@ -41,24 +41,24 @@
     
     self.arrayOfData=[[NSMutableArray alloc]initWithObjects:@{
                                                               
-                                                            @"text": @"I have the simplest tastes. I am always satisfied with the best.",
-                                                              @"image": @"bg2",
-                                                            @"background": @"bg1",
+                                                              @"text": @"服装1",
+                                                              @"image": @"bg1",
+                                                              @"color": @"white",
                                                               },
                       @{
-                        @"text": @"A thing is not necessarily true because a man dies for it.",
+                        @"text": @"服装2服装2服装2服装2服装2服装2服装2",
                         @"image": @"bg2",
-                        @"background": @"bg1",
+                        @"color": @"white",
                         },
                       @{
-                        @"text": @"A poet can survive everything but a misprint.",
-                        @"image": @"bg2",
-                        @"background": @"bg1",
+                        @"text": @"服装3",
+                        @"image": @"bg3",
+                        @"color": @"gray",
                         },
                       @{
-                        @"text": @"He is really not so ugly after all, provided, of course, that one shuts one's eyes, and does not look at him.",
-                        @"image": @"bg2",
-                        @"background": @"bg1",
+                        @"text": @"服装4",
+                        @"image": @"bg4",
+                        @"color": @"gray",
                         }, nil];
     
     
@@ -81,23 +81,33 @@
     // Insert the initial section
     CKArrayControllerSections sections;
     sections.insert(0);
+    sections.insert(1);
     [_dataSource enqueueChangeset:{sections, {}} constrainedSize:{}];
     
     
-//    CKArrayControllerInputItems items;
-//    items.insert([NSIndexPath indexPathForRow:0 inSection:0], @"test");
-//    items.insert([NSIndexPath indexPathForRow:1 inSection:0], @"helloworld");
-//    items.insert([NSIndexPath indexPathForRow:2 inSection:0], @"me");
-//    items.insert([NSIndexPath indexPathForRow:3 inSection:0], @"he");
-//    [_dataSource enqueueChangeset:{{}, items}
-//                    constrainedSize:[_sizeRangeProvider sizeRangeForBoundingSize:CGSizeMake(96, 100)]];
-   
+    //    CKArrayControllerInputItems items;
+    //    items.insert([NSIndexPath indexPathForRow:0 inSection:0], @"test");
+    //    items.insert([NSIndexPath indexPathForRow:1 inSection:0], @"helloworld");
+    //    items.insert([NSIndexPath indexPathForRow:2 inSection:0], @"me");
+    //    items.insert([NSIndexPath indexPathForRow:3 inSection:0], @"he");
+    //    [_dataSource enqueueChangeset:{{}, items}
+    //                    constrainedSize:[_sizeRangeProvider sizeRangeForBoundingSize:CGSizeMake(96, 100)]];
     
-   [self _enqueuePage:self.arrayOfData];
+    
+    [self _enqueuePage:self.arrayOfData];
 }
 
 -(void)initUI
 {
+    
+    self.view.backgroundColor=[UIColor grayColor];
+    self.collectionView.delegate=self;
+    self.collectionView.dataSource=self;
+    
+    UITapGestureRecognizer* tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
+    [self.collectionView addGestureRecognizer:tapRecognizer];
+    
+    
     [[NSNotificationCenter defaultCenter] addObserverForName:@"componentInfo" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
         
         DetailProdutCtrl *vc=[[DetailProdutCtrl alloc]initWithNibName:@"DetailProdutCtrl" bundle:nil];
@@ -106,22 +116,38 @@
     }];
 }
 
+- (void)handleTapGesture:(UITapGestureRecognizer *)sender {
+    
+  
+        CGPoint initialPinchPoint = [sender locationInView:self.collectionView];
+        NSIndexPath* tappedCellPath = [self.collectionView indexPathForItemAtPoint:initialPinchPoint];
+        
+    DetailProdutCtrl *vc=[[DetailProdutCtrl alloc]initWithNibName:@"DetailProdutCtrl" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    
+}
+
+
+
 - (void)_enqueuePage:(NSMutableArray *)array
 {
-   
+    
     // Convert the array of quotes to a valid changeset
     CKArrayControllerInputItems items;
     for (NSInteger i = 0; i < [array count]; i++) {
         
         
         items.insert([NSIndexPath indexPathForRow:i inSection:0], array[i]);
+        items.insert([NSIndexPath indexPathForRow:i inSection:1], array[i]);
     }
     [_dataSource enqueueChangeset:{{}, items}
-                  constrainedSize:[_sizeRangeProvider sizeRangeForBoundingSize:CGSizeMake(96, 100)]];
+                  constrainedSize:[_sizeRangeProvider sizeRangeForBoundingSize:CGSizeMake([UIScreen mainScreen].bounds.size.width*0.25-10, [UIScreen mainScreen].bounds.size.width*0.25-10)]];
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"触发");
 }
 
 //返回这个UICollectionView是否可以被选择
@@ -138,7 +164,7 @@
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return [_dataSource sizeForItemAtIndexPath:indexPath];
-   
+    
 }
 
 - (void)collectionView:(UICollectionView *)collectionView
@@ -154,6 +180,24 @@
 {
     [_dataSource announceDidDisappearForItemInCell:cell];
 }
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 2;
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    if (section==0) {
+        return UIEdgeInsetsMake(10, 5, 5, 0);
+    }
+    
+    return UIEdgeInsetsMake(5, 5, 5, 0);
+    
+    
+}
+
+
 
 #pragma mark - CKComponentProvider
 

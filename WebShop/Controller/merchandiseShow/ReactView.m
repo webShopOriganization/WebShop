@@ -20,11 +20,14 @@
 */
 
 - (void)awakeFromNib {
-    NSString *urlString = @"http://localhost:8081/index.ios.bundle?platform=ios&dev=true";
+    NSString *urlString = @"http://localhost:8081/MoviesApp.ios.bundle?platform=ios&dev=true";
     NSURL *jsCodeLocation = [NSURL URLWithString:urlString];
-    RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
-                                                        moduleName: @"SimpleApp"
-                                                     launchOptions:nil];
+    
+    
+
+    
+    RCTRootView *rootView=[[RCTRootView alloc]initWithBundleURL:jsCodeLocation moduleName:@"MoviesApp" initialProperties:nil launchOptions:nil];
+    
     [self addSubview:rootView];
     rootView.frame = self.bounds;
 }

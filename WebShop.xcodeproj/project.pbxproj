@@ -23,6 +23,13 @@
 		2133BD871BA6780B00B0D770 /* Coupons_but_more@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2133BD831BA6780B00B0D770 /* Coupons_but_more@3x.png */; };
 		2133BD881BA6780B00B0D770 /* Coupons_but_top@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2133BD841BA6780B00B0D770 /* Coupons_but_top@3x.png */; };
 		2133BD891BA6780B00B0D770 /* Coupons_but_top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2133BD851BA6780B00B0D770 /* Coupons_but_top@2x.png */; };
+		21540DC71BA7EF2E00DF7171 /* CommentCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 21540DC51BA7EF2E00DF7171 /* CommentCtrl.m */; };
+		21540DC81BA7EF2E00DF7171 /* CommentCtrl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21540DC61BA7EF2E00DF7171 /* CommentCtrl.xib */; };
+		21540DCC1BA7F35000DF7171 /* CommentInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21540DCA1BA7F35000DF7171 /* CommentInformationCell.m */; };
+		21540DCD1BA7F35000DF7171 /* CommentInformationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21540DCB1BA7F35000DF7171 /* CommentInformationCell.xib */; };
+		21540DD11BA7F37500DF7171 /* CommentSimpleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21540DCF1BA7F37500DF7171 /* CommentSimpleCell.m */; };
+		21540DD21BA7F37500DF7171 /* CommentSimpleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21540DD01BA7F37500DF7171 /* CommentSimpleCell.xib */; };
+		21540DD51BA80E8700DF7171 /* DynamicScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21540DD41BA80E8700DF7171 /* DynamicScrollView.m */; };
 		216F91381BA125CE00020FCF /* MerchandiseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 216F91361BA125CE00020FCF /* MerchandiseCell.m */; };
 		216F91391BA125CE00020FCF /* MerchandiseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 216F91371BA125CE00020FCF /* MerchandiseCell.xib */; };
 		216F913D1BA125FA00020FCF /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 216F913B1BA125FA00020FCF /* CollectionViewCell.m */; };
@@ -61,6 +68,7 @@
 		218AC3701BA31C8E00FF9A25 /* MapController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 218AC36E1BA31C8E00FF9A25 /* MapController.xib */; };
 		218F54A41B9EB50C003226C3 /* UserDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 218F54A31B9EB50C003226C3 /* UserDataManager.m */; };
 		218F54A81B9EB52D003226C3 /* UserLoginInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 218F54A71B9EB52D003226C3 /* UserLoginInfo.m */; };
+		2190940A1BA926D4008DE5D2 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 219094091BA926D4008DE5D2 /* libReact.a */; };
 		219296A61BA0320E00D9860B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219296A41BA0320E00D9860B /* LoginViewController.m */; };
 		219296A71BA0320E00D9860B /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219296A51BA0320E00D9860B /* LoginViewController.xib */; };
 		219296AB1BA038B800D9860B /* ShoppingListCtrl.mm in Sources */ = {isa = PBXBuildFile; fileRef = 219296A91BA038B800D9860B /* ShoppingListCtrl.mm */; };
@@ -153,6 +161,17 @@
 		2133BD831BA6780B00B0D770 /* Coupons_but_more@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Coupons_but_more@3x.png"; sourceTree = "<group>"; };
 		2133BD841BA6780B00B0D770 /* Coupons_but_top@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Coupons_but_top@3x.png"; sourceTree = "<group>"; };
 		2133BD851BA6780B00B0D770 /* Coupons_but_top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Coupons_but_top@2x.png"; sourceTree = "<group>"; };
+		21540DC41BA7EF2E00DF7171 /* CommentCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCtrl.h; sourceTree = "<group>"; };
+		21540DC51BA7EF2E00DF7171 /* CommentCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCtrl.m; sourceTree = "<group>"; };
+		21540DC61BA7EF2E00DF7171 /* CommentCtrl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCtrl.xib; sourceTree = "<group>"; };
+		21540DC91BA7F35000DF7171 /* CommentInformationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentInformationCell.h; sourceTree = "<group>"; };
+		21540DCA1BA7F35000DF7171 /* CommentInformationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentInformationCell.m; sourceTree = "<group>"; };
+		21540DCB1BA7F35000DF7171 /* CommentInformationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentInformationCell.xib; sourceTree = "<group>"; };
+		21540DCE1BA7F37500DF7171 /* CommentSimpleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentSimpleCell.h; sourceTree = "<group>"; };
+		21540DCF1BA7F37500DF7171 /* CommentSimpleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentSimpleCell.m; sourceTree = "<group>"; };
+		21540DD01BA7F37500DF7171 /* CommentSimpleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentSimpleCell.xib; sourceTree = "<group>"; };
+		21540DD31BA80E8700DF7171 /* DynamicScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicScrollView.h; sourceTree = "<group>"; };
+		21540DD41BA80E8700DF7171 /* DynamicScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicScrollView.m; sourceTree = "<group>"; };
 		216F91351BA125CE00020FCF /* MerchandiseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchandiseCell.h; sourceTree = "<group>"; };
 		216F91361BA125CE00020FCF /* MerchandiseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchandiseCell.m; sourceTree = "<group>"; };
 		216F91371BA125CE00020FCF /* MerchandiseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MerchandiseCell.xib; sourceTree = "<group>"; };
@@ -208,6 +227,7 @@
 		218F54A31B9EB50C003226C3 /* UserDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDataManager.m; sourceTree = "<group>"; };
 		218F54A61B9EB52D003226C3 /* UserLoginInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLoginInfo.h; sourceTree = "<group>"; };
 		218F54A71B9EB52D003226C3 /* UserLoginInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLoginInfo.m; sourceTree = "<group>"; };
+		219094091BA926D4008DE5D2 /* libReact.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libReact.a; path = "Pods/../build/Debug-iphoneos/libReact.a"; sourceTree = "<group>"; };
 		219296A31BA0320E00D9860B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		219296A41BA0320E00D9860B /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		219296A51BA0320E00D9860B /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -299,6 +319,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2190940A1BA926D4008DE5D2 /* libReact.a in Frameworks */,
 				9E8354A0CB00323E5BCF764F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,6 +401,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		21540DC31BA7EED100DF7171 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				21540DC41BA7EF2E00DF7171 /* CommentCtrl.h */,
+				21540DC51BA7EF2E00DF7171 /* CommentCtrl.m */,
+				21540DC61BA7EF2E00DF7171 /* CommentCtrl.xib */,
+				21540DC91BA7F35000DF7171 /* CommentInformationCell.h */,
+				21540DCA1BA7F35000DF7171 /* CommentInformationCell.m */,
+				21540DCB1BA7F35000DF7171 /* CommentInformationCell.xib */,
+				21540DCE1BA7F37500DF7171 /* CommentSimpleCell.h */,
+				21540DCF1BA7F37500DF7171 /* CommentSimpleCell.m */,
+				21540DD01BA7F37500DF7171 /* CommentSimpleCell.xib */,
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
 		216F91341BA125CE00020FCF /* cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,6 +451,7 @@
 		218AC3271BA2CD6100FF9A25 /* DetailOfProduct */ = {
 			isa = PBXGroup;
 			children = (
+				21540DC31BA7EED100DF7171 /* Comment */,
 				E9B4BECA1BA5AFC600F19F4C /* tableView */,
 				218AC3681BA31BFE00FF9A25 /* Map */,
 				218AC3501BA30DC000FF9A25 /* cell */,
@@ -441,6 +479,8 @@
 			children = (
 				237C62C61BA6C76D00CE5608 /* ParserDataManager.h */,
 				237C62C71BA6C76D00CE5608 /* ParserDataManager.m */,
+				21540DD31BA80E8700DF7171 /* DynamicScrollView.h */,
+				21540DD41BA80E8700DF7171 /* DynamicScrollView.m */,
 				218AC33C1BA2D44D00FF9A25 /* starView.h */,
 				218AC33D1BA2D44D00FF9A25 /* starView.m */,
 				218AC33E1BA2D44D00FF9A25 /* starView.xib */,
@@ -681,6 +721,7 @@
 		E070172A651C7821DFE80FEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				219094091BA926D4008DE5D2 /* libReact.a */,
 				AEF589A9651C3160BA35CC5B /* libPods.a */,
 			);
 			name = Frameworks;
@@ -820,6 +861,8 @@
 				2133BD7D1BA6772F00B0D770 /* SalesPromotionSecondCell.xib in Resources */,
 				E9B4BEDE1BA5B10100F19F4C /* icon_Location@2x.png in Resources */,
 				218AC3341BA2D1DC00FF9A25 /* list_more@3x.png in Resources */,
+				21540DCD1BA7F35000DF7171 /* CommentInformationCell.xib in Resources */,
+				21540DC81BA7EF2E00DF7171 /* CommentCtrl.xib in Resources */,
 				E9B4BED41BA5B05E00F19F4C /* location.xml in Resources */,
 				218AC32C1BA2CD8600FF9A25 /* DetailProdutCtrl.xib in Resources */,
 				219296A71BA0320E00D9860B /* LoginViewController.xib in Resources */,
@@ -839,6 +882,7 @@
 				23D4816A1BA00C4F0036B9DC /* ShoppingCartCell.xib in Resources */,
 				218AC35D1BA3133500FF9A25 /* btn_normal@3x.png in Resources */,
 				218AC3621BA3134E00FF9A25 /* btn_pack-up@2x.png in Resources */,
+				21540DD21BA7F37500DF7171 /* CommentSimpleCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -891,6 +935,7 @@
 			files = (
 				218AC36B1BA31C1500FF9A25 /* KCAnnotation.m in Sources */,
 				23D481651BA00C4F0036B9DC /* OrderManageCtrl.m in Sources */,
+				21540DCC1BA7F35000DF7171 /* CommentInformationCell.m in Sources */,
 				21D677521B9E83AA00D91F86 /* Common.m in Sources */,
 				218AC3261BA2A87F00FF9A25 /* Quote.m in Sources */,
 				E9B4BED21BA5AFE400F19F4C /* ProvinceCtrl.m in Sources */,
@@ -909,6 +954,7 @@
 				23D4816D1BA00C4F0036B9DC /* LoadHeaderView.m in Sources */,
 				218AC34C1BA2D6D300FF9A25 /* LookAllCommentCell.m in Sources */,
 				21D6774F1B9E839A00D91F86 /* iToast.m in Sources */,
+				21540DD51BA80E8700DF7171 /* DynamicScrollView.m in Sources */,
 				E9B4BEE81BA5B31000F19F4C /* ServiceInfoCell.m in Sources */,
 				218AC36F1BA31C8E00FF9A25 /* MapController.m in Sources */,
 				23D481661BA00C4F0036B9DC /* ShoppingCarCtrl.m in Sources */,
@@ -920,6 +966,7 @@
 				219B79B01B9D8E4800325AB0 /* memberCell.m in Sources */,
 				2133BD771BA65E5500B0D770 /* AdvertisementCell.m in Sources */,
 				216F91381BA125CE00020FCF /* MerchandiseCell.m in Sources */,
+				21540DD11BA7F37500DF7171 /* CommentSimpleCell.m in Sources */,
 				219B79A91B9D8B4D00325AB0 /* MerchandiseShowCtrl.m in Sources */,
 				211CE9B71B9D1F8700C3E916 /* main.m in Sources */,
 				218AC3591BA3119D00FF9A25 /* SalesPromotionCell.m in Sources */,
@@ -928,6 +975,7 @@
 				218AC3541BA30DFA00FF9A25 /* PriceCell.m in Sources */,
 				E9B4BED81BA5B08C00F19F4C /* ProvinceCell.m in Sources */,
 				E9B4BEF21BA5BA0E00F19F4C /* ReactView.m in Sources */,
+				21540DC71BA7EF2E00DF7171 /* CommentCtrl.m in Sources */,
 				218F54A81B9EB52D003226C3 /* UserLoginInfo.m in Sources */,
 				219B79A61B9D8B3200325AB0 /* MemberCenterCtrl.m in Sources */,
 				2133BD7C1BA6772F00B0D770 /* SalesPromotionSecondCell.m in Sources */,
@@ -1057,6 +1105,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WebShop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1068,6 +1120,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WebShop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

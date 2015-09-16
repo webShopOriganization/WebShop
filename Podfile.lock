@@ -21,10 +21,17 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - ComponentKit (0.12)
-  - React (0.10.0):
-    - React/Core (= 0.10.0)
-  - React/Core (0.10.0)
-  - React/RCTText (0.10.0):
+  - React (0.11.0):
+    - React/Core (= 0.11.0)
+  - React/Core (0.11.0)
+  - React/RCTImage (0.11.0):
+    - React/Core
+    - React/RCTNetwork
+  - React/RCTNetwork (0.11.0):
+    - React/Core
+  - React/RCTText (0.11.0):
+    - React/Core
+  - React/RCTWebSocket (0.11.0):
     - React/Core
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
@@ -42,7 +49,10 @@ DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - ComponentKit
   - React
+  - React/RCTImage
+  - React/RCTNetwork
   - React/RCTText
+  - React/RCTWebSocket
   - ReactiveCocoa
   - REFrostedViewController (~> 2.4)
   - SDWebImage
@@ -50,7 +60,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
   ComponentKit: 4bf3ce82a9e28f2ec26ba112102a2120ef312aa6
-  React: 869e38c9aebdf5469a09849f27eee2afcbf5857e
+  React: 7701ff0adcaadbf8fa5514778c2ee41b2622cd57
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   REFrostedViewController: a893b4979ba1f200c547aef9ff4c3fd5a18f5923
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84

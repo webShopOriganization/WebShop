@@ -27,6 +27,7 @@
 #import "starView.h"
 #import "LookAllCommentCell.h"
 #import "ParserDataManager.h"
+#import "CommentCtrl.h"
 
 @interface DetailProdutCtrl ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) NSMutableArray *arrayOfData;
@@ -66,7 +67,6 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    NSLog(@"刷新");
     [self.tableView reloadData];
 }
 
@@ -276,8 +276,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section==2) {
-        self.JudgeExpand=!self.JudgeExpand;
-        [self.tableView reloadData];
+        
+        if (!self.JudgeExpand) {
+            self.JudgeExpand=!self.JudgeExpand;
+            [self.tableView reloadData];
+        }
+        
+    }
+    else if (indexPath.section==4||indexPath.section==5||indexPath.section==6)
+    {
+        CommentCtrl *vc=[[CommentCtrl alloc]initWithNibName:@"CommentCtrl" bundle:nil];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
