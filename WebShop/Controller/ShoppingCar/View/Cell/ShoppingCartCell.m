@@ -30,12 +30,14 @@
 - (IBAction)btnChooseClick:(id)sender {
     if (self.imgForBtnSeleted.hidden == YES) {
         self.imgForBtnSeleted.hidden = NO;
+        self.statusForCellChoose = YES;
         
         [self.delegate addObjectToDeleteArray:self.indexPath];
         [self.delegate addObjectToPayArray:self.indexPath];
         [self.delegate totalNeedPayFor:self.indexPath];
     }else{
         self.imgForBtnSeleted.hidden = YES;
+        self.statusForCellChoose = NO;
         
         [self.delegate deleteFromDeleteArray:self.indexPath];
         [self.delegate deleteFromPayArray:self.indexPath];
@@ -91,6 +93,7 @@
     self.lblSaleCount.layer.borderColor = [[UIColor grayColor] CGColor];
     self.lblSaleCount.layer.masksToBounds = YES;
     
+    self.statusForCellChoose = NO;
     self.backgroundColor = [UIColor clearColor];
 }
 - (void)configWithDic:(NSMutableDictionary*)dic {

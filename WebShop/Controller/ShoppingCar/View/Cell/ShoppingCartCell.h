@@ -32,6 +32,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnDeleteOne;
 @property (strong, nonatomic) IBOutlet UIButton *btnAddOne;
 @property (strong, nonatomic) IBOutlet UILabel *lblSaleCount;
+@property (assign) BOOL statusForCellChoose;
 
 @property (weak, nonatomic) id<deleteCellDelegate>delegate;
 - (IBAction)btnChooseClick:(id)sender;

@@ -171,13 +171,6 @@
     vc.navigationItem.title = @"支付方式";
     vc.arrayPay = self.arrayPayOrder;
     [self.navigationController pushViewController:vc animated:YES];
-    
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    OrderManageCtrl *orderVC = [storyboard instantiateViewControllerWithIdentifier:@"MemberCenterCtrl"];
-    orderVC.hidesBottomBarWhenPushed = YES;
-    orderVC.navigationItem.title = @"订单管理";
-    orderVC.arrayOrder = self.arrayPayOrder;
     //    }
 }
 
@@ -193,17 +186,18 @@
     if (self.firstBottomView.imgForBtnSelected.hidden == YES) {
         self.firstBottomView.imgForBtnSelected.hidden = NO;
         
-        for (int i = 0; i < self.array.count; i++) {
+        for (int i = 0; i < self.array.count -1 ; i++) {
+            
             ShoppingCartCell *cell = (ShoppingCartCell *)[self.tableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
             cell.imgForBtnSeleted.hidden = NO;
+             cell.statusForCellChoose = YES;
             
             [self.arrayPayOrder addObject:[self.array objectAtIndex:i]];
             
             float price = [[[self.arrayPayOrder objectAtIndex:i] objectForKey:@"price"] floatValue];
             totalPrice = totalPrice + price;
-            NSLog(@"totalPrice = %0.2f",totalPrice);
+          
         }
-        
         self.firstBottomView.lblAllPrice.text = [NSString stringWithFormat:@"合计￥%0.2f", totalPrice];
         NSLog(@"shoppingcart.arrayPayOrder= %@", self.arrayPayOrder);
         
@@ -213,14 +207,15 @@
         for (int j = 0; j < self.array.count; j++) {
             ShoppingCartCell *cell = (ShoppingCartCell *)[self.tableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:j inSection:0]];
             cell.imgForBtnSeleted.hidden = YES;
-            
-            [self.arrayPayOrder removeObject:[self.array objectAtIndex:j]];
-            
+            cell.statusForCellChoose = YES;
+//            [self.arrayPayOrder removeObject:[self.array objectAtIndex:j]];
         }
+        [self.arrayPayOrder removeAllObjects];
         self.firstBottomView.lblAllPrice.text = @"合计￥0.00";
         NSLog(@"shoppingcart.arrayPayOrder = %@", self.arrayPayOrder);
     }
 }
+
 /**
  *  删除界面删除按钮
  */
@@ -245,7 +240,7 @@
         for (int i = 0; i < self.array.count; i++) {
             ShoppingCartCell *cell = (ShoppingCartCell *)[self.tableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
             cell.imgForBtnSeleted.hidden = NO;
-            
+            cell.statusForCellChoose = YES;
             [self.arrayDelete addObject:[self.array objectAtIndex:i]];
         }
         NSLog(@"shoppingcart.arrayDelete = %lu", (unsigned long)self.arrayDelete.count);
@@ -256,11 +251,12 @@
         for (int j = 0; j < self.array.count; j++) {
             ShoppingCartCell *cell = (ShoppingCartCell *)[self.tableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:j inSection:0]];
             cell.imgForBtnSeleted.hidden = YES;
-            
+             cell.statusForCellChoose = NO;
             [self.arrayDelete removeObject:[self.array objectAtIndex:j]];
         }
         NSLog(@"shoppingcart.arrayDelete = %lu", (unsigned long)self.arrayDelete.count);
     }
+  
 }
 
 #pragma mark - delegaete
@@ -578,13 +574,12 @@
             cell = [topLevelObjects objectAtIndex:0];
             
             cell.indexPath = indexPath;
+            if (cell.statusForCellChoose == YES) {
+                cell.imgForBtnSeleted.hidden = NO;
+            }
             NSLog(@"--------%ld", (long)cell.indexPath.row);
-//            if ([cell.lblProName.text isEqualToString:[[self.arrayPayOrder objectAtIndex:indexPath.row] objectForKey:@"proName"]]) {
-            
-//            }
             cell.delegate = self;
             [cell initWithDic:nil];
-//             cell.imgForBtnSeleted.hidden = NO;
             [cell configWithDic:dic];
         }
         return cell;
