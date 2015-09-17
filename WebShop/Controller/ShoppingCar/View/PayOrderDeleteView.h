@@ -10,7 +10,7 @@
 
 @interface PayOrderDeleteView : UIView
 @property (strong, nonatomic) IBOutlet UIButton *btnSecond;
-@property (strong, nonatomic) IBOutlet UIImageView *imgSecond;
+@property (weak, nonatomic) IBOutlet UIImageView *imgSecond;
 @property (strong, nonatomic) IBOutlet UIButton *btnDelete;
 
 - (IBAction)deleteBtnClick:(id)sender;

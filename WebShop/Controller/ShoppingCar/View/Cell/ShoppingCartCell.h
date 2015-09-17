@@ -22,11 +22,11 @@
 
 @interface ShoppingCartCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UIImageView *imgProduct;
+@property (weak, nonatomic) IBOutlet UIImageView *imgProduct;
 @property (strong, nonatomic) IBOutlet UILabel *lblProName;
 @property (strong, nonatomic) IBOutlet UILabel *lblPrice;
 @property (strong, nonatomic) IBOutlet UIButton *btnChoose;
-@property (strong, nonatomic) IBOutlet UIImageView *imgForBtnSeleted;
+@property (weak, nonatomic) IBOutlet UIImageView *imgForBtnSeleted;
 @property (strong, nonatomic) NSIndexPath *indexPath;
 
 @property (strong, nonatomic) IBOutlet UIButton *btnDeleteOne;

@@ -17,7 +17,7 @@
 
 @interface OrderManageCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UIImageView *imgOrder;
+@property (weak, nonatomic) IBOutlet UIImageView *imgOrder;
 @property (strong, nonatomic) IBOutlet UILabel *lblOrderName;
 @property (strong, nonatomic) IBOutlet UILabel *lblReallyPay;
 @property (strong, nonatomic) IBOutlet UIButton *btnDelete;

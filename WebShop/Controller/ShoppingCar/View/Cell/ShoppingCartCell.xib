@@ -15,8 +15,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnRed.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Uk-jw-lu0">
-                        <rect key="frame" x="15" y="35" width="20" height="20"/>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selected.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Uk-jw-lu0">
+                        <rect key="frame" x="19" y="38" width="13" height="13"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="8Uk-jw-lu0" secondAttribute="height" multiplier="1:1" id="xMQ-ko-Oiy"/>
                         </constraints>
@@ -113,16 +113,16 @@
                     <constraint firstItem="1Gh-p7-2cP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="46" id="MM9-Am-ebw"/>
                     <constraint firstAttribute="trailing" secondItem="eP4-Gj-rYa" secondAttribute="trailing" constant="29" id="Tqg-4V-XFC"/>
                     <constraint firstItem="wCV-NV-UgV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="35" id="e9x-4v-GIC"/>
-                    <constraint firstItem="e77-Qt-RTW" firstAttribute="leading" secondItem="8Uk-jw-lu0" secondAttribute="trailing" constant="15" id="fHc-gd-EgR"/>
+                    <constraint firstItem="e77-Qt-RTW" firstAttribute="leading" secondItem="8Uk-jw-lu0" secondAttribute="trailing" constant="18" id="fHc-gd-EgR"/>
                     <constraint firstItem="1Gh-p7-2cP" firstAttribute="leading" secondItem="VG8-bO-Cvo" secondAttribute="trailing" id="hBM-cK-xXz"/>
-                    <constraint firstItem="8Uk-jw-lu0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="35" id="hK1-9m-L21"/>
+                    <constraint firstItem="8Uk-jw-lu0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="38" id="hK1-9m-L21"/>
                     <constraint firstAttribute="bottom" secondItem="e77-Qt-RTW" secondAttribute="bottom" constant="9" id="hY4-fh-lk1"/>
                     <constraint firstItem="BRy-1c-q8j" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="hl1-K8-vAS"/>
                     <constraint firstItem="eP4-Gj-rYa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="jTz-aO-e5T"/>
                     <constraint firstAttribute="trailing" secondItem="BRy-1c-q8j" secondAttribute="trailing" id="nBF-4r-ahR"/>
-                    <constraint firstAttribute="bottom" secondItem="8Uk-jw-lu0" secondAttribute="bottom" constant="34" id="oT6-MC-0YR"/>
+                    <constraint firstAttribute="bottom" secondItem="8Uk-jw-lu0" secondAttribute="bottom" constant="38" id="oT6-MC-0YR"/>
                     <constraint firstItem="VG8-bO-Cvo" firstAttribute="leading" secondItem="e77-Qt-RTW" secondAttribute="trailing" constant="19" id="qRA-Ea-SJL"/>
-                    <constraint firstItem="8Uk-jw-lu0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="tV9-aq-BuK"/>
+                    <constraint firstItem="8Uk-jw-lu0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="19" id="tV9-aq-BuK"/>
                     <constraint firstAttribute="bottom" secondItem="BRy-1c-q8j" secondAttribute="bottom" id="uZf-d0-YB8"/>
                     <constraint firstItem="e77-Qt-RTW" firstAttribute="leading" secondItem="wCV-NV-UgV" secondAttribute="trailing" constant="15" id="xry-pg-jdy"/>
                 </constraints>
@@ -142,6 +142,6 @@
     </objects>
     <resources>
         <image name="bg2.png" width="1080" height="496"/>
-        <image name="btnRed.png" width="10" height="10"/>
+        <image name="selected.png" width="13" height="13"/>
     </resources>
 </document>

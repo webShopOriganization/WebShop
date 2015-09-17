@@ -14,21 +14,21 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xzJ-2h-f2t">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <subviews>
-                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnRed.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ula-jF-hKI">
-                            <rect key="frame" x="15" y="12" width="20" height="20"/>
+                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selected.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ula-jF-hKI">
+                            <rect key="frame" x="19" y="15" width="13" height="13"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="Ula-jF-hKI" secondAttribute="height" multiplier="1:1" id="1JC-mW-eHp"/>
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCa-zd-2uV">
                             <rect key="frame" x="15" y="12" width="20" height="20"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="QCa-zd-2uV" secondAttribute="height" multiplier="1:1" id="Fzp-zv-S2k"/>
                             </constraints>
                             <state key="normal">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
-                            <state key="selected" image="btnRed.png"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全选" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hla-Sp-Tai">
                             <rect key="frame" x="36" y="12" width="28" height="21"/>
@@ -55,13 +55,13 @@
                         <constraint firstAttribute="bottom" secondItem="QCa-zd-2uV" secondAttribute="bottom" constant="12" id="6dj-9I-J2V"/>
                         <constraint firstItem="QCa-zd-2uV" firstAttribute="leading" secondItem="xzJ-2h-f2t" secondAttribute="leading" constant="15" id="DSw-XZ-ufM"/>
                         <constraint firstAttribute="trailing" secondItem="tzb-vX-TNN" secondAttribute="trailing" constant="22" id="JAB-8d-y1q"/>
-                        <constraint firstItem="Ula-jF-hKI" firstAttribute="leading" secondItem="xzJ-2h-f2t" secondAttribute="leading" constant="15" id="JXM-J5-MY5"/>
+                        <constraint firstItem="Ula-jF-hKI" firstAttribute="leading" secondItem="xzJ-2h-f2t" secondAttribute="leading" constant="19" id="JXM-J5-MY5"/>
                         <constraint firstItem="QCa-zd-2uV" firstAttribute="top" secondItem="xzJ-2h-f2t" secondAttribute="top" constant="12" id="TXn-4l-iHV"/>
                         <constraint firstItem="hla-Sp-Tai" firstAttribute="leading" secondItem="QCa-zd-2uV" secondAttribute="trailing" constant="1" id="Z8O-h3-gMI"/>
-                        <constraint firstItem="hla-Sp-Tai" firstAttribute="leading" secondItem="Ula-jF-hKI" secondAttribute="trailing" constant="1" id="apc-6H-yud"/>
+                        <constraint firstItem="hla-Sp-Tai" firstAttribute="leading" secondItem="Ula-jF-hKI" secondAttribute="trailing" constant="4" id="apc-6H-yud"/>
                         <constraint firstAttribute="width" secondItem="xzJ-2h-f2t" secondAttribute="height" multiplier="80:11" id="c2g-Jt-mbW"/>
-                        <constraint firstItem="Ula-jF-hKI" firstAttribute="top" secondItem="xzJ-2h-f2t" secondAttribute="top" constant="12" id="fa5-Yj-Erq"/>
-                        <constraint firstAttribute="bottom" secondItem="Ula-jF-hKI" secondAttribute="bottom" constant="12" id="i9v-yF-jGk"/>
+                        <constraint firstItem="Ula-jF-hKI" firstAttribute="top" secondItem="xzJ-2h-f2t" secondAttribute="top" constant="15" id="fa5-Yj-Erq"/>
+                        <constraint firstAttribute="bottom" secondItem="Ula-jF-hKI" secondAttribute="bottom" constant="16" id="i9v-yF-jGk"/>
                         <constraint firstItem="hla-Sp-Tai" firstAttribute="top" secondItem="xzJ-2h-f2t" secondAttribute="top" constant="12" id="qJB-Go-r3J"/>
                         <constraint firstAttribute="bottom" secondItem="hla-Sp-Tai" secondAttribute="bottom" constant="11" id="uW2-eR-QpD"/>
                         <constraint firstItem="tzb-vX-TNN" firstAttribute="centerY" secondItem="hla-Sp-Tai" secondAttribute="centerY" constant="-1.5" id="x7q-zH-nUO"/>
@@ -85,6 +85,6 @@
         </view>
     </objects>
     <resources>
-        <image name="btnRed.png" width="10" height="10"/>
+        <image name="selected.png" width="13" height="13"/>
     </resources>
 </document>

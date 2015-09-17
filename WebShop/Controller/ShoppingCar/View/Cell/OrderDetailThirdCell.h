@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface OrderDetailThirdCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UIImageView *imgIcon;
+@property (weak, nonatomic) IBOutlet UIImageView *imgIcon;
 @property (strong, nonatomic) IBOutlet UILabel *lblName;
 @property (strong, nonatomic) IBOutlet UILabel *lblSaleCount;
 @property (strong, nonatomic) IBOutlet UILabel *lblPrice;

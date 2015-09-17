@@ -56,7 +56,7 @@
         self.lblOrderName.text = dic[@"proName"];
         self.lblReallyPay.text = [NSString stringWithFormat:@"￥%@", dic[@"price"]];
         [self.imgOrder sd_setImageWithURL:dic[@"image"]
-                           placeholderImage:[UIImage imageNamed:@"bg3"] options:SDWebImageContinueInBackground];
+                           placeholderImage:[UIImage imageNamed:@"loading-ios"] options:SDWebImageContinueInBackground];
 
     }
 

@@ -10,7 +10,7 @@
 
 @interface PayOrderView : UIView
 @property (strong, nonatomic) IBOutlet UIButton *btnForChooseAll;
-@property (strong, nonatomic) IBOutlet UIImageView *imgForBtnSelected;
+@property (weak, nonatomic) IBOutlet UIImageView *imgForBtnSelected;
 @property (strong, nonatomic) IBOutlet UILabel *lblAllPrice;
 @property (strong, nonatomic) IBOutlet UIButton *btnPayOrder;
 

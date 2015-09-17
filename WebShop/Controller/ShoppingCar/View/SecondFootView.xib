@@ -19,11 +19,11 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down.png" translatesAutoresizingMaskIntoConstraints="NO" id="tu0-sr-euw">
-                            <rect key="frame" x="276" y="4" width="24" height="22"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_normal.png" translatesAutoresizingMaskIntoConstraints="NO" id="tu0-sr-euw">
+                            <rect key="frame" x="285" y="9" width="14" height="14"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="24" id="Ou1-mO-AgA"/>
-                                <constraint firstAttribute="height" constant="22" id="ShG-Mp-QFE"/>
+                                <constraint firstAttribute="width" constant="14" id="Ou1-mO-AgA"/>
+                                <constraint firstAttribute="height" constant="14" id="ShG-Mp-QFE"/>
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGS-oA-wWF">
@@ -40,8 +40,8 @@
                         <constraint firstAttribute="trailing" secondItem="bGS-oA-wWF" secondAttribute="trailing" id="Pll-yv-T1s"/>
                         <constraint firstItem="bGS-oA-wWF" firstAttribute="leading" secondItem="Fit-hb-ATu" secondAttribute="leading" id="SZo-bB-ofk"/>
                         <constraint firstItem="bGS-oA-wWF" firstAttribute="top" secondItem="Fit-hb-ATu" secondAttribute="top" id="Sgr-jp-apV"/>
-                        <constraint firstItem="tu0-sr-euw" firstAttribute="top" secondItem="Fit-hb-ATu" secondAttribute="top" constant="4" id="nXG-H8-SgD"/>
-                        <constraint firstAttribute="trailing" secondItem="tu0-sr-euw" secondAttribute="trailing" constant="20" id="xho-Ub-Rbo"/>
+                        <constraint firstItem="tu0-sr-euw" firstAttribute="top" secondItem="Fit-hb-ATu" secondAttribute="top" constant="9" id="nXG-H8-SgD"/>
+                        <constraint firstAttribute="trailing" secondItem="tu0-sr-euw" secondAttribute="trailing" constant="21" id="xho-Ub-Rbo"/>
                     </constraints>
                 </view>
             </subviews>
@@ -61,6 +61,6 @@
         </view>
     </objects>
     <resources>
-        <image name="down.png" width="26" height="18"/>
+        <image name="btn_normal.png" width="14" height="14"/>
     </resources>
 </document>

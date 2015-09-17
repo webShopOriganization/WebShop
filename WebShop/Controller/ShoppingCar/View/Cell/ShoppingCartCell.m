@@ -100,7 +100,7 @@
         self.lblPrice.text = [NSString stringWithFormat:@"￥%@", dic[@"price"]];
         self.lblSaleCount.text = dic[@"saleCount"];
         [self.imgProduct sd_setImageWithURL:dic[@"image"]
-                                    placeholderImage:[UIImage imageNamed:@"bg2"] options:SDWebImageContinueInBackground];
+                                    placeholderImage:[UIImage imageNamed:@"loading-ios"] options:SDWebImageContinueInBackground];
     }
 }
 

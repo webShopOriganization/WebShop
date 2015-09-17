@@ -32,10 +32,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     self.navigationItem.title=@"购物车";
-    [self initUI];
-   
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,12 +43,13 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     
+    [self initUI];
     self.navigationItem.rightBarButtonItem.title = @"编辑";
-     [self initFirstBottomView];
+    
+    self.firstBottomView.hidden = NO;
      [self.tableVeiw reloadData];
  
     if (![self.array count]) {
-        
         self.tableVeiw.backgroundColor = [UIColor lightGrayColor];
         [Common addAlertViewWithTitel:@"购物车是空的..."];
     }
@@ -65,32 +63,6 @@
 
 }
 
-    //初始化底部支付view
-- (void)initFirstBottomView {
-    self.firstBottomView = [PayOrderView instanceView];
-    self.firstBottomView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -49 -44, [UIScreen mainScreen].bounds.size.width, 44);
-    
-    [self.firstBottomView.btnForChooseAll addTarget:self action:@selector(btnChooseAllClick) forControlEvents:UIControlEventTouchUpInside];
-    [self.firstBottomView.btnPayOrder addTarget:self action:@selector(btnPayMoneyClick) forControlEvents:UIControlEventTouchUpInside];
-    
-    if ([self.tabBarItem.title isEqualToString:@"购物车"]) {
-        [self.tabBarController.view addSubview:self.firstBottomView];
-    }
-}
-
-    //初始化底部删除view
-- (void)initSecondBottomView {
-    self.secondBottomView = [PayOrderDeleteView instanceView];
-    self.secondBottomView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -49 -44, [UIScreen mainScreen].bounds.size.width, 44);
-    
-    [self.secondBottomView.btnDelete addTarget:self action:@selector(deleteBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    [self.secondBottomView.btnSecond addTarget:self action:@selector(btnForDeleteAll) forControlEvents:UIControlEventTouchUpInside];
-    
-    if ([self.tabBarItem.title isEqualToString:@"购物车"]) {
-        [self.tabBarController.view addSubview:self.secondBottomView];
-    }
-}
-
 - (void)initUI {
 
     self.title = @"购物车";
@@ -99,6 +71,29 @@
     
     self.statusForRightButton = 1;
     self.statusForFootView = YES;
+    
+      //初始化底部支付view
+    self.firstBottomView = [PayOrderView instanceView];
+    self.firstBottomView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -49 -44, [UIScreen mainScreen].bounds.size.width, 44);
+    [self.firstBottomView.btnForChooseAll addTarget:self action:@selector(btnChooseAllClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.firstBottomView.btnPayOrder addTarget:self action:@selector(btnPayMoneyClick) forControlEvents:UIControlEventTouchUpInside];
+    if ([self.tabBarItem.title isEqualToString:@"购物车"]) {
+        [self.tabBarController.view addSubview:self.firstBottomView];
+        self.firstBottomView.hidden = YES;
+    }
+    
+    //初始化底部删除view
+    self.secondBottomView = [PayOrderDeleteView instanceView];
+    self.secondBottomView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -49 -44, [UIScreen mainScreen].bounds.size.width, 44);
+    
+    [self.secondBottomView.btnDelete addTarget:self action:@selector(deleteBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.secondBottomView.btnSecond addTarget:self action:@selector(btnForDeleteAll) forControlEvents:UIControlEventTouchUpInside];
+    
+    if ([self.tabBarItem.title isEqualToString:@"购物车"]) {
+        [self.tabBarController.view addSubview:self.secondBottomView];
+        self.secondBottomView.hidden = YES;
+    }
+    
     
 //    self.UserDic = [[NSDictionary alloc] initWithObjectsAndKeys:
 //                    @"1" , @"userId",
@@ -153,13 +148,18 @@
         
         self.navigationItem.rightBarButtonItem.title = @"完成";
         self.statusForRightButton = 2;
-        [self initSecondBottomView];
-        
+//        [self initSecondBottomView];
+        self.firstBottomView.hidden = YES;
+        self.secondBottomView.hidden = NO;
+        self.secondBottomView.imgSecond.hidden = YES;
     }else{
         
         self.navigationItem.rightBarButtonItem.title = @"编辑";
         self.statusForRightButton = 1;
-        [self initFirstBottomView];
+//        [self initFirstBottomView];
+        self.secondBottomView.hidden = YES;
+        self.firstBottomView.hidden = NO;
+        self.firstBottomView.imgForBtnSelected.hidden = YES;
     }
     
     [self.tableVeiw reloadData];

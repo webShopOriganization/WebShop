@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface PayOrderCll : UITableViewCell
-@property (strong, nonatomic) IBOutlet UIImageView *imgPayment;
+@property (weak, nonatomic) IBOutlet UIImageView *imgPayment;
 @property (strong, nonatomic) IBOutlet UILabel *lblPayment;
 
 @end
