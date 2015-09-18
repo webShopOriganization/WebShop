@@ -22,6 +22,8 @@
 
 @property (assign, nonatomic) NSInteger statusForRightButton;
 @property (assign) BOOL statusForFootView;
+@property (assign) BOOL statusForCellChoose;
+
 @property (strong, nonatomic) NSIndexPath *indexPath;
 
 @property (strong, nonatomic) NSMutableArray *arrayDelete;
@@ -71,6 +73,7 @@
     
     self.statusForRightButton = 1;
     self.statusForFootView = YES;
+    self.statusForCellChoose = NO;
     
     //初始化底部支付view
     self.firstBottomView = [PayOrderView instanceView];
@@ -146,18 +149,27 @@
     NSLog(@"%s", __func__);
     if ([self.navigationItem.rightBarButtonItem.title isEqualToString:@"编辑"]) {
         
-        self.navigationItem.rightBarButtonItem.title = @"完成";
         self.statusForRightButton = 2;
+        self.statusForCellChoose = NO;//点击编辑按钮，进入删除界面，cell选中状态设为NO
+        [self.arrayDelete removeAllObjects];
+        
+        self.navigationItem.rightBarButtonItem.title = @"完成";
+       
         self.firstBottomView.hidden = YES;
         self.secondBottomView.hidden = NO;
         self.secondBottomView.imgSecond.hidden = YES;
     }else{
         
-        self.navigationItem.rightBarButtonItem.title = @"编辑";
         self.statusForRightButton = 1;
+        self.statusForCellChoose = NO;//点击完成按钮，进入结算界面，cell选中状态设为NO
+        [self.arrayPayOrder removeAllObjects];
+        
+        self.navigationItem.rightBarButtonItem.title = @"编辑";
+        
         self.secondBottomView.hidden = YES;
         self.firstBottomView.hidden = NO;
         self.firstBottomView.imgForBtnSelected.hidden = YES;
+        self.firstBottomView.lblAllPrice.text = @"合计￥0.00";
     }
     [self.tableVeiw reloadData];
 }
@@ -184,36 +196,32 @@
     self.firstBottomView.lblAllPrice.text = @"合计￥0.00";
     
     if (self.firstBottomView.imgForBtnSelected.hidden == YES) {
-        self.firstBottomView.imgForBtnSelected.hidden = NO;
         
-        for (int i = 0; i < self.array.count -1 ; i++) {
+        self.firstBottomView.imgForBtnSelected.hidden = NO;
+        self.statusForCellChoose = YES;//选中状态
+        
+        [self.arrayPayOrder addObjectsFromArray:self.array];
+        
+        for (id obj in self.arrayPayOrder) {
             
-            ShoppingCartCell *cell = (ShoppingCartCell *)[self.tableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-            cell.imgForBtnSeleted.hidden = NO;
-             cell.statusForCellChoose = YES;
-            
-            [self.arrayPayOrder addObject:[self.array objectAtIndex:i]];
-            
-            float price = [[[self.arrayPayOrder objectAtIndex:i] objectForKey:@"price"] floatValue];
+            float price = [[obj objectForKey:@"price"] floatValue];
             totalPrice = totalPrice + price;
-          
         }
+        
         self.firstBottomView.lblAllPrice.text = [NSString stringWithFormat:@"合计￥%0.2f", totalPrice];
         NSLog(@"shoppingcart.arrayPayOrder= %@", self.arrayPayOrder);
         
     }else{
-        self.firstBottomView.imgForBtnSelected.hidden = YES;
         
-        for (int j = 0; j < self.array.count; j++) {
-            ShoppingCartCell *cell = (ShoppingCartCell *)[self.tableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:j inSection:0]];
-            cell.imgForBtnSeleted.hidden = YES;
-            cell.statusForCellChoose = YES;
-//            [self.arrayPayOrder removeObject:[self.array objectAtIndex:j]];
-        }
+        self.firstBottomView.imgForBtnSelected.hidden = YES;
+        self.statusForCellChoose = NO;
+        
         [self.arrayPayOrder removeAllObjects];
+        
         self.firstBottomView.lblAllPrice.text = @"合计￥0.00";
         NSLog(@"shoppingcart.arrayPayOrder = %@", self.arrayPayOrder);
     }
+    [self.tableVeiw reloadData];
 }
 
 /**
@@ -235,28 +243,24 @@
  */
 - (void)btnForDeleteAll{
     if (self.secondBottomView.imgSecond.hidden == YES) {
-        self.secondBottomView.imgSecond.hidden = NO;
         
-        for (int i = 0; i < self.array.count; i++) {
-            ShoppingCartCell *cell = (ShoppingCartCell *)[self.tableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-            cell.imgForBtnSeleted.hidden = NO;
-            cell.statusForCellChoose = YES;
-            [self.arrayDelete addObject:[self.array objectAtIndex:i]];
-        }
+        self.secondBottomView.imgSecond.hidden = NO;
+          self.statusForCellChoose = YES;
+        
+        [self.arrayDelete addObjectsFromArray:self.array];
+
         NSLog(@"shoppingcart.arrayDelete = %lu", (unsigned long)self.arrayDelete.count);
         
     }else{
-        self.secondBottomView.imgSecond.hidden = YES;
         
-        for (int j = 0; j < self.array.count; j++) {
-            ShoppingCartCell *cell = (ShoppingCartCell *)[self.tableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:j inSection:0]];
-            cell.imgForBtnSeleted.hidden = YES;
-             cell.statusForCellChoose = NO;
-            [self.arrayDelete removeObject:[self.array objectAtIndex:j]];
-        }
+        self.secondBottomView.imgSecond.hidden = YES;
+         self.statusForCellChoose = NO;
+        
+        [self.arrayDelete removeAllObjects];
+
         NSLog(@"shoppingcart.arrayDelete = %lu", (unsigned long)self.arrayDelete.count);
     }
-  
+    [self.tableVeiw reloadData];
 }
 
 #pragma mark - delegaete
@@ -293,11 +297,13 @@
     
     NSLog(@"待支付totalPay ： %@", self.firstBottomView.lblAllPrice.text);
 }
+
 /**
  *  添加选中行到待支付数组
  */
 - (void)addObjectToPayArray:(NSIndexPath *)indexPath {
     NSLog(@"添加indexpath ： %@", indexPath);
+    
     self.indexPath = indexPath;
     
     if (self.statusForRightButton == 1 && (self.array.count != 0)) {
@@ -308,6 +314,7 @@
         
         if (self.arrayPayOrder.count == self.array.count) {
             self.firstBottomView.imgForBtnSelected.hidden = NO;
+            self.statusForCellChoose = YES;
         }
     }
 }
@@ -317,7 +324,7 @@
  */
 - (void)deleteFromPayArray:(NSIndexPath *)indexPath {
     NSLog(@"删除indexpath : %ld", (long)indexPath.row);
-    self.firstBottomView.imgForBtnSelected.hidden = YES;
+    
     self.indexPath = indexPath;
     
     if (self.statusForRightButton == 1 && self.arrayPayOrder) {
@@ -328,6 +335,7 @@
         
         if (self.arrayPayOrder.count != self.array.count) {
             self.firstBottomView.imgForBtnSelected.hidden = YES;
+            self.statusForCellChoose = NO;
         }
     }
 }
@@ -337,6 +345,7 @@
  */
 -(void)addObjectToDeleteArray:(NSIndexPath *)indexPath {
     NSLog(@"添加indexpath ： %@", indexPath);
+    
     self.indexPath = indexPath;
     
     if (self.statusForRightButton == 2 && (self.array.count != 0)) {
@@ -347,6 +356,7 @@
         
         if (self.arrayDelete.count == self.array.count) {
             self.secondBottomView.imgSecond.hidden = NO;
+            self.statusForCellChoose = YES;
         }
     }
 }
@@ -356,7 +366,6 @@
  */
 - (void)deleteFromDeleteArray:(NSIndexPath *)indexPath {
     NSLog(@"删除indexpath : %ld", (long)indexPath.row);
-    self.secondBottomView.imgSecond.hidden = YES;
     
     self.indexPath = indexPath;
     
@@ -368,6 +377,7 @@
         
         if (self.arrayDelete.count != self.array.count) {
             self.secondBottomView.imgSecond.hidden = YES;
+            self.statusForCellChoose = NO;
         }
     }
 }
@@ -565,8 +575,7 @@
         NSMutableDictionary *dic = [self.array objectAtIndex:indexPath.row];
         NSLog(@"CellDic = %@", dic);
         ShoppingCartCell* cell = [tableView dequeueReusableCellWithIdentifier:CellId];
-//        ShoppingCartCell *cell = (ShoppingCartCell *)[tableView cellForRowAtIndexPath:indexPath];
-       
+        
         if (!cell) {
             
             NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:CellId owner:self options:nil];
@@ -574,9 +583,10 @@
             cell = [topLevelObjects objectAtIndex:0];
             
             cell.indexPath = indexPath;
-            if (cell.statusForCellChoose == YES) {
+            if (self.statusForCellChoose == YES) {
                 cell.imgForBtnSeleted.hidden = NO;
             }
+            
             NSLog(@"--------%ld", (long)cell.indexPath.row);
             cell.delegate = self;
             [cell initWithDic:nil];
