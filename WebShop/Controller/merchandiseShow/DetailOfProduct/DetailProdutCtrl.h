@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JKSideSlipView.h"
+#import "MenuView.h"
 
 @interface DetailProdutCtrl : UIViewController
+{
+    JKSideSlipView *_sideSlipView;
+}
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 

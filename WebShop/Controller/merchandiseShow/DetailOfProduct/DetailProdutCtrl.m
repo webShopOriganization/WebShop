@@ -28,6 +28,8 @@
 #import "LookAllCommentCell.h"
 #import "ParserDataManager.h"
 #import "CommentCtrl.h"
+#import "PopupView.h"
+#import "LewPopupViewAnimationSpring.h"
 
 @interface DetailProdutCtrl ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) NSMutableArray *arrayOfData;
@@ -39,13 +41,14 @@
 
 -(void)awakeFromNib
 {
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"adress" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
-        NSLog(@"通知");
-        ServiceInfoCell *cell=(ServiceInfoCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]];
-        cell.lblLocation.text=note.object;
-        
-        [self.tableView reloadData];
-    }];
+    
+    
+   
+}
+
+-(void)getNotif
+{
+    NSLog(@"通知");
 }
 
 - (void)viewDidLoad {
@@ -67,12 +70,35 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+
     [self.tableView reloadData];
 }
 
 -(void)initUI
 {
+    _sideSlipView = [[JKSideSlipView alloc]initWithSender:self];
+    _sideSlipView.backgroundColor = [UIColor redColor];
+    MenuView *menu = [MenuView menuView];
+    [menu didSelectRowAtIndexPath:^(id cell, NSIndexPath *indexPath) {
+        self.navigationController.navigationBarHidden=NO;
+    }];
+    menu.items = @[@{@"title":@"1",@"imagename":@"1"},@{@"title":@"2",@"imagename":@"2"},@{@"title":@"3",@"imagename":@"3"},@{@"title":@"4",@"imagename":@"4"}];
+    [_sideSlipView setContentView:menu];
+    [self.view addSubview:_sideSlipView];
     
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"showNavigationBar" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+
+        self.navigationController.navigationBarHidden=NO;
+    }];
+    
+
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"adress" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+
+        ServiceInfoCell *cell=(ServiceInfoCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]];
+        cell.lblLocation.text=note.object;
+        
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)getModel
@@ -81,6 +107,8 @@
         
         self.array_advertisement = [[responseBanner objectForKey:@"data"] objectForKey:@"items"];
     }];
+    
+    
 }
 
 #pragma mark - Table view data source
@@ -165,6 +193,9 @@
        }
        [cell.btnLocation addTarget:self action:@selector(goToMap:) forControlEvents:UIControlEventTouchUpInside];
        cell.lblLocation.text=[ParserDataManager shareManager].adress;
+       
+       [cell.btnAlert addTarget:self action:@selector(showAlert:) forControlEvents:UIControlEventTouchUpInside];
+       [cell.btnHasBuy addTarget:self action:@selector(showHasBuy:) forControlEvents:UIControlEventTouchUpInside];
        
        return cell;
        
@@ -289,6 +320,27 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
+
+-(void)showAlert:(UIButton*)button
+{
+    
+    PopupView *view = [PopupView defaultPopupView];
+    view.parentVC = self;
+    
+    [self lew_presentPopupView:view animation:[LewPopupViewAnimationSpring new] dismissed:^{
+       
+    }];
+}
+
+-(void)showHasBuy:(UIButton*)button
+{
+    NSLog(@"she");
+    
+    self.navigationController.navigationBarHidden=YES;
+    
+     [_sideSlipView switchMenu];
+}
+
 
 -(void)doExpand
 {

@@ -224,6 +224,8 @@
 - (void)hideMenuViewController
 {
 	[self hideMenuViewControllerWithCompletionHandler:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"adress" object:nil];
+
 }
 
 - (void)panGestureRecognized:(UIPanGestureRecognizer *)recognizer

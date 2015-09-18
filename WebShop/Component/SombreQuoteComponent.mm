@@ -24,10 +24,10 @@
     
   return [super newWithComponent:
           [QuoteWithBackgroundComponent
-           newWithBackgroundColor:[UIColor whiteColor]
+           newWithBackgroundColor:[UIColor lightGrayColor]
            quoteComponent:
            [CKInsetComponent
-            newWithInsets:{.top = 0, .left = 0, .bottom = 0, .right = 0}
+            newWithInsets:{.top = 0, .left = 10, .bottom = 0, .right = 0}
             component:
             [CKStackLayoutComponent
              newWithView:{
@@ -56,7 +56,7 @@
                    .color = [UIColor darkGrayColor],
                    .font = [UIFont fontWithName:@"Avenir-Black" size:15],
                     .alignment = NSTextAlignmentCenter,
-                     .maximumNumberOfLines=1
+                    // .maximumNumberOfLines=1
                      
                  }
                  

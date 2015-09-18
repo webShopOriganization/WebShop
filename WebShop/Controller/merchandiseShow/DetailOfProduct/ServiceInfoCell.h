@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblAfterService;
 @property (weak, nonatomic) IBOutlet UIButton *btnLocation;
 
+@property (weak, nonatomic) IBOutlet UIButton *btnAlert;
 
+@property (weak, nonatomic) IBOutlet UIButton *btnHasBuy;
 
 @end

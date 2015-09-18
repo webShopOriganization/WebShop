@@ -45,8 +45,16 @@
     [self.view addSubview:button1];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden=NO;
+}
+
 -(void)goReactView
 {
+    self.navigationController.navigationBarHidden=YES;
+    
     ReactViewController *vc=[[ReactViewController alloc]initWithNibName:@"ReactViewController" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
     
