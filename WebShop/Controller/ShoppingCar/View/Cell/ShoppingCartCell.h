@@ -18,6 +18,12 @@
 - (void)deleteFromPayArray:(NSIndexPath *)indexPath;
 
 - (void)totalNeedPayFor:(NSIndexPath *)indexPath;
+
+/**
+ *  商品购买数量 +/- 1 所需费用
+ */
+- (void)saleCountAddOrDeleteOne:(float)changeMoney;
+
 @end
 
 @interface ShoppingCartCell : UITableViewCell

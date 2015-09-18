@@ -21,6 +21,7 @@
 @interface ShoppingCarCtrl ()<UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, loginDelegate, deleteCellDelegate>
 
 @property (assign, nonatomic) NSInteger statusForRightButton;
+@property (assign, nonatomic) float totalPrice;
 @property (assign) BOOL statusForFootView;
 @property (assign) BOOL statusForCellChoose;
 
@@ -35,6 +36,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"购物车";
+    
+    [[NetworkManager shareMgr]server_loginWithDic:nil completeHandle:^(NSDictionary *response) {
+        NSLog(@"用户数据 : %@", response);
+        
+        NSNumber *nStatus = [response objectForKey:@"status"];
+        if([nStatus intValue] == 2000000){
+            self.UserDic = [[NSMutableDictionary alloc] initWithDictionary:[response objectForKey:@"data"]];
+            NSLog(@"用户信息 = %@", self.UserDic);
+        }
+        
+    }];
+    
+    [[NetworkManager shareMgr]server_productListWithDic:nil completeHandle:^(NSDictionary *response) {
+        NSLog(@"购物车商品列表返回数据 : %@", response);
+        
+        NSNumber *nStatus = [response objectForKey:@"status"];
+        if([nStatus intValue] == 2000000){
+            self.array = [[NSMutableArray alloc] initWithArray:[response objectForKey:@"data"]];
+            NSLog(@"购物车内商品数 = %lu", (unsigned long)self.array.count);
+        }
+        
+    }];
+
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,11 +75,6 @@
     
     self.firstBottomView.hidden = NO;
     [self.tableVeiw reloadData];
-    
-    if (![self.array count]) {
-        self.tableVeiw.backgroundColor = [UIColor lightGrayColor];
-        [Common addAlertViewWithTitel:@"购物车是空的..."];
-    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -72,6 +92,7 @@
     self.tableVeiw.tableFooterView = [[UIView alloc] init];
     
     self.statusForRightButton = 1;
+    self.totalPrice = 0.0f;
     self.statusForFootView = YES;
     self.statusForCellChoose = NO;
     
@@ -97,42 +118,15 @@
         self.secondBottomView.hidden = YES;
     }
     
-    
-    //    self.UserDic = [[NSDictionary alloc] initWithObjectsAndKeys:
-    //                    @"1" , @"userId",
-    //                    @"小王" , @"username",
-    //                    @"123" , @"password",
-    //                    @"123456" , @"phone",
-    //                    @"123456@qq.com" , @"email",
-    //                    @"xx.png" , @"imgOfHead", nil];
-    
     self.arrayDelete = [[NSMutableArray alloc] init];
     self.arrayPayOrder = [[NSMutableArray alloc] init];
     
-    
-    self.array = [[NSMutableArray alloc] initWithObjects:
-                  @{@"productId": @"1", @"proName":@"华硕（ASUS）FL5600L 15.6英寸笔记本 （i7-5500U 4G 1TB 2G独显 蓝牙 Win8.1黑色）", @"saleCount":@"1", @"image":@"http://img12.360buyimg.com/n1/jfs/t1423/178/1078850293/141619/ccf1a50a/55b9fb36Na25baffa.jpg", @"price":@"4399.00", @"decript":@"华硕品质·坚若磐石", @"salesDate":@"2015.02.03"},
-                  @{@"productId": @"2", @"proName":@"Apple iPhone 6 (A1586) 16GB 金色", @"saleCount":@"1", @"image":@"http://img14.360buyimg.com/n1/jfs/t277/193/1005339798/768456/29136988/542d0798N19d42ce3.jpg", @"price":@"4800.00", @"decript":@"移动联通电信4G手机", @"salesDate":@"2016.02.01"},
-                  @{@"productId": @"3", @"proName":@"Apple iPhone 6 Plus (A1524) 16GB 金色 移动联通电信4G手机", @"saleCount":@"1", @"image":@"http://img14.360buyimg.com/n1/jfs/t1270/246/1076044366/120025/3d6a9ae3/556d64fcNf28f90d0.jpg", @"price":@"5488.00", @"decript":@"选择下方“北京移动购机赠费”推荐188元套餐，不换号码，额外得1800元话费，分24个月返还，尖叫吧，机会难得，欲购从速！", @"salesDate":@"2016.02.01"},
-                  @{@"productId": @"4", @"proName":@"小米 4 2GB内存版 白色 移动4G手机", @"saleCount":@"1", @"image":@"http://img14.360buyimg.com/n1/jfs/t1339/269/193722734/56791/eb3cea86/555aec03Nc477b9b0.jpg", @"price":@"1499.00", @"decript":@"不锈钢金属边框、 5英寸屏窄边，工艺和手感超乎想象！", @"salesDate":@"2016.02.03"},
-                  @{@"productId": @"5", @"proName":@"魅族 魅蓝note2 16GB 白色 移动联通双4G手机 双卡双待", @"saleCount":@"1", @"image":@"http://img14.360buyimg.com/n1/jfs/t1270/246/1076044366/120025/3d6a9ae3/556d64fcNf28f90d0.jpg", @"price":@"999.00", @"decript":@"【超值套装版】", @"salesDate":@"2016.01.01"},
-                  @{
-                    @"productId": @"6", @"proName": @"【惠买车】宝马 X1订金499元 2015款 sDrive18i 时尚晋级版", @"saleCount": @"1", @"image":@"http://img11.360buyimg.com/n1/jfs/t733/135/1239145025/41477/9131c6df/5528c398Nbd1c2452.jpg", @"price":@"499.00", @"decript":@"钜惠金秋，买车无忧尽享新车专属大礼包！", @"salesDate":@"2016.04.01"
-                    },
-                  nil];
-    
-    [[NetworkManager shareMgr]server_productListWithDic:nil completeHandle:^(NSDictionary *response) {
-        NSLog(@"购物车商品列表返回数据 : %@", response);
-        
-        //        NSNumber *nStatus = [response objectForKey:@"status"];
-        //        if([nStatus intValue] == 2000000){
-        //            self.array = [[NSMutableArray alloc] initWithArray:[response objectForKey:@"data"]];
-        //            NSLog(@"购物车商品列表  : %@", self.array);
-        //        }
-        
-    }];
-    
     self.tableVeiw.backgroundColor = [UIColor clearColor];
+    
+    if (!self.array) {
+        self.tableVeiw.backgroundColor = [UIColor lightGrayColor];
+        [Common addAlertViewWithTitel:@"购物车是空的..."];
+    }
 }
 
 #pragma mark - button点击事件
@@ -192,7 +186,8 @@
 - (void)btnChooseAllClick {
     NSLog(@"%s", __func__);
     
-    float totalPrice = 0.0;
+    self.totalPrice = 0.0f;
+    
     self.firstBottomView.lblAllPrice.text = @"合计￥0.00";
     
     if (self.firstBottomView.imgForBtnSelected.hidden == YES) {
@@ -205,10 +200,10 @@
         for (id obj in self.arrayPayOrder) {
             
             float price = [[obj objectForKey:@"price"] floatValue];
-            totalPrice = totalPrice + price;
+            self.totalPrice = self.totalPrice + price;
         }
         
-        self.firstBottomView.lblAllPrice.text = [NSString stringWithFormat:@"合计￥%0.2f", totalPrice];
+        self.firstBottomView.lblAllPrice.text = [NSString stringWithFormat:@"合计￥%0.2f", self.totalPrice];
         NSLog(@"shoppingcart.arrayPayOrder= %@", self.arrayPayOrder);
         
     }else{
@@ -218,6 +213,7 @@
         
         [self.arrayPayOrder removeAllObjects];
         
+        self.totalPrice = 0.0f;
         self.firstBottomView.lblAllPrice.text = @"合计￥0.00";
         NSLog(@"shoppingcart.arrayPayOrder = %@", self.arrayPayOrder);
     }
@@ -281,21 +277,36 @@
     NSLog(@"%s  arrayPayOrder = %@", __func__, self.arrayPayOrder);
     self.indexPath = indexPath;
     
-    float totalPrice = 0.0;
+    self.totalPrice = 0.0f;
     self.firstBottomView.lblAllPrice.text = @"合计￥0.00";
     
     if (self.statusForRightButton == 1 && (self.array.count != 0)) {
         
         for (int i =0; i < self.arrayPayOrder.count; i++) {
             float price = [[[self.arrayPayOrder objectAtIndex:i] objectForKey:@"price"] floatValue];
-            totalPrice = totalPrice + price;
+            self.totalPrice = self.totalPrice + price;
             
-            NSLog(@"合计 = %0.2f", totalPrice);
+            NSLog(@"合计 = %0.2f", self.totalPrice);
         }
-        self.firstBottomView.lblAllPrice.text = [NSString stringWithFormat:@"合计￥%0.2f", totalPrice];
+        self.firstBottomView.lblAllPrice.text = [NSString stringWithFormat:@"合计￥%0.2f", self.totalPrice];
     }
     
     NSLog(@"待支付totalPay ： %@", self.firstBottomView.lblAllPrice.text);
+}
+
+/**
+ *  商品购买数量 +/- 1 所需费用
+ */
+- (void)saleCountAddOrDeleteOne:(float)changeMoney {
+    NSLog(@"chagneMoney = %0.2f", changeMoney);
+    
+    if ([self.firstBottomView.lblAllPrice.text isEqualToString:@"合计￥0.00"]){
+        self.totalPrice = changeMoney * 2;
+    }else{
+        self.totalPrice = self.totalPrice + changeMoney;
+    }
+    
+    self.firstBottomView.lblAllPrice.text = [NSString stringWithFormat:@"合计￥%0.2f", self.totalPrice];
 }
 
 /**
@@ -560,15 +571,11 @@
     static NSString *CellId = @"ShoppingCartCell";
     
     NSLog(@"self.array = %lu", (unsigned long)self.array.count);
-    if (![self.array count]) {
+    if (!self.array) {
         
-        UITableViewCell *cell = [[UITableViewCell alloc] init];
-        
-        cell.textLabel.textAlignment = NSTextAlignmentCenter;
-        cell.backgroundColor = [UIColor lightGrayColor];
-        cell.textLabel.text = @"购物车是空的...";
-        
-        return cell;
+        self.tableVeiw.backgroundColor = [UIColor lightGrayColor];
+        [Common addAlertViewWithTitel:@"购物车是空的..."];
+
         
     }else{
         

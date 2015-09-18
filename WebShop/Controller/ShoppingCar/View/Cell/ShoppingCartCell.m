@@ -54,13 +54,23 @@
         self.btnDeleteOne.enabled = NO;
         self.lblSaleCount.text = @"1";
     }else{
+        float price = [[self.lblPrice.text substringFromIndex:1] floatValue];
+        
         self.lblSaleCount.text = [NSString stringWithFormat:@"%d", saleCount - 1];
+        [self.delegate saleCountAddOrDeleteOne: -price];
     }
 }
 
 - (IBAction)btnAddOne:(id)sender {
-    int saleCount = [self.lblSaleCount.text intValue];
+    NSLog(@"价格是 : %@", self.lblPrice.text);
+    
+    self.imgForBtnSeleted.hidden = NO;
+    
+    int saleCount = [self.lblSaleCount.text floatValue];
+    float price = [[self.lblPrice.text substringFromIndex:1] floatValue];
+    
     self.lblSaleCount.text = [NSString stringWithFormat:@"%d", saleCount + 1];
+    [self.delegate saleCountAddOrDeleteOne:price];
 }
 
 - (void)initWithDic:(NSMutableDictionary*)dic {

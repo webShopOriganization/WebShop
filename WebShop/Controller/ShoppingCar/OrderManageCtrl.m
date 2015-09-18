@@ -25,6 +25,10 @@
     NSLog(@"array = %@",self.arrayOrder);
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -36,16 +40,6 @@
     //去掉tableView多余的空白行分割线
     self.tableView.tableFooterView = [[UIView alloc] init];
     
-//    [[NetworkManager shareMgr]server_OrderList:nil completeHandle:^(NSDictionary *response) {
-//        NSLog(@"OrderList response = %@", response);
-//        int status = [[response objectForKey:@"status"] intValue];
-//        if (status == 2000000) {
-//            
-//            self.arrayOrder = [[NSMutableArray alloc ] initWithArray:[[response objectForKey:@"data"] objectForKey:@"product"]];
-//            NSLog(@"self.arrayOrder = %@", self.arrayOrder);
-//        }
-//        
-//    }];
     if (self.arrayOrder.count == 0) {
         self.arrayOrder = [[NSMutableArray alloc] initWithObjects:
                            @{@"productId": @"1", @"proName":@"华硕（ASUS）FL5600L 15.6英寸笔记本 （i7-5500U 4G 1TB 2G独显 蓝牙 Win8.1黑色）", @"saleCount":@"1", @"image":@"http://img12.360buyimg.com/n1/jfs/t1423/178/1078850293/141619/ccf1a50a/55b9fb36Na25baffa.jpg", @"price":@"4399.00", @"decript":@"华硕品质·坚若磐石", @"salesDate":@"2015.02.03"},
@@ -58,6 +52,19 @@
                              },
                            nil];
 
+    
+//        [[NetworkManager shareMgr]server_OrderList:nil completeHandle:^(NSDictionary *response) {
+//            NSLog(@"OrderList response = %@", response);
+//            int status = [[response objectForKey:@"status"] intValue];
+//            if (status == 2000000) {
+//                
+//                self.arrayOrder = [[NSMutableArray alloc ] initWithArray:[response objectForKey:@"data"] ];
+//                NSLog(@"self.arrayOrder.count = %lu", (unsigned long)self.arrayOrder.count);
+//            }
+//            
+//        }];
+//    
+//        [self.tableView reloadData];
     }
 
 
@@ -164,12 +171,10 @@
 #pragma mark - TableVeiw Datasource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return [self.arrayOrder count];
     return [self.arrayOrder count];
 }
 
@@ -181,6 +186,7 @@
     
     if ([self.arrayOrder count]) {
         
+//        NSMutableDictionary *dic = [[self.arrayOrder objectAtIndex:indexPath.row] objectForKey:@"product"];
         NSMutableDictionary *dic = [self.arrayOrder objectAtIndex:indexPath.row];
         NSLog(@"OrderCellDic = %@", dic);
         
