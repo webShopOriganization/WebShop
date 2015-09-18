@@ -18,6 +18,12 @@
 - (void)deleteFromPayArray:(NSIndexPath *)indexPath;
 
 - (void)totalNeedPayFor:(NSIndexPath *)indexPath;
+
+/**
+ *  商品购买数量 +/- 1 所需费用
+ */
+- (void)saleCountAddOrDeleteOne:(float)changeMoney;
+
 @end
 
 @interface ShoppingCartCell : UITableViewCell
@@ -32,7 +38,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnDeleteOne;
 @property (strong, nonatomic) IBOutlet UIButton *btnAddOne;
 @property (strong, nonatomic) IBOutlet UILabel *lblSaleCount;
-@property (assign) BOOL statusForCellChoose;
+//@property (assign) BOOL statusForCellChoose;
 
 @property (weak, nonatomic) id<deleteCellDelegate>delegate;
 - (IBAction)btnChooseClick:(id)sender;

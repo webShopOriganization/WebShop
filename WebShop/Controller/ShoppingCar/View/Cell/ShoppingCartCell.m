@@ -30,14 +30,14 @@
 - (IBAction)btnChooseClick:(id)sender {
     if (self.imgForBtnSeleted.hidden == YES) {
         self.imgForBtnSeleted.hidden = NO;
-        self.statusForCellChoose = YES;
+//        self.statusForCellChoose = YES;
         
         [self.delegate addObjectToDeleteArray:self.indexPath];
         [self.delegate addObjectToPayArray:self.indexPath];
         [self.delegate totalNeedPayFor:self.indexPath];
     }else{
         self.imgForBtnSeleted.hidden = YES;
-        self.statusForCellChoose = NO;
+//        self.statusForCellChoose = NO;
         
         [self.delegate deleteFromDeleteArray:self.indexPath];
         [self.delegate deleteFromPayArray:self.indexPath];
@@ -54,13 +54,23 @@
         self.btnDeleteOne.enabled = NO;
         self.lblSaleCount.text = @"1";
     }else{
+        float price = [[self.lblPrice.text substringFromIndex:1] floatValue];
+        
         self.lblSaleCount.text = [NSString stringWithFormat:@"%d", saleCount - 1];
+        [self.delegate saleCountAddOrDeleteOne: -price];
     }
 }
 
 - (IBAction)btnAddOne:(id)sender {
-    int saleCount = [self.lblSaleCount.text intValue];
+    NSLog(@"价格是 : %@", self.lblPrice.text);
+    
+    self.imgForBtnSeleted.hidden = NO;
+    
+    int saleCount = [self.lblSaleCount.text floatValue];
+    float price = [[self.lblPrice.text substringFromIndex:1] floatValue];
+    
     self.lblSaleCount.text = [NSString stringWithFormat:@"%d", saleCount + 1];
+    [self.delegate saleCountAddOrDeleteOne:price];
 }
 
 - (void)initWithDic:(NSMutableDictionary*)dic {
@@ -93,7 +103,7 @@
     self.lblSaleCount.layer.borderColor = [[UIColor grayColor] CGColor];
     self.lblSaleCount.layer.masksToBounds = YES;
     
-    self.statusForCellChoose = NO;
+//    self.statusForCellChoose = NO;
     self.backgroundColor = [UIColor clearColor];
 }
 - (void)configWithDic:(NSMutableDictionary*)dic {
