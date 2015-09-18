@@ -1,42 +1,38 @@
 //
-//  MenuCell.m
-//  JKSideSlipView
+//  MenuVersionCell.m
+//  WebShop
 //
-//  Created by Jakey on 15/1/10.
-//  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
+//  Created by walter on 15/9/18.
+//  Copyright (c) 2015年 chutong. All rights reserved.
 //
 
-#import "MenuCell.h"
+#import "MenuVersionCell.h"
 
-@implementation MenuCell
+@implementation MenuVersionCell
 
 - (void)awakeFromNib {
     // Initialization code
-    self.colorGold.layer.borderWidth=0.5;
-    self.colorGold.layer.borderColor=[UIColor lightGrayColor].CGColor;
+    self.versionMotion.layer.borderWidth=0.5;
+    self.versionMotion.layer.borderColor=[UIColor lightGrayColor].CGColor;
     
-    self.colorGray.layer.borderWidth=0.5;
-    self.colorGray.layer.borderColor=[UIColor lightGrayColor].CGColor;
+    self.versionOpen.layer.borderWidth=0.5;
+    self.versionOpen.layer.borderColor=[UIColor lightGrayColor].CGColor;
     
-    self.colorSiviler.layer.borderWidth=0.5;
-    self.colorSiviler.layer.borderColor=[UIColor lightGrayColor].CGColor;
-    
-    [self.colorGold setTag:0];
-    [self.colorGray setTag:1];
-    [self.colorSiviler setTag:2];
+    [self.versionMotion setTag:0];
+    [self.versionOpen setTag:1];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-    
+
     // Configure the view for the selected state
 }
 
-- (IBAction)SelectColor:(UIButton *)sender {
+- (IBAction)SelectVersion:(UIButton *)sender {
     for (UIView *view in [self.contentView subviews]) {
-    
+        
         if ([view isMemberOfClass:[UIButton class]]) {
-
+            
             UIButton *button=(UIButton*)view;
             
             if (button.tag ==sender.tag) {

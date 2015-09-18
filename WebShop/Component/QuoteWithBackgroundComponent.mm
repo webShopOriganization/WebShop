@@ -17,22 +17,40 @@
                         quoteComponent:(CKComponent *)quoteComponent
 
 {
-  return [super newWithComponent:
-          [CKBackgroundLayoutComponent
-           newWithComponent:quoteComponent
-           background:
-           [CKComponent
-            newWithView:{
-                
-               [UIView class],
-                {
-                    {@selector(setBackgroundColor:),color},
-                    {@selector(setContentMode:), @(UIViewContentModeScaleAspectFill)},
-                    {@selector(setClipsToBounds:), @YES},
-                }
-            
-            }
-            size:{90,90}]]];
+    return [super newWithComponent:
+            [CKBackgroundLayoutComponent
+             newWithComponent:quoteComponent
+             
+             
+             background:
+             [CKComponent
+              newWithView:{
+                  
+                  [UIView class],
+                  {
+                      {@selector(setBackgroundColor:),color},
+                      {@selector(setContentMode:), @(UIViewContentModeScaleToFill)},
+                      {@selector(setClipsToBounds:), @YES},
+                      {@selector(setAutoresizesSubviews:),@(UIViewAutoresizingFlexibleTopMargin)},
+                      //{CKComponentTapGestureAttribute(@selector(didTap:))}
+                      
+                      
+                  }
+                  
+                  
+              }
+              size:{90,90}
+              
+              
+              ]]];
 }
+
+-(void)didTap:(CKComponent*)sender
+{
+    NSLog(@"错误");
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"componentInfo" object:@""];
+}
+
+
 
 @end

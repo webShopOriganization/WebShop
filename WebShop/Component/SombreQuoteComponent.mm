@@ -21,13 +21,91 @@
 
 + (instancetype)newWithText:(NSDictionary *)dict context:(QuoteContext *)context
 {
+    /*
+    UIColor *color =[UIColor colorWithRed:0.1 green:0.4 blue:0.1 alpha:0.9];
     
+    return [super
+            newWithView:{[UIView class]} // Need a view so supercomponent can animate this component.
+            component:
+            [CKInsetComponent
+             newWithInsets:{.left = 0, .right = 0}
+             component:
+             [CKCenterLayoutComponent
+              newWithCenteringOptions:CKCenterLayoutComponentCenteringY
+              sizingOptions:CKCenterLayoutComponentSizingOptionMinimumY
+              child:
+              [CKBackgroundLayoutComponent
+               newWithComponent:
+               [CKInsetComponent
+                newWithInsets:{.top = 0, .left = 0, .bottom = 0, .right = 0}
+                component:
+                [CKStackLayoutComponent
+                 newWithView:{}
+                 size:{}
+                 style:{
+                     .alignItems = CKStackLayoutAlignItemsCenter
+                 }
+                 children:{
+                     {
+                         [CKComponent
+                          newWithView:{
+                              
+                              [UIImageView class],
+                              {
+                                  {@selector(setImage:), [UIImage imageNamed:@"bg1"]},
+                                  {@selector(setContentMode:), @(UIViewContentModeScaleAspectFill)},
+                                  {@selector(setClipsToBounds:), @YES},
+                              }
+                          }
+                          size:{[UIScreen mainScreen].bounds.size.width*0.25-10,[UIScreen mainScreen].bounds.size.width*0.25-10}]
+                     },
+                     
+                     {[CKLabelComponent
+                       newWithLabelAttributes:{
+                           .string = [dict objectForKey:@"text"],
+                           .color = [UIColor whiteColor],
+                           .font = [UIFont fontWithName:@"Cochin-Bold" size:45.0],
+                           .alignment = NSTextAlignmentCenter
+                       }
+                       viewAttributes:{
+                           {@selector(setBackgroundColor:), [UIColor clearColor]},
+                           {@selector(setUserInteractionEnabled:), @NO},
+                       }]
+                     },
+                     {[CKLabelComponent
+                       newWithLabelAttributes:{
+                           .string = @"NO",
+                           .color = [UIColor whiteColor],
+                           .font = [UIFont fontWithName:@"Cochin" size:20.0],
+                           .alignment = NSTextAlignmentCenter
+                       }
+                       viewAttributes:{
+                           {@selector(setBackgroundColor:), [UIColor clearColor]},
+                           {@selector(setUserInteractionEnabled:), @NO},
+                       }],
+                         .spacingBefore = 20
+                     }
+                 }]]
+               background:
+               [CKComponent
+                newWithView:{
+                    [UIView class],
+                    {
+                        {@selector(setBackgroundColor:), color},
+                        {CKComponentViewAttribute::LayerAttribute(@selector(setCornerRadius:)), @10.0}
+                    }
+                }
+                size:{}]]
+              size:{}]]];
+     */
+    
+  
   return [super newWithComponent:
           [QuoteWithBackgroundComponent
            newWithBackgroundColor:[UIColor lightGrayColor]
            quoteComponent:
            [CKInsetComponent
-            newWithInsets:{.top = 0, .left = 10, .bottom = 0, .right = 0}
+            newWithInsets:{.top = 20, .left = 20, .bottom = 20, .right = 20}
             component:
             [CKStackLayoutComponent
              newWithView:{
@@ -35,7 +113,13 @@
                  //{CKComponentTapGestureAttribute(@selector(didTap:))}
              }
              size:{}
-             style:{.spacing = 7}
+             style:{
+                 .spacing = 7,
+                 .alignItems = CKStackLayoutAlignItemsStretch,
+                 .justifyContent = CKStackLayoutJustifyContentStart,
+                 
+                 .direction = CKStackLayoutDirectionVertical
+             }
              children:{
                {
                    [CKComponent
@@ -47,7 +131,9 @@
                             {@selector(setContentMode:), @(UIViewContentModeScaleAspectFill)},
                             {@selector(setClipsToBounds:), @YES},
                         }
+                        
                     }
+                    
                     size:{[UIScreen mainScreen].bounds.size.width*0.25-10,[UIScreen mainScreen].bounds.size.width*0.25-10}]
                },
                {[CKLabelComponent
@@ -58,12 +144,14 @@
                     .alignment = NSTextAlignmentCenter,
                     // .maximumNumberOfLines=1
                      
+                     
                  }
                  
                  viewAttributes:{
                    {@selector(setBackgroundColor:), [UIColor clearColor]},
                    {@selector(setUserInteractionEnabled:), @YES},
                  }],
+                   .flexShrink = YES,
                    .spacingBefore = 3
                },
                  
@@ -79,11 +167,13 @@
                        {@selector(setBackgroundColor:), [UIColor clearColor]},
                        {@selector(setUserInteractionEnabled:), @YES},
                    }],
+                     .flexShrink = YES,
                      .spacingBefore = -5
                  },
                  
              
              }]]]];;
+  
 }
 
 

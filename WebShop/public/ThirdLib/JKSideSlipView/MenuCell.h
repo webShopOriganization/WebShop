@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface MenuCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *lable;
-@property (weak, nonatomic) IBOutlet UIImageView *icon;
+
+@property (weak, nonatomic) IBOutlet UIButton *colorGold;
+@property (weak, nonatomic) IBOutlet UIButton *colorGray;
+@property (weak, nonatomic) IBOutlet UIButton *colorSiviler;
 
 @end

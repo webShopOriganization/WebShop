@@ -95,6 +95,10 @@
 		21E92EE21BABA737006C46FD /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E92ED41BABA737006C46FD /* PopupView.m */; };
 		21E92EE31BABA737006C46FD /* PopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21E92ED51BABA737006C46FD /* PopupView.xib */; };
 		21E92EE41BABA737006C46FD /* UIViewController+LewPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E92ED71BABA737006C46FD /* UIViewController+LewPopupViewController.m */; };
+		21E92EE81BABB9A9006C46FD /* MenuVersionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E92EE61BABB9A9006C46FD /* MenuVersionCell.m */; };
+		21E92EE91BABB9A9006C46FD /* MenuVersionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21E92EE71BABB9A9006C46FD /* MenuVersionCell.xib */; };
+		21E92EED1BABB9C6006C46FD /* MenuNumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E92EEB1BABB9C6006C46FD /* MenuNumCell.m */; };
+		21E92EEE1BABB9C6006C46FD /* MenuNumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21E92EEC1BABB9C6006C46FD /* MenuNumCell.xib */; };
 		21FE15871B9EC3B30092043A /* login.json in Resources */ = {isa = PBXBuildFile; fileRef = 21FE15861B9EC3B30092043A /* login.json */; };
 		2325706A1BAA61F5001315DE /* selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 232570691BAA61F5001315DE /* selected@2x.png */; };
 		2325706E1BAA6914001315DE /* VKVideoPlayer_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2325706D1BAA6914001315DE /* VKVideoPlayer_close@2x.png */; };
@@ -302,6 +306,12 @@
 		21E92ED51BABA737006C46FD /* PopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupView.xib; sourceTree = "<group>"; };
 		21E92ED61BABA737006C46FD /* UIViewController+LewPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LewPopupViewController.h"; sourceTree = "<group>"; };
 		21E92ED71BABA737006C46FD /* UIViewController+LewPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LewPopupViewController.m"; sourceTree = "<group>"; };
+		21E92EE51BABB9A9006C46FD /* MenuVersionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuVersionCell.h; sourceTree = "<group>"; };
+		21E92EE61BABB9A9006C46FD /* MenuVersionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuVersionCell.m; sourceTree = "<group>"; };
+		21E92EE71BABB9A9006C46FD /* MenuVersionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuVersionCell.xib; sourceTree = "<group>"; };
+		21E92EEA1BABB9C6006C46FD /* MenuNumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuNumCell.h; sourceTree = "<group>"; };
+		21E92EEB1BABB9C6006C46FD /* MenuNumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuNumCell.m; sourceTree = "<group>"; };
+		21E92EEC1BABB9C6006C46FD /* MenuNumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuNumCell.xib; sourceTree = "<group>"; };
 		21FE15861B9EC3B30092043A /* login.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = login.json; sourceTree = "<group>"; };
 		232570691BAA61F5001315DE /* selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selected@2x.png"; sourceTree = "<group>"; };
 		2325706D1BAA6914001315DE /* VKVideoPlayer_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VKVideoPlayer_close@2x.png"; sourceTree = "<group>"; };
@@ -752,6 +762,12 @@
 				21E92EC51BABA737006C46FD /* MenuView.h */,
 				21E92EC61BABA737006C46FD /* MenuView.m */,
 				21E92EC71BABA737006C46FD /* MenuView.xib */,
+				21E92EE51BABB9A9006C46FD /* MenuVersionCell.h */,
+				21E92EE61BABB9A9006C46FD /* MenuVersionCell.m */,
+				21E92EE71BABB9A9006C46FD /* MenuVersionCell.xib */,
+				21E92EEA1BABB9C6006C46FD /* MenuNumCell.h */,
+				21E92EEB1BABB9C6006C46FD /* MenuNumCell.m */,
+				21E92EEC1BABB9C6006C46FD /* MenuNumCell.xib */,
 			);
 			path = JKSideSlipView;
 			sourceTree = "<group>";
@@ -985,6 +1001,7 @@
 				218AC3451BA2D49300FF9A25 /* Evaluation_0@2x.png in Resources */,
 				2133BD801BA677D900B0D770 /* loading-ios@2x.png in Resources */,
 				E9B4BEE41BA5B18600F19F4C /* GetCityCtrl.xib in Resources */,
+				21E92EE91BABB9A9006C46FD /* MenuVersionCell.xib in Resources */,
 				21FE15871B9EC3B30092043A /* login.json in Resources */,
 				2133BD781BA65E5500B0D770 /* AdvertisementCell.xib in Resources */,
 				218AC34D1BA2D6D300FF9A25 /* LookAllCommentCell.xib in Resources */,
@@ -1020,6 +1037,7 @@
 				E9B4BEEF1BA5B4C100F19F4C /* nav_back@3x.png in Resources */,
 				218AC35A1BA3119D00FF9A25 /* SalesPromotionCell.xib in Resources */,
 				219B79B51B9D951F00325AB0 /* product.json in Resources */,
+				21E92EEE1BABB9C6006C46FD /* MenuNumCell.xib in Resources */,
 				2133BD891BA6780B00B0D770 /* Coupons_but_top@2x.png in Resources */,
 				E9B4BEEB1BA5B3E000F19F4C /* Main.storyboard in Resources */,
 				21E92EBE1BABA710006C46FD /* ServiceInfoCell.xib in Resources */,
@@ -1094,6 +1112,7 @@
 			files = (
 				218AC36B1BA31C1500FF9A25 /* KCAnnotation.m in Sources */,
 				23D481651BA00C4F0036B9DC /* OrderManageCtrl.m in Sources */,
+				21E92EED1BABB9C6006C46FD /* MenuNumCell.m in Sources */,
 				21E92EE11BABA737006C46FD /* LewPopupViewAnimationSpring.m in Sources */,
 				21E92EDE1BABA737006C46FD /* LewPopupViewAnimationDrop.m in Sources */,
 				21540DCC1BA7F35000DF7171 /* CommentInformationCell.m in Sources */,
@@ -1143,6 +1162,7 @@
 				21E92EB81BABA628006C46FD /* MerchandiseShowCtrl.m in Sources */,
 				211CE9B71B9D1F8700C3E916 /* main.m in Sources */,
 				218AC3591BA3119D00FF9A25 /* SalesPromotionCell.m in Sources */,
+				21E92EE81BABB9A9006C46FD /* MenuVersionCell.m in Sources */,
 				219296A61BA0320E00D9860B /* LoginViewController.m in Sources */,
 				2378DE1A1BA989E1006302D8 /* OrderDetailFouthCell.m in Sources */,
 				237C62CC1BA6C7C500CE5608 /* PayForOrderCtrl.m in Sources */,

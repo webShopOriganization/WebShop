@@ -78,7 +78,7 @@
         self.frame = CGRectMake(x, 0, self.frame.size.width, self.frame.size.height);
         if(!isOpen){
             _blurImageView.image = image;
-            _blurImageView.image= [self blurryImage:_blurImageView.image withBlurLevel:0.2];
+            _blurImageView.image= [self blurryImage:_blurImageView.image withBlurLevel:0.4];
         }
     } completion:^(BOOL finished) {
         isOpen = show;
