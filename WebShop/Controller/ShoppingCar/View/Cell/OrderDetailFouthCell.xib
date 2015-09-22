@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -17,7 +18,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="实付款:￥123.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muD-bx-5KE">
                         <rect key="frame" x="159" y="8" width="140" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="muD-bx-5KE" secondAttribute="height" multiplier="20:3" id="t61-P2-8nY"/>
+                            <constraint firstAttribute="width" secondItem="muD-bx-5KE" secondAttribute="height" multiplier="20:3" id="MXh-zu-J8S"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -26,26 +27,39 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="下单时间: 2015-09-21 " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpu-Ay-6DF">
                         <rect key="frame" x="109" y="30" width="190" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="Wpu-Ay-6DF" secondAttribute="height" multiplier="190:21" id="kFO-CD-vxQ"/>
+                            <constraint firstAttribute="width" secondItem="Wpu-Ay-6DF" secondAttribute="height" multiplier="190:21" id="pSr-fH-s1Y"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="实付方式:支付宝" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1aS-M9-5ni">
+                        <rect key="frame" x="15" y="8" width="140" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="1aS-M9-5ni" secondAttribute="height" multiplier="20:3" id="O74-mi-3W2"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="Wpu-Ay-6DF" secondAttribute="trailing" constant="21" id="TTf-9d-IpG"/>
-                    <constraint firstAttribute="trailing" secondItem="muD-bx-5KE" secondAttribute="trailing" constant="21" id="VHv-em-FnI"/>
-                    <constraint firstItem="muD-bx-5KE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="dyQ-Fi-wer"/>
-                    <constraint firstAttribute="bottom" secondItem="Wpu-Ay-6DF" secondAttribute="bottom" constant="8" id="jYM-74-wBP"/>
-                    <constraint firstItem="Wpu-Ay-6DF" firstAttribute="top" secondItem="muD-bx-5KE" secondAttribute="bottom" constant="1" id="nae-db-tfQ"/>
-                    <constraint firstItem="Wpu-Ay-6DF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="109" id="zPM-R7-bLb"/>
-                    <constraint firstItem="muD-bx-5KE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="159" id="ziF-f4-Ksm"/>
+                    <constraint firstItem="1aS-M9-5ni" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="A09-K7-1nN"/>
+                    <constraint firstItem="Wpu-Ay-6DF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="101" id="AlD-YL-dbW"/>
+                    <constraint firstItem="1aS-M9-5ni" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="BGz-YS-SmS"/>
+                    <constraint firstItem="muD-bx-5KE" firstAttribute="leading" secondItem="1aS-M9-5ni" secondAttribute="trailing" constant="4" id="EKs-36-h6V"/>
+                    <constraint firstItem="muD-bx-5KE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="NDJ-X3-zwb"/>
+                    <constraint firstItem="Wpu-Ay-6DF" firstAttribute="top" secondItem="1aS-M9-5ni" secondAttribute="bottom" constant="1" id="Nzg-5S-YLf"/>
+                    <constraint firstItem="Wpu-Ay-6DF" firstAttribute="top" secondItem="muD-bx-5KE" secondAttribute="bottom" constant="1" id="O4l-MR-RSc"/>
+                    <constraint firstAttribute="trailing" secondItem="muD-bx-5KE" secondAttribute="trailing" constant="21" id="VKY-mX-f2o"/>
+                    <constraint firstItem="Wpu-Ay-6DF" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="bO2-KP-8NC"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Wpu-Ay-6DF" secondAttribute="trailing" constant="13" id="jUY-OH-jMj"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="lblPrice" destination="muD-bx-5KE" id="AlZ-xg-wVv"/>
                 <outlet property="lblTime" destination="Wpu-Ay-6DF" id="1NI-bK-b6V"/>
+                <outlet property="payment" destination="1aS-M9-5ni" id="Dfq-IP-3Ml"/>
             </connections>
             <point key="canvasLocation" x="206" y="54"/>
         </tableViewCell>

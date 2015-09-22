@@ -10,6 +10,7 @@
 #import "PayForOrderCtrl.h"
 #import "PayOrderCll.h"
 #import "OrderManageCtrl.h"
+#import "CollectionCtrl.h"
 
 @interface PayForOrderCtrl ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -66,11 +67,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
         
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        OrderManageCtrl *vc = [storyboard instantiateViewControllerWithIdentifier:@"MemberCenterCtrl"];
+//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//        OrderManageCtrl *vc = [storyboard instantiateViewControllerWithIdentifier:@"MemberCenterCtrl"];
+//        vc.hidesBottomBarWhenPushed = YES;
+//        vc.arrayOrder = self.arrayPay;
+        
+        CollectionCtrl *vc = [[CollectionCtrl alloc] initWithNibName:@"CollectionCtrl" bundle:nil];
         vc.hidesBottomBarWhenPushed = YES;
-        vc.arrayOrder = self.arrayPay;
-
+        vc.title = @"CollectionTest";
+        vc.arrayCollection = self.arrayPay;
+        
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

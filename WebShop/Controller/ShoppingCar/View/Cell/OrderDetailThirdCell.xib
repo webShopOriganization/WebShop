@@ -40,17 +40,17 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥9998.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IuP-ii-Kw4">
-                        <rect key="frame" x="245" y="21" width="75" height="21"/>
+                        <rect key="frame" x="250" y="21" width="70" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="IuP-ii-Kw4" secondAttribute="height" multiplier="25:7" id="8g9-CG-Ltz"/>
+                            <constraint firstAttribute="width" secondItem="IuP-ii-Kw4" secondAttribute="height" multiplier="25:7" constant="-5" id="8g9-CG-Ltz"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="IuP-ii-Kw4" firstAttribute="leading" secondItem="loI-tG-zE9" secondAttribute="trailing" id="7V4-nK-BgR"/>
+                    <constraint firstItem="IuP-ii-Kw4" firstAttribute="leading" secondItem="loI-tG-zE9" secondAttribute="trailing" constant="5" id="7V4-nK-BgR"/>
                     <constraint firstAttribute="bottom" secondItem="1I9-oU-SxA" secondAttribute="bottom" constant="9" id="89D-bg-l9V"/>
                     <constraint firstItem="1I9-oU-SxA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="EWK-aP-q5t"/>
                     <constraint firstItem="3pY-m6-IAV" firstAttribute="leading" secondItem="1I9-oU-SxA" secondAttribute="trailing" constant="8" id="K0L-am-ckG"/>
