@@ -19,6 +19,7 @@
 #import "DetailProdutCtrl.h"
 #import "SecondFootView.h"
 #import "OrderManageCtrl.h"
+#import "DetailProdutCtrl.h"
 
 @interface ShoppingCarCtrl ()<UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, loginDelegate, deleteCellDelegate>
 
@@ -616,6 +617,7 @@
             NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:CellId owner:self options:nil];
             
             cell = [topLevelObjects objectAtIndex:0];
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             
             cell.indexPath = indexPath;
             if (self.statusForCellChoose == YES) {
@@ -632,8 +634,11 @@
     return nil;
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%s", __func__);
     
+    DetailProdutCtrl *vc = [[DetailProdutCtrl alloc] initWithNibName:@"DetailProdutCtrl" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end
