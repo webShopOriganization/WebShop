@@ -36,7 +36,7 @@
         height = screen.bounds.size.height;
         imageViews = [NSMutableArray arrayWithCapacity:images.count];
         self.images = images;
-//        singleWidth = width/(images.count-1);
+        //        singleWidth = width/(images.count-1);
         singleWidth = width/4;
         //创建底部滑动视图
         [self _initScrollView];
@@ -73,17 +73,17 @@
     [self.scrollView addSubview:imgView];
     [imageViews addObject:imgView];
     
-    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longAction:)];
+    UITapGestureRecognizer *longPress = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
     [imgView addGestureRecognizer:longPress];
     
     UIButton *deleteButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [deleteButton setImage:[UIImage imageNamed:@"deletbutton.png"] forState:UIControlStateNormal];
     [deleteButton addTarget:self action:@selector(deleteAction:) forControlEvents:UIControlEventTouchUpInside];
-//    if (isDeleting) {
-//        [deleteButton setHidden:NO];
-//    } else {
-//        [deleteButton setHidden:YES];
-//    }
+    //    if (isDeleting) {
+    //        [deleteButton setHidden:NO];
+    //    } else {
+    //        [deleteButton setHidden:YES];
+    //    }
     [deleteButton setHidden:NO];
     deleteButton.frame = CGRectMake(0, 0, 25, 25);
     deleteButton.backgroundColor = [UIColor clearColor];
@@ -91,54 +91,64 @@
 }
 
 //长按调用的方法
-- (void)longAction:(UILongPressGestureRecognizer *)recognizer
+- (void)tapAction:(UILongPressGestureRecognizer *)recognizer
 {
     UIImageView *imageView = (UIImageView *)recognizer.view;
-    if (recognizer.state == UIGestureRecognizerStateBegan) {//长按开始
-        startPoint = [recognizer locationInView:recognizer.view];
-        originPoint = imageView.center;
-        isDeleting = !isDeleting;
-        [UIView animateWithDuration:0.3 animations:^{
-            imageView.transform = CGAffineTransformMakeScale(1.1, 1.1);
-        }];
-        for (UIImageView *imageView in imageViews) {
-            UIButton *deleteButton = (UIButton *)imageView.subviews[0];
-            if (isDeleting) {
-                deleteButton.hidden = NO;
-            } else {
-                deleteButton.hidden = YES;
-            }
-        }
-    } else if (recognizer.state == UIGestureRecognizerStateChanged) {//长按移动
-        CGPoint newPoint = [recognizer locationInView:recognizer.view];
-        CGFloat deltaX = newPoint.x - startPoint.x;
-        CGFloat deltaY = newPoint.y - startPoint.y;
-        imageView.center = CGPointMake(imageView.center.x + deltaX, imageView.center.y + deltaY);
-        NSInteger index = [self indexOfPoint:imageView.center withView:imageView];
-        if (index < 0) {
-            isContain = NO;
-        } else {
-            [UIView animateWithDuration:0.3 animations:^{
-                CGPoint temp = CGPointZero;
-                UIImageView *currentImagView = imageViews[index];
-                int idx = [imageViews indexOfObject:imageView];
-                temp = currentImagView.center;
-                currentImagView.center = originPoint;
-                imageView.center = temp;
-                originPoint = imageView.center;
-                isContain = YES;
-                [imageViews exchangeObjectAtIndex:idx withObjectAtIndex:index];
-            } completion:^(BOOL finished) {
-            }];
-        }
-    } else if (recognizer.state == UIGestureRecognizerStateEnded) {//长按结束
-        [UIView animateWithDuration:0.3 animations:^{
-            imageView.transform = CGAffineTransformIdentity;
-            if (!isContain) {
-                imageView.center = originPoint;
-            }
-        }];
-    }
+    
+    imageView.center = CGPointMake(imageView.center.x, imageView.center.y);
+    NSInteger index = [self indexOfPoint:imageView.center withView:imageView];
+    
+    
+    [self.delegate localImageShow:imageView Index:index];
+
+    /*
+     UIImageView *imageView = (UIImageView *)recognizer.view;
+     if (recognizer.state == UIGestureRecognizerStateBegan) {//长按开始
+     startPoint = [recognizer locationInView:recognizer.view];
+     originPoint = imageView.center;
+     isDeleting = !isDeleting;
+     [UIView animateWithDuration:0.3 animations:^{
+     imageView.transform = CGAffineTransformMakeScale(1.1, 1.1);
+     }];
+     for (UIImageView *imageView in imageViews) {
+     UIButton *deleteButton = (UIButton *)imageView.subviews[0];
+     if (isDeleting) {
+     deleteButton.hidden = NO;
+     } else {
+     deleteButton.hidden = YES;
+     }
+     }
+     } else if (recognizer.state == UIGestureRecognizerStateChanged) {//长按移动
+     CGPoint newPoint = [recognizer locationInView:recognizer.view];
+     CGFloat deltaX = newPoint.x - startPoint.x;
+     CGFloat deltaY = newPoint.y - startPoint.y;
+     imageView.center = CGPointMake(imageView.center.x + deltaX, imageView.center.y + deltaY);
+     NSInteger index = [self indexOfPoint:imageView.center withView:imageView];
+     if (index < 0) {
+     isContain = NO;
+     } else {
+     [UIView animateWithDuration:0.3 animations:^{
+     CGPoint temp = CGPointZero;
+     UIImageView *currentImagView = imageViews[index];
+     int idx = [imageViews indexOfObject:imageView];
+     temp = currentImagView.center;
+     currentImagView.center = originPoint;
+     imageView.center = temp;
+     originPoint = imageView.center;
+     isContain = YES;
+     [imageViews exchangeObjectAtIndex:idx withObjectAtIndex:index];
+     } completion:^(BOOL finished) {
+     }];
+     }
+     } else if (recognizer.state == UIGestureRecognizerStateEnded) {//长按结束
+     [UIView animateWithDuration:0.3 animations:^{
+     imageView.transform = CGAffineTransformIdentity;
+     if (!isContain) {
+     imageView.center = originPoint;
+     }
+     }];
+     }
+     */
 }
 
 
@@ -146,14 +156,15 @@
 //获取view在imageViews中的位置
 - (NSInteger)indexOfPoint:(CGPoint)point withView:(UIView *)view
 {
+
     UIImageView *originImageView = (UIImageView *)view;
     for (int i = 0; i < imageViews.count; i++) {
         UIImageView *otherImageView = imageViews[i];
-        if (otherImageView != originImageView) {
+        
             if (CGRectContainsPoint(otherImageView.frame, point)) {
                 return i;
             }
-        }
+        
     }
     return -1;
 }

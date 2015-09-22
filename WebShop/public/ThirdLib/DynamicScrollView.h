@@ -12,6 +12,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol showImages <NSObject>
+
+-(void)localImageShow:(UIImageView*)imageView Index:(NSUInteger)index;
+
+@end
+
 @interface DynamicScrollView : UIView
 
 - (id)initWithFrame:(CGRect)frame withImages:(NSMutableArray *)images;
@@ -23,6 +29,8 @@
 @property(nonatomic,retain)NSMutableArray *imageViews;
 
 @property(nonatomic,assign)BOOL isDeleting;
+
+@property(weak,nonatomic)id <showImages> delegate;
 
 //添加一个新图片
 - (void)addImageView:(UIImage *)image;

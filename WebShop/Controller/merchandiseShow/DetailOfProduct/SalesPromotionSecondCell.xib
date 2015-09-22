@@ -101,7 +101,7 @@
                             <constraint firstAttribute="height" constant="45" id="hWc-H7-bqO"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list_more.png" translatesAutoresizingMaskIntoConstraints="NO" id="gVn-UK-rwT">
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gVn-UK-rwT">
                         <rect key="frame" x="279" y="132" width="39" height="64"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="64" id="4g2-Fb-4KL"/>
@@ -131,7 +131,7 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
-                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list_more.png" translatesAutoresizingMaskIntoConstraints="NO" id="c27-3a-Bgf">
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c27-3a-Bgf">
                         <rect key="frame" x="279" y="75" width="39" height="57"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="39" id="GOA-FV-uis"/>
@@ -186,6 +186,5 @@
     </objects>
     <resources>
         <image name="btn_pack-up.png" width="14" height="14"/>
-        <image name="list_more.png" width="20" height="20"/>
     </resources>
 </document>

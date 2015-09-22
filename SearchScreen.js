@@ -34,6 +34,10 @@ var MovieCell = require('./MovieCell');
 var MovieScreen = require('./MovieScreen');
 var SearchBar = require('SearchBar');
 
+var MOCKED_MOVIES_DATA = [
+  {title: '商品1', year: '2015', posters: {thumbnail: 'http://i.imgur.com/UePbdph.jpg'}},
+  {title: '商品2', year: '2016', posters: {thumbnail: 'http://i.imgur.com/UePbdph.jpg'}},
+];
 /**
  * This is for demo purposes only, and rate limited.
  * In case you want to use the Rotten Tomatoes' API on a real app you should
@@ -217,15 +221,15 @@ var SearchScreen = React.createClass({
   },
 
   getDataSource: function(movies: Array<any>): ListView.DataSource {
-    return this.state.dataSource.cloneWithRows(movies);
+    return this.state.dataSource.cloneWithRows(MOCKED_MOVIES_DATA);
   },
 
-  selectMovie: function(movie: Object) {
+  selectMovie: function() {
     if (Platform.OS === 'ios') {
       this.props.navigator.push({
-        title: movie.title,
+        title:'商品详情',
         component: MovieScreen,
-        passProps: {movie},
+        passProps: {},
       });
     } else {
       dismissKeyboard();
@@ -282,7 +286,7 @@ var SearchScreen = React.createClass({
     return (
       <MovieCell
         key={movie.id}
-        onSelect={() => this.selectMovie(movie)}
+        onSelect={() => this.selectMovie()}
         onHighlight={() => highlightRowFunc(sectionID, rowID)}
         onUnhighlight={() => highlightRowFunc(null, null)}
         movie={movie}

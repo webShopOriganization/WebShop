@@ -21,6 +21,7 @@
             [CKBackgroundLayoutComponent
              newWithComponent:quoteComponent
              
+            
              
              background:
              [CKComponent

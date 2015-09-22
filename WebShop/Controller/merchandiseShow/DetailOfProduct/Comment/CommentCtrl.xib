@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommentCtrl">
             <connections>
+                <outlet property="tableView" destination="HSh-kg-cuF" id="at6-qO-2sK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewSelect" destination="8yx-vJ-Xb4" id="DOq-xf-qep"/>
             </connections>

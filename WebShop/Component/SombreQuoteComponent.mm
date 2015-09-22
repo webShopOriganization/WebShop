@@ -99,13 +99,81 @@
               size:{}]]];
      */
     
+     /*
+    return [super newWithComponent:
+            [CKStackLayoutComponent
+             newWithView:{
+             
+                 [UIView class],
+                 {
+                     {@selector(setBackgroundColor:),[UIColor redColor]},
+                     {@selector(setContentMode:), @(UIViewContentModeTop)},
+                    // {@selector(setClipsToBounds:), @YES},
+                     //{@selector(setAutoresizesSubviews:),@(UIViewAutoresizingFlexibleTopMargin)},
+                     //{CKComponentTapGestureAttribute(@selector(didTap:))}
+                     
+                    // {@selector(setAutoresizingMask:),@(UIViewAutoresizingFlexibleTopMargin)},
+                     //{@selector(set)}
+                     
+                 }
+                 
+             
+             }
+             size:{}
+             style:{
+                 //.justifyContent = CKStackLayoutJustifyContentStart,
+                 //.direction = CKStackLayoutDirectionVertical,
+                 //.alignItems = CKStackLayoutAlignItemsStretch
+             }
+             children:{
+                 {[CKLabelComponent
+                   newWithLabelAttributes:{
+                       .string = [[dict objectForKey:@"text"] uppercaseString],
+                       .color = [UIColor darkGrayColor],
+                       .font = [UIFont fontWithName:@"Avenir-Black" size:15],
+                       .alignment = NSTextAlignmentCenter,
+                       // .maximumNumberOfLines=1
+                       
+                       
+                   }
+                   
+                   viewAttributes:{
+                       {@selector(setBackgroundColor:), [UIColor clearColor]},
+                       {@selector(setUserInteractionEnabled:), @YES},
+                   }],
+                     .flexShrink = NO,
+                     .flexGrow=NO,
+                     .spacingBefore = 3
+                 },
+                 {[CKLabelComponent
+                   newWithLabelAttributes:{
+                       .string = [[dict objectForKey:@"text"] uppercaseString],
+                       .color = [UIColor darkGrayColor],
+                       .font = [UIFont fontWithName:@"Avenir-Black" size:15],
+                       .alignment = NSTextAlignmentCenter,
+                       // .maximumNumberOfLines=1
+                       
+                       
+                   }
+                   
+                   viewAttributes:{
+                       {@selector(setBackgroundColor:), [UIColor clearColor]},
+                       {@selector(setUserInteractionEnabled:), @YES},
+                   }],
+                     .flexGrow=NO,
+                     .flexShrink = NO ,
+                     .spacingBefore = 3
+                 }
+             }]];
+    */
   
+   
   return [super newWithComponent:
           [QuoteWithBackgroundComponent
            newWithBackgroundColor:[UIColor lightGrayColor]
            quoteComponent:
            [CKInsetComponent
-            newWithInsets:{.top = 20, .left = 20, .bottom = 20, .right = 20}
+            newWithInsets:{.top = 0, .left = 0, .bottom = 0, .right = 0}
             component:
             [CKStackLayoutComponent
              newWithView:{
@@ -134,7 +202,8 @@
                         
                     }
                     
-                    size:{[UIScreen mainScreen].bounds.size.width*0.25-10,[UIScreen mainScreen].bounds.size.width*0.25-10}]
+                    size:{[UIScreen mainScreen].bounds.size.width*0.25-10,[UIScreen mainScreen].bounds.size.width*0.25-10}],
+                   .flexGrow=YES,
                },
                {[CKLabelComponent
                  newWithLabelAttributes:{
@@ -161,7 +230,7 @@
                        .color = [UIColor redColor],
                        .font = [UIFont fontWithName:@"Avenir-Black" size:15],
                        .alignment = NSTextAlignmentCenter,
-                       .maximumNumberOfLines=1
+                      // .maximumNumberOfLines=1
                    }
                    viewAttributes:{
                        {@selector(setBackgroundColor:), [UIColor clearColor]},
@@ -173,6 +242,7 @@
                  
              
              }]]]];;
+     
   
 }
 

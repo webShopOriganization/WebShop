@@ -59,7 +59,23 @@
                         @"text": @"服装4",
                         @"image": @"bg4",
                         @"color": @"gray",
-                        }, nil];
+                        },
+                      @{
+                        @"text": @"服装5",
+                        @"image": @"bg3",
+                        @"color": @"gray",
+                        },
+                      @{
+                        @"text": @"服装6",
+                        @"image": @"bg3",
+                        @"color": @"gray",
+                        },
+                      @{
+                        @"text": @"服装7",
+                        @"image": @"bg3",
+                        @"color": @"gray",
+                        },
+                      nil];
     
     
     // Preload images for the component context that need to be used in component preparation. Components preparation
@@ -71,6 +87,7 @@
     
     self.collectionView.backgroundColor = [UIColor whiteColor];
     self.collectionView.delegate = self;
+    
     
     QuoteContext *context = [[QuoteContext alloc] initWithImageNames:imageNames];
     
@@ -139,10 +156,9 @@
         
         
         items.insert([NSIndexPath indexPathForRow:i inSection:0], array[i]);
-        items.insert([NSIndexPath indexPathForRow:i inSection:1], array[i]);
     }
     [_dataSource enqueueChangeset:{{}, items}
-                  constrainedSize:[_sizeRangeProvider sizeRangeForBoundingSize:CGSizeMake([UIScreen mainScreen].bounds.size.width*0.25-10, [UIScreen mainScreen].bounds.size.width*0.25-10)]];
+                  constrainedSize:[_sizeRangeProvider sizeRangeForBoundingSize:CGSizeMake([UIScreen mainScreen].bounds.size.width*0.25-15, [UIScreen mainScreen].bounds.size.width*0.25-15)]];
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -156,6 +172,17 @@
     return YES;
 }
 
+//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+//{
+//    return 5.0;
+//}
+
+//- (CGSize)collectionView:(UICollectionView *)collectionView
+//                  layout:(UICollectionViewLayout *)collectionViewLayout
+//referenceSizeForFooterInSection:(NSInteger)section
+//{
+//    return  CGSizeMake(320, 10);
+//}
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 
@@ -163,6 +190,8 @@
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    CGFloat height=[_dataSource sizeForItemAtIndexPath:indexPath].height;
+    return CGSizeMake(91, 200);
     return [_dataSource sizeForItemAtIndexPath:indexPath];
     
 }
@@ -181,18 +210,17 @@
     [_dataSource announceDidDisappearForItemInCell:cell];
 }
 
+
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 2;
+    return 1;
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    if (section==0) {
-        return UIEdgeInsetsMake(10, 5, 5, 0);
-    }
+  
     
-    return UIEdgeInsetsMake(5, 5, 5, 0);
+    return UIEdgeInsetsMake(5, 5, 5, 5);
     
     
 }

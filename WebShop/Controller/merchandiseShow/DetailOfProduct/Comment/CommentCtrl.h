@@ -10,5 +10,6 @@
 
 @interface CommentCtrl : UIViewController
 @property (weak, nonatomic) IBOutlet UIView *viewSelect;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

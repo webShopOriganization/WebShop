@@ -9,7 +9,7 @@
 #import "CommentCtrl.h"
 #import "Common.h"
 #import "CommentInformationCell.h"
-
+#import "PhotoBroswerVC.h"
 
 
 @interface CommentCtrl ()
@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UIView* slideView;
 @property (nonatomic,strong) NSMutableArray *arrayOfData;
 @property (nonatomic,strong) NSMutableArray *arrayOfImage;
+@property (nonatomic,strong) NSMutableArray *images;
 
 @end
 
@@ -27,7 +28,19 @@
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title=@"评论";
     self.arrayOfData=[[NSMutableArray alloc]init];
-    self.arrayOfImage=[[NSMutableArray alloc]initWithObjects:@"bg1",@"bg2",@"bg3",@"bg1",@"bg2", nil];
+    self.arrayOfImage=[[NSMutableArray alloc]initWithObjects:@"bg1",@"bg2",@"bg3",@"bg4",@"bg2", nil];
+    
+    self.images=[[NSMutableArray alloc]init];
+    UIImage *image1=[UIImage imageNamed:@"bg1"];
+    UIImage *image2=[UIImage imageNamed:@"bg2"];
+    UIImage *image3=[UIImage imageNamed:@"bg3"];
+    UIImage *image4=[UIImage imageNamed:@"bg4"];
+    UIImage *image5=[UIImage imageNamed:@"bg2"];
+    [self.images addObject:image1];
+    [self.images addObject:image2];
+    [self.images addObject:image3];
+    [self.images addObject:image4];
+    [self.images addObject:image5];
     
     [self initScrollTables:5];
     
@@ -189,6 +202,34 @@
         [self.scrollView scrollRectToVisible:CGRectMake(index*SCREEN_WIDTH, 0, SCREEN_WIDTH, self.scrollView.frame.size.height) animated:YES];
 }
 
+/*
+ *  本地图片展示
+ */
+-(void)localImageShow:(UIImageView*)imageView Index:(NSUInteger)index
+{
+    __weak typeof(self) weakSelf=self;
+    
+    [PhotoBroswerVC show:self type:PhotoBroswerVCTypeZoom index:index photoModelBlock:^NSArray *{
+        
+        NSArray *localImages = weakSelf.images;
+        
+        NSMutableArray *modelsM = [NSMutableArray arrayWithCapacity:localImages.count];
+        for (NSUInteger i = 0; i< localImages.count; i++) {
+            
+            PhotoModel *pbModel=[[PhotoModel alloc] init];
+            pbModel.mid = i + 1;
+            pbModel.image = localImages[i];
+            
+            pbModel.sourceImageView = imageView;
+            
+            [modelsM addObject:pbModel];
+        }
+        
+        return modelsM;
+    }];
+}
+
+
 #pragma mark - Table view data source
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -206,6 +247,8 @@
     for (int i=0; i<self.arrayOfImage.count; i++) {
         
         [cell.dynamicScrollView addImageView:[UIImage imageNamed:[self.arrayOfImage objectAtIndex:i]]];
+        cell.dynamicScrollView.delegate=self;
+        
     }
     
     cell.BtnAgree.layer.borderWidth=0.5;

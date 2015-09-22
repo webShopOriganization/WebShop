@@ -12,11 +12,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uSJ-PI-BdF" customClass="ReactView">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="567"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="666"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
@@ -27,7 +27,7 @@
                 <constraint firstItem="uSJ-PI-BdF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="XE7-I3-jgS"/>
                 <constraint firstAttribute="trailing" secondItem="uSJ-PI-BdF" secondAttribute="trailing" id="vA4-aY-TFY"/>
             </constraints>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>
     </objects>
 </document>

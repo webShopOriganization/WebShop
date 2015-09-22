@@ -38,26 +38,26 @@ var MovieScreen = React.createClass({
             * omit a property or set it to undefined if it's inside a shape,
             * even if it isn't required */}
           <Image
-            source={getImageSource(this.props.movie, 'det')}
+            source={{uri: 'http://i.imgur.com/UePbdph.jpg'}}
             style={styles.detailsImage}
           />
           <View style={styles.rightPane}>
-            <Text style={styles.movieTitle}>{this.props.movie.title}</Text>
-            <Text>{this.props.movie.year}</Text>
+            <Text style={styles.movieTitle}>{'myTitle'}</Text>
+            <Text>{'2011'}</Text>
             <View style={styles.mpaaWrapper}>
               <Text style={styles.mpaaText}>
-                {this.props.movie.mpaa_rating}
+                {10}
               </Text>
             </View>
-            <Ratings ratings={this.props.movie.ratings} />
+            <Ratings ratings={10} />
           </View>
         </View>
         <View style={styles.separator} />
         <Text>
-          {this.props.movie.synopsis}
+          {'test'}
         </Text>
         <View style={styles.separator} />
-        <Cast actors={this.props.movie.abridged_cast} />
+        <Cast actors={'actor'} />
       </ScrollView>
     );
   },
@@ -96,11 +96,8 @@ var Cast = React.createClass({
     return (
       <View>
         <Text style={styles.castTitle}>Actors</Text>
-        {this.props.actors.map(actor =>
-          <Text key={actor.name} style={styles.castActor}>
-            &bull; {actor.name}
-          </Text>
-        )}
+        
+       
       </View>
     );
   },
