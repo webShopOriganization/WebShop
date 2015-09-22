@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface OrderDetailSectionCell : UITableViewCell
+@property (strong, nonatomic) IBOutlet UILabel *lblReceiverName;
+@property (strong, nonatomic) IBOutlet UILabel *lblRecevierPhone;
+@property (strong, nonatomic) IBOutlet UILabel *lblRecevierAdress;
+
+
+- (void)initWithDic:(NSMutableDictionary*)dic;
+- (void)configWithDic:(NSMutableDictionary*)dic;
 
 @end

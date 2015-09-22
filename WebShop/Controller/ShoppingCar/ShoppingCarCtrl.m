@@ -8,6 +8,8 @@
 
 #import "ShoppingCarCtrl.h"
 #import "Common.h"
+#import "UserLoginInfo.h"
+#import "UserDataManager.h"
 #import "NetworkManager.h"
 #import "LoadHeaderView.h"
 #import "FooterView.h"
@@ -24,42 +26,43 @@
 @property (assign, nonatomic) float totalPrice;
 @property (assign) BOOL statusForFootView;
 @property (assign) BOOL statusForCellChoose;
-
 @property (strong, nonatomic) NSIndexPath *indexPath;
-
 @property (strong, nonatomic) NSMutableArray *arrayDelete;
 @property (strong, nonatomic) NSMutableArray *arrayPayOrder;
+@property (strong, nonatomic) UserLoginInfo *userLoginInfo;
+
 @end
 
 @implementation ShoppingCarCtrl
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)loadView {
+    
+    [super loadView];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"购物车";
     
-    [[NetworkManager shareMgr]server_loginWithDic:nil completeHandle:^(NSDictionary *response) {
-        NSLog(@"用户数据 : %@", response);
-        
-        NSNumber *nStatus = [response objectForKey:@"status"];
-        if([nStatus intValue] == 2000000){
-            self.UserDic = [[NSMutableDictionary alloc] initWithDictionary:[response objectForKey:@"data"]];
-            NSLog(@"用户信息 = %@", self.UserDic);
-        }
-        
-    }];
-    
-    [[NetworkManager shareMgr]server_productListWithDic:nil completeHandle:^(NSDictionary *response) {
-        NSLog(@"购物车商品列表返回数据 : %@", response);
-        
-        NSNumber *nStatus = [response objectForKey:@"status"];
-        if([nStatus intValue] == 2000000){
-            self.array = [[NSMutableArray alloc] initWithArray:[response objectForKey:@"data"]];
-            NSLog(@"购物车内商品数 = %lu", (unsigned long)self.array.count);
-        }
-        
-    }];
-
-
+    //    [[NetworkManager shareMgr]server_loginWithDic:nil completeHandle:^(NSDictionary *response) {
+    //        NSLog(@"用户数据 : %@", response);
+    //
+    //        NSNumber *nStatus = [response objectForKey:@"status"];
+    //        if([nStatus intValue] == 2000000){
+    //            self.UserDic = [[NSMutableDictionary alloc] initWithDictionary:[response objectForKey:@"data"]];
+    //            NSLog(@"用户信息 = %@", self.UserDic);
+    //        }
+    //        
+    //    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,11 +73,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     
+    [self getModel];
     [self initUI];
     self.navigationItem.rightBarButtonItem.title = @"编辑";
     
     self.firstBottomView.hidden = NO;
-    [self.tableVeiw reloadData];
+//    [self.tableVeiw reloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -83,6 +87,31 @@
     [self.firstBottomView removeFromSuperview];
     [self.secondBottomView removeFromSuperview];
 
+}
+
+- (void)getModel {
+    
+    self.userLoginInfo = [UserDataManager shareManager].userLoginInfo;
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    [dic setValue:self.userLoginInfo.user.phone forKey:@"phone"];
+    [dic setValue:self.userLoginInfo.sessionId forKey:@"sessionId"];
+  
+    NSLog(@"上传字典: %@", self.userLoginInfo);
+    
+    [[NetworkManager shareMgr]server_productListWithDic:nil completeHandle:^(NSDictionary *response) {
+        NSLog(@"返回结果 : %@", response);
+        
+        NSNumber *nStatus = [response objectForKey:@"status"];
+        if([nStatus intValue] == 2000000){
+//            self.array = [[NSMutableArray alloc] initWithArray:[response objectForKey:@"data"]];
+            self.array = [response objectForKey:@"data"];
+            [self.tableVeiw reloadData];
+            NSLog(@"购物车内商品数 = %lu", (unsigned long)self.array.count);
+        }
+        
+    }];
+
+    
 }
 
 - (void)initUI {
@@ -123,10 +152,10 @@
     
     self.tableVeiw.backgroundColor = [UIColor clearColor];
     
-    if (!self.array) {
-        self.tableVeiw.backgroundColor = [UIColor lightGrayColor];
-        [Common addAlertViewWithTitel:@"购物车是空的..."];
-    }
+//    if (!self.array) {
+//        self.tableVeiw.backgroundColor = [UIColor lightGrayColor];
+//        [Common addAlertViewWithTitel:@"购物车是空的..."];
+//    }
 }
 
 #pragma mark - button点击事件
@@ -571,8 +600,7 @@
     static NSString *CellId = @"ShoppingCartCell";
     
     NSLog(@"self.array = %lu", (unsigned long)self.array.count);
-    if (!self.array) {
-        
+    if (!self.array.count) {
         self.tableVeiw.backgroundColor = [UIColor lightGrayColor];
         [Common addAlertViewWithTitel:@"购物车是空的..."];
 

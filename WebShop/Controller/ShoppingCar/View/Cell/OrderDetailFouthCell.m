@@ -26,7 +26,8 @@
     
 }
 - (void)configWithDic:(NSMutableDictionary*)dic {
-    self.lblPrice.text = [NSString stringWithFormat:@"实付款: ￥%@", dic[@"price"]];
-    self.lblTime.text = [NSString stringWithFormat:@"下单时间: %@", dic[@"salesDate"]];
+    self.lblPrice.text = [NSString stringWithFormat:@"实付款: ￥%@",[dic[@"product"] objectForKey:@"price"]];
+    self.lblTime.text = [NSString stringWithFormat:@"下单时间: %@", dic[@"time"]];
+    self.payment.text = [NSString stringWithFormat:@"付款方式: %@", dic[@"payment"]];
 }
 @end

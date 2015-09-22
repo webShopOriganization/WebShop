@@ -75,7 +75,7 @@
             UITableViewCell *cell = [[UITableViewCell alloc] init];
             
             cell.textLabel.textAlignment = NSTextAlignmentLeft;
-            cell.textLabel.text = @"订单号: 10067948430";
+            cell.textLabel.text = [NSString stringWithFormat:@"订单号: %@", self.dict[@"orderId"]];  
             
             return cell;
             
@@ -84,6 +84,8 @@
             if (!cell) {
                 NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:CellId_Second owner:self options:nil];
                 cell = [topLevelObjects objectAtIndex:0];
+                
+                [cell configWithDic:self.dict];
             }
             return cell;
             
@@ -103,6 +105,7 @@
             if (!cell) {
                 NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:CellId_Fourth owner:self options:nil];
                 cell = [topLevelObjects objectAtIndex:0];
+                
                 [cell configWithDic:self.dict];
             }
             

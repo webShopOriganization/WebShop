@@ -11,6 +11,7 @@
 @interface OrderDetailFouthCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *lblPrice;
 @property (strong, nonatomic) IBOutlet UILabel *lblTime;
+@property (strong, nonatomic) IBOutlet UILabel *payment;
 
 
 - (void)initWithDic:(NSMutableDictionary*)dic;

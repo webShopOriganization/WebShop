@@ -66,12 +66,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
         
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        OrderManageCtrl *vc = [storyboard instantiateViewControllerWithIdentifier:@"MemberCenterCtrl"];
-        vc.hidesBottomBarWhenPushed = YES;
-        vc.arrayOrder = self.arrayPay;
-
-        [self.navigationController pushViewController:vc animated:YES];
+//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//        OrderManageCtrl *vc = [storyboard instantiateViewControllerWithIdentifier:@"MemberCenterCtrl"];
+//        vc.hidesBottomBarWhenPushed = YES;
+//        vc.arrayOrder = self.arrayPay;
+//
+//        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 /*

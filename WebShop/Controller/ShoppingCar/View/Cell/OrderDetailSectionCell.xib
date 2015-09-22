@@ -15,30 +15,30 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名: 李白" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tY-3G-4RN">
-                        <rect key="frame" x="8" y="8" width="95" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收货人: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tY-3G-4RN">
+                        <rect key="frame" x="15" y="8" width="150" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="7tY-3G-4RN" secondAttribute="height" multiplier="95:21" id="ufG-sq-guf"/>
+                            <constraint firstAttribute="width" secondItem="7tY-3G-4RN" secondAttribute="height" multiplier="95:21" constant="55" id="ufG-sq-guf"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="广东省广州市越秀区广州火车站" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tCE-NY-LQR">
+                        <rect key="frame" x="15" y="30" width="305" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="tCE-NY-LQR" secondAttribute="height" multiplier="304:21" constant="1" id="ruq-3I-omc"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电话: 138****1438" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TWu-UH-cGd">
-                        <rect key="frame" x="124" y="8" width="144" height="21"/>
+                        <rect key="frame" x="195" y="8" width="125" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="TWu-UH-cGd" secondAttribute="height" multiplier="48:7" id="JXu-uq-vTs"/>
+                            <constraint firstAttribute="width" secondItem="TWu-UH-cGd" secondAttribute="height" multiplier="48:7" constant="-19" id="JXu-uq-vTs"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="广东省广州市越秀区广州火车站" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tCE-NY-LQR">
-                        <rect key="frame" x="8" y="30" width="304" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="tCE-NY-LQR" secondAttribute="height" multiplier="304:21" id="ruq-3I-omc"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -46,17 +46,22 @@
                 <color key="backgroundColor" red="1" green="0.987901282142294" blue="0.87351906951419345" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="tCE-NY-LQR" firstAttribute="top" secondItem="TWu-UH-cGd" secondAttribute="bottom" constant="1" id="21H-lG-aFj"/>
-                    <constraint firstItem="TWu-UH-cGd" firstAttribute="leading" secondItem="7tY-3G-4RN" secondAttribute="trailing" constant="21" id="Ats-hO-mEr"/>
-                    <constraint firstItem="tCE-NY-LQR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="B8a-tG-o7G"/>
+                    <constraint firstItem="TWu-UH-cGd" firstAttribute="leading" secondItem="7tY-3G-4RN" secondAttribute="trailing" constant="30" id="Ats-hO-mEr"/>
+                    <constraint firstItem="tCE-NY-LQR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="B8a-tG-o7G"/>
                     <constraint firstAttribute="bottom" secondItem="tCE-NY-LQR" secondAttribute="bottom" constant="8" id="JR4-sP-B2y"/>
                     <constraint firstItem="7tY-3G-4RN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="MZy-RO-pfR"/>
-                    <constraint firstAttribute="trailing" secondItem="tCE-NY-LQR" secondAttribute="trailing" constant="8" id="MjU-r5-5mm"/>
+                    <constraint firstAttribute="trailing" secondItem="tCE-NY-LQR" secondAttribute="trailing" id="MjU-r5-5mm"/>
                     <constraint firstItem="TWu-UH-cGd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="SU3-Ae-2hE"/>
-                    <constraint firstItem="7tY-3G-4RN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="UES-tG-vdk"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="TWu-UH-cGd" secondAttribute="trailing" constant="44" id="hkt-H8-fgd"/>
+                    <constraint firstItem="7tY-3G-4RN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="UES-tG-vdk"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="TWu-UH-cGd" secondAttribute="trailing" constant="-8" id="hkt-H8-fgd"/>
                     <constraint firstItem="tCE-NY-LQR" firstAttribute="top" secondItem="7tY-3G-4RN" secondAttribute="bottom" constant="1" id="s9C-AH-W6d"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="lblReceiverName" destination="7tY-3G-4RN" id="qgb-7G-wRc"/>
+                <outlet property="lblRecevierAdress" destination="tCE-NY-LQR" id="JFc-qV-kwb"/>
+                <outlet property="lblRecevierPhone" destination="TWu-UH-cGd" id="BCm-CC-YDL"/>
+            </connections>
             <point key="canvasLocation" x="236" y="93"/>
         </tableViewCell>
     </objects>

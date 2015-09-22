@@ -53,9 +53,9 @@
 - (void)configWithDic:(NSMutableDictionary*)dic {
     
     if (dic) {
-        self.lblOrderName.text = dic[@"proName"];
-        self.lblReallyPay.text = [NSString stringWithFormat:@"￥%@", dic[@"price"]];
-        [self.imgOrder sd_setImageWithURL:dic[@"image"]
+        self.lblOrderName.text =[dic[@"product"] objectForKey:@"proName"];
+        self.lblReallyPay.text = [NSString stringWithFormat:@"￥%@", [dic[@"product"] objectForKey:@"price"]];
+        [self.imgOrder sd_setImageWithURL:[dic[@"product"] objectForKey:@"image"]
                            placeholderImage:[UIImage imageNamed:@"loading-ios"] options:SDWebImageContinueInBackground];
 
     }
