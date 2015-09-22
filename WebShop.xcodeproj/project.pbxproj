@@ -124,6 +124,10 @@
 		237C62CD1BA6C7C500CE5608 /* PayForOrderCtrl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 237C62CB1BA6C7C500CE5608 /* PayForOrderCtrl.xib */; };
 		237C62D11BA6C80300CE5608 /* PayOrderCll.m in Sources */ = {isa = PBXBuildFile; fileRef = 237C62CF1BA6C80300CE5608 /* PayOrderCll.m */; };
 		237C62D21BA6C80300CE5608 /* PayOrderCll.xib in Resources */ = {isa = PBXBuildFile; fileRef = 237C62D01BA6C80300CE5608 /* PayOrderCll.xib */; };
+		2388ACF91BB15D2600434DAD /* CollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2388ACF71BB15D2600434DAD /* CollectionCell.m */; };
+		2388ACFA1BB15D2600434DAD /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2388ACF81BB15D2600434DAD /* CollectionCell.xib */; };
+		2388ACFE1BB15D5D00434DAD /* CollectionCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2388ACFC1BB15D5D00434DAD /* CollectionCtrl.m */; };
+		2388ACFF1BB15D5D00434DAD /* CollectionCtrl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2388ACFD1BB15D5D00434DAD /* CollectionCtrl.xib */; };
 		23D481651BA00C4F0036B9DC /* OrderManageCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 23D481541BA00C4F0036B9DC /* OrderManageCtrl.m */; };
 		23D481661BA00C4F0036B9DC /* ShoppingCarCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 23D481561BA00C4F0036B9DC /* ShoppingCarCtrl.m */; };
 		23D481671BA00C4F0036B9DC /* OrderManageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23D4815A1BA00C4F0036B9DC /* OrderManageCell.m */; };
@@ -347,6 +351,12 @@
 		237C62CE1BA6C80300CE5608 /* PayOrderCll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayOrderCll.h; sourceTree = "<group>"; };
 		237C62CF1BA6C80300CE5608 /* PayOrderCll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayOrderCll.m; sourceTree = "<group>"; };
 		237C62D01BA6C80300CE5608 /* PayOrderCll.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayOrderCll.xib; sourceTree = "<group>"; };
+		2388ACF61BB15D2600434DAD /* CollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionCell.h; sourceTree = "<group>"; };
+		2388ACF71BB15D2600434DAD /* CollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionCell.m; sourceTree = "<group>"; };
+		2388ACF81BB15D2600434DAD /* CollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionCell.xib; sourceTree = "<group>"; };
+		2388ACFB1BB15D5D00434DAD /* CollectionCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionCtrl.h; sourceTree = "<group>"; };
+		2388ACFC1BB15D5D00434DAD /* CollectionCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionCtrl.m; sourceTree = "<group>"; };
+		2388ACFD1BB15D5D00434DAD /* CollectionCtrl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionCtrl.xib; sourceTree = "<group>"; };
 		23D481531BA00C4F0036B9DC /* OrderManageCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderManageCtrl.h; sourceTree = "<group>"; };
 		23D481541BA00C4F0036B9DC /* OrderManageCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderManageCtrl.m; sourceTree = "<group>"; };
 		23D481551BA00C4F0036B9DC /* ShoppingCarCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCarCtrl.h; sourceTree = "<group>"; };
@@ -665,6 +675,7 @@
 		219B79A01B9D8B0A00325AB0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2388ACF51BB15D2600434DAD /* CollectionViewTest */,
 				23D481521BA00C4F0036B9DC /* ShoppingCar */,
 				219B79A11B9D8B0A00325AB0 /* memberCenter */,
 				219B79A21B9D8B0A00325AB0 /* merchandiseShow */,
@@ -804,6 +815,19 @@
 				2378DE061BA98589006302D8 /* ic_wxpay@2x.png */,
 			);
 			path = payment;
+			sourceTree = "<group>";
+		};
+		2388ACF51BB15D2600434DAD /* CollectionViewTest */ = {
+			isa = PBXGroup;
+			children = (
+				2388ACF61BB15D2600434DAD /* CollectionCell.h */,
+				2388ACF71BB15D2600434DAD /* CollectionCell.m */,
+				2388ACF81BB15D2600434DAD /* CollectionCell.xib */,
+				2388ACFB1BB15D5D00434DAD /* CollectionCtrl.h */,
+				2388ACFC1BB15D5D00434DAD /* CollectionCtrl.m */,
+				2388ACFD1BB15D5D00434DAD /* CollectionCtrl.xib */,
+			);
+			path = CollectionViewTest;
 			sourceTree = "<group>";
 		};
 		23D481521BA00C4F0036B9DC /* ShoppingCar */ = {
@@ -1003,6 +1027,7 @@
 				E9B4BEE41BA5B18600F19F4C /* GetCityCtrl.xib in Resources */,
 				21E92EE91BABB9A9006C46FD /* MenuVersionCell.xib in Resources */,
 				21FE15871B9EC3B30092043A /* login.json in Resources */,
+				2388ACFA1BB15D2600434DAD /* CollectionCell.xib in Resources */,
 				2133BD781BA65E5500B0D770 /* AdvertisementCell.xib in Resources */,
 				218AC34D1BA2D6D300FF9A25 /* LookAllCommentCell.xib in Resources */,
 				237C62CD1BA6C7C500CE5608 /* PayForOrderCtrl.xib in Resources */,
@@ -1051,6 +1076,7 @@
 				E9BCEBA01B9DCA6000E5DF99 /* order.json in Resources */,
 				219B79B11B9D8E4800325AB0 /* memberCell.xib in Resources */,
 				23D4816C1BA00C4F0036B9DC /* FooterView.xib in Resources */,
+				2388ACFF1BB15D5D00434DAD /* CollectionCtrl.xib in Resources */,
 				2378DE291BA989F1006302D8 /* PayOrderView.xib in Resources */,
 				23D4816A1BA00C4F0036B9DC /* ShoppingCartCell.xib in Resources */,
 				218AC35D1BA3133500FF9A25 /* btn_normal@3x.png in Resources */,
@@ -1110,6 +1136,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2388ACFE1BB15D5D00434DAD /* CollectionCtrl.m in Sources */,
 				218AC36B1BA31C1500FF9A25 /* KCAnnotation.m in Sources */,
 				23D481651BA00C4F0036B9DC /* OrderManageCtrl.m in Sources */,
 				21E92EED1BABB9C6006C46FD /* MenuNumCell.m in Sources */,
@@ -1149,6 +1176,7 @@
 				2378DE261BA989F1006302D8 /* PayOrderDeleteView.m in Sources */,
 				218AC36F1BA31C8E00FF9A25 /* MapController.m in Sources */,
 				23D481661BA00C4F0036B9DC /* ShoppingCarCtrl.m in Sources */,
+				2388ACF91BB15D2600434DAD /* CollectionCell.m in Sources */,
 				23D481671BA00C4F0036B9DC /* OrderManageCell.m in Sources */,
 				2378DE281BA989F1006302D8 /* PayOrderView.m in Sources */,
 				218F54A41B9EB50C003226C3 /* UserDataManager.m in Sources */,
