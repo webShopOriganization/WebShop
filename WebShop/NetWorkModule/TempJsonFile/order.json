@@ -40,7 +40,7 @@
              "receiverName": "本·拉登",
              "receiverAdress": "阿富汗特别行政区行政中心",
              "receiverPhone":"15822222222",
-             "payment":"支付宝",
+             "payment":"网银支付",
              "time":"2015.09.09",
              "additionInfo":"尽快送货",
              
@@ -72,7 +72,7 @@
              "receiverName": "拿破仑",
              "receiverAdress": "伊拉克美国大使馆馆主办公室",
              "receiverPhone":"15833333333",
-             "payment":"支付宝",
+             "payment":"货到付款",
              "time":"2015.04.01",
              "additionInfo":"尽快送货",
              
@@ -104,7 +104,7 @@
              "receiverName": "法老王",
              "receiverAdress": "塔利班非法武装中心首领卧室",
              "receiverPhone":"13822222222",
-             "payment":"支付宝",
+             "payment":"金佑代付",
              "time":"2015.01.01",
              "additionInfo":"尽快送货",
              
@@ -137,7 +137,7 @@
              "receiverName": "天照大神",
              "receiverAdress": "日本东京伊势神社社长厕所",
              "receiverPhone":"13814381438",
-             "payment":"支付宝",
+             "payment":"微信支付",
              "time":"2015.05.25",
              "additionInfo":"尽快送货",
              
@@ -168,7 +168,7 @@
              "receiverName": "斯大林",
              "receiverAdress": "俄罗斯莫斯科广场正中心垃圾桶",
              "receiverPhone":"15688888888",
-             "payment":"支付宝",
+             "payment":"银联支付",
              "time":"2000.05.04",
              "additionInfo":"尽快送货",
              
