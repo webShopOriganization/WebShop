@@ -54,16 +54,16 @@
     [super viewDidLoad];
     self.navigationItem.title = @"购物车";
     
-    //    [[NetworkManager shareMgr]server_loginWithDic:nil completeHandle:^(NSDictionary *response) {
-    //        NSLog(@"用户数据 : %@", response);
-    //
-    //        NSNumber *nStatus = [response objectForKey:@"status"];
-    //        if([nStatus intValue] == 2000000){
-    //            self.UserDic = [[NSMutableDictionary alloc] initWithDictionary:[response objectForKey:@"data"]];
-    //            NSLog(@"用户信息 = %@", self.UserDic);
-    //        }
-    //        
-    //    }];
+//    [[NetworkManager shareMgr]server_loginWithDic:nil completeHandle:^(NSDictionary *response) {
+//        NSLog(@"用户数据 : %@", response);
+//        
+//        NSNumber *nStatus = [response objectForKey:@"status"];
+//        if([nStatus intValue] == 2000000){
+//            self.UserDic = [[NSMutableDictionary alloc] initWithDictionary:[response objectForKey:@"data"]];
+//            NSLog(@"用户信息 = %@", self.UserDic);
+//        }
+//        
+//    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,9 +77,7 @@
     [self getModel];
     [self initUI];
     self.navigationItem.rightBarButtonItem.title = @"编辑";
-    
     self.firstBottomView.hidden = NO;
-//    [self.tableVeiw reloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -104,15 +102,17 @@
         
         NSNumber *nStatus = [response objectForKey:@"status"];
         if([nStatus intValue] == 2000000){
-//            self.array = [[NSMutableArray alloc] initWithArray:[response objectForKey:@"data"]];
             self.array = [response objectForKey:@"data"];
+            if (self.array.count == 0) {
+                [Common addAlertViewWithTitel:@"购物车是空的..."];
+            }
             [self.tableVeiw reloadData];
             NSLog(@"购物车内商品数 = %lu", (unsigned long)self.array.count);
+        }else{
+            [Common addAlertViewWithTitel:[response objectForKey:@"message"]];
         }
         
     }];
-
-    
 }
 
 - (void)initUI {
@@ -153,10 +153,7 @@
     
     self.tableVeiw.backgroundColor = [UIColor clearColor];
     
-//    if (!self.array) {
-//        self.tableVeiw.backgroundColor = [UIColor lightGrayColor];
-//        [Common addAlertViewWithTitel:@"购物车是空的..."];
-//    }
+    [self.tableVeiw reloadData];
 }
 
 #pragma mark - button点击事件
@@ -601,8 +598,8 @@
     static NSString *CellId = @"ShoppingCartCell";
     
     NSLog(@"self.array = %lu", (unsigned long)self.array.count);
-    if (!self.array.count) {
-        self.tableVeiw.backgroundColor = [UIColor lightGrayColor];
+    if (self.array.count == 0) {
+//        self.tableVeiw.backgroundColor = [UIColor lightGrayColor];
         [Common addAlertViewWithTitel:@"购物车是空的..."];
 
         
@@ -638,6 +635,7 @@
     NSLog(@"%s", __func__);
     
     DetailProdutCtrl *vc = [[DetailProdutCtrl alloc] initWithNibName:@"DetailProdutCtrl" bundle:nil];
+    vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

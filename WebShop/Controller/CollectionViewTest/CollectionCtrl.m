@@ -8,6 +8,7 @@
 
 #import "CollectionCtrl.h"
 #import "CollectionCell.h"
+#import "Common.h"
 
 @interface CollectionCtrl ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
@@ -20,6 +21,10 @@
 
     self.collectionView.backgroundColor = [UIColor whiteColor];
     [self.collectionView registerClass:[CollectionCell class] forCellWithReuseIdentifier:@"CollectionCell"];
+    
+    if (self.arrayCollection.count == 0) {
+        [Common addAlertViewWithTitel:@"未选择,传入数组为空..."];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,11 +74,7 @@
 #pragma mark - UICollectionViewDelegate
 //UICollectionView 被选中时调用的方法
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    //    UICollectionViewCell *cell = (UICollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    //    cell.backgroundColor = [UIColor whiteColor];
-    
     self.collectionView.backgroundColor = [UIColor colorWithRed:((10 * indexPath.row) / 255.0) green:((20 * indexPath.row) / 255.0) blue:((30 * indexPath.row) / 255.0) alpha:1.0f];
-    
 }
 
 //返回这个UICollectionView 是否可以被选择
