@@ -27,6 +27,7 @@
 @property (assign, nonatomic) float totalPrice;
 @property (assign) BOOL statusForFootView;
 @property (assign) BOOL statusForCellChoose;
+
 @property (strong, nonatomic) NSIndexPath *indexPath;
 @property (strong, nonatomic) NSMutableArray *arrayDelete;
 @property (strong, nonatomic) NSMutableArray *arrayPayOrder;
@@ -121,6 +122,7 @@
     //去掉tableView多余的空白行分割线
     self.tableVeiw.tableFooterView = [[UIView alloc] init];
     
+//    self.statusForBottomView = NO;
     self.statusForRightButton = 1;
     self.totalPrice = 0.0f;
     self.statusForFootView = YES;
@@ -128,9 +130,16 @@
     
     //初始化底部支付view
     self.firstBottomView = [PayOrderView instanceView];
-    self.firstBottomView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -49 -44, [UIScreen mainScreen].bounds.size.width, 44);
+    NSLog(@"statusforBotton = %hhd", self.statusForBottomView);
+    if (self.statusForBottomView == NO) {
+         self.firstBottomView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -49 -44, [UIScreen mainScreen].bounds.size.width, 44);
+    }else{
+          self.firstBottomView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -44, [UIScreen mainScreen].bounds.size.width, 44);
+    }
+   
     [self.firstBottomView.btnForChooseAll addTarget:self action:@selector(btnChooseAllClick) forControlEvents:UIControlEventTouchUpInside];
     [self.firstBottomView.btnPayOrder addTarget:self action:@selector(btnPayMoneyClick) forControlEvents:UIControlEventTouchUpInside];
+    
     if ([self.tabBarItem.title isEqualToString:@"购物车"]) {
         [self.tabBarController.view addSubview:self.firstBottomView];
         self.firstBottomView.hidden = YES;
@@ -138,7 +147,15 @@
     
     //初始化底部删除view
     self.secondBottomView = [PayOrderDeleteView instanceView];
-    self.secondBottomView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -49 -44, [UIScreen mainScreen].bounds.size.width, 44);
+    
+    
+    if (self.statusForBottomView == NO) {
+        self.secondBottomView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -49 -44, [UIScreen mainScreen].bounds.size.width, 44);
+    }else{
+        self.secondBottomView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -44, [UIScreen mainScreen].bounds.size.width, 44);
+
+    }
+
     
     [self.secondBottomView.btnDelete addTarget:self action:@selector(deleteBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.secondBottomView.btnSecond addTarget:self action:@selector(btnForDeleteAll) forControlEvents:UIControlEventTouchUpInside];

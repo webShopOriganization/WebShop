@@ -182,6 +182,12 @@
 		23D4816C1BA00C4F0036B9DC /* FooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23D481611BA00C4F0036B9DC /* FooterView.xib */; };
 		23D4816D1BA00C4F0036B9DC /* LoadHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23D481631BA00C4F0036B9DC /* LoadHeaderView.m */; };
 		23D4816E1BA00C4F0036B9DC /* LoadHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23D481641BA00C4F0036B9DC /* LoadHeaderView.xib */; };
+		23F9D2811BB3A5C400572B05 /* OrderReviewCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F9D27F1BB3A5C400572B05 /* OrderReviewCtrl.m */; };
+		23F9D2821BB3A5C400572B05 /* OrderReviewCtrl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23F9D2801BB3A5C400572B05 /* OrderReviewCtrl.xib */; };
+		23F9D2861BB3A87000572B05 /* ReviewFirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F9D2841BB3A87000572B05 /* ReviewFirstCell.m */; };
+		23F9D2871BB3A87000572B05 /* ReviewFirstCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23F9D2851BB3A87000572B05 /* ReviewFirstCell.xib */; };
+		23F9D28B1BB3A88900572B05 /* ReviewSecondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F9D2891BB3A88900572B05 /* ReviewSecondCell.m */; };
+		23F9D28C1BB3A88900572B05 /* ReviewSecondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23F9D28A1BB3A88900572B05 /* ReviewSecondCell.xib */; };
 		9E8354A0CB00323E5BCF764F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF589A9651C3160BA35CC5B /* libPods.a */; };
 		E9B4BEC81BA5AF8200F19F4C /* CTRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B4BEC51BA5AF8200F19F4C /* CTRootViewController.m */; };
 		E9B4BED01BA5AFE400F19F4C /* CityCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B4BECC1BA5AFE400F19F4C /* CityCtrl.m */; };
@@ -502,6 +508,15 @@
 		23D481621BA00C4F0036B9DC /* LoadHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadHeaderView.h; sourceTree = "<group>"; };
 		23D481631BA00C4F0036B9DC /* LoadHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadHeaderView.m; sourceTree = "<group>"; };
 		23D481641BA00C4F0036B9DC /* LoadHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadHeaderView.xib; sourceTree = "<group>"; };
+		23F9D27E1BB3A5C400572B05 /* OrderReviewCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderReviewCtrl.h; sourceTree = "<group>"; };
+		23F9D27F1BB3A5C400572B05 /* OrderReviewCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderReviewCtrl.m; sourceTree = "<group>"; };
+		23F9D2801BB3A5C400572B05 /* OrderReviewCtrl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderReviewCtrl.xib; sourceTree = "<group>"; };
+		23F9D2831BB3A87000572B05 /* ReviewFirstCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewFirstCell.h; sourceTree = "<group>"; };
+		23F9D2841BB3A87000572B05 /* ReviewFirstCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewFirstCell.m; sourceTree = "<group>"; };
+		23F9D2851BB3A87000572B05 /* ReviewFirstCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewFirstCell.xib; sourceTree = "<group>"; };
+		23F9D2881BB3A88900572B05 /* ReviewSecondCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewSecondCell.h; sourceTree = "<group>"; };
+		23F9D2891BB3A88900572B05 /* ReviewSecondCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewSecondCell.m; sourceTree = "<group>"; };
+		23F9D28A1BB3A88900572B05 /* ReviewSecondCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewSecondCell.xib; sourceTree = "<group>"; };
 		858A75A4BDDA0B83E6C17845 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AEF589A9651C3160BA35CC5B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B4BEC41BA5AF8200F19F4C /* CTRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTRootViewController.h; sourceTree = "<group>"; };
@@ -1313,6 +1328,9 @@
 				2378DE2A1BA98A00006302D8 /* OrderDetailCtrl.h */,
 				2378DE2B1BA98A00006302D8 /* OrderDetailCtrl.m */,
 				2378DE2C1BA98A00006302D8 /* OrderDetailCtrl.xib */,
+				23F9D27E1BB3A5C400572B05 /* OrderReviewCtrl.h */,
+				23F9D27F1BB3A5C400572B05 /* OrderReviewCtrl.m */,
+				23F9D2801BB3A5C400572B05 /* OrderReviewCtrl.xib */,
 				23D481571BA00C4F0036B9DC /* View */,
 			);
 			path = ShoppingCar;
@@ -1344,6 +1362,12 @@
 		23D481581BA00C4F0036B9DC /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				23F9D2881BB3A88900572B05 /* ReviewSecondCell.h */,
+				23F9D2891BB3A88900572B05 /* ReviewSecondCell.m */,
+				23F9D28A1BB3A88900572B05 /* ReviewSecondCell.xib */,
+				23F9D2831BB3A87000572B05 /* ReviewFirstCell.h */,
+				23F9D2841BB3A87000572B05 /* ReviewFirstCell.m */,
+				23F9D2851BB3A87000572B05 /* ReviewFirstCell.xib */,
 				2378DE111BA989E1006302D8 /* OrderDetailFouthCell.h */,
 				2378DE121BA989E1006302D8 /* OrderDetailFouthCell.m */,
 				2378DE131BA989E1006302D8 /* OrderDetailFouthCell.xib */,
@@ -1484,6 +1508,7 @@
 				21E92EDC1BABA737006C46FD /* MenuView.xib in Resources */,
 				E9B4BEF71BA5BBF000F19F4C /* ReactViewController.xib in Resources */,
 				E9B4BEEE1BA5B4C100F19F4C /* nav_back@2x.png in Resources */,
+				23F9D2821BB3A5C400572B05 /* OrderReviewCtrl.xib in Resources */,
 				2378DE0A1BA98589006302D8 /* ic_unionpay@2x.png in Resources */,
 				E9B4BED11BA5AFE400F19F4C /* ProductDetail.storyboard in Resources */,
 				2133BD871BA6780B00B0D770 /* Coupons_but_more@3x.png in Resources */,
@@ -1493,6 +1518,7 @@
 				218AC3701BA31C8E00FF9A25 /* MapController.xib in Resources */,
 				237C62D21BA6C80300CE5608 /* PayOrderCll.xib in Resources */,
 				21C15E401BAFD1860002BF03 /* PB.bundle in Resources */,
+				23F9D2871BB3A87000572B05 /* ReviewFirstCell.xib in Resources */,
 				218AC3451BA2D49300FF9A25 /* Evaluation_0@2x.png in Resources */,
 				2133BD801BA677D900B0D770 /* loading-ios@2x.png in Resources */,
 				E9B4BEE41BA5B18600F19F4C /* GetCityCtrl.xib in Resources */,
@@ -1514,6 +1540,7 @@
 				235B5BB91BA82B08004801A4 /* SecondFootView.xib in Resources */,
 				2133BD861BA6780B00B0D770 /* Coupons_but_more@2x.png in Resources */,
 				2133BD881BA6780B00B0D770 /* Coupons_but_top@3x.png in Resources */,
+				23F9D28C1BB3A88900572B05 /* ReviewSecondCell.xib in Resources */,
 				219B79991B9D7EBE00325AB0 /* bg1.png in Resources */,
 				218AC3551BA30DFA00FF9A25 /* PriceCell.xib in Resources */,
 				21C15EA71BAFD9A30002BF03 /* SVProgressHUD.bundle in Resources */,
@@ -1627,6 +1654,8 @@
 				21E92EE01BABA737006C46FD /* LewPopupViewAnimationSlide.m in Sources */,
 				21C15E8D1BAFD97A0002BF03 /* UIImage+Water.m in Sources */,
 				21C15E8C1BAFD97A0002BF03 /* UIImage+FixOrientation.m in Sources */,
+				23F9D2861BB3A87000572B05 /* ReviewFirstCell.m in Sources */,
+				23F9D2811BB3A5C400572B05 /* OrderReviewCtrl.m in Sources */,
 				21E92EDB1BABA737006C46FD /* MenuView.m in Sources */,
 				21E92ED91BABA737006C46FD /* MenuCell.m in Sources */,
 				E9B4BED21BA5AFE400F19F4C /* ProvinceCtrl.m in Sources */,
@@ -1699,6 +1728,7 @@
 				21E92EE81BABB9A9006C46FD /* MenuVersionCell.m in Sources */,
 				219296A61BA0320E00D9860B /* LoginViewController.m in Sources */,
 				2378DE1A1BA989E1006302D8 /* OrderDetailFouthCell.m in Sources */,
+				23F9D28B1BB3A88900572B05 /* ReviewSecondCell.m in Sources */,
 				237C62CC1BA6C7C500CE5608 /* PayForOrderCtrl.m in Sources */,
 				218AC3541BA30DFA00FF9A25 /* PriceCell.m in Sources */,
 				21C15E851BAFD97A0002BF03 /* NSString+Password.m in Sources */,

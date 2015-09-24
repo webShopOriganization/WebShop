@@ -69,7 +69,7 @@
         <!--Shopping Car Ctrl-->
         <scene sceneID="FJ6-Ro-5lB">
             <objects>
-                <viewController id="OOH-Ng-F3X" customClass="ShoppingCarCtrl" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShoppingCarCtrl" id="OOH-Ng-F3X" customClass="ShoppingCarCtrl" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aMg-iv-304"/>
                         <viewControllerLayoutGuide type="bottom" id="2Dm-Yi-aL1"/>

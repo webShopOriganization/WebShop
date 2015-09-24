@@ -29,7 +29,7 @@
     self.imgIcon.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.imgIcon.layer.masksToBounds = YES;
     
-    self.backgroundColor = [UIColor clearColor];
+//    self.backgroundColor = [UIColor clearColor];
 }
 - (void)configWithDic:(NSMutableDictionary*)dic {
     
