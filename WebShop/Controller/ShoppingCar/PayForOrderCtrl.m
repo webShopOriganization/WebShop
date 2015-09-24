@@ -48,6 +48,7 @@
     if (!cell) {
         NSArray *topLevelObject = [[NSBundle mainBundle] loadNibNamed:cellID owner:self options:nil];
         cell = [topLevelObject objectAtIndex:0];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     }
     
     if (indexPath.row == 0) {
