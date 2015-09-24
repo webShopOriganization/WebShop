@@ -33,6 +33,7 @@
 		216F91391BA125CE00020FCF /* MerchandiseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 216F91371BA125CE00020FCF /* MerchandiseCell.xib */; };
 		216F913D1BA125FA00020FCF /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 216F913B1BA125FA00020FCF /* CollectionViewCell.m */; };
 		216F913E1BA125FA00020FCF /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 216F913C1BA125FA00020FCF /* CollectionViewCell.xib */; };
+		216FEB971BB3CFF900459AE4 /* WaterFLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 216FEB961BB3CFF900459AE4 /* WaterFLayout.m */; };
 		21841D551BA264C400A3DD26 /* QuoteContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 21841D521BA264C400A3DD26 /* QuoteContext.m */; };
 		21841D561BA264C400A3DD26 /* QuoteWithBackgroundComponent.mm in Sources */ = {isa = PBXBuildFile; fileRef = 21841D531BA264C400A3DD26 /* QuoteWithBackgroundComponent.mm */; };
 		21841D571BA264C400A3DD26 /* SombreQuoteComponent.mm in Sources */ = {isa = PBXBuildFile; fileRef = 21841D541BA264C400A3DD26 /* SombreQuoteComponent.mm */; };
@@ -265,6 +266,8 @@
 		216F913A1BA125FA00020FCF /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		216F913B1BA125FA00020FCF /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		216F913C1BA125FA00020FCF /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		216FEB951BB3CFF900459AE4 /* WaterFLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFLayout.h; sourceTree = "<group>"; };
+		216FEB961BB3CFF900459AE4 /* WaterFLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFLayout.m; sourceTree = "<group>"; };
 		21841D4F1BA264C400A3DD26 /* QuoteContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuoteContext.h; sourceTree = "<group>"; };
 		21841D501BA264C400A3DD26 /* QuoteWithBackgroundComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuoteWithBackgroundComponent.h; sourceTree = "<group>"; };
 		21841D511BA264C400A3DD26 /* SombreQuoteComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SombreQuoteComponent.h; sourceTree = "<group>"; };
@@ -861,6 +864,8 @@
 				E9B4BEF31BA5BBF000F19F4C /* ReactViewController.h */,
 				E9B4BEF41BA5BBF000F19F4C /* ReactViewController.m */,
 				E9B4BEF51BA5BBF000F19F4C /* ReactViewController.xib */,
+				216FEB951BB3CFF900459AE4 /* WaterFLayout.h */,
+				216FEB961BB3CFF900459AE4 /* WaterFLayout.m */,
 			);
 			path = merchandiseShow;
 			sourceTree = "<group>";
@@ -1673,6 +1678,7 @@
 				21C15E831BAFD97A0002BF03 /* NSObject+Extend.m in Sources */,
 				21C15E421BAFD1860002BF03 /* PBPGView.m in Sources */,
 				21C15E861BAFD97A0002BF03 /* UIColor+Extend.m in Sources */,
+				216FEB971BB3CFF900459AE4 /* WaterFLayout.m in Sources */,
 				2378DE2D1BA98A00006302D8 /* OrderDetailCtrl.m in Sources */,
 				21C15EB41BAFD9B40002BF03 /* UIImage+ReMake.m in Sources */,
 				E9B4BEE31BA5B18600F19F4C /* GetCityCtrl.m in Sources */,

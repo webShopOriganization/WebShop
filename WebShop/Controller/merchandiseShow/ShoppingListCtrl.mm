@@ -41,7 +41,7 @@
     
     self.arrayOfData=[[NSMutableArray alloc]initWithObjects:@{
                                                               
-                                                              @"text": @"服装1",
+                                                              @"text": @"服装1服装1服装1服装1服装1",
                                                               @"image": @"bg1",
                                                               @"color": @"white",
                                                               },
@@ -72,6 +72,16 @@
                         },
                       @{
                         @"text": @"服装7",
+                        @"image": @"bg3",
+                        @"color": @"gray",
+                        },
+                      @{
+                        @"text": @"服装8",
+                        @"image": @"bg3",
+                        @"color": @"gray",
+                        },
+                      @{
+                        @"text": @"服装9",
                         @"image": @"bg3",
                         @"color": @"gray",
                         },
@@ -121,8 +131,8 @@
     self.collectionView.delegate=self;
     self.collectionView.dataSource=self;
     
-    UITapGestureRecognizer* tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
-    [self.collectionView addGestureRecognizer:tapRecognizer];
+//    UITapGestureRecognizer* tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
+//    [self.collectionView addGestureRecognizer:tapRecognizer];
     
     
     [[NSNotificationCenter defaultCenter] addObserverForName:@"componentInfo" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
@@ -163,7 +173,9 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"触发");
+    DetailProdutCtrl *vc=[[DetailProdutCtrl alloc]initWithNibName:@"DetailProdutCtrl" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+     
 }
 
 //返回这个UICollectionView是否可以被选择
@@ -184,14 +196,34 @@
 //    return  CGSizeMake(320, 10);
 //}
 
+
+-(CGFloat)getTextViewHeight:(NSIndexPath*)indexPath
+{
+    
+    NSAttributedString *attrStr=[[NSAttributedString alloc]initWithString:[[self.arrayOfData objectAtIndex:indexPath.item] objectForKey:@"text"]];
+    UITextView *textViewTemple=[[UITextView alloc]init];
+    textViewTemple.attributedText=attrStr;
+    textViewTemple.text=[[self.arrayOfData objectAtIndex:indexPath.item] objectForKey:@"text"];
+    NSRange range=NSMakeRange(0, attrStr.length);
+    NSDictionary *dic=[attrStr attributesAtIndex:0 effectiveRange:&range];
+    
+    CGSize textSize=[textViewTemple.text boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width*0.25-15, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:dic context:nil].size;
+    return textSize.height;
+}
+
+
 #pragma mark - UICollectionViewDelegateFlowLayout
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat height=[_dataSource sizeForItemAtIndexPath:indexPath].height;
-    return CGSizeMake(91, 200);
+    CGFloat height=[self getTextViewHeight:indexPath];
+    
+    //return CGSizeMake(91, 91+height);
+    
+    
+//    CGFloat height=[_dataSource sizeForItemAtIndexPath:indexPath].height;
     return [_dataSource sizeForItemAtIndexPath:indexPath];
     
 }
