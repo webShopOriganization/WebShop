@@ -11,6 +11,7 @@
 #import "NetworkManager.h"
 #import "ShoppingListCtrl.h"
 #import "ReactViewController.h"
+#import "WaterFLayout.h"
 
 @interface MerchandiseShowCtrl ()
 
@@ -63,10 +64,13 @@
 
 -(void)goTestView:(UIButton*)button
 {
-    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc]init];
+//    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc]init];
+//    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+//    [flowLayout setMinimumInteritemSpacing:0];
+//    [flowLayout setMinimumLineSpacing:100];
+    
+    WaterFLayout *flowLayout=[[WaterFLayout alloc]init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    [flowLayout setMinimumInteritemSpacing:0];
-    [flowLayout setMinimumLineSpacing:100];
     
     ShoppingListCtrl *vc=[[ShoppingListCtrl alloc]initWithCollectionViewLayout:flowLayout];
     vc.hidesBottomBarWhenPushed=YES;
