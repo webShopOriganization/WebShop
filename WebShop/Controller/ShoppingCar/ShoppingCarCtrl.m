@@ -140,10 +140,14 @@
     
     if (self.statusForBottomView == NO) {
         
-        self.firstBottomView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -49 -44, [UIScreen mainScreen].bounds.size.width, 44);
+        self.firstBottomView.frame = CGRectMake(0, SCREEN_HEIGHT -49 -44, SCREEN_WIDTH, 44);
+        
     }else{
         
-        self.firstBottomView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -44, [UIScreen mainScreen].bounds.size.width, 44);
+        self.tableVeiw.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 44);
+        self.firstBottomView.frame = CGRectMake(0, SCREEN_HEIGHT -44, SCREEN_WIDTH, 44);
+        
+        NSLog(@"statusforBotton = %hhd", self.statusForBottomView);
     }
     
     [self.firstBottomView.btnForChooseAll addTarget:self action:@selector(btnChooseAllClick) forControlEvents:UIControlEventTouchUpInside];
@@ -160,10 +164,10 @@
     
     if (self.statusForBottomView == NO) {
         
-        self.secondBottomView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -49 -44, [UIScreen mainScreen].bounds.size.width, 44);
+        self.secondBottomView.frame = CGRectMake(0, SCREEN_HEIGHT -49 -44, SCREEN_WIDTH, 44);
     }else{
         
-        self.secondBottomView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -44, [UIScreen mainScreen].bounds.size.width, 44);
+        self.secondBottomView.frame = CGRectMake(0, SCREEN_HEIGHT -44, SCREEN_WIDTH, 44);
         
     }
     
