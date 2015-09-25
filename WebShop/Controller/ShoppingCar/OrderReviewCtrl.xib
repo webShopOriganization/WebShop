@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrderReviewCtrl">
+            <connections>
+                <outlet property="tableView" destination="hPS-kg-yje" id="QNG-3Z-ceT"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="hPS-kg-yje">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="hPS-kg-yje" secondAttribute="height" multiplier="40:71" id="ILg-jT-Ebx"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="0ZR-de-7Vz"/>
+                        <outlet property="delegate" destination="-1" id="ctv-qW-MZp"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="hPS-kg-yje" secondAttribute="bottom" id="038-Az-CeB"/>
+                <constraint firstItem="hPS-kg-yje" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7eP-Cg-nru"/>
+                <constraint firstItem="hPS-kg-yje" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="82u-41-XZi"/>
+                <constraint firstAttribute="trailing" secondItem="hPS-kg-yje" secondAttribute="trailing" id="SIR-8W-8XI"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="220" y="226"/>
+        </view>
+    </objects>
+</document>

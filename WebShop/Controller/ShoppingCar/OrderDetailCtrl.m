@@ -7,11 +7,15 @@
 //
 
 #import "OrderDetailCtrl.h"
+#import "NetworkManager.h"
 #import "OrderDetailSectionCell.h"
 #import "OrderDetailThirdCell.h"
 #import "OrderDetailFouthCell.h"
+#import "OrderReviewCtrl.h"
+#import "ShoppingCarCtrl.h"
 
 @interface OrderDetailCtrl () <UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic, strong)  ShoppingCarCtrl *vc;
 
 @end
 
@@ -22,18 +26,87 @@
    
     //去掉tableView多余的空白行分割线
     self.tableView.tableFooterView = [[UIView alloc] init];
+    [self initUI];
+    
+//    [[NetworkManager shareMgr] server_OrderDetails:nil completeHandle:^(NSDictionary *response) {
+//        NSLog(@" server_OrderDetails = %@ ", response);
+//    }];
     
     NSLog(@"字典 : %@", self.dict);
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    
+    self.bottomView.hidden = NO;
+}
+
+//- (void)viewWillDisappear:(BOOL)animated {
+//    [super viewWillAppear:YES];
+//    self.vc.statusForBottomView = NO;
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+- (void)initUI {
+    
+    self.btnDeleteOrder.layer.cornerRadius = 2.0f;
+    self.btnDeleteOrder.layer.borderWidth = 1.0f;
+    self.btnDeleteOrder.layer.borderColor = [[UIColor blackColor] CGColor];
+    self.btnDeleteOrder.layer.masksToBounds = YES;
+    [self.btnDeleteOrder addTarget:self action:@selector(didClickDeleteOrder) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.btnOrderReview.layer.cornerRadius = 2.0f;
+    self.btnOrderReview.layer.borderWidth = 1.0f;
+    self.btnOrderReview.layer.borderColor = [[UIColor blackColor] CGColor];
+    self.btnOrderReview.layer.masksToBounds = YES;
+    [self.btnOrderReview addTarget:self action:@selector(didClickReviewBtn) forControlEvents:UIControlEventTouchUpInside];
+
+    self.btnBuyAgain.layer.cornerRadius = 2.0f;
+    self.btnBuyAgain.layer.borderWidth = 1.0f;
+    self.btnBuyAgain.layer.borderColor = [[UIColor redColor] CGColor];
+    self.btnBuyAgain.layer.masksToBounds = YES;
+}
+
+//删除订单
+- (void)didClickDeleteOrder {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+//评论晒单
+- (void)didClickReviewBtn {
+    
+    OrderReviewCtrl *vc = [[OrderReviewCtrl alloc] initWithNibName:@"OrderReviewCtrl" bundle:nil];
+    vc.navigationItem.title = @"评价晒单";
+    vc.dict = self.dict;
+    
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+//再次购买
+- (IBAction)didClickBuyAgainBtn:(id)sender {
+    
+//    ShoppingCarCtrl *vc = [[ShoppingCarCtrl alloc] initWithNibName:@"ShoppingCarCtrl" bundle:nil];
+//    vc.navigationItem.title = @"购物车";
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    self.vc = [storyboard instantiateViewControllerWithIdentifier:@"ShoppingCarCtrl"];
+    self.vc.navigationItem.title = @"购物车";
+    self.vc.hidesBottomBarWhenPushed = YES;
+    self.bottomView.hidden = YES;
+    self.vc.statusForBottomView = YES;
+    
+    [self.navigationController pushViewController:self.vc animated:YES];
+}
+
 #pragma mark - TableView Delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (indexPath.section == 0) {
         return 44;
     }else if (indexPath.section == 1){
@@ -50,7 +123,7 @@
 #pragma mark - TableVeiw Datasource
 
 - ( CGFloat )tableView:( UITableView *)tableView heightForHeaderInSection:( NSInteger )section{
-    return 8.0 ;
+    return 5.0f;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -76,7 +149,7 @@
             
             cell.textLabel.textAlignment = NSTextAlignmentLeft;
             cell.textLabel.text = [NSString stringWithFormat:@"订单号: %@", self.dict[@"orderId"]];  
-            
+            cell.textLabel.font = [UIFont systemFontOfSize:15];
             return cell;
             
         }else if (indexPath.section == 1){
@@ -130,5 +203,6 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 @end
