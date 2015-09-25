@@ -84,9 +84,13 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:YES];
     
+    if (self.statusForBottomView == YES) {
+        self.statusForBottomView = NO;
+    }
+    
     [self.firstBottomView removeFromSuperview];
     [self.secondBottomView removeFromSuperview];
-
+    
 }
 
 - (void)getModel {
@@ -95,7 +99,7 @@
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setValue:self.userLoginInfo.user.phone forKey:@"phone"];
     [dic setValue:self.userLoginInfo.sessionId forKey:@"sessionId"];
-  
+    
     NSLog(@"上传字典: %@", self.userLoginInfo);
     
     [[NetworkManager shareMgr]server_productListWithDic:nil completeHandle:^(NSDictionary *response) {
@@ -103,13 +107,19 @@
         
         NSNumber *nStatus = [response objectForKey:@"status"];
         if([nStatus intValue] == 2000000){
+            
             self.array = [response objectForKey:@"data"];
+            
             if (self.array.count == 0) {
+                
                 [Common addAlertViewWithTitel:@"购物车是空的..."];
             }
+            
             [self.tableVeiw reloadData];
             NSLog(@"购物车内商品数 = %lu", (unsigned long)self.array.count);
+            
         }else{
+            
             [Common addAlertViewWithTitel:[response objectForKey:@"message"]];
         }
         
@@ -122,7 +132,7 @@
     //去掉tableView多余的空白行分割线
     self.tableVeiw.tableFooterView = [[UIView alloc] init];
     
-//    self.statusForBottomView = NO;
+    //self.statusForBottomView = NO;
     self.statusForRightButton = 1;
     self.totalPrice = 0.0f;
     self.statusForFootView = YES;
@@ -131,12 +141,16 @@
     //初始化底部支付view
     self.firstBottomView = [PayOrderView instanceView];
     NSLog(@"statusforBotton = %hhd", self.statusForBottomView);
+    
     if (self.statusForBottomView == NO) {
-         self.firstBottomView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -49 -44, [UIScreen mainScreen].bounds.size.width, 44);
+        
+        self.firstBottomView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -49 -44, [UIScreen mainScreen].bounds.size.width, 44);
     }else{
-          self.firstBottomView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -44, [UIScreen mainScreen].bounds.size.width, 44);
+        
+        self.tableVeiw.frame = CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 44);
+        self.firstBottomView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -44, [UIScreen mainScreen].bounds.size.width, 44);
     }
-   
+    
     [self.firstBottomView.btnForChooseAll addTarget:self action:@selector(btnChooseAllClick) forControlEvents:UIControlEventTouchUpInside];
     [self.firstBottomView.btnPayOrder addTarget:self action:@selector(btnPayMoneyClick) forControlEvents:UIControlEventTouchUpInside];
     
@@ -150,17 +164,20 @@
     
     
     if (self.statusForBottomView == NO) {
+        
         self.secondBottomView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -49 -44, [UIScreen mainScreen].bounds.size.width, 44);
     }else{
+        
+        self.tableVeiw.frame = CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 44);
         self.secondBottomView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -44, [UIScreen mainScreen].bounds.size.width, 44);
-
+        
     }
-
     
     [self.secondBottomView.btnDelete addTarget:self action:@selector(deleteBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.secondBottomView.btnSecond addTarget:self action:@selector(btnForDeleteAll) forControlEvents:UIControlEventTouchUpInside];
     
     if ([self.tabBarItem.title isEqualToString:@"购物车"]) {
+        
         [self.tabBarController.view addSubview:self.secondBottomView];
         self.secondBottomView.hidden = YES;
     }
@@ -177,7 +194,7 @@
 
 //改变footview显示状态
 -  (void)changeStatus{
-
+    
     self.statusForFootView = !self.statusForFootView;
     [self.tableVeiw reloadData];
 }
@@ -192,10 +209,11 @@
         [self.arrayDelete removeAllObjects];
         
         self.navigationItem.rightBarButtonItem.title = @"完成";
-       
+        
         self.firstBottomView.hidden = YES;
         self.secondBottomView.hidden = NO;
         self.secondBottomView.imgSecond.hidden = YES;
+        
     }else{
         
         self.statusForRightButton = 1;
@@ -209,6 +227,7 @@
         self.firstBottomView.imgForBtnSelected.hidden = YES;
         self.firstBottomView.lblAllPrice.text = @"合计￥0.00";
     }
+    
     [self.tableVeiw reloadData];
 }
 
@@ -216,10 +235,12 @@
  *  结算按钮点击事件
  */
 - (void)btnPayMoneyClick {
+    
     //    if (self.arrayPayOrder) {
     PayForOrderCtrl *vc = [[PayForOrderCtrl alloc] initWithNibName:@"PayForOrderCtrl" bundle:nil];
     vc.navigationItem.title = @"支付方式";
     vc.arrayPay = self.arrayPayOrder;
+    vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
     //    }
 }

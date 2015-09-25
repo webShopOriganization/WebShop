@@ -52,6 +52,7 @@
 }
 
 - (void)initUI {
+    
     self.btnDeleteOrder.layer.cornerRadius = 2.0f;
     self.btnDeleteOrder.layer.borderWidth = 1.0f;
     self.btnDeleteOrder.layer.borderColor = [[UIColor blackColor] CGColor];
@@ -72,11 +73,13 @@
 
 //删除订单
 - (void)didClickDeleteOrder {
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 //评论晒单
 - (void)didClickReviewBtn {
+    
     OrderReviewCtrl *vc = [[OrderReviewCtrl alloc] initWithNibName:@"OrderReviewCtrl" bundle:nil];
     vc.navigationItem.title = @"评价晒单";
     vc.dict = self.dict;
@@ -86,22 +89,24 @@
 
 //再次购买
 - (IBAction)didClickBuyAgainBtn:(id)sender {
+    
 //    ShoppingCarCtrl *vc = [[ShoppingCarCtrl alloc] initWithNibName:@"ShoppingCarCtrl" bundle:nil];
 //    vc.navigationItem.title = @"购物车";
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     self.vc = [storyboard instantiateViewControllerWithIdentifier:@"ShoppingCarCtrl"];
     self.vc.navigationItem.title = @"购物车";
-    self.vc.hidesBottomBarWhenPushed = NO;
+    self.vc.hidesBottomBarWhenPushed = YES;
+    self.bottomView.hidden = YES;
     self.vc.statusForBottomView = YES;
     
-    self.bottomView.hidden = YES;
     [self.navigationController pushViewController:self.vc animated:YES];
 }
 
 #pragma mark - TableView Delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (indexPath.section == 0) {
         return 44;
     }else if (indexPath.section == 1){
@@ -144,7 +149,7 @@
             
             cell.textLabel.textAlignment = NSTextAlignmentLeft;
             cell.textLabel.text = [NSString stringWithFormat:@"订单号: %@", self.dict[@"orderId"]];  
-            
+            cell.textLabel.font = [UIFont systemFontOfSize:15];
             return cell;
             
         }else if (indexPath.section == 1){

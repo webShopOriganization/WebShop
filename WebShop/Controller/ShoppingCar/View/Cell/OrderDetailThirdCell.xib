@@ -22,9 +22,9 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple iPhone 6 Plus (A1524) 16GB 金色 移动联通电信4G手机" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loI-tG-zE9">
-                        <rect key="frame" x="95" y="8" width="150" height="47"/>
+                        <rect key="frame" x="95" y="8" width="212" height="47"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="loI-tG-zE9" secondAttribute="height" multiplier="150:47" id="6QY-g6-XzO"/>
+                            <constraint firstAttribute="width" secondItem="loI-tG-zE9" secondAttribute="height" multiplier="150:47" constant="62" id="6QY-g6-XzO"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -40,7 +40,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥9998.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IuP-ii-Kw4">
-                        <rect key="frame" x="250" y="21" width="70" height="21"/>
+                        <rect key="frame" x="200" y="52" width="70" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="IuP-ii-Kw4" secondAttribute="height" multiplier="25:7" constant="-5" id="8g9-CG-Ltz"/>
                         </constraints>
@@ -50,20 +50,20 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="IuP-ii-Kw4" firstAttribute="leading" secondItem="loI-tG-zE9" secondAttribute="trailing" constant="5" id="7V4-nK-BgR"/>
+                    <constraint firstItem="IuP-ii-Kw4" firstAttribute="leading" secondItem="loI-tG-zE9" secondAttribute="trailing" constant="-107" id="7V4-nK-BgR"/>
                     <constraint firstAttribute="bottom" secondItem="1I9-oU-SxA" secondAttribute="bottom" constant="9" id="89D-bg-l9V"/>
                     <constraint firstItem="1I9-oU-SxA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="EWK-aP-q5t"/>
                     <constraint firstItem="3pY-m6-IAV" firstAttribute="leading" secondItem="1I9-oU-SxA" secondAttribute="trailing" constant="8" id="K0L-am-ckG"/>
                     <constraint firstAttribute="bottomMargin" secondItem="loI-tG-zE9" secondAttribute="bottom" constant="26" id="PMz-3I-LNG"/>
                     <constraint firstAttribute="trailing" secondItem="3pY-m6-IAV" secondAttribute="trailing" constant="183" id="QPg-hb-oCQ"/>
                     <constraint firstItem="3pY-m6-IAV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="52" id="QsU-mH-bLe"/>
-                    <constraint firstItem="IuP-ii-Kw4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="21" id="Skk-Rn-5a3"/>
+                    <constraint firstItem="IuP-ii-Kw4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="52" id="Skk-Rn-5a3"/>
                     <constraint firstItem="1I9-oU-SxA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Z1b-cN-2X7"/>
                     <constraint firstAttribute="bottom" secondItem="3pY-m6-IAV" secondAttribute="bottom" constant="16" id="dm1-lS-Aw0"/>
-                    <constraint firstAttribute="trailing" secondItem="IuP-ii-Kw4" secondAttribute="trailing" id="gdt-5i-wGh"/>
+                    <constraint firstAttribute="trailing" secondItem="IuP-ii-Kw4" secondAttribute="trailing" constant="50" id="gdt-5i-wGh"/>
                     <constraint firstItem="loI-tG-zE9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="hG0-5n-NKH"/>
                     <constraint firstItem="loI-tG-zE9" firstAttribute="leading" secondItem="1I9-oU-SxA" secondAttribute="trailing" constant="8" id="ku7-6v-hEH"/>
-                    <constraint firstAttribute="bottom" secondItem="IuP-ii-Kw4" secondAttribute="bottom" constant="47" id="zLB-2o-tCl"/>
+                    <constraint firstAttribute="bottom" secondItem="IuP-ii-Kw4" secondAttribute="bottom" constant="16" id="zLB-2o-tCl"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
