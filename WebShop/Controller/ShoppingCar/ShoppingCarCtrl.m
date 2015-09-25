@@ -84,10 +84,6 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:YES];
     
-    if (self.statusForBottomView == YES) {
-        self.statusForBottomView = NO;
-    }
-    
     [self.firstBottomView removeFromSuperview];
     [self.secondBottomView removeFromSuperview];
     
@@ -127,7 +123,7 @@
 }
 
 - (void)initUI {
-    
+    NSLog(@"table.frame = %@", NSStringFromCGRect(self.tableVeiw.frame));
     self.tabBarItem.title = @"购物车";
     //去掉tableView多余的空白行分割线
     self.tableVeiw.tableFooterView = [[UIView alloc] init];
@@ -147,7 +143,6 @@
         self.firstBottomView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -49 -44, [UIScreen mainScreen].bounds.size.width, 44);
     }else{
         
-        self.tableVeiw.frame = CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 44);
         self.firstBottomView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -44, [UIScreen mainScreen].bounds.size.width, 44);
     }
     
@@ -168,7 +163,6 @@
         self.secondBottomView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -49 -44, [UIScreen mainScreen].bounds.size.width, 44);
     }else{
         
-        self.tableVeiw.frame = CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 44);
         self.secondBottomView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -44, [UIScreen mainScreen].bounds.size.width, 44);
         
     }
