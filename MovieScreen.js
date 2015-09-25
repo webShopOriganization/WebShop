@@ -38,26 +38,26 @@ var MovieScreen = React.createClass({
             * omit a property or set it to undefined if it's inside a shape,
             * even if it isn't required */}
           <Image
-            source={{uri: 'http://i.imgur.com/UePbdph.jpg'}}
+            source={{uri: this.props.movie.posters.thumbnail}}
             style={styles.detailsImage}
           />
           <View style={styles.rightPane}>
-            <Text style={styles.movieTitle}>{'myTitle'}</Text>
-            <Text>{'2011'}</Text>
+            <Text style={styles.movieTitle}>{this.props.movie.title}</Text>
+            <Text>上架时间{this.props.movie.year}</Text>
             <View style={styles.mpaaWrapper}>
-              <Text style={styles.mpaaText}>
-                {10}
+              <Text style={styles.movieTitle}>
+                价格：{'￥100.00'}
               </Text>
             </View>
-            <Ratings ratings={10} />
+            <Ratings ratings={100} />
           </View>
         </View>
         <View style={styles.separator} />
         <Text>
-          {'test'}
+          {'商品参数'}
         </Text>
         <View style={styles.separator} />
-        <Cast actors={'actor'} />
+        <Cast actors={'actors'} />
       </ScrollView>
     );
   },
@@ -71,15 +71,15 @@ var Ratings = React.createClass({
     return (
       <View>
         <View style={styles.rating}>
-          <Text style={styles.ratingTitle}>Critics:</Text>
-          <Text style={[styles.ratingValue, getStyleFromScore(criticsScore)]}>
-            {getTextFromScore(criticsScore)}
+          <Text style={styles.ratingTitle}>好评率:</Text>
+          <Text style={getStyleFromScore(criticsScore)}>
+            {'90%'}
           </Text>
         </View>
         <View style={styles.rating}>
-          <Text style={styles.ratingTitle}>Audience:</Text>
-          <Text style={[styles.ratingValue, getStyleFromScore(audienceScore)]}>
-            {getTextFromScore(audienceScore)}
+          <Text style={styles.ratingTitle}>服  务:</Text>
+          <Text style={getStyleFromScore(audienceScore)}>
+            {'支持货到付款'}
           </Text>
         </View>
       </View>
@@ -95,7 +95,7 @@ var Cast = React.createClass({
 
     return (
       <View>
-        <Text style={styles.castTitle}>Actors</Text>
+        <Text style={styles.castTitle}>商品评论</Text>
         
        
       </View>

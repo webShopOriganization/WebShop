@@ -34,13 +34,13 @@ var getTextFromScore = require('./getTextFromScore');
 var MOCKED_MOVIES_DATA = [
   {title: 'Title', year: '2015', posters: {thumbnail: 'http://i.imgur.com/UePbdph.jpg'}},
   {title: 'Title1', year: '2016', posters: {thumbnail: 'http://i.imgur.com/UePbdph.jpg'}},
+  {title: 'Title2', year: '2017', posters: {thumbnail: 'http://i.imgur.com/UePbdph.jpg'}},
 ];
 
 var MovieCell = React.createClass({
   render: function() {
     var criticsScore = 10;
     var TouchableElement = TouchableHighlight;
-    var movie = MOCKED_MOVIES_DATA[0];
 
     return (
       <View>
@@ -53,18 +53,18 @@ var MovieCell = React.createClass({
               * omit a property or set it to undefined if it's inside a shape,
               * even if it isn't required */}
             <Image
-              source={{uri: movie.posters.thumbnail}}
+              source={{uri: this.props.movie.posters.thumbnail}}
               style={styles.cellImage}
             />
             <View style={styles.textContainer}>
               <Text style={styles.movieTitle} numberOfLines={2}>
-                {movie.title}
+                {this.props.movie.title}
               </Text>
               <Text style={styles.movieYear} numberOfLines={1}>
-                {movie.year}
+                上架时间 {this.props.movie.year}
                 {' '}&bull;{' '}
                 <Text style={getStyleFromScore(criticsScore)}>
-                  Critics {getTextFromScore(criticsScore)}
+                  好评率 {getTextFromScore(criticsScore)}
                 </Text>
               </Text>
             </View>

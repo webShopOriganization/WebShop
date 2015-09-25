@@ -37,6 +37,7 @@ var SearchBar = require('SearchBar');
 var MOCKED_MOVIES_DATA = [
   {title: '商品1', year: '2015', posters: {thumbnail: 'http://i.imgur.com/UePbdph.jpg'}},
   {title: '商品2', year: '2016', posters: {thumbnail: 'http://i.imgur.com/UePbdph.jpg'}},
+  {title: '商品3', year: '2017', posters: {thumbnail: 'http://i.imgur.com/UePbdph.jpg'}},
 ];
 /**
  * This is for demo purposes only, and rate limited.
@@ -137,7 +138,7 @@ var SearchScreen = React.createClass({
       .then((responseData) => {
         LOADING[query] = false;
         resultsCache.totalForQuery[query] = responseData.total;
-        resultsCache.dataForQuery[query] = responseData.movies;
+        resultsCache.dataForQuery[query] = MOCKED_MOVIES_DATA;
         resultsCache.nextPageNumberForQuery[query] = 2;
 
         if (this.state.filter !== query) {
@@ -224,12 +225,12 @@ var SearchScreen = React.createClass({
     return this.state.dataSource.cloneWithRows(MOCKED_MOVIES_DATA);
   },
 
-  selectMovie: function() {
+  selectMovie: function(movie:Object) {
     if (Platform.OS === 'ios') {
       this.props.navigator.push({
         title:'商品详情',
         component: MovieScreen,
-        passProps: {},
+        passProps: {movie},
       });
     } else {
       dismissKeyboard();
@@ -286,7 +287,7 @@ var SearchScreen = React.createClass({
     return (
       <MovieCell
         key={movie.id}
-        onSelect={() => this.selectMovie()}
+        onSelect={() => this.selectMovie(movie)}
         onHighlight={() => highlightRowFunc(sectionID, rowID)}
         onUnhighlight={() => highlightRowFunc(null, null)}
         movie={movie}
