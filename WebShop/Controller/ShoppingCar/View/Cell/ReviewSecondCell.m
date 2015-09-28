@@ -79,6 +79,7 @@
 //    }
 //}
 
+//  第一行评分
 - (IBAction)starBtnClick1:(id)sender {
     UIButton *btn = sender;
     NSLog(@"tag1 = %ld", (long)btn.tag);
@@ -99,6 +100,7 @@
     
 }
 
+//  第二行评分
 - (IBAction)starBtnClick2:(id)sender {
     UIButton *btn = sender;
     NSLog(@"tag2 = %ld", (long)btn.tag);
@@ -119,6 +121,7 @@
 
 }
 
+//  第三行评分
 - (IBAction)starBtnClick3:(id)sender {
     UIButton *btn = sender;
     NSLog(@"tag3 = %ld", (long)btn.tag);

@@ -109,6 +109,7 @@
 //    self.statusForCellChoose = NO;
     self.backgroundColor = [UIColor clearColor];
 }
+
 - (void)configWithDic:(NSMutableDictionary*)dic {
     
     if (dic) {
