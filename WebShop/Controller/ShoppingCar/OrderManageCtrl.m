@@ -24,7 +24,7 @@
     if (!self.arrayOrder) {
         [self getModel];
     }
-    [self initUI];
+
     NSLog(@"array = %@",self.arrayOrder);
 }
 
@@ -44,6 +44,7 @@
     self.tableView.tableFooterView = [[UIView alloc] init];
     
     [[NetworkManager shareMgr]server_OrderList:nil completeHandle:^(NSDictionary *response) {
+        
         NSLog(@"OrderList response = %@", response);
         int status = [[response objectForKey:@"status"] intValue];
         if (status == 2000000) {
@@ -56,19 +57,13 @@
     }];
 }
 
-- (void)initUI {
-
-
-
-
-}
-
+/** 添加actionsheet */
 - (void)deleteOeder:(NSString *)orderID{
     NSLog(@"选中行: %ld, orderID = %@", (long)self.indexPath.row, orderID);
     
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:@"确认删除此订单？"
-                                  delegate:self // telling this class(ViewController) to implement UIActionSheetDelegate
+                                  delegate:self
                                   cancelButtonTitle:@"取消"
                                   destructiveButtonTitle:@"删除"
                                   otherButtonTitles:nil];
@@ -76,18 +71,18 @@
     [actionSheet showInView:self.tabBarController.view];
 }
 
+//delegate
 - (void)sendIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"indexPath.row = %ld", (long)indexPath.row);
 
     self.indexPath = indexPath;
-    
 }
 
 /** 确认删除订单 */
 - (void)ConfirmDelete {
     NSLog(@"%s", __func__);
     
-    [self.arrayOrder removeObjectAtIndex:self.indexPath.row];  //删除数组里的数据
+    [self.arrayOrder removeObjectAtIndex:self.indexPath.row];
     [self.tableView beginUpdates];
     [self.tableView deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:self.indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];  //删除对应数据的cell
     [self.tableView endUpdates];
@@ -139,12 +134,6 @@
     }
     return UITableViewCellEditingStyleNone;
 }
-    //设置是否显示一个可编辑视图的视图控制器
-//-(void)setEditing:(BOOL)editing animated:(BOOL)animated {
-//    [super setEditing:editing animated:animated];
-//    //切换接收者的进入和退出编辑模式。
-//    [self.tableView setEditing:editing animated:animated];
-//}
 
 -(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -160,7 +149,7 @@
         [self.tableView beginUpdates];
         [self.tableView deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];  //删除对应数据的cell
         [self.tableView endUpdates];
-
+        
     }
 }
 
@@ -182,7 +171,6 @@
     
     if ([self.arrayOrder count]) {
         
-//        NSMutableDictionary *dic = [[self.arrayOrder objectAtIndex:indexPath.row] objectForKey:@"product"];
         NSMutableDictionary *dic = [self.arrayOrder objectAtIndex:indexPath.row];
         NSLog(@"OrderCellDic = %@", dic);
         

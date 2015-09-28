@@ -26,6 +26,7 @@
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
+    
     self.btnSecond.layer.borderWidth = 1.0f;
     self.btnSecond.layer.borderColor = [[UIColor grayColor] CGColor];
     self.btnSecond.layer.cornerRadius = 10.0f;

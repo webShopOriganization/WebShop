@@ -34,9 +34,11 @@
 - (void)configWithDic:(NSMutableDictionary*)dic {
     
     if (dic) {
+        
         self.lblName.text = [dic[@"product"] objectForKey:@"proName"];
         self.lblPrice.text = [NSString stringWithFormat:@"￥%@",[dic[@"product"] objectForKey:@"price"]];
         self.lblSaleCount.text = [NSString stringWithFormat:@"x %@",[dic[@"product"] objectForKey:@"saleCount"]];
+        
         [self.imgIcon sd_setImageWithURL:[dic[@"product"] objectForKey:@"image"]
                            placeholderImage:[UIImage imageNamed:@"loading-ios"] options:SDWebImageContinueInBackground];
     }

@@ -55,6 +55,11 @@
     [super viewDidLoad];
     self.navigationItem.title = @"购物车";
     
+    self.tableVeiw = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
+    self.tableVeiw.delegate = self;
+    self.tableVeiw.dataSource = self;
+    [self.view addSubview:self.tableVeiw];
+    
 //    [[NetworkManager shareMgr]server_loginWithDic:nil completeHandle:^(NSDictionary *response) {
 //        NSLog(@"用户数据 : %@", response);
 //        
@@ -136,18 +141,17 @@
     
     //初始化底部支付view
     self.firstBottomView = [PayOrderView instanceView];
-    NSLog(@"statusforBotton = %hhd", self.statusForBottomView);
     
     if (self.statusForBottomView == NO) {
         
+        self.tableVeiw.frame = CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT - 64 - 49 - 44);
         self.firstBottomView.frame = CGRectMake(0, SCREEN_HEIGHT -49 -44, SCREEN_WIDTH, 44);
         
     }else{
         
-        self.tableVeiw.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 44);
+        self.tableVeiw.frame = CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT - 64 - 44);
         self.firstBottomView.frame = CGRectMake(0, SCREEN_HEIGHT -44, SCREEN_WIDTH, 44);
-        
-        NSLog(@"statusforBotton = %hhd", self.statusForBottomView);
+    
     }
     
     [self.firstBottomView.btnForChooseAll addTarget:self action:@selector(btnChooseAllClick) forControlEvents:UIControlEventTouchUpInside];
@@ -160,7 +164,6 @@
     
     //初始化底部删除view
     self.secondBottomView = [PayOrderDeleteView instanceView];
-    
     
     if (self.statusForBottomView == NO) {
         
@@ -346,6 +349,7 @@
     if (self.statusForRightButton == 1 && (self.array.count != 0)) {
         
         for (int i =0; i < self.arrayPayOrder.count; i++) {
+            
             float price = [[[self.arrayPayOrder objectAtIndex:i] objectForKey:@"price"] floatValue];
             self.totalPrice = self.totalPrice + price;
             
@@ -507,7 +511,7 @@
         [self.arrayPayOrder removeObject:[self.array objectAtIndex:[indexPath row]]];
         
         [self.array removeObjectAtIndex:[indexPath row]];  //删除数组里的数据
-//        [self.arrayPayOrder removeObjectAtIndex:[indexPath row]];
+        //        [self.arrayPayOrder removeObjectAtIndex:[indexPath row]];
         
         [self.tableVeiw beginUpdates];
         [self.tableVeiw deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];  //删除对应数据的cell
@@ -529,6 +533,7 @@
     }
     return 0;
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     NSLog(@"id ======= %@", self.UserDic[@"userId"]);
     if (self.UserDic) {
@@ -539,6 +544,7 @@
     }
     return 0;
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     
     if (self.statusForRightButton == 1) {
@@ -568,7 +574,7 @@
             loginView = [topLevelObjects objectAtIndex:0];
             loginView.backgroundColor = [UIColor whiteColor];
             loginView.delegate = self;
-        
+            
             return loginView;
         }
     }
@@ -617,14 +623,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    if (self.UserDic) {
-        if ([self.array count]) {
-            return [self.array count];
-        }else{
-            return 0;
-        }
-//    }
-//    return 0;
+    
+    if ([self.array count]) {
+        return [self.array count];
+    }else{
+        return 0;
+    }
+    
 }
 
 
@@ -635,9 +640,8 @@
     
     NSLog(@"self.array = %lu", (unsigned long)self.array.count);
     if (self.array.count == 0) {
-//        self.tableVeiw.backgroundColor = [UIColor lightGrayColor];
+        
         [Common addAlertViewWithTitel:@"购物车是空的..."];
-
         
     }else{
         

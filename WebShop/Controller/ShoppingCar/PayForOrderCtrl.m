@@ -20,8 +20,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-//    self.arrayPay = [[NSMutableArray alloc] init];
     
     //去掉tableView多余的空白行分割线
     self.tableView.tableFooterView = [[UIView alloc] init];
@@ -46,18 +44,24 @@
     PayOrderCll *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     
     if (!cell) {
+        
         NSArray *topLevelObject = [[NSBundle mainBundle] loadNibNamed:cellID owner:self options:nil];
         cell = [topLevelObject objectAtIndex:0];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     }
     
     if (indexPath.row == 0) {
+        
         cell.imageView.image = [UIImage imageNamed:@"ic_alipay"];
         cell.lblPayment.text = @"支付宝";
+        
     }else if (indexPath.row == 1){
+        
         cell.imageView.image = [UIImage imageNamed:@"ic_wxpay"];
         cell.lblPayment.text = @"微信支付";
+        
     }else if (indexPath.row == 2){
+        
         cell.imageView.image = [UIImage imageNamed:@"ic_unionpay@2x"];
         cell.lblPayment.text = @"银联支付";
     }
@@ -67,11 +71,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        
-//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//        OrderManageCtrl *vc = [storyboard instantiateViewControllerWithIdentifier:@"MemberCenterCtrl"];
-//        vc.hidesBottomBarWhenPushed = YES;
-//        vc.arrayOrder = self.arrayPay;
         
         CollectionCtrl *vc = [[CollectionCtrl alloc] initWithNibName:@"CollectionCtrl" bundle:nil];
         vc.hidesBottomBarWhenPushed = YES;

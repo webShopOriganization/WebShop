@@ -41,18 +41,21 @@
     
     NSNumber *productID = dic[@"productId"];
     if ([productID intValue] == 2) {
+        
         [self.img_01 sd_setImageWithURL:dic[@"image"]
-    placeholderImage:[UIImage imageNamed:@"loading-ios"] options:SDWebImageContinueInBackground];
+                       placeholderImage:[UIImage imageNamed:@"loading-ios"] options:SDWebImageContinueInBackground];
         self.lblProductName_01.text = dic[@"proName"];
         self.lblPrice_01.text = [NSString stringWithFormat:@"￥%@", dic[@"price"]] ;
         
     }else if ([productID intValue] == 3){
+        
         [self.img_02 sd_setImageWithURL:dic[@"image"]
                        placeholderImage:[UIImage imageNamed:@"loading-ios"] options:SDWebImageContinueInBackground];
         self.lblProductName_02.text = dic[@"proName"];
         self.lblPrice_02.text = [NSString stringWithFormat:@"￥%@", dic[@"price"]] ;
         
     }else if ([productID intValue] == 4){
+        
         [self.img_03 sd_setImageWithURL:dic[@"image"]
                        placeholderImage:[UIImage imageNamed:@"loading-ios"] options:SDWebImageContinueInBackground];
         self.lblProductName_03.text = dic[@"proName"];
