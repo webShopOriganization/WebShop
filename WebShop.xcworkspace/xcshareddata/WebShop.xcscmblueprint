@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "CA90F4AA8C2497D4797344DF672F967B4EFED51D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "CA90F4AA8C2497D4797344DF672F967B4EFED51D" : 0,
+    "39FD3B746899241188F1AF351E02194E3C9A9171" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D958E768-29F1-4CCB-8005-0813A95F695B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "CA90F4AA8C2497D4797344DF672F967B4EFED51D" : "MyShop",
+    "39FD3B746899241188F1AF351E02194E3C9A9171" : "WebShop"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "WebShop",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "WebShop.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/webShopOriganization\/WebShop.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "39FD3B746899241188F1AF351E02194E3C9A9171"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/LiJinyou\/MyShop.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CA90F4AA8C2497D4797344DF672F967B4EFED51D"
+    }
+  ]
+}

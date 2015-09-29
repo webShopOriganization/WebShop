@@ -43,19 +43,31 @@ var MovieScreen = React.createClass({
           />
           <View style={styles.rightPane}>
             <Text style={styles.movieTitle}>{this.props.movie.title}</Text>
-            <Text>上架时间{this.props.movie.year}</Text>
+            <Text style={styles.movieInfo}>（7.9英寸 16G WLAN 机型 金色）</Text>
             <View style={styles.mpaaWrapper}>
-              <Text style={styles.movieTitle}>
-                价格：{'￥100.00'}
+              <Text style={styles.price}>
+                {'￥100.00'}
               </Text>
             </View>
-            <Ratings ratings={100} />
-          </View>
+          <View style={styles.rating}>
+          <Text style={styles.ratingTitle}>服务:</Text>
+          <Text style={styles.ratingTitle}>
+            {'支持货到付款'}
+          </Text>
+        </View>
+          </View> 
         </View>
         <View style={styles.separator} />
-        <Text>
-          {'商品参数'}
-        </Text>
+        <View>
+        <View style={styles.mainSection}>
+        <Text>促销：</Text>
+        <Text>满100.0元减20.0元</Text>
+        </View>
+        <View style={styles.mainSection}>
+        <Text>送货地址：</Text>
+        <Text>广东省 广州市 海珠区</Text>
+        </View>
+        </View>
         <View style={styles.separator} />
         <Cast actors={'actors'} />
       </ScrollView>
@@ -76,12 +88,7 @@ var Ratings = React.createClass({
             {'90%'}
           </Text>
         </View>
-        <View style={styles.rating}>
-          <Text style={styles.ratingTitle}>服  务:</Text>
-          <Text style={getStyleFromScore(audienceScore)}>
-            {'支持货到付款'}
-          </Text>
-        </View>
+        
       </View>
     );
   },
@@ -96,25 +103,45 @@ var Cast = React.createClass({
     return (
       <View>
         <Text style={styles.castTitle}>商品评论</Text>
-        
+         <Ratings ratings={100} />
        
       </View>
     );
   },
 });
 
+   
+
 var styles = StyleSheet.create({
   contentContainer: {
     padding: 10,
   },
   rightPane: {
-    justifyContent: 'space-between',
     flex: 1,
   },
   movieTitle: {
     flex: 1,
-    fontSize: 16,
+    fontSize: 17,
+    marginTop: 30,
+    justifyContent: 'center',
+    alignItems:'center',
     fontWeight: '500',
+  },
+  movieInfo: {
+    flex: 1,
+    fontSize: 14,
+    marginTop: 15,
+    justifyContent: 'center',
+    alignItems:'center',
+
+
+  },
+  price: {
+    flex: 1,
+    fontSize: 16,
+    justifyContent: 'center',
+    alignItems:'center',
+
   },
   rating: {
     marginTop: 10,
@@ -130,6 +157,8 @@ var styles = StyleSheet.create({
     alignSelf: 'flex-start',
     borderColor: 'black',
     borderWidth: 1,
+    marginTop:15,
+    marginBottom:10,
     paddingHorizontal: 3,
     marginVertical: 5,
   },
