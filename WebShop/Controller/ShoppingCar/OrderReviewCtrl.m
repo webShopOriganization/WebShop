@@ -31,6 +31,7 @@
 
 #pragma mark - TableView Delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (indexPath.section == 0) {
         return 90;
     }else if (indexPath.section == 1){
@@ -67,6 +68,7 @@
             
         }
         else if (indexPath.section == 1){
+            
             ReviewSecondCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId_Second];
             if (!cell) {
                 NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:CellId_Second owner:self options:nil];
@@ -74,9 +76,9 @@
             }
             return cell;
         }
-      
+        
     }
-       return nil;
+    return nil;
 }
 
 

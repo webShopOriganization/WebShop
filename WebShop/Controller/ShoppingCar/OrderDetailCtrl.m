@@ -41,11 +41,6 @@
     self.bottomView.hidden = NO;
 }
 
-//- (void)viewWillDisappear:(BOOL)animated {
-//    [super viewWillAppear:YES];
-//    self.vc.statusForBottomView = NO;
-//}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -89,9 +84,6 @@
 
 //再次购买
 - (IBAction)didClickBuyAgainBtn:(id)sender {
-    
-//    ShoppingCarCtrl *vc = [[ShoppingCarCtrl alloc] initWithNibName:@"ShoppingCarCtrl" bundle:nil];
-//    vc.navigationItem.title = @"购物车";
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     self.vc = [storyboard instantiateViewControllerWithIdentifier:@"ShoppingCarCtrl"];
@@ -148,11 +140,12 @@
             UITableViewCell *cell = [[UITableViewCell alloc] init];
             
             cell.textLabel.textAlignment = NSTextAlignmentLeft;
-            cell.textLabel.text = [NSString stringWithFormat:@"订单号: %@", self.dict[@"orderId"]];  
+            cell.textLabel.text = [NSString stringWithFormat:@"订单号: %@", self.dict[@"orderId"]];
             cell.textLabel.font = [UIFont systemFontOfSize:15];
             return cell;
             
         }else if (indexPath.section == 1){
+            
             OrderDetailSectionCell * cell = [tableView dequeueReusableCellWithIdentifier:CellId_Second];
             if (!cell) {
                 NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:CellId_Second owner:self options:nil];
@@ -163,6 +156,7 @@
             return cell;
             
         }else if (indexPath.section == 2){
+            
             OrderDetailThirdCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId_Third];
             if (!cell) {
                 NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:CellId_Third owner:self options:nil];
@@ -171,9 +165,10 @@
                 [cell initWithDic:nil];
                 [cell configWithDic:self.dict];
             }
-             return cell;
+            return cell;
             
         }else if (indexPath.section == 3){
+            
             OrderDetailFouthCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId_Fourth];
             if (!cell) {
                 NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:CellId_Fourth owner:self options:nil];
@@ -182,9 +177,9 @@
                 [cell configWithDic:self.dict];
             }
             
-             return cell;
+            return cell;
         }
-    }  
+    }
     return nil;
     
 }

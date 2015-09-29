@@ -30,13 +30,14 @@
     self.imgProduct.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.imgProduct.layer.masksToBounds = YES;
     
-//    self.backgroundColor = [UIColor clearColor];
 }
 
 - (void)configWithDic:(NSMutableDictionary*)dic {
+    
     self.lblPrice.text = [NSString stringWithFormat:@"￥%@",[dic[@"product"] objectForKey:@"price"]];
     self.lblSaleCount.text = [NSString stringWithFormat:@"x %@", [dic[@"product"] objectForKey:@"saleCount"]];
     self.lblProductName.text = [dic[@"product"] objectForKey:@"proName"];
+    
     [self.imgProduct sd_setImageWithURL:[dic[@"product"] objectForKey:@"image"]
                     placeholderImage:[UIImage imageNamed:@"loading-ios"] options:SDWebImageContinueInBackground];
 }

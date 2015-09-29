@@ -20,6 +20,7 @@
 }
 
 +(PayOrderView *)instanceView {
+    
     NSArray* nibView =  [[NSBundle mainBundle] loadNibNamed:@"PayOrderView" owner:nil options:nil];
     return [nibView objectAtIndex:0];
 }

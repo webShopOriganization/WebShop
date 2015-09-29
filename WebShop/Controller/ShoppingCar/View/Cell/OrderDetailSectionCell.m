@@ -24,6 +24,7 @@
 }
 
 - (void)configWithDic:(NSMutableDictionary*)dic {
+    
     self.lblReceiverName.text = [NSString stringWithFormat:@"收货人: %@",dic[@"receiverName"]];
     self.lblRecevierAdress.text = [NSString stringWithFormat:@"收货地址: %@", dic[@"receiverAdress"]];
     self.lblRecevierPhone.text = [NSString stringWithFormat:@"电话: %@", dic[@"receiverPhone"]];
